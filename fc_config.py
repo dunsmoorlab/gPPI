@@ -29,28 +29,27 @@ std_3mm_brain_mask = os.path.join(WORK,'standard','MNI152_T1_3mm_brain_mask.nii.
 
 class bids_meta(object):
 
-	def __init__(self, sub):
+    def __init__(self, sub):
 
-		if sub == 'gusbrain':
-			self.fs_id = 'gusbrain'
-			self.fsub = 'gusbrain'
-		elif sub == 'fs':
-			self.fs_id = 'fsaverage'
-			self.fsub = 'fsaverage'
-		else:
-			
-			self.num = int(sub)
-			
-			self.fsub = 'sub-FC{0:0=3d}'.format(self.num)
+        if sub == 'gusbrain':
+            self.fs_id = 'gusbrain'
+            self.fsub = 'gusbrain'
+        elif sub == 'fs':
+            self.fs_id = 'fsaverage'
+            self.fsub = 'fsaverage'
+        else:
+            
+            self.num = int(sub)
+            
+            self.fsub = 'sub-FC{0:0=3d}'.format(self.num)
 
-			self.subj_dir = os.path.join(bids_dir,self.fsub)
+            self.subj_dir = os.path.join(bids_dir,self.fsub)
             self.prep_dir = os.path.join(prep_dir,self.fsub)
             self.fs_dir   = os.path.join(fs_dir,self.fsub)
-
-# def cs_lookup(self):	
-# 	if self.meta['DataFile.Basename'][0][0] == 'A':
-# 		self.csplus = 'animal'
-# 		self.csminus = 'tool'
-# 	elif self.meta['DataFile.Basename'][0][0] == 'T':
-# 		self.csplus = 'tool'
-# 		self.csminus = 'animal'
+    def cs_lookup(self):    
+        if self.meta['DataFile.Basename'][0][0] == 'A':
+            self.csplus = 'animal'
+            self.csminus = 'tool'
+        elif self.meta['DataFile.Basename'][0][0] == 'T':
+            self.csplus = 'tool'
+            self.csminus = 'animal'
