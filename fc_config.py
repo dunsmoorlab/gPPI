@@ -12,30 +12,22 @@ subjects = {'control':sub_args,
 
 WORK = '/work/05426/ach3377/lonestar/'
 HOME = '/home1/05426/ach3377/'
-CODEBASE = HOME + 'CodeBase/'
+SCRATCH = '/SCRATCH/05426/ach3377/'
+gPPI = HOME + 'gPPI/'
 
-data_dir = os.path.join(WORK,'fc')
-group_glm = os.path.join(WORK,'group_glm')
+bids_dir = os.path.join(SCRATCH,'fc-bids')
+deriv    = os.path.join(bids_dir, 'derivatives')
+prep_dir = os.path.join(deriv,'fmriprep')
+fs_dir   = os.path.join(deriv,'freesurfer')
+
+# group_glm = os.path.join(WORK,'group_glm')
 
 
 std_1mm_brain = os.path.join(WORK,'standard','MNI152_T1_1mm_brain.nii.gz')
 std_3mm_brain = os.path.join(WORK,'standard','MNI152_T1_3mm_brain.nii.gz')
 std_3mm_brain_mask = os.path.join(WORK,'standard','MNI152_T1_3mm_brain_mask.nii.gz')
 
-
-fsl_betas = {
-    'baseline': '/run001_beta.nii.gz',
-    'fear_conditioning': '/run002_beta.nii.gz',
-    'extinction': '/run003_beta.nii.gz',
-    'extinction_recall': '/run004_beta.nii.gz' ,
-    'memory_run_1': '/run005_beta.nii.gz',
-    'memory_run_2': '/run006_beta.nii.gz',
-    'memory_run_3': '/run007_beta.nii.gz',
-    'localizer_1': '/run008_beta.nii.gz',
-    'localizer_2': '/run009_beta.nii.gz',
-}
-
-class meta(object):
+class bids_meta(object):
 
 	def __init__(self, sub):
 
@@ -49,48 +41,17 @@ class meta(object):
 			
 			self.num = int(sub)
 			
-			self.fsub = 'Sub{0:0=3d}'.format(self.num)
+			self.fsub = 'sub-FC{0:0=3d}'.format(self.num)
 
-			self.subj_dir = os.path.join(data_dir,self.fsub)
-                        
-			self.ref2std = os.path.join(self.subj_dir,'ref2std.mat')
+			self.subj_dir = os.path.join(bids_dir,self.fsub)
+            self.prep_dir = os.path.join(prep_dir,self.fsub)
+            self.fs_dir   = os.path.join(fs_dir,self.fsub)
 
-			self.bold_dir = os.path.join(self.subj_dir,'bold')
 
-			self.beta_dir = os.path.join(self.bold_dir,'beta')
-
-			self.anatomy = os.path.join(self.subj_dir, 'anatomy')
-
-			self.orig_brain = os.path.join(self.anatomy, 'orig_brain.nii.gz')
-
-			self.mask = os.path.join(self.subj_dir, 'mask')
-
-			self.roi = os.path.join(self.mask,'roi')
-
-			self.refvol_be = os.path.join(WORK, 'FearCon', self.fsub, 'tacc_temp', 'be_refvol.nii.gz')
-
-			self.reg_dir = os.path.join(self.subj_dir,'reg')
-
-			self.model_dir = os.path.join(self.subj_dir, 'model')
-
-			self.behavior = os.path.join(self.subj_dir,'behavior')
-			
-			self.sl_dir = os.path.join(self.model_dir,'searchlight')
-			if not os.path.exists(self.sl_dir): os.mkdir(self.sl_dir)
-			
-			self.rsa = os.path.join(self.model_dir,'rsa')
-			if not os.path.exists(self.rsa): os.mkdir(self.rsa)
-
-			meta_file = os.path.join(self.subj_dir,'behavior','%s_elog.csv'%(self.fsub))
-			if os.path.exists(meta_file):
-				self.meta = pd.read_csv(meta_file)
-
-				self.cs_lookup()
-
-	def cs_lookup(self):	
-		if self.meta['DataFile.Basename'][0][0] == 'A':
-			self.csplus = 'animal'
-			self.csminus = 'tool'
-		elif self.meta['DataFile.Basename'][0][0] == 'T':
-			self.csplus = 'tool'
-			self.csminus = 'animal'
+	# def cs_lookup(self):	
+	# 	if self.meta['DataFile.Basename'][0][0] == 'A':
+	# 		self.csplus = 'animal'
+	# 		self.csminus = 'tool'
+	# 	elif self.meta['DataFile.Basename'][0][0] == 'T':
+	# 		self.csplus = 'tool'
+	# 		self.csminus = 'animal'
