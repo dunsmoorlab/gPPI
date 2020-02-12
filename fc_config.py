@@ -47,11 +47,10 @@ class bids_meta(object):
             self.prep_dir = os.path.join(prep_dir,self.fsub)
             self.fs_dir   = os.path.join(fs_dir,self.fsub)
 
-
-	# def cs_lookup(self):	
-	# 	if self.meta['DataFile.Basename'][0][0] == 'A':
-	# 		self.csplus = 'animal'
-	# 		self.csminus = 'tool'
-	# 	elif self.meta['DataFile.Basename'][0][0] == 'T':
-	# 		self.csplus = 'tool'
-	# 		self.csminus = 'animal'
+# def cs_lookup(self):	
+# 	if self.meta['DataFile.Basename'][0][0] == 'A':
+# 		self.csplus = 'animal'
+# 		self.csminus = 'tool'
+# 	elif self.meta['DataFile.Basename'][0][0] == 'T':
+# 		self.csplus = 'tool'
+# 		self.csminus = 'animal'
