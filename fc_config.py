@@ -24,7 +24,9 @@ fs_dir   = os.path.join(deriv,'freesurfer')
 #these are user made
 model = os.path.join(deriv,'model')
 
-
+def mkdir(path):
+    if not os.path.exists(path):
+        os.makedirs(path)
 
 std_1mm_brain = os.path.join(WORK,'standard','MNI152_T1_1mm_brain.nii.gz')
 std_3mm_brain = os.path.join(WORK,'standard','MNI152_T1_3mm_brain.nii.gz')
