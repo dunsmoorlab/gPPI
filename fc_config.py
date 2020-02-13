@@ -12,7 +12,7 @@ subjects = {'control':sub_args,
 
 WORK = '/work/05426/ach3377/lonestar/'
 HOME = '/home1/05426/ach3377/'
-SCRATCH = '/SCRATCH/05426/ach3377/'
+SCRATCH = '/scratch/05426/ach3377/'
 gPPI = HOME + 'gPPI/'
 
 #these are BIDS-app made
