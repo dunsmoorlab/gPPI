@@ -15,12 +15,15 @@ HOME = '/home1/05426/ach3377/'
 SCRATCH = '/SCRATCH/05426/ach3377/'
 gPPI = HOME + 'gPPI/'
 
+#these are BIDS-app made
 bids_dir = os.path.join(SCRATCH,'fc-bids')
 deriv    = os.path.join(bids_dir, 'derivatives')
 prep_dir = os.path.join(deriv,'fmriprep')
 fs_dir   = os.path.join(deriv,'freesurfer')
 
-# group_glm = os.path.join(WORK,'group_glm')
+#these are user made
+model = os.path.join(deriv,'model')
+
 
 
 std_1mm_brain = os.path.join(WORK,'standard','MNI152_T1_1mm_brain.nii.gz')
@@ -46,6 +49,10 @@ class bids_meta(object):
             self.subj_dir = os.path.join(bids_dir,self.fsub)
             self.prep_dir = os.path.join(prep_dir,self.fsub)
             self.fs_dir   = os.path.join(fs_dir,self.fsub)
+
+            self.model_dir = os.path.join(model,self.fsub)
+            if not os.path.exists(self.model_dir): os.mkdir(self.model_dir)
+
     def cs_lookup(self):    
         if self.meta['DataFile.Basename'][0][0] == 'A':
             self.csplus = 'animal'
