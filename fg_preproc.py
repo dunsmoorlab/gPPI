@@ -10,8 +10,8 @@ class preproc():
 
     def be_t1(self):
 
-        t1 = os.path.join(self.subj.prep_dir,'anat','%s_desc-prepoc_T1w.nii.gz'%(self.subj.fsub))
-        t1_mask = os.path.join(self.subj.prep_dir,'anat','%s_desc-brain_mask.nii.gz')
+        t1 = os.path.join(self.subj.prep_dir,'anat','%s_desc-preproc_T1w.nii.gz'%(self.subj.fsub))
+        t1_mask = os.path.join(self.subj.prep_dir,'anat','%s_desc-brain_mask.nii.gz'%(self.subj.fsub))
 
         os.system('cp %s %s'%(t1,self.subj.t1))
         os.system('cp %s %s'%(t1_mask,self.subj.t1_mask))
