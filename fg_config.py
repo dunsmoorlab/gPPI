@@ -15,6 +15,10 @@ HOME = '/home1/05426/ach3377/'
 SCRATCH = '/scratch/05426/ach3377/'
 gPPI = HOME + 'gPPI/'
 
+def mkdir(path):
+    if not os.path.exists(path):
+        os.makedirs(path)
+
 #these are BIDS-app made
 bids_dir = os.path.join(SCRATCH,'fc-bids')
 deriv    = os.path.join(bids_dir, 'derivatives')
@@ -25,9 +29,7 @@ fs_dir   = os.path.join(deriv,'freesurfer')
 model   = os.path.join(deriv,'model');mkdir(model)
 preproc = os.path.join(deriv,'preproc');mkdir(preproc)
 
-def mkdir(path):
-    if not os.path.exists(path):
-        os.makedirs(path)
+
 
 std_1mm_brain = os.path.join(WORK,'standard','MNI152_T1_1mm_brain.nii.gz')
 std_3mm_brain = os.path.join(WORK,'standard','MNI152_T1_3mm_brain.nii.gz')
