@@ -65,7 +65,7 @@ class bids_meta(object):
             
             self.reference    = os.path.join(self.preproc_dir,'reference');mkdir(self.reference)
             self.t1           = os.path.join(self.reference,'T1w.nii.gz')
-            self.t1_mask      = os.path.join(self.reference,'T1w_mask')
+            self.t1_mask      = os.path.join(self.reference,'T1w_mask.nii.gz')
             self.t1_brain     = os.path.join(self.reference,'T1w_brain.nii.gz')
             self.refvol       = os.path.join(self.reference,'boldref.nii.gz')
             self.refvol_mask  = os.path.join(self.reference,'boldref_mask.nii.gz')
