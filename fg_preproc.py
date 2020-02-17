@@ -2,7 +2,7 @@ from fg_config import *
 import nibabel as nib
 from nilearn.image import mean_img, threshold_img
 
-class preproc()
+class preproc():
 
     def __init__(self,sub):
 
