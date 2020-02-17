@@ -71,9 +71,7 @@ class bids_events():
                     C = C[run_COI]
                     C['constant'] = 1
                     
-                    print(file)
                     phase = re.search('task-(.*)_desc',file)[1]
-                    print(phase)
                     out = os.path.join(self.subj.model_dir,'%s'%(phase))
                     C.to_csv(os.path.join(out,'confounds.txt'),
                         sep='\t',float_format='%.8e', index=False, header=False)
