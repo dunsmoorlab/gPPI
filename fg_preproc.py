@@ -19,15 +19,15 @@ class preproc():
 
     def refvol(self):
 
-        refs = [nib.load( os.path.join(prep_dir,folder[0],file) )
-                        for folder in os.walk(prep_dir)
+        refs = [nib.load( os.path.join(self.subj.prep_dir,folder[0],file) )
+                        for folder in os.walk(self.subj.prep_dir)
                         for file in folder[2]
                         if 'T1w_boldref.nii.gz' in file]
         ref = mean_img(refs)
         nib.save(ref,self.subj.refvol)
         
-        masks = [nib.load( os.path.join(prep_dir,folder[0],file) )
-                        for folder in os.walk(prep_dir)
+        masks = [nib.load( os.path.join(self.subj.prep_dir,folder[0],file) )
+                        for folder in os.walk(self.subj.prep_dir)
                         for file in folder[2]
                         if 'T1w_desc-brain_mask.nii.gz' in file]
         mask = mean_img(masks)
