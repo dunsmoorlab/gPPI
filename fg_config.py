@@ -71,6 +71,8 @@ class bids_meta(object):
             self.refvol_mask  = os.path.join(self.reference,'boldref_mask.nii.gz')
             self.refvol_brain = os.path.join(self.reference,'boldref_brain.nii.gz')
 
+            self.func = os.path.join(self.preproc_dir,'func');mkdir(self.func)
+
     def cs_lookup(self):    
         if self.meta['DataFile.Basename'][0][0] == 'A':
             self.csplus = 'animal'
