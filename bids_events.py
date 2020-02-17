@@ -70,6 +70,7 @@ class bids_events():
                             run_COI.append(_c)
                     C = C[run_COI]
                     C['constant'] = 1
+                    C['framewise_displacement'][0] = 0
                     
                     phase = re.search('task-(.*)_desc',file)[1]
                     out = os.path.join(self.subj.model_dir,'%s'%(phase))
