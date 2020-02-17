@@ -3,7 +3,7 @@ import re
 
 import pandas as pd
 
-from fc_config import *
+from fg_config import *
 
 class bids_events():
     
