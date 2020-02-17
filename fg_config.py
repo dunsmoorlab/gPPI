@@ -22,7 +22,8 @@ prep_dir = os.path.join(deriv,'fmriprep')
 fs_dir   = os.path.join(deriv,'freesurfer')
 
 #these are user made
-model = os.path.join(deriv,'model')
+model   = os.path.join(deriv,'model');mkdir(model)
+preproc = os.path.join(deriv,'preproc');mkdir(preproc)
 
 def mkdir(path):
     if not os.path.exists(path):
@@ -31,6 +32,11 @@ def mkdir(path):
 std_1mm_brain = os.path.join(WORK,'standard','MNI152_T1_1mm_brain.nii.gz')
 std_3mm_brain = os.path.join(WORK,'standard','MNI152_T1_3mm_brain.nii.gz')
 std_3mm_brain_mask = os.path.join(WORK,'standard','MNI152_T1_3mm_brain_mask.nii.gz')
+
+tasks = ['baseline','acquisition','extinction','renewal',
+        'memory_run-01','memory_run-02','memory_run-03',
+        'localizer_run-01','localizer_run-01']
+
 
 class bids_meta(object):
 
@@ -52,8 +58,16 @@ class bids_meta(object):
             self.prep_dir = os.path.join(prep_dir,self.fsub)
             self.fs_dir   = os.path.join(fs_dir,self.fsub)
 
-            self.model_dir = os.path.join(model,self.fsub)
-            if not os.path.exists(self.model_dir): os.mkdir(self.model_dir)
+            self.model_dir   = os.path.join(model,self.fsub);mkdir(self.model_dir)
+            self.preproc_dir = os.path.join(preproc,self.fsub);mkdir(self.preproc_dir)
+            
+            self.reference    = os.path.join(self.preproc_dir,'reference');mkdir(self.reference)
+            self.t1           = os.path.join(self.reference,'T1w.nii.gz')
+            self.t1_mask      = os.path.join(self.reference,'T1w_mask')
+            self.t1_brain     = os.path.join(self.reference,'T1w_brain.nii.gz')
+            self.refvol       = os.path.join(self.reference,'boldref.nii.gz')
+            self.refvol_mask  = os.path.join(self.reference,'boldref_mask.nii.gz')
+            self.refvol_brain = os.path.join(self.reference,'boldref_brain.nii.gz')
 
     def cs_lookup(self):    
         if self.meta['DataFile.Basename'][0][0] == 'A':
