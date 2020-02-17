@@ -51,7 +51,7 @@ class bids_events():
                     #handle early/late for associative learning phases
 
     #collect confound regressors from fMRIprep
-    def confounds():
+    def confounds(self):
 
         #confounds of interest
         COI = ['a_comp_cor_00','framewise_displacement','trans_x','trans_y','trans_z','rot_x','rot_y','rot_z']
@@ -61,3 +61,19 @@ class bids_events():
             for file in folder[2]:
                 if 'confounds' in file and '.tsv' in file:
                     C = pd.read_csv(os.path.join(self.subj.prep_dir,folder[0],file), sep='\t')
+                    run_COI = COI.copy()
+                    for _c in C.columns:
+                        if 'cosine' in _c or 'motion_outlier' in _c:
+                            run_COI.append(_c)
+                    C = C[run_COI]
+                    C['constant'] = 1
+                    
+                    phase = re.search('task-(.*)_events',file)[1]
+                    out = os.path.join(self.subj.model_dir,'%s'%(phase))
+                    C.to_csv(os.path.join(out,'confounds.txt'),
+                        sep='\t',float_format='%.8e', index=False, header=False)
+
+
+
+
+
