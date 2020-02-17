@@ -38,7 +38,7 @@ class fmriprep_preproc():
     
     def be_bold(self): #mask all of the preproc bold files with the new mask
 
-        for folder in os.walk(self.subj.prep_dir)
-            for file in folder[2]
+        for folder in os.walk(self.subj.prep_dir):
+            for file in folder[2]:
                 if 'T1w_desc-preproc_bold.nii.gz' in file:
                     os.system('fslmaths %s -mas %s %s'%(os.path.join(self.subj.prep_dir,folder[0],file), self.subj.refvol_mask, os.path.join(self.subj.func,file))
