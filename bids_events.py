@@ -21,7 +21,8 @@ class bids_events():
                   'indoor'   :'Indoor',
                   'outdoor'  :'Outdoor',
                   'scrambled':'Scrambled',
-                  'rest'     :'Rest'}
+                  'rest'     :'Rest'
+                  'US'       :'US'}
 
         #walk through every folder containing the raw data and find all the event files
         for folder in os.walk(self.subj.subj_dir):
@@ -41,6 +42,7 @@ class bids_events():
 
                     #need to generate the US timing file
                     if phase == 'acquisition':
+                        con = 'US'
                         US = events[events.shock == 'CSUS'][['onset','duration']].copy()
                         US.onset += US.duration
                         US.duration = 0
@@ -68,7 +70,9 @@ class bids_events():
                     C = C[run_COI]
                     C['constant'] = 1
                     
+                    print(file)
                     phase = re.search('task-(.*)_events',file)[1]
+                    print(phase)
                     out = os.path.join(self.subj.model_dir,'%s'%(phase))
                     C.to_csv(os.path.join(out,'confounds.txt'),
                         sep='\t',float_format='%.8e', index=False, header=False)
