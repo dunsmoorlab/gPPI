@@ -21,7 +21,7 @@ class bids_events():
                   'indoor'   :'Indoor',
                   'outdoor'  :'Outdoor',
                   'scrambled':'Scrambled',
-                  'rest'     :'Rest'
+                  'rest'     :'Rest',
                   'US'       :'US'}
 
         #walk through every folder containing the raw data and find all the event files
