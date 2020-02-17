@@ -29,7 +29,7 @@ class bids_events():
             for file in folder[2]:
                 if 'events' in file and '.tsv' in file:
                     events = pd.read_csv(os.path.join(self.subj.subj_dir,folder[0],file), sep='\t')
-                    phase = re.search('task-(.*)_events',file)[1]
+                    phase = re.search('task-(.*)_desc',file)[1]
                     out = os.path.join(self.subj.model_dir,'%s'%(phase))
                     mkdir(out)
 
