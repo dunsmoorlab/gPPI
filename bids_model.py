@@ -52,6 +52,37 @@ class bids_events():
                             sep='\t', float_format='%.8e', index=False, header=False)
 
                     #handle early/late for associative learning phases
+    
+    def lss_betas(self):
+        events = events = pd.read_csv('../../nistats-bids/sub-FC001/ses-1/func/sub-FC001_ses-1_task-acquisition_events.tsv',sep='\t')
+        for folder in os.walk(self.subj.subj_dir):
+            for file in folder[2]:
+                if 'events' in file and '.tsv' in file:
+                    events = pd.read_csv(os.path.join(self.subj.subj_dir,folder[0],file), sep='\t')
+                    phase = re.search('task-(.*)_events',file)[1]
+                    out = os.path.join(self.subj.model_dir,'%s'%(phase),'lss_betas')
+                    mkdir(out)
+
+                    trial_types = events.trial_type.unique()
+
+                    for trial in events.shape[0]:
+                        beta_folder = os.path.join(out,'trial_{0:0=2d}'.format(trial))
+                        beta_trial = events.loc[trial,['onset','duration']]
+                        beta_trial['PM'] = 1
+                        beta_trial.to_csv(os.path.join(beta_folder,'beta.txt'),
+                                    sep='\t', float_format='%.8e', index=False, header=False)
+
+                        for i, condition in enumerate(trial_types):
+                            #grab all trials of each condition
+                            con_trials = np.where(events.trial_type == condition)[0]
+                            #make sure we don't model the same trial twice
+                            con_trials = [t for t in con_trials if t != trial]
+                            #get the onsets/durations
+                            con_events = events.loc[con_trials,['onset','duration']]
+                            con_events['PM'] = 1
+                            con_events.to_csv(os.path.join(beta_folder,'no_interest_%s.txt'%(i)),
+                                            sep='\t', float_format='%.8e', index=False, header=False)
+
 
     #collect confound regressors from fMRIprep
     def confounds(self):
