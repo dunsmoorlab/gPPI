@@ -78,7 +78,7 @@ class bids_events():
                         sep='\t',float_format='%.8e', index=False, header=False)
 
 def autofill_fsf(template='',ses=None):
-    outstr = re.search('template_(.*)',test)[1]
+    outstr = re.search('template_(.*)',template)[1]
     for sub in all_sub_args:
         subj = bids_meta(sub)
         replacements = {'SUBID':subj.fsub}
