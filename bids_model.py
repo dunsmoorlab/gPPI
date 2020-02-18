@@ -66,6 +66,7 @@ class bids_events():
 
                     for trial in range(events.shape[0]):
                         beta_folder = os.path.join(out,'trial_{0:0=2d}'.format(trial))
+                        mkdir(beta_folder)
                         beta_trial = events.loc[trial,['onset','duration']]
                         beta_trial['PM'] = 1
                         beta_trial.to_csv(os.path.join(beta_folder,'beta.txt'),
