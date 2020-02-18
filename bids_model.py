@@ -10,7 +10,7 @@ class bids_events():
     def __init__(self,sub):
 
         self.subj = bids_meta(sub)
-        self.fsl_events()
+        # self.fsl_events()
         self.confounds()
     #generate CS+, CS-, US timing files for use in FSL
     def fsl_events(self):
@@ -57,8 +57,9 @@ class bids_events():
     def confounds(self):
 
         #confounds of interest
-        COI = ['a_comp_cor_00','framewise_displacement','trans_x','trans_y','trans_z','rot_x','rot_y','rot_z']
-
+#HERE # COI = ['a_comp_cor_00','framewise_displacement','trans_x','trans_y','trans_z','rot_x','rot_y','rot_z']
+        COI = ['global_signal','csf','white_matter','framewise_displacement','trans_x','trans_y','trans_z','rot_x','rot_y','rot_z']
+        
         #walk through every folder of fMRIprep output and find all the confound files
         for folder in os.walk(self.subj.prep_dir):
             for file in folder[2]:
@@ -66,15 +67,17 @@ class bids_events():
                     C = pd.read_csv(os.path.join(self.subj.prep_dir,folder[0],file), sep='\t')
                     run_COI = COI.copy()
                     for _c in C.columns:
-                        if 'cosine' in _c or 'motion_outlier' in _c:
+#HERE IS A THING      # if 'cosine' in _c or 'motion_outlier' in _c:
+                        if 'motion_outlier' in _c:
                             run_COI.append(_c)
                     C = C[run_COI]
-                    C['constant'] = 1
+#HERE IS A THING  # C['constant'] = 1
                     C['framewise_displacement'][0] = 0
                     
                     phase = re.search('task-(.*)_desc',file)[1]
                     out = os.path.join(self.subj.model_dir,'%s'%(phase))
-                    C.to_csv(os.path.join(out,'confounds.txt'),
+#ALSO changed the name
+                    C.to_csv(os.path.join(out,'confounds_gs.txt'),
                         sep='\t',float_format='%.8e', index=False, header=False)
 
 def autofill_fsf(template='',ses=None):
