@@ -85,9 +85,9 @@ def autofill_fsf(template='',ses=None):
         
         #need to handle the special cases where the TR is longer
         if ses == 1 and sub in [105,106]:
-            replacements['TR_length'] = 2.23
+            replacements['TR_length'] = '2.23'
         else:
-            replacements['TR_length'] = 2
+            replacements['TR_length'] = '2'
 
         outfeat = os.path.join(subj.feat_dir,'%s_%s.feat'%(subj.fsub,outstr))
 
