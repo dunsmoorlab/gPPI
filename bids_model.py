@@ -11,7 +11,7 @@ class bids_events():
 
         self.subj = bids_meta(sub)
         # self.fsl_events()
-        self.confounds()
+        # self.confounds()
     #generate CS+, CS-, US timing files for use in FSL
     def fsl_events(self):
 
