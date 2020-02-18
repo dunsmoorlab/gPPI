@@ -64,7 +64,7 @@ class bids_events():
 
                     trial_types = events.trial_type.unique()
 
-                    for trial in events.shape[0]:
+                    for trial in range(events.shape[0]):
                         beta_folder = os.path.join(out,'trial_{0:0=2d}'.format(trial))
                         beta_trial = events.loc[trial,['onset','duration']]
                         beta_trial['PM'] = 1
