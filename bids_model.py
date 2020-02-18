@@ -54,7 +54,6 @@ class bids_events():
                     #handle early/late for associative learning phases
     
     def lss_betas(self):
-        events = events = pd.read_csv('../../nistats-bids/sub-FC001/ses-1/func/sub-FC001_ses-1_task-acquisition_events.tsv',sep='\t')
         for folder in os.walk(self.subj.subj_dir):
             for file in folder[2]:
                 if 'events' in file and '.tsv' in file:
