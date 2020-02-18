@@ -61,6 +61,7 @@ class bids_meta(object):
             self.fs_dir   = os.path.join(fs_dir,self.fsub)
 
             self.model_dir   = os.path.join(model,self.fsub);mkdir(self.model_dir)
+            self.feat_dir    = os.path.join(self.model_dir,'feats');mkdir(self.feat_dir)
             self.preproc_dir = os.path.join(preproc,self.fsub);mkdir(self.preproc_dir)
             
             self.reference    = os.path.join(self.preproc_dir,'reference');mkdir(self.reference)

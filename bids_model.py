@@ -77,7 +77,28 @@ class bids_events():
                     C.to_csv(os.path.join(out,'confounds.txt'),
                         sep='\t',float_format='%.8e', index=False, header=False)
 
+def autofill_fsf(template='',ses=None):
+    outstr = re.search('template_(.*)',test)[1]
+    for sub in all_sub_args:
+        subj = bids_meta(sub)
+        replacements = {'SUBID':subj.fsub}
+        
+        #need to handle the special cases where the TR is longer
+        if ses == 1 and sub in [105,106]:
+            replacements['TR_length'] = 2.23
+        else:
+            replacements['TR_length'] = 2
 
+        outfeat = os.path.join(subj.feat_dir,'%s_%s.feat'%(subj.fsub,outstr))
 
+        with open(os.path.join(gPPI,'feats','%s.fsf')) as infile: 
+            with open(outfeat, 'w') as outfile:
+                for line in infile:
+                    for src, target in replacements.items():
+                        line = line.replace(src, target)
+            outfile.write(line)
+
+        #also go ahead and make the job script here
+        os.system('echo "feat %s" >> %s_job.txt'%(outfeat,outstr))
 
 
