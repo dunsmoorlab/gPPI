@@ -96,7 +96,7 @@ def autofill_fsf(template='',ses=None):
                 for line in infile:
                     for src, target in replacements.items():
                         line = line.replace(src, target)
-            outfile.write(line)
+                    outfile.write(line)
 
         #also go ahead and make the job script here
         os.system('echo "feat %s" >> %s_job.txt'%(outfeat,outstr))
