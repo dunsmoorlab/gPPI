@@ -99,6 +99,6 @@ def autofill_fsf(template='',ses=None):
                     outfile.write(line)
 
         #also go ahead and make the job script here
-        os.system('echo "feat %s" >> %s_job.txt'%(outfeat,outstr))
+        os.system('echo "feat %s" >> jobs/%s_job.txt'%(outfeat,outstr))
 
 
