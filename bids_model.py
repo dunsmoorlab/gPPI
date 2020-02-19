@@ -123,7 +123,7 @@ def autofill_fsf(template='',ses=None):
         else:
             replacements['TR_length'] = '2'
 
-        outfeat = os.path.join(subj.feat_dir,'%s_%s.feat'%(subj.fsub,outstr))
+        outfeat = os.path.join(subj.feat_dir,'%s_%s.fsf'%(subj.fsub,outstr))
 
         with open(os.path.join(gPPI,'feats','%s.fsf'%(template))) as infile: 
             with open(outfeat, 'w') as outfile:
