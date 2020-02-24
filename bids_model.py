@@ -185,9 +185,9 @@ def autofill_fsf(template='',ses=None):
         os.system('echo "feat %s" >> jobs/%s_job.txt'%(outfeat,outstr))
 
 def wrap_lss_jobs():
-    for i, job in os.listdir('jobs/lss_betas'):
+    for i, job in enumerate(os.listdir('jobs/lss_betas')):
         if '.txt' in job:
-            os.system('launch -N 38 -n 12 -J lss_%s -s jobs/lss_betas/%s -m achennings@utexas.edu -p normal -r 01:00:00 -A fMRI-Fear-Conditioni'%(i,job))
+            os.system('launch -N 1 -n 12 -J lss_%s -s jobs/lss_betas/%s -m achennings@utexas.edu -p normal -r 09:00:00 -A fMRI-Fear-Conditioni'%(i,job))
 
 # q = [os.path.join(self.subj.prep_dir,folder[0],file) )
 #                         for folder in os.walk(self.subj.prep_dir)
