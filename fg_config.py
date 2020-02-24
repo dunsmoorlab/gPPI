@@ -80,7 +80,7 @@ class bids_meta(object):
             self.refvol_brain = os.path.join(self.reference,'boldref_brain.nii.gz')
 
             self.func = os.path.join(self.preproc_dir,'func');mkdir(self.func)
-            self.beta = os.path.join(self.preproc_dir,'lss_betas');mkdir(self.beta_dir) 
+            self.beta = os.path.join(self.preproc_dir,'lss_betas');mkdir(self.beta) 
     
     def cs_lookup(self):    
         if self.meta['DataFile.Basename'][0][0] == 'A':
