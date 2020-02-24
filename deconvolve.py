@@ -6,14 +6,18 @@ from brainiak_utils import _double_gamma_hrf, convolve_hrf
 from sklearn.linear_model import Ridge, RidgeCV
 from scipy.fftpack import dct
 from scipy.linalg import toeplitz
+from nilearn.signal import clean
+from nilearn.image import get_data
 
-data = nib.load('../../nistats-bids/sub-FC001/ses-1/func/sub-FC001_ses-1_task-acquisition_bold.nii.gz')
-data = data.get_data()
+data = get_data('../../nistats-bids/sub-FC001/ses-1/func/sub-FC001_ses-1_task-acquisition_bold.nii.gz')
 
-bold = data[35,10,14,:]
-# bold = bold - bold.mean()
+bold = data[35,10,14,:,np.newaxis]
+detrend = clean(bold,detrend=True,t_r=2)
+highpass = clean(bold,detrend=True,high_pass=1/128,t_r=2)
 x = range(bold.shape[0])
-plt.plot(x,bold)
+# plt.plot(x,bold)
+plt.plot(x,detrend)
+plt.plot(x,highpass)
 
 #####
 dt = 2 #microscan time?
