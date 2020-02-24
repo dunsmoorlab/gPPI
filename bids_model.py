@@ -59,13 +59,13 @@ class bids_events():
                 if 'events' in file and '.tsv' in file:
                     events = pd.read_csv(os.path.join(self.subj.subj_dir,folder[0],file), sep='\t')
                     phase = re.search('task-(.*)_events',file)[1]
-                    out = os.path.join(self.subj.model_dir,'%s'%(phase),'lss_betas')
-                    mkdir(out)
+                    lss_dir = os.path.join(self.subj.model_dir,'%s'%(phase),'lss_betas')
+                    mkdir(lss_dir)
 
                     trial_types = events.trial_type.unique()
 
                     for trial in range(events.shape[0]):
-                        beta_folder = os.path.join(out,'trial_{0:0=2d}'.format(trial))
+                        beta_folder = os.path.join(lss_dir,'trial_{0:0=2d}'.format(trial))
                         mkdir(beta_folder)
                         beta_trial = events.loc[trial,['onset','duration']]
                         beta_trial['PM'] = 1
@@ -83,13 +83,42 @@ class bids_events():
                             con_events.to_csv(os.path.join(beta_folder,'no_interest_%s.txt'%(i)),
                                             sep='\t', float_format='%.8e', index=False, header=False)
 
+                    self._autofill_lss(lss_dir=lss_dir,phase=phase,n_trials=events.shape[0])
+
+    def _autofill_lss(self,lss_dir,phase,n_trials):
+            template = os.path.join(gPPI,'feats','template_lss_%s.fsf'%(phase))
+
+            replacements = {'SUBID':self.subj.fsub}            
+            #need to handle the special cases where the TR is longer
+            if self.subj.num in [105,106]:
+                replacements['TR_length'] = '2.23'
+            else:
+                replacements['TR_length'] = '2'
+
+            for t in range(n_trials):
+                trial = 'trial_{0:0=2d}'.format(t)
+                replacements['TRIAL'] = trial
+                
+                beta_folder = os.path.join(lss_dir,trial)
+                outfeat = os.path.join(beta_folder,'%s.fsf'%(trial))
+
+                with open(template) as infile: 
+                    with open(outfeat, 'w') as outfile:
+                        for line in infile:
+                            for src, target in replacements.items():
+                                line = line.replace(src, target)
+                            outfile.write(line)
+
+            #also go ahead and make the job script here
+            os.system('echo "feat %s" >> jobs/lss_betas/%s_%s_job.txt'%(outfeat,self.subj.fsub,phase))
+
 
     #collect confound regressors from fMRIprep
     def confounds(self):
 
         #confounds of interest
-#HERE # COI = ['a_comp_cor_00','framewise_displacement','trans_x','trans_y','trans_z','rot_x','rot_y','rot_z']
-        COI = ['global_signal','csf','white_matter','framewise_displacement','trans_x','trans_y','trans_z','rot_x','rot_y','rot_z']
+        COI = ['a_comp_cor_00','framewise_displacement','trans_x','trans_y','trans_z','rot_x','rot_y','rot_z']
+        # COI = ['global_signal','csf','white_matter','framewise_displacement','trans_x','trans_y','trans_z','rot_x','rot_y','rot_z']
         
         #walk through every folder of fMRIprep output and find all the confound files
         for folder in os.walk(self.subj.prep_dir):
@@ -98,17 +127,15 @@ class bids_events():
                     C = pd.read_csv(os.path.join(self.subj.prep_dir,folder[0],file), sep='\t')
                     run_COI = COI.copy()
                     for _c in C.columns:
-#HERE IS A THING      # if 'cosine' in _c or 'motion_outlier' in _c:
-                        if 'motion_outlier' in _c:
+                    if 'cosine' in _c or 'motion_outlier' in _c:
                             run_COI.append(_c)
                     C = C[run_COI]
-#HERE IS A THING  # C['constant'] = 1
+                    C['constant'] = 1
                     C['framewise_displacement'][0] = 0
                     
                     phase = re.search('task-(.*)_desc',file)[1]
                     out = os.path.join(self.subj.model_dir,'%s'%(phase))
-#ALSO changed the name
-                    C.to_csv(os.path.join(out,'confounds_gs.txt'),
+                    C.to_csv(os.path.join(out,'confounds.txt'),
                         sep='\t',float_format='%.8e', index=False, header=False)
 
 def autofill_fsf(template='',ses=None):
