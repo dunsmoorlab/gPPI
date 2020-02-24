@@ -8,4 +8,4 @@
 
 
 
-launch -N 1 -n 1 -J group_test -s jobs/group_gs.txt -m achennings@utexas.edu -p normal -r 03:00:00 -A fMRI-Fear-Conditioni
+launch -N 1 -n 1 -J group_test_RR -s jobs/group_RR.txt -m achennings@utexas.edu -p normal -r 03:00:00 -A fMRI-Fear-Conditioni
