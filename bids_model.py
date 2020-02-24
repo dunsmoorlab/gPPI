@@ -3,6 +3,8 @@ import re
 
 import pandas as pd
 
+from collections import OrderedDict
+
 from fg_config import *
 
 class bids_events():
@@ -114,6 +116,24 @@ class bids_events():
                 #also go ahead and make the job script here
                 os.system('echo "feat %s" >> jobs/lss_betas/%s_%s_job.txt'%(outfeat,self.subj.fsub,phase))
 
+    def lss_reconstruct(self):
+        outdir = os.path.join(self.subj.pre)
+        for task in tasks:
+            lss_dir = os.path.join(self.subj.model_dir,task,'lss_betas')
+            beta_fname = os.path.join(self.subj.beta,'%s_beta.nii.gz'%(task))
+            
+            beta_img = OrderedDict()
+            for i in range(tasks[task]['n_trials']):
+                trial = 'trial_{0:0=2d}'.format(i)
+                beta_img[i] = nib.load(os.path.join(lss_dir,trial,'%s.feat'%(trial),'stats','cope1.nii.gz'))
+
+            #concatenate them
+            beta_img = concat_imgs(beta_img.values())
+            nib.save(beta_img,beta_fname)
+
+            #mask them too
+            os.system('fslmaths %s -mas %s %s'%(beta_fname,subj.refvol_mask,beta_fname))
+
 
     #collect confound regressors from fMRIprep
     def confounds(self):
@@ -164,4 +184,5 @@ def autofill_fsf(template='',ses=None):
         #also go ahead and make the job script here
         os.system('echo "feat %s" >> jobs/%s_job.txt'%(outfeat,outstr))
 
+# def wrap_lss_jobs():
 
