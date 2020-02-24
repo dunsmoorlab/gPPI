@@ -189,6 +189,7 @@ def wrap_lss_jobs():
         if '.txt' in job:
             os.system('launch -N 1 -n 12 -J lss_%s -s jobs/lss_betas/%s -m achennings@utexas.edu -p normal -r 09:00:00 -A fMRI-Fear-Conditioni'%(i,job))
 
+    for job in ['acquisition','extinction','baseline']
 # q = [os.path.join(self.subj.prep_dir,folder[0],file) )
 #                         for folder in os.walk(self.subj.prep_dir)
 #                         for file in folder[2]
