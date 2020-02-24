@@ -142,4 +142,3 @@ feat /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC122/feats/sub-FC122_
 feat /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC123/feats/sub-FC123_acquisition_rsa.fsf
 feat /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC124/feats/sub-FC124_acquisition_rsa.fsf
 feat /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC125/feats/sub-FC125_acquisition_rsa.fsf
-
