@@ -112,7 +112,7 @@ class bids_events():
                 # with open('jobs/lss_betas/%s_%s_job.txt'%(self.subj.fsub,phase),'w') as txt_file:
                 #     txt_file.write('feat %s'%(outfeat))
                 #also go ahead and make the job script here
-                os.system('echo "\nfeat %s" >> jobs/lss_betas/%s_%s_job.txt'%(outfeat,self.subj.fsub,phase))
+                os.system('echo "feat %s" >> jobs/lss_betas/%s_%s_job.txt'%(outfeat,self.subj.fsub,phase))
 
 
     #collect confound regressors from fMRIprep
