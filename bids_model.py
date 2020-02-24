@@ -66,24 +66,24 @@ class bids_events():
 
                     trial_types = events.trial_type.unique()
 
-                    for trial in range(events.shape[0]):
-                        beta_folder = os.path.join(lss_dir,'trial_{0:0=2d}'.format(trial))
-                        mkdir(beta_folder)
-                        beta_trial = events.loc[trial,['onset','duration']]
-                        beta_trial['PM'] = 1
-                        beta_trial.to_csv(os.path.join(beta_folder,'beta.txt'),
-                                    sep='\t', float_format='%.8e', index=False, header=False)
+                    # for trial in range(events.shape[0]):
+                    #     beta_folder = os.path.join(lss_dir,'trial_{0:0=2d}'.format(trial))
+                    #     mkdir(beta_folder)
+                    #     beta_trial = events.loc[trial,['onset','duration']]
+                    #     beta_trial['PM'] = 1
+                    #     beta_trial.to_csv(os.path.join(beta_folder,'beta.txt'),
+                    #                 sep='\t', float_format='%.8e', index=False, header=False)
 
-                        for i, condition in enumerate(trial_types):
-                            #grab all trials of each condition
-                            con_trials = np.where(events.trial_type == condition)[0]
-                            #make sure we don't model the same trial twice
-                            con_trials = [t for t in con_trials if t != trial]
-                            #get the onsets/durations
-                            con_events = events.loc[con_trials,['onset','duration']]
-                            con_events['PM'] = 1
-                            con_events.to_csv(os.path.join(beta_folder,'no_interest_%s.txt'%(i)),
-                                            sep='\t', float_format='%.8e', index=False, header=False)
+                    #     for i, condition in enumerate(trial_types):
+                    #         #grab all trials of each condition
+                    #         con_trials = np.where(events.trial_type == condition)[0]
+                    #         #make sure we don't model the same trial twice
+                    #         con_trials = [t for t in con_trials if t != trial]
+                    #         #get the onsets/durations
+                    #         con_events = events.loc[con_trials,['onset','duration']]
+                    #         con_events['PM'] = 1
+                    #         con_events.to_csv(os.path.join(beta_folder,'no_interest_%s.txt'%(i)),
+                    #                         sep='\t', float_format='%.8e', index=False, header=False)
 
                     self._autofill_lss(lss_dir=lss_dir,phase=phase,n_trials=events.shape[0])
 
@@ -104,17 +104,17 @@ class bids_events():
                 beta_folder = os.path.join(lss_dir,trial)
                 outfeat = os.path.join(beta_folder,'%s.fsf'%(trial))
 
-                with open(template) as infile: 
-                    with open(outfeat, 'w') as outfile:
-                        for line in infile:
-                            for src, target in replacements.items():
-                                line = line.replace(src, target)
-                            outfile.write(line)
+                # with open(template) as infile: 
+                #     with open(outfeat, 'w') as outfile:
+                #         for line in infile:
+                #             for src, target in replacements.items():
+                #                 line = line.replace(src, target)
+                #             outfile.write(line)
 
                 # with open('jobs/lss_betas/%s_%s_job.txt'%(self.subj.fsub,phase),'w') as txt_file:
                 #     txt_file.write('feat %s'%(outfeat))
                 #also go ahead and make the job script here
-                os.system('echo "feat %s" >> jobs/lss_betas/%s_%s_job.txt'%(outfeat,self.subj.fsub,phase))
+                os.system('echo "feat %s" >> jobs/lss_betas/%s_job.txt'%(outfeat,self.subj.fsub))
 
     def lss_reconstruct(self):
         outdir = os.path.join(self.subj.pre)
@@ -184,5 +184,12 @@ def autofill_fsf(template='',ses=None):
         #also go ahead and make the job script here
         os.system('echo "feat %s" >> jobs/%s_job.txt'%(outfeat,outstr))
 
-# def wrap_lss_jobs():
+def wrap_lss_jobs():
+    for i, job in os.listdir('jobs/lss_betas'):
+        if '.txt' in job:
+            os.system('launch -N 38 -n 12 -J lss_%s -s jobs/lss_betas/%s -m achennings@utexas.edu -p normal -r 01:00:00 -A fMRI-Fear-Conditioni'%(i,job))
 
+# q = [os.path.join(self.subj.prep_dir,folder[0],file) )
+#                         for folder in os.walk(self.subj.prep_dir)
+#                         for file in folder[2]
+#                         if 'T1w_desc-brain_mask.nii.gz' in file]
