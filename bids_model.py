@@ -2,6 +2,7 @@ import os
 import re
 
 import pandas as pd
+import nibabel as nib
 
 from collections import OrderedDict
 
