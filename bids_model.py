@@ -127,16 +127,16 @@ class bids_events():
             concat_ = True
             for i in range(tasks[task]['n_trials']):
                 trial = 'trial_{0:0=2d}'.format(i)
-                # try:
-                beta_img[i] = nib.load(os.path.join(lss_dir,trial,'%s.feat'%(trial),'stats','cope1.nii.gz'))
-                # except:
-                # print(self.subj.num,task,trial)
-                # concat_ = False
+                try:
+                    beta_img[i] = nib.load(os.path.join(lss_dir,trial,'%s.feat'%(trial),'stats','cope1.nii.gz'))
+                except:
+                    print(self.subj.num,task,trial)
+                    concat_ = False
     
-            # if concat_:
-            #concatenate them
-            beta_img = concat_imgs(beta_img.values())
-            nib.save(beta_img,beta_fname)
+            if concat_:
+                # concatenate them
+                beta_img = concat_imgs(beta_img.values())
+                nib.save(beta_img,beta_fname)
 
             #mask them too
             os.system('fslmaths %s -mas %s %s'%(beta_fname,self.subj.refvol_mask,beta_fname))
