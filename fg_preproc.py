@@ -47,13 +47,8 @@ class fmriprep_preproc():
     def bbreg(self):
         os.system('export SUBJECTS_DIR=%s'%(fs_dir))
 
-        reg = ['bbregister',
-                   '--s', '%s'%(self.subj.fsub),
-                   '--mov', '%s'%(self.subj.refvol_brain),
-                   '--init-fsl',
-                   '--bold'
-                   '--reg', '%s'%(self.subj.fs_regmat)]
-
+        reg = 'export SUBJECTS_DIR=%s; bbregister --s %s --mov %s --init-fsl --bold --reg %s'%(fs_dir,self.subj.fsub,self.subj.refvol_brain,self.subj.fs_regmat)
+        os.system(reg)
         v2v =['mri_vol2vol',
                 '--subject', '%s'%(self.subj.fsub) , 
                 '--targ', os.path.join(self.subj.fs_dir,'mri','aparc+aseg.mgz'),
