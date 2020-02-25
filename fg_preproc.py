@@ -45,8 +45,7 @@ class fmriprep_preproc():
                     os.system('fslmaths %s -mas %s %s'%(os.path.join(self.subj.prep_dir,folder[0],file), self.subj.refvol_mask, os.path.join(self.subj.func,file)))
 
     def bbreg(self):
-        sub_dir = ['export',
-                   'SUBJECTS_DIR=%s'%(fs_dir)]
+        os.system('export SUBJECTS_DIR=%s'%(fs_dir))
 
         reg = ['bbregister',
                    '--s', '%s'%(self.subj.fsub),
@@ -63,7 +62,7 @@ class fmriprep_preproc():
                 '--nearest',
                 '--inv',
                 '--o', self.subj.faa]
-        for cmd in [sub_dir, reg, v2v]: Popen(cmd)
+        for cmd in [reg, v2v]: Popen(cmd)
         os.system('fslmaths %s -mas %s %s'%(self.subj.faa,self.subj.refvol_mask,self.subj.faa))        
 
 
