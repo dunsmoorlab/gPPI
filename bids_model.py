@@ -5,6 +5,7 @@ import pandas as pd
 import nibabel as nib
 
 from collections import OrderedDict
+from nilearn.image import concat_imgs
 
 from fg_config import *
 
@@ -138,7 +139,7 @@ class bids_events():
             nib.save(beta_img,beta_fname)
 
             #mask them too
-            os.system('fslmaths %s -mas %s %s'%(beta_fname,subj.refvol_mask,beta_fname))
+            os.system('fslmaths %s -mas %s %s'%(beta_fname,self.subj.refvol_mask,beta_fname))
 
 
     #collect confound regressors from fMRIprep
