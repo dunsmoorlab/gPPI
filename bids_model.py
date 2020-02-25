@@ -129,10 +129,13 @@ class bids_events():
                 trial = 'trial_{0:0=2d}'.format(i)
                 try:
                     beta_img[i] = nib.load(os.path.join(lss_dir,trial,'%s.feat'%(trial),'stats','cope1.nii.gz'))
+                except: FileNotFoundError
+                    os.system('mv -r %s %s'%(os.path.join(lss_dir,trial+'.feat'),os.path.join(lss_dir,trial) ))
+                    beta_img[i] = nib.load(os.path.join(lss_dir,trial,'%s.feat'%(trial),'stats','cope1.nii.gz'))
                 except:
                     os.system('echo "%s" >> bad_lss.txt'%(os.path.join(self.subj.model_dir,task,'lss_betas',trial)))
                     concat_ = False
-    
+#/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC002/memory_run-01/lss_betas/trial_00/trial_00.feat/stats/cope1.nii.gz
             if concat_:
                 # concatenate them
                 beta_img = concat_imgs(beta_img.values())

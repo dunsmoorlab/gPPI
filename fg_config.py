@@ -43,7 +43,7 @@ tasks = {'baseline':{'n_trials':48},
          'memory_run-02':{'n_trials':80},
          'memory_run-03':{'n_trials':80},
          'localizer_run-01':{'n_trials':24},
-         'localizer_run-01':{'n_trials':24}
+         'localizer_run-02':{'n_trials':24}
          }
 
 
