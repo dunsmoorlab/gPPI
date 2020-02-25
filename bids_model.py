@@ -130,7 +130,11 @@ class bids_events():
                 try:
                     beta_img[i] = nib.load(os.path.join(lss_dir,trial,'%s.feat'%(trial),'stats','cope1.nii.gz'))
                 except FileNotFoundError: 
-                    os.system('mv %s %s'%(os.path.join(lss_dir,trial+'.feat'),os.path.join(lss_dir,trial+'/') ))
+                    if os.path.exists(os.path.join(lss_dir,trial+'+.feat')):
+                        os.system('rm -r %s'%(os.path.join(lss_dir,trial,trial+'.feat')))
+                        os.system('mv %s %s'%( os.path.join(lss_dir,trial+'+.feat'), os.path.join( lss_dir,trial,'%s.feat'%(trial) ) ) )    
+                    else:
+                        os.system('mv %s %s'%(os.path.join(lss_dir,trial+'.feat'),os.path.join(lss_dir,trial+'/') ))
                     try:
                         beta_img[i] = nib.load(os.path.join(lss_dir,trial,'%s.feat'%(trial),'stats','cope1.nii.gz'))
                     except: 
