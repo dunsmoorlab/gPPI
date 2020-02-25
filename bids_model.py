@@ -117,7 +117,6 @@ class bids_events():
                 os.system('echo "feat %s" >> jobs/lss_betas/%s_job.txt'%(outfeat,self.subj.fsub))
 
     def lss_reconstruct(self):
-        outdir = os.path.join(self.subj.pre)
         for task in tasks:
             lss_dir = os.path.join(self.subj.model_dir,task,'lss_betas')
             beta_fname = os.path.join(self.subj.beta,'%s_beta.nii.gz'%(task))
