@@ -81,6 +81,9 @@ class bids_meta(object):
 
             self.func = os.path.join(self.preproc_dir,'func');mkdir(self.func)
             self.beta = os.path.join(self.preproc_dir,'lss_betas');mkdir(self.beta) 
+
+            self.fs_regmat = os.path.join(self.reference,'RegMat.dat')
+            self.faa       = os.path.join(self.reference,'aparc+aseg.nii.gz')
     
     def cs_lookup(self):    
         if self.meta['DataFile.Basename'][0][0] == 'A':
