@@ -130,7 +130,7 @@ class bids_events():
                 try:
                     beta_img[i] = nib.load(os.path.join(lss_dir,trial,'%s.feat'%(trial),'stats','cope1.nii.gz'))
                 except:
-                    print(self.subj.num,task,trial)
+                    os.system('echo "%s" >> bad_lss.txt'%(os.path.join(self.subj.model_dir,task,'lss_betas',trial)))
                     concat_ = False
     
             if concat_:
