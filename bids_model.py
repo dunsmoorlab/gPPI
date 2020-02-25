@@ -129,7 +129,7 @@ class bids_events():
                 trial = 'trial_{0:0=2d}'.format(i)
                 try:
                     beta_img[i] = nib.load(os.path.join(lss_dir,trial,'%s.feat'%(trial),'stats','cope1.nii.gz'))
-                except: FileNotFoundError
+                except FileNotFoundError: 
                     os.system('mv -r %s %s'%(os.path.join(lss_dir,trial+'.feat'),os.path.join(lss_dir,trial) ))
                     beta_img[i] = nib.load(os.path.join(lss_dir,trial,'%s.feat'%(trial),'stats','cope1.nii.gz'))
                 except:
