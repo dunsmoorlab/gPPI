@@ -123,16 +123,22 @@ class bids_events():
             beta_fname = os.path.join(self.subj.beta,'%s_beta.nii.gz'%(task))
             
             beta_img = OrderedDict()
+            concat_ = True
             for i in range(tasks[task]['n_trials']):
                 trial = 'trial_{0:0=2d}'.format(i)
-                beta_img[i] = nib.load(os.path.join(lss_dir,trial,'%s.feat'%(trial),'stats','cope1.nii.gz'))
+                try:
+                    beta_img[i] = nib.load(os.path.join(lss_dir,trial,'%s.feat'%(trial),'stats','cope1.nii.gz'))
+                except:
+                    print(self.subj.num,task,trial)
+                    concat_ = False
+    
+            if concat_:
+                #concatenate them
+                beta_img = concat_imgs(beta_img.values())
+                nib.save(beta_img,beta_fname)
 
-            #concatenate them
-            beta_img = concat_imgs(beta_img.values())
-            nib.save(beta_img,beta_fname)
-
-            #mask them too
-            os.system('fslmaths %s -mas %s %s'%(beta_fname,subj.refvol_mask,beta_fname))
+                #mask them too
+                os.system('fslmaths %s -mas %s %s'%(beta_fname,subj.refvol_mask,beta_fname))
 
 
     #collect confound regressors from fMRIprep
@@ -189,7 +195,8 @@ def wrap_lss_jobs():
         if '.txt' in job:
             os.system('launch -N 1 -n 12 -J lss_%s -s jobs/lss_betas/%s -m achennings@utexas.edu -p normal -r 09:00:00 -A fMRI-Fear-Conditioni'%(i,job))
 
-    for job in ['acquisition','extinction','baseline']
+    for job in ['acquisition','extinction','baseline']:
+        os.system('launch -N 1 -n 12 -J %s -s jobs/%s_rsa_job.txt -m achennings@utexas.edu -p normal -r ')
 # q = [os.path.join(self.subj.prep_dir,folder[0],file) )
 #                         for folder in os.walk(self.subj.prep_dir)
 #                         for file in folder[2]
