@@ -49,6 +49,7 @@ class fmriprep_preproc():
 
         reg = 'export SUBJECTS_DIR=%s; bbregister --s %s --mov %s --init-fsl --bold --reg %s'%(fs_dir,self.subj.fsub,self.subj.refvol_brain,self.subj.fs_regmat)
         os.system(reg)
+
         v2v =['mri_vol2vol',
                 '--subject', '%s'%(self.subj.fsub) , 
                 '--targ', os.path.join(self.subj.fs_dir,'mri','aparc+aseg.mgz'),
@@ -57,7 +58,7 @@ class fmriprep_preproc():
                 '--nearest',
                 '--inv',
                 '--o', self.subj.faa]
-        for cmd in [reg, v2v]: Popen(cmd)
+        Popen(v2v)
         os.system('fslmaths %s -mas %s %s'%(self.subj.faa,self.subj.refvol_mask,self.subj.faa))        
 
 
