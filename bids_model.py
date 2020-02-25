@@ -210,3 +210,5 @@ def wrap_lss_jobs():
 #                         for folder in os.walk(self.subj.prep_dir)
 #                         for file in folder[2]
 #                         if 'T1w_desc-brain_mask.nii.gz' in file]
+
+def clean_bad_lss()
