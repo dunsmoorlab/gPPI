@@ -45,21 +45,9 @@ class fmriprep_preproc():
                     os.system('fslmaths %s -mas %s %s'%(os.path.join(self.subj.prep_dir,folder[0],file), self.subj.refvol_mask, os.path.join(self.subj.func,file)))
 
     def bbreg(self):
-        os.system('export SUBJECTS_DIR=%s'%(fs_dir))
-
-        # reg = 'export SUBJECTS_DIR=%s; bbregister --s %s --mov %s --init-fsl --bold --reg %s'%(fs_dir,self.subj.fsub,self.subj.refvol_brain,self.subj.fs_regmat)
-        # os.system(reg)
-
-        # v2v =['mri_vol2vol',
-        #         '--subject', '%s'%(self.subj.fsub) , 
-        #         '--targ', os.path.join(self.subj.fs_dir,'mri','aparc+aseg.mgz'),
-        #         '--mov', self.subj.refvol_brain,
-        #         '--reg', self.subj.fs_regmat,
-        #         '--nearest',
-        #         '--inv',
-        #         '--o', self.subj.faa]
+        reg = 'export SUBJECTS_DIR=%s; bbregister --s %s --mov %s --init-fsl --bold --reg %s'%(fs_dir,self.subj.fsub,self.subj.refvol_brain,self.subj.fs_regmat)
         v2v = 'export SUBJECTS_DIR=%s; mri_vol2vol --subject %s --targ %s --mov %s --reg %s --nearest --inv --o %s'%(fs_dir,self.subj.fsub,os.path.join(self.subj.fs_dir,'mri','aparc+aseg.mgz'),self.subj.refvol_brain,self.subj.fs_regmat,self.subj.faa)
-        os.system(v2v)
-        os.system('fslmaths %s -mas %s %s'%(self.subj.faa,self.subj.refvol_mask,self.subj.faa))        
+        mask = 'fslmaths %s -mas %s %s'%(self.subj.faa,self.subj.refvol_mask,self.subj.faa)
+        for cmd in [reg,v2v,mask]: os.system(cmd)
 
 
