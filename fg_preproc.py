@@ -47,18 +47,19 @@ class fmriprep_preproc():
     def bbreg(self):
         os.system('export SUBJECTS_DIR=%s'%(fs_dir))
 
-        reg = 'export SUBJECTS_DIR=%s; bbregister --s %s --mov %s --init-fsl --bold --reg %s'%(fs_dir,self.subj.fsub,self.subj.refvol_brain,self.subj.fs_regmat)
-        os.system(reg)
+        # reg = 'export SUBJECTS_DIR=%s; bbregister --s %s --mov %s --init-fsl --bold --reg %s'%(fs_dir,self.subj.fsub,self.subj.refvol_brain,self.subj.fs_regmat)
+        # os.system(reg)
 
-        v2v =['mri_vol2vol',
-                '--subject', '%s'%(self.subj.fsub) , 
-                '--targ', os.path.join(self.subj.fs_dir,'mri','aparc+aseg.mgz'),
-                '--mov', self.subj.refvol_brain,
-                '--reg', self.subj.fs_regmat,
-                '--nearest',
-                '--inv',
-                '--o', self.subj.faa]
-        Popen(v2v)
+        # v2v =['mri_vol2vol',
+        #         '--subject', '%s'%(self.subj.fsub) , 
+        #         '--targ', os.path.join(self.subj.fs_dir,'mri','aparc+aseg.mgz'),
+        #         '--mov', self.subj.refvol_brain,
+        #         '--reg', self.subj.fs_regmat,
+        #         '--nearest',
+        #         '--inv',
+        #         '--o', self.subj.faa]
+        v2v = 'export SUBJECTS_DIR=%s; mri_vol2vol --subject %s --targ %s --mov %s --reg %s --nearest --inv --o %s'%(fs_dir,self.subj.fsub,os.path.join(self.subj.fs_dir,'mri','aparc+aseg.mgz'),self.subj.refvol_brain,self.subj.fs_regmat,self.subj.faa)
+        os.system(v2v)
         os.system('fslmaths %s -mas %s %s'%(self.subj.faa,self.subj.refvol_mask,self.subj.faa))        
 
 
