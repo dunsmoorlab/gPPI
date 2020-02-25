@@ -8,4 +8,4 @@
 
 
 
-launch -N 1 -n 1 -J group_test_RR -s jobs/group_RR.txt -m achennings@utexas.edu -p normal -r 03:00:00 -A fMRI-Fear-Conditioni
+launch -N 1 -n 12 -J rsa_mod -s jobs/rsa_job.txt -m achennings@utexas.edu -p normal -r 12:00:00 -A fMRI-Fear-Conditioni
