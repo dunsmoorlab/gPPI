@@ -205,10 +205,21 @@ def wrap_lss_jobs():
             os.system('launch -N 1 -n 12 -J lss_%s -s jobs/lss_betas/%s -m achennings@utexas.edu -p normal -r 09:00:00 -A fMRI-Fear-Conditioni'%(i,job))
 
     for job in ['acquisition','extinction','baseline']:
-        os.system('launch -N 1 -n 12 -J %s -s jobs/%s_rsa_job.txt -m achennings@utexas.edu -p normal -r ')
+        os.system('launch -N 1 -n 12 -J %s -s jobs/%s_rsa_job.txt -m achennings@utexas.edu -p normal -r 12:00:00')
+
+    for job in [1,2,3,4]:
+        os.system('launch -N 1 -n 12 -J lss_%s -s jobs/lss_rep_%s.txt -m achennings@utexas.edu -p normal -r 12:00:00'%(job,job))
 # q = [os.path.join(self.subj.prep_dir,folder[0],file) )
 #                         for folder in os.walk(self.subj.prep_dir)
 #                         for file in folder[2]
 #                         if 'T1w_desc-brain_mask.nii.gz' in file]
 
-def clean_bad_lss()
+def clean_bad_lss():
+    bad = pd.read_csv('bad_lss_orig.txt',header=None)
+    for beta in bad[0]:
+        trial = beta[-8:]
+        # for beta_path in [beta+'.feat', beta+'/'+trial+'.feat', beta+'+.feat', beta+'/'+trial+'+.feat']:
+        #     if os.path.exists(beta_path):
+        #         # print(os.path.exists(beta_path))
+        #         os.system('rm -r %s'%(beta_path))
+        os.system('echo "feat %s/%s.fsf" >> jobs/bad_lss_job.txt'%(beta,trial))
