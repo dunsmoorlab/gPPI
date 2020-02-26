@@ -70,7 +70,7 @@ class fmriprep_preproc():
                  }
 
         for roi in rois:
-            for hemi in roi:
+            for hemi in rois[roi]:
                 #make the hemisphere specific masks
                 out = os.path.join(self.subj.masks,'%sh_%s.nii.gz'%(hemi,roi))
                 thr = rois[roi][hemi]

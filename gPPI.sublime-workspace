@@ -4,6 +4,10 @@
 		"selected_items":
 		[
 			[
+				"prepro",
+				"preproc"
+			],
+			[
 				"ref",
 				"refvol_brain"
 			],
@@ -22,10 +26,6 @@
 			[
 				"txt",
 				"txt_file"
-			],
-			[
-				"prepro",
-				"preproc_dir"
 			],
 			[
 				"prep",
@@ -532,7 +532,7 @@
 			"file": "fg_preproc.py",
 			"settings":
 			{
-				"buffer_size": 2508,
+				"buffer_size": 3583,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -541,7 +541,7 @@
 			"file": "fg_config.py",
 			"settings":
 			{
-				"buffer_size": 3566,
+				"buffer_size": 3670,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -825,7 +825,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 6000.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 2,
@@ -837,15 +837,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2508,
+						"buffer_size": 3583,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2133,
-								2133
+								3579,
+								3579
 							]
 						],
 						"settings":
@@ -855,7 +855,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 443.0,
+						"translation.y": 1785.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
@@ -867,15 +867,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 3566,
+						"buffer_size": 3670,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								3284,
-								3284
+								3388,
+								3388
 							]
 						],
 						"settings":
@@ -884,8 +884,8 @@
 							"tab_size": 4,
 							"translate_tabs_to_spaces": true
 						},
-						"translation.x": 0.0,
-						"translation.y": 1755.0,
+						"translation.x": 100.0,
+						"translation.y": 2030.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 1,
@@ -896,7 +896,7 @@
 	],
 	"incremental_find":
 	{
-		"height": 41.0
+		"height": 44.0
 	},
 	"input":
 	{
@@ -937,7 +937,7 @@
 	"project": "gPPI.sublime-project",
 	"replace":
 	{
-		"height": 78.0
+		"height": 84.0
 	},
 	"save_all_on_build": true,
 	"select_file":
