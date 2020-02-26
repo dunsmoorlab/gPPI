@@ -201,7 +201,7 @@ class gPPI():
 
             return get_data(fname)
     
-    def _apply_mask(self,mask=self.mask,target=None):
+    def _apply_mask(self,mask=None,target=None):
 
         coor = np.where(mask == 1)
         values = target[coor]
@@ -218,7 +218,7 @@ class gPPI():
         #load the data
         data = {phase:get_data(os.path.join(self.subj.func,file)) for phase in phases for file in os.listdir(self.subj.func) if phase in file}
         #mask the data
-        data = {phase: self._apply_mask(target=data[phase]) for phase in data}
+        data = {phase: self._apply_mask(mask=self.mask,target=data[phase]) for phase in data}
         #clean the data
         data = {phase: clean(data[phase],
                         
