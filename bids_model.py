@@ -227,12 +227,16 @@ class gPPI():
                 
                         t_r=2,detrend=False,standardize='zscore')
                                                             for phase in data}
+        #need to check if cleaning >> averaging is the same as averaging >> cleaning
         return data
+
     #extract the givin timecourse for each run
     def timecourse(self,phases=None): 
-
+        #deconvolve, load in task regressors, multiply, and convolve
         pass
 
+    def _deconvolve(self):
+        pass
 
 def autofill_fsf(template='',ses=None):
     outstr = re.search('template_(.*)',template)[1]
