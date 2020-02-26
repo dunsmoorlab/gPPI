@@ -5,9 +5,12 @@ import pandas as pd
 import nibabel as nib
 
 from collections import OrderedDict
-from nilearn.image import concat_imgs
+from nilearn.image import concat_imgs, get_data
+from nilearn.signal import clean
+from sklearn.linear_model import Ridge
 
 from fg_config import *
+from brainiak_utils import _double_gamma_hrf, convolve_hrf
 
 class bids_events():
     
@@ -16,6 +19,7 @@ class bids_events():
         self.subj = bids_meta(sub)
         # self.fsl_events()
         # self.confounds()
+    
     #generate CS+, CS-, US timing files for use in FSL
     def fsl_events(self):
 
@@ -56,8 +60,37 @@ class bids_events():
                             sep='\t', float_format='%.8e', index=False, header=False)
 
                     #handle early/late for associative learning phases
+
+    #collect confound regressors from fMRIprep
+    def confounds(self):
+
+        #confounds of interest
+        COI = ['a_comp_cor_00','framewise_displacement','trans_x','trans_y','trans_z','rot_x','rot_y','rot_z']
+        # COI = ['global_signal','csf','white_matter','framewise_displacement','trans_x','trans_y','trans_z','rot_x','rot_y','rot_z']
+        
+        #walk through every folder of fMRIprep output and find all the confound files
+        for folder in os.walk(self.subj.prep_dir):
+            for file in folder[2]:
+                if 'confounds' in file and '.tsv' in file:
+                    C = pd.read_csv(os.path.join(self.subj.prep_dir,folder[0],file), sep='\t')
+                    run_COI = COI.copy()
+                    for _c in C.columns:
+                        if 'cosine' in _c or 'motion_outlier' in _c:
+                                run_COI.append(_c)
+                    C = C[run_COI]
+                    C['constant'] = 1
+                    C['framewise_displacement'][0] = 0
+                    
+                    phase = re.search('task-(.*)_desc',file)[1]
+                    out = os.path.join(self.subj.model_dir,'%s'%(phase))
+                    C.to_csv(os.path.join(out,'confounds.txt'),
+                        sep='\t',float_format='%.8e', index=False, header=False)
+
+class lss():
+    def __init__(self,sub):
+        self.subj = bids_meta(sub)
     
-    def lss_betas(self):
+    def estimate(self):
         for folder in os.walk(self.subj.subj_dir):
             for file in folder[2]:
                 if 'events' in file and '.tsv' in file:
@@ -118,7 +151,7 @@ class bids_events():
                 #also go ahead and make the job script here
                 os.system('echo "feat %s" >> jobs/lss_betas/%s_job.txt'%(outfeat,self.subj.fsub))
 
-    def lss_reconstruct(self):
+    def reconstruct(self):
         for task in tasks:
             lss_dir = os.path.join(self.subj.model_dir,task,'lss_betas')
             beta_fname = os.path.join(self.subj.beta,'%s_beta.nii.gz'%(task))
@@ -149,31 +182,56 @@ class bids_events():
             #mask them too
             os.system('fslmaths %s -mas %s %s'%(beta_fname,self.subj.refvol_mask,beta_fname))
 
+class gPPI()
+    
+    def __init__(self,sub,mask=None,phases=None,coor=None):
 
-    #collect confound regressors from fMRIprep
-    def confounds(self):
+        self.subj = bids_meta(sub)
+        self.mask = self._load_mask(mask)
+        self.timecourse()
+        self.data = self._load_clean_data(phases=phase)
 
-        #confounds of interest
-        COI = ['a_comp_cor_00','framewise_displacement','trans_x','trans_y','trans_z','rot_x','rot_y','rot_z']
-        # COI = ['global_signal','csf','white_matter','framewise_displacement','trans_x','trans_y','trans_z','rot_x','rot_y','rot_z']
+    def _load_mask(self,mask):
         
-        #walk through every folder of fMRIprep output and find all the confound files
-        for folder in os.walk(self.subj.prep_dir):
-            for file in folder[2]:
-                if 'confounds' in file and '.tsv' in file:
-                    C = pd.read_csv(os.path.join(self.subj.prep_dir,folder[0],file), sep='\t')
-                    run_COI = COI.copy()
-                    for _c in C.columns:
-                        if 'cosine' in _c or 'motion_outlier' in _c:
-                                run_COI.append(_c)
-                    C = C[run_COI]
-                    C['constant'] = 1
-                    C['framewise_displacement'][0] = 0
-                    
-                    phase = re.search('task-(.*)_desc',file)[1]
-                    out = os.path.join(self.subj.model_dir,'%s'%(phase))
-                    C.to_csv(os.path.join(out,'confounds.txt'),
-                        sep='\t',float_format='%.8e', index=False, header=False)
+        if mask is not None:
+            if 'mask' in mask or 'lh_' in mask or 'rh_' in mask: 
+                fname = os.path.join(self.subj.masks,'%s.nii.gz'%(mask))
+            else:
+                fname = os.path.join(self.subj.masks,'%s_mask.nii.gz')
+
+            return get_data(fname)
+    
+    def _apply_mask(self,target=None):
+
+        coor = np.where(mask == 1)
+        values = target[coor]
+        if values.ndim > 1:
+            values = np.transpose(values) #swap axes to get feature X sample
+        return values
+    
+    def _load_clean_data(phases=None):
+        if phases is 'all':
+            phases = tasks
+        elif type(phases) == str:
+            phases = [phases]
+
+        #load the data
+        data = {phase:get_data(os.path.join(self.subj.func,file)) for phase in phases for file in os.listdir(self.subj.func) if phase in file}
+        #mask the data
+        data = {phase: _apply_mask(target=data[phase]) for phase in data}
+        #clean the data
+        data = {phase: clean(data[phase],
+                        
+                        confounds=pd.read_csv(os.path.join(self.subj.model_dir,phase,'confounds.txt'),
+                                        sep='\t',header=None).values,
+                
+                        t_r=2,detrend=False,standardize='zscore')
+                                                            for phase in data}
+    #extract the givin timecourse for each run
+    def timecourse(self,phases=None): 
+
+
+
 
 def autofill_fsf(template='',ses=None):
     outstr = re.search('template_(.*)',template)[1]
