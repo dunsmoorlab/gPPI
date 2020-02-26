@@ -50,4 +50,38 @@ class fmriprep_preproc():
         mask = 'fslmaths %s -mas %s %s'%(self.subj.faa,self.subj.refvol_mask,self.subj.faa)
         for cmd in [reg,v2v,mask]: os.system(cmd)
 
+    def fs_mask(self):
+
+        rois = {
+                 'mOFC':{'l':1014,
+                         'r':2014},
+
+                 'amyg':{'l':18,
+                         'r':54},
+
+                 'hpc':{'l':17,
+                        'r':53},
+
+                 'dACC':{'l':1002,
+                         'r':2002},
+
+                 'ins':{'l':1035,
+                        'r':2035}
+                 }
+
+        for roi in rois:
+            for hemi in roi:
+                #make the hemisphere specific masks
+                out = os.path.join(self.subj.masks,'%sh_%s.nii.gz'%(hemi,roi))
+                thr = rois[roi][hemi]
+                cmd = 'fslmaths %s -thr %s -uthr %s -bin %s'%(self.subj.faa,thr,thr,out)
+                os.system(cmd)
+            #make the joint mask
+            l = os.path.join(self.subj.masks,'lh_%s.nii.gz'%(roi))
+            r = os.path.join(self.subj.masks,'rh_%s.nii.gz'%(roi))
+            out = os.path.join(self.subj.masks,'%s_mask.nii.gz'%(roi))
+            cmd = 'fslmaths %s -add %s -bin %s'%(l,r,out)
+            os.system(cmd)
+
+
 

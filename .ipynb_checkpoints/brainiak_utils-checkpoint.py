@@ -22,7 +22,7 @@ def _double_gamma_hrf(response_delay=6,
         How wide is the rising peak dispersion
     undershoot_dispersion : float
         How wide is the undershoot dispersion
-    response_: float
+    response_scale : float
          How big is the response relative to the peak
     undershoot_scale :float
         How big is the undershoot relative to the trough

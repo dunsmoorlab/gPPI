@@ -4,6 +4,18 @@
 		"selected_items":
 		[
 			[
+				"ref",
+				"refvol_brain"
+			],
+			[
+				"p",
+				"Popen"
+			],
+			[
+				"ex",
+				"except"
+			],
+			[
 				"mode",
 				"model_dir"
 			],
@@ -14,10 +26,6 @@
 			[
 				"prepro",
 				"preproc_dir"
-			],
-			[
-				"ref",
-				"refvol_mask"
 			],
 			[
 				"prep",
@@ -150,10 +158,6 @@
 			[
 				"dcm2",
 				"dcm2bids_call"
-			],
-			[
-				"ex",
-				"exists"
 			],
 			[
 				"en",
@@ -510,10 +514,6 @@
 			[
 				"mvpa_pre",
 				"mvpa_prepped"
-			],
-			[
-				"csv",
-				"csv_dir"
 			]
 		]
 	},
@@ -523,7 +523,26 @@
 			"file": "bids_model.py",
 			"settings":
 			{
-				"buffer_size": 9308,
+				"buffer_size": 10851,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "fg_preproc.py",
+			"settings":
+			{
+				"buffer_size": 2508,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "fg_config.py",
+			"settings":
+			{
+				"buffer_size": 3566,
+				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
 		}
@@ -612,6 +631,9 @@
 	],
 	"file_history":
 	[
+		"/Users/ach3377/Dropbox (LewPeaLab)/Gus/gPPI/lss_29.o2715542",
+		"/Users/ach3377/Dropbox (LewPeaLab)/Gus/gPPI/fg_config.py",
+		"/Users/ach3377/Dropbox (LewPeaLab)/Gus/gPPI/lss_25.o2715538",
 		"/Users/ach3377/Dropbox (LewPeaLab)/Gus/gPPI/gPPI.sublime-project",
 		"/Users/ach3377/Dropbox (LewPeaLab)/Gus/gPPI/fg_preproc.py",
 		"/Users/ach3377/Dropbox (LewPeaLab)/Gus/gPPI/feats/group_test_RR.fsf",
@@ -619,7 +641,6 @@
 		"/Users/ach3377/Dropbox (LewPeaLab)/STUDY/FearCon/CodeBase/estimate_bs.py",
 		"/Users/ach3377/Dropbox (LewPeaLab)/Gus/gPPI/bids_model.py",
 		"/Users/ach3377/Dropbox (LewPeaLab)/Gus/gPPI/feats/template_lvl1_acq_RR.fsf",
-		"/Users/ach3377/Dropbox (LewPeaLab)/Gus/gPPI/fg_config.py",
 		"/Users/ach3377/Dropbox (LewPeaLab)/Gus/gPPI/bids_events.py",
 		"/Users/ach3377/Dropbox (LewPeaLab)/Gus/gPPI/bids_preproc.py",
 		"/Users/ach3377/Dropbox (LewPeaLab)/Gus/gPPI/fc_config.py",
@@ -737,19 +758,18 @@
 		"/Users/ach3377/Dropbox (LewPeaLab)/STUDY/FearCon/CodeBase/viewer.py",
 		"/Users/ach3377/Dropbox (LewPeaLab)/STUDY/RetroPress/retropress/rp_behavioral.py",
 		"/Users/ach3377/Dropbox (LewPeaLab)/STUDY/FearCon/CodeBase/cns19.py",
-		"/Users/ach3377/Dropbox (LewPeaLab)/STUDY/ExPress/ex_exp.py",
-		"/Users/ach3377/Dropbox (LewPeaLab)/STUDY/FearCon/CodeBase/signal_change.py",
-		"/Users/ach3377/Dropbox (LewPeaLab)/STUDY/FearCon/CodeBase/tacc_move.py"
+		"/Users/ach3377/Dropbox (LewPeaLab)/STUDY/ExPress/ex_exp.py"
 	],
 	"find":
 	{
-		"height": 41.0
+		"height": 54.0
 	},
 	"find_in_files":
 	{
 		"height": 156.0,
 		"where_history":
 		[
+			""
 		]
 	},
 	"find_state":
@@ -757,6 +777,10 @@
 		"case_sensitive": true,
 		"find_history":
 		[
+			"sub-FC004",
+			"memory_run-02",
+			"error",
+			"sub-FC002"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -774,7 +798,7 @@
 	"groups":
 	[
 		{
-			"selected": 0,
+			"selected": 1,
 			"sheets":
 			[
 				{
@@ -783,15 +807,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 9308,
+						"buffer_size": 10851,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								8963,
+								8963
 							]
 						],
 						"settings":
@@ -801,10 +825,70 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 6000.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "fg_preproc.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2508,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2133,
+								2133
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 443.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "fg_config.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3566,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3284,
+								3284
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1755.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
 					"type": "text"
 				}
 			]

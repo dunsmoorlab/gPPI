@@ -84,7 +84,9 @@ class bids_meta(object):
 
             self.fs_regmat = os.path.join(self.reference,'RegMat.dat')
             self.faa       = os.path.join(self.reference,'aparc+aseg.nii.gz')
-    
+            
+            self.masks  = os.path.join(self.preproc_dir,'masks');mkdir(self.masks)
+            
     def cs_lookup(self):    
         if self.meta['DataFile.Basename'][0][0] == 'A':
             self.csplus = 'animal'

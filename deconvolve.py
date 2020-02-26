@@ -50,7 +50,7 @@ xb = dct_mat(int(N*NT),N)
 Hxb = np.zeros((N,N))
 for i in range(N):
     Hx = convolve(xb[:,i],hrf)
-    Hxb[:,i] = Hx[k]
+    Hxb[:,i] = Hx
 xb = xb[:,:]
 
 ####ethan help code
