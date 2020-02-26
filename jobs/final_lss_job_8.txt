@@ -1,0 +1,12 @@
+feat /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC111/memory_run-01/lss_betas/trial_60/trial_60.fsf
+feat /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC111/memory_run-01/lss_betas/trial_61/trial_61.fsf
+feat /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC111/memory_run-01/lss_betas/trial_62/trial_62.fsf
+feat /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC111/memory_run-01/lss_betas/trial_63/trial_63.fsf
+feat /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC111/memory_run-01/lss_betas/trial_64/trial_64.fsf
+feat /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC111/memory_run-01/lss_betas/trial_65/trial_65.fsf
+feat /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC111/memory_run-01/lss_betas/trial_66/trial_66.fsf
+feat /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC111/memory_run-01/lss_betas/trial_67/trial_67.fsf
+feat /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC111/memory_run-01/lss_betas/trial_68/trial_68.fsf
+feat /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC111/memory_run-01/lss_betas/trial_69/trial_69.fsf
+feat /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC111/memory_run-01/lss_betas/trial_70/trial_70.fsf
+feat /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC111/memory_run-01/lss_betas/trial_71/trial_71.fsf

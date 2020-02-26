@@ -270,8 +270,8 @@ def wrap_lss_jobs():
     for job in ['acquisition','extinction','baseline']:
         os.system('launch -N 1 -n 12 -J %s -s jobs/%s_rsa_job.txt -m achennings@utexas.edu -p normal -r 12:00:00')
 
-    for job in [1,2,3,4]:
-        os.system('launch -N 1 -n 12 -J lss_%s -s jobs/lss_rep_%s.txt -m achennings@utexas.edu -p normal -r 12:00:00 -A fMRI-Fear-Conditioni'%(job,job))
+    for job in range(28):
+        os.system('launch -N 1 -n 12 -J flss_%s -s jobs/final_lss_job_%s.txt -m achennings@utexas.edu -p normal -r 12:00:00 -A LewPea_MRI_Analysis'%(job,job))
 # q = [os.path.join(self.subj.prep_dir,folder[0],file) )
 #                         for folder in os.walk(self.subj.prep_dir)
 #                         for file in folder[2]
