@@ -182,7 +182,7 @@ class lss():
             #mask them too
             os.system('fslmaths %s -mas %s %s'%(beta_fname,self.subj.refvol_mask,beta_fname))
 
-class gPPI()
+class gPPI():
     
     def __init__(self,sub,mask=None,phases=None,coor=None):
 
