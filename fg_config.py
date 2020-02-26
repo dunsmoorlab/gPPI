@@ -13,7 +13,7 @@ subjects = {'control':sub_args,
 WORK = '/work/05426/ach3377/lonestar/'
 HOME = '/home1/05426/ach3377/'
 SCRATCH = '/scratch/05426/ach3377/'
-gPPI = HOME + 'gPPI/'
+gPPI_codebase = HOME + 'gPPI/'
 
 def mkdir(path):
     if not os.path.exists(path):
