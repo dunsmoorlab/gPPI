@@ -227,6 +227,7 @@ class gPPI():
                 
                         t_r=2,detrend=False,standardize='zscore')
                                                             for phase in data}
+        return data
     #extract the givin timecourse for each run
     def timecourse(self,phases=None): 
 
