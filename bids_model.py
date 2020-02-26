@@ -184,11 +184,12 @@ class lss():
 
 class gPPI():
     
-    def __init__(self,sub,mask=None,phases=None,coor=None):
+    def __init__(self,sub,mask=None,phases=None):
 
         self.subj = bids_meta(sub)
         self.mask = self._load_mask(mask)
         # self.timecourse()
+        print(phases)
         self.data = self._load_clean_data(phases=phases)
 
     def _load_mask(self,mask):
