@@ -189,7 +189,6 @@ class gPPI():
         self.subj = bids_meta(sub)
         self.mask = self._load_mask(mask)
         # self.timecourse()
-        print(phases)
         self.data = self._load_clean_data(phases=phases)
 
     def _load_mask(self,mask):
@@ -210,7 +209,7 @@ class gPPI():
             values = np.transpose(values) #swap axes to get feature X sample
         return values
     
-    def _load_clean_data(phases=None):
+    def _load_clean_data(self,phases=None):
         if phases is 'all':
             phases = tasks
         elif type(phases) is str:
