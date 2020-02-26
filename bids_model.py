@@ -230,7 +230,7 @@ class gPPI():
     #extract the givin timecourse for each run
     def timecourse(self,phases=None): 
 
-
+        pass
 
 
 def autofill_fsf(template='',ses=None):
