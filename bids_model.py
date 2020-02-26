@@ -188,7 +188,7 @@ class gPPI():
 
         self.subj = bids_meta(sub)
         self.mask = self._load_mask(mask)
-        self.timecourse()
+        # self.timecourse()
         self.data = self._load_clean_data(phases=phase)
 
     def _load_mask(self,mask):
@@ -212,7 +212,7 @@ class gPPI():
     def _load_clean_data(phases=None):
         if phases is 'all':
             phases = tasks
-        elif type(phases) == str:
+        elif type(phases) is str:
             phases = [phases]
 
         #load the data
