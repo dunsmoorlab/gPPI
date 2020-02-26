@@ -218,7 +218,7 @@ class gPPI():
         #load the data
         data = {phase:get_data(os.path.join(self.subj.func,file)) for phase in phases for file in os.listdir(self.subj.func) if phase in file}
         #mask the data
-        data = {phase: _apply_mask(target=data[phase]) for phase in data}
+        data = {phase: self._apply_mask(target=data[phase]) for phase in data}
         #clean the data
         data = {phase: clean(data[phase],
                         
