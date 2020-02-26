@@ -201,7 +201,7 @@ class gPPI():
 
             return get_data(fname)
     
-    def _apply_mask(self,target=None):
+    def _apply_mask(self,mask=self.mask,target=None):
 
         coor = np.where(mask == 1)
         values = target[coor]
