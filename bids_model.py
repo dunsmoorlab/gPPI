@@ -278,11 +278,11 @@ def wrap_lss_jobs():
 #                         if 'T1w_desc-brain_mask.nii.gz' in file]
 
 def clean_bad_lss():
-    bad = pd.read_csv('bad_lss_orig.txt',header=None)
+    bad = pd.read_csv('bad_lss.txt',header=None)
     for beta in bad[0]:
         trial = beta[-8:]
-        # for beta_path in [beta+'.feat', beta+'/'+trial+'.feat', beta+'+.feat', beta+'/'+trial+'+.feat']:
-        #     if os.path.exists(beta_path):
-        #         # print(os.path.exists(beta_path))
-        #         os.system('rm -r %s'%(beta_path))
+        for beta_path in [beta+'.feat', beta+'/'+trial+'.feat', beta+'+.feat', beta+'/'+trial+'+.feat']:
+            if os.path.exists(beta_path):
+                # print(os.path.exists(beta_path))
+                os.system('rm -r %s'%(beta_path))
         os.system('echo "feat %s/%s.fsf" >> jobs/bad_lss_job.txt'%(beta,trial))
