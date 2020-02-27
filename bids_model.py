@@ -192,6 +192,7 @@ class gPPI():
         self.mask = self.load_mask(mask)
         self.data = self.load_clean_data(phases=phases)
         self.extract_timecourse()
+        self._autofill_fsf()
 
     def load_mask(self,mask):
         
@@ -241,7 +242,7 @@ class gPPI():
                 df = pd.Series(self.neuronal[phase])
                 df.to_csv(os.path.join(self.subj.model_dir,phase,'%s_neuronal_signal.txt'%(self.mask_name)),
                     sep='\t', float_format='%.8e', index=False, header=False)
-
+        
     def _autofill_fsf(self):
         for phase in self.neuronal:
             template = os.path.join(gPPI_codebase,'feats','template_%s_CS_PPI.fsf'%(phase))
