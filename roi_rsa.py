@@ -116,13 +116,19 @@ class roi_rsa():
         self.encoding_labels = pd.concat(self.encoding_labels.values(),sort=False)
         self.encoding_labels.reset_index(inplace=True,drop=True) #need this bc phase events are all numbered the same
         self.encoding_data = np.concatenate([self.encoding_data['baseline'],self.encoding_data['acquisition'],self.encoding_data['extinction']],axis=-1)
+        print('ENCODING DATA SHAPE =',self.encoding_data.shape)
         #same for retrieval, except we have to remove foils
         self.mem_labels = pd.concat(self.mem_labels.values(),sort=False)
+        
         foil_mask = self.mem_labels.memory_condition.isin(['Old'])
+        
         self.mem_labels = self.mem_labels[foil_mask].reset_index(drop=True)
+        
         self.mem_data = np.concatenate([self.mem_data['memory_run-01'],self.mem_data['memory_run-02'],self.mem_data['memory_run-03']],axis=-1)
+        
+        print('MEM_DATA SHAPE =',self.mem_data.shape)
         self.mem_data = np.array([self.mem_data[:,:,:,i] for i in foil_mask if i is True])
-        print('MEM_DATA SHAPE = ',self.mem_data.shape)
+        print('MEM_DATA SHAPE =',self.mem_data.shape)
 
 
         #we need this for the roi bootstrapping, probably best to do it here and broadcast

@@ -4,8 +4,24 @@
 		"selected_items":
 		[
 			[
+				"memory",
+				"memory_run-01"
+			],
+			[
+				"ac",
+				"acquisition"
+			],
+			[
+				"conca",
+				"concatenate"
+			],
+			[
 				"prepro",
-				"preproc"
+				"preproc_dir"
+			],
+			[
+				"model",
+				"model_dir"
 			],
 			[
 				"ref",
@@ -90,10 +106,6 @@
 			[
 				"sc",
 				"Schizophrenic"
-			],
-			[
-				"conca",
-				"concat"
 			],
 			[
 				"Dara",
@@ -502,50 +514,11 @@
 			[
 				"displa",
 				"display_first_levels"
-			],
-			[
-				"pl",
-				"plot_stat_map"
-			],
-			[
-				"scene",
-				"scenes"
-			],
-			[
-				"mvpa_pre",
-				"mvpa_prepped"
 			]
 		]
 	},
 	"buffers":
 	[
-		{
-			"file": "bids_model.py",
-			"settings":
-			{
-				"buffer_size": 10851,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "fg_preproc.py",
-			"settings":
-			{
-				"buffer_size": 3583,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "fg_config.py",
-			"settings":
-			{
-				"buffer_size": 3670,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		}
 	],
 	"build_system": "",
 	"build_system_choices":
@@ -558,6 +531,30 @@
 		"last_filter": "",
 		"selected_items":
 		[
+			[
+				":w",
+				":w - Save"
+			],
+			[
+				"Packagereser",
+				"PackageResourceViewer: Open Resource"
+			],
+			[
+				"Packageresource",
+				"PackageResourceViewer: Open Resource"
+			],
+			[
+				"colorsublime",
+				"Colorsublime: Install Theme"
+			],
+			[
+				"PackageResource",
+				"PackageResourceViewer: Open Resource"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
 			[
 				"color",
 				"Colorsublime: Install Theme"
@@ -585,10 +582,6 @@
 			[
 				"prv",
 				"PackageResourceViewer: Extract Package"
-			],
-			[
-				"insta",
-				"Package Control: Install Package"
 			],
 			[
 				"settings",
@@ -631,15 +624,21 @@
 	],
 	"file_history":
 	[
-		"/Users/ach3377/Dropbox (LewPeaLab)/Gus/gPPI/lss_29.o2715542",
 		"/Users/ach3377/Dropbox (LewPeaLab)/Gus/gPPI/fg_config.py",
+		"/Users/ach3377/Dropbox (LewPeaLab)/Gus/gPPI/fg_preproc.py",
+		"/Users/ach3377/Dropbox (LewPeaLab)/Gus/gPPI/deconvolve.ipynb",
+		"/Users/ach3377/Dropbox (LewPeaLab)/Gus/gPPI/bids_model.py",
+		"/Users/ach3377/Dropbox (LewPeaLab)/Gus/gPPI/roi_rsa.py",
+		"/Users/ach3377/Library/Application Support/Sublime Text 3/Packages/Colorsublime - Themes/cache/Colorsublime-Themes-master/themes/mutedrainbow_sky.tmTheme",
+		"/Users/ach3377/Library/Application Support/Sublime Text 3/Packages/Colorsublime/Colorsublime.sublime-settings",
+		"/Users/ach3377/Library/Application Support/Sublime Text 3/Packages/Colorsublime/colorsublime/theme.py",
+		"/Users/ach3377/Library/Application Support/Sublime Text 3/Packages/Colorsublime/package-metadata.json",
+		"/Users/ach3377/Dropbox (LewPeaLab)/Gus/gPPI/lss_29.o2715542",
 		"/Users/ach3377/Dropbox (LewPeaLab)/Gus/gPPI/lss_25.o2715538",
 		"/Users/ach3377/Dropbox (LewPeaLab)/Gus/gPPI/gPPI.sublime-project",
-		"/Users/ach3377/Dropbox (LewPeaLab)/Gus/gPPI/fg_preproc.py",
 		"/Users/ach3377/Dropbox (LewPeaLab)/Gus/gPPI/feats/group_test_RR.fsf",
 		"/Users/ach3377/Dropbox (LewPeaLab)/Gus/gPPI/prep_test.o2706070",
 		"/Users/ach3377/Dropbox (LewPeaLab)/STUDY/FearCon/CodeBase/estimate_bs.py",
-		"/Users/ach3377/Dropbox (LewPeaLab)/Gus/gPPI/bids_model.py",
 		"/Users/ach3377/Dropbox (LewPeaLab)/Gus/gPPI/feats/template_lvl1_acq_RR.fsf",
 		"/Users/ach3377/Dropbox (LewPeaLab)/Gus/gPPI/bids_events.py",
 		"/Users/ach3377/Dropbox (LewPeaLab)/Gus/gPPI/bids_preproc.py",
@@ -752,17 +751,11 @@
 		"/Users/ach3377/Dropbox (LewPeaLab)/Dunsmoor Lab/posgen/gengraph.py",
 		"/Users/ach3377/Dropbox (LewPeaLab)/STUDY/FearCon/CodeBase/lil_bootstrap.py",
 		"/Users/ach3377/Desktop/fcmantra",
-		"/Users/ach3377/matlab/startup.m",
-		"/Users/ach3377/Dropbox (LewPeaLab)/STUDY/FearCon/CodeBase/group_mem.py",
-		"/Users/ach3377/Dropbox (LewPeaLab)/STUDY/FearCon/CodeBase/fc_decoding.py",
-		"/Users/ach3377/Dropbox (LewPeaLab)/STUDY/FearCon/CodeBase/viewer.py",
-		"/Users/ach3377/Dropbox (LewPeaLab)/STUDY/RetroPress/retropress/rp_behavioral.py",
-		"/Users/ach3377/Dropbox (LewPeaLab)/STUDY/FearCon/CodeBase/cns19.py",
-		"/Users/ach3377/Dropbox (LewPeaLab)/STUDY/ExPress/ex_exp.py"
+		"/Users/ach3377/matlab/startup.m"
 	],
 	"find":
 	{
-		"height": 54.0
+		"height": 57.0
 	},
 	"find_in_files":
 	{
@@ -777,6 +770,18 @@
 		"case_sensitive": true,
 		"find_history":
 		[
+			"self.mem_data = ",
+			"concatenate",
+			"w_slice",
+			"self.subj",
+			"get_data",
+			"ref",
+			"gPPI",
+			"func",
+			"function",
+			"HEAD",
+			"gPPI",
+			"clean",
 			"sub-FC004",
 			"memory_run-02",
 			"error",
@@ -798,99 +803,8 @@
 	"groups":
 	[
 		{
-			"selected": 1,
 			"sheets":
 			[
-				{
-					"buffer": 0,
-					"file": "bids_model.py",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 10851,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								8963,
-								8963
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Python/Python.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "fg_preproc.py",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 3583,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								3579,
-								3579
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Python/Python.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 1785.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "fg_config.py",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 3670,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								3388,
-								3388
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Python/Python.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 100.0,
-						"translation.y": 2030.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				}
 			]
 		}
 	],
@@ -960,12 +874,12 @@
 	},
 	"select_symbol":
 	{
-		"height": 0.0,
+		"height": 392.0,
 		"last_filter": "",
 		"selected_items":
 		[
 		],
-		"width": 0.0
+		"width": 592.0
 	},
 	"selected_group": 0,
 	"settings":
