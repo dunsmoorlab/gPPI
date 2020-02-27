@@ -8,4 +8,4 @@
 
 
 
-launch -N 1 -n 12 -J rsa_mod -s jobs/rsa_job.txt -m achennings@utexas.edu -p normal -r 12:00:00 -A fMRI-Fear-Conditioni
+launch -N 48 -n 1 -J gPPI -s jobs/acq_CS_gPPI_job.txt -m achennings@utexas.edu -p normal -r 12:00:00 -A LewPea_MRI_Analysis
