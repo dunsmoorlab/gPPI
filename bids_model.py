@@ -270,12 +270,13 @@ def wrap_lss_jobs():
     for job in ['acquisition','extinction','baseline']:
         os.system('launch -N 1 -n 12 -J %s -s jobs/%s_rsa_job.txt -m achennings@utexas.edu -p normal -r 12:00:00')
 
+    #submit a bunch of jobs at once
     for job in range(28):
         os.system('launch -N 1 -n 12 -J flss_%s -s jobs/final_lss_job_%s.txt -m achennings@utexas.edu -p normal -r 12:00:00 -A LewPea_MRI_Analysis'%(job,job))
-# q = [os.path.join(self.subj.prep_dir,folder[0],file) )
-#                         for folder in os.walk(self.subj.prep_dir)
-#                         for file in folder[2]
-#                         if 'T1w_desc-brain_mask.nii.gz' in file]
+
+    #splitting up a bunch of jobs into different job scripts
+    for i in range(bad.shape[0]):
+        os.system('echo "%s" >> jobs/final_lss_job_%s.txt'%(bad[0][i],int(np.floor(i/12))))
 
 def clean_bad_lss():
     bad = pd.read_csv('bad_lss.txt',header=None)
