@@ -124,7 +124,7 @@ class lss():
                     self._autofill_lss(lss_dir=lss_dir,phase=phase,n_trials=events.shape[0])
 
     def _autofill_lss(self,lss_dir,phase,n_trials):
-            template = os.path.join(gPPI,'feats','template_lss_%s.fsf'%(phase))
+            template = os.path.join(gPPI_codebase,'feats','template_lss_%s.fsf'%(phase))
 
             replacements = {'SUBID':self.subj.fsub}            
             #need to handle the special cases where the TR is longer
@@ -188,9 +188,10 @@ class gPPI():
     def __init__(self,sub,mask=None,phases=None):
 
         self.subj = bids_meta(sub)
+        self.mask_name = mask
         self.mask = self.load_mask(mask)
         self.data = self.load_clean_data(phases=phases)
-        self.extract_timecourse(mask_name=mask)
+        self.extract_timecourse()
 
     def load_mask(self,mask):
         
@@ -232,14 +233,39 @@ class gPPI():
         return data
 
     #extract the givin timecourse for each run
-    def extract_timecourse(self,mask_name=None): 
+    def extract_timecourse(self): 
         #deconvolve
         self.neuronal = {phase: self._deconvolve(self.data[phase]) for phase in self.data}
 
         for phase in self.neuronal:
                 df = pd.Series(self.neuronal[phase])
-                df.to_csv(os.path.join(self.subj.model_dir,phase,'%s_neuronal_signal.txt'%(mask_name)),
+                df.to_csv(os.path.join(self.subj.model_dir,phase,'%s_neuronal_signal.txt'%(self.mask_name)),
                     sep='\t', float_format='%.8e', index=False, header=False)
+
+    def _autofill_fsf(self):
+        for phase in self.neuronal:
+            template = os.path.join(gPPI_codebase,'feats','template_%s_CS_PPI.fsf'%(phase))
+
+            replacements = {'SUBID':self.subj.fsub,
+                            'ROIID':self.mask_name}            
+            
+            #need to handle the special cases where the TR is longer
+            if self.subj.num in [105,106]:
+                replacements['TR_length'] = '2.23'
+            else:
+                replacements['TR_length'] = '2'
+        
+            outfeat = os.path.join(self.subj.feat_dir,'%s_%s_%s_PPI.fsf'%(self.subj.fsub,phase,self.mask_name))
+
+            with open(template) as infile: 
+                with open(outfeat, 'w') as outfile:
+                    for line in infile:
+                        for src, target in replacements.items():
+                            line = line.replace(src, target)
+                        outfile.write(line)
+
+            #also go ahead and make the job script here
+            os.system('echo "feat %s" >> jobs/%s_job.txt'%(outfeat,'acq_CS_gPPI')) 
         
 
     def _deconvolve(self,dat):
@@ -292,7 +318,7 @@ def autofill_fsf(template='',ses=None):
 
         outfeat = os.path.join(subj.feat_dir,'%s_%s.fsf'%(subj.fsub,outstr))
 
-        with open(os.path.join(gPPI,'feats','%s.fsf'%(template))) as infile: 
+        with open(os.path.join(gPPI_codebase,'feats','%s.fsf'%(template))) as infile: 
             with open(outfeat, 'w') as outfile:
                 for line in infile:
                     for src, target in replacements.items():
