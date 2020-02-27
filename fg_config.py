@@ -87,6 +87,8 @@ class bids_meta(object):
             
             self.masks  = os.path.join(self.preproc_dir,'masks');mkdir(self.masks)
             self.weights = os.path.join(self.preproc_dir,'rsa_weights');mkdir(self.weights)
+
+            self.rsa = os.path.join(self.model_dir,'rsa_results');mkdir(self.rsa)
     def cs_lookup(self):    
         if self.meta['DataFile.Basename'][0][0] == 'A':
             self.csplus = 'animal'

@@ -51,7 +51,7 @@ class roi_rsa():
 
         
         #hardcode rois for now
-        if self.fs: self.rois = ['vmPFC','dACC','amyg_cem','amyg_bla','hc_head','hc_body','hc_tail'] 
+        if self.fs: self.rois = ['mOFC','dACC','amyg_cem','amyg_bla','hc_head','hc_body','hc_tail'] 
             # if hemi:
                 # self.rois = ['rh_hc_head','rh_hc_body','rh_hc_tail','rh_amyg_bla','rh_amyg_cem',
                 #              'lh_hc_head','lh_hc_body','lh_hc_tail','lh_amyg_bla','lh_amyg_cem']
@@ -87,7 +87,7 @@ class roi_rsa():
                 for cs in self.conditions:
                     _con = self.conditions[cs]+'_'+'trial'
                     events[_con] = ''
-                    events.loc[np.where(events.trial_type==cs,)[0],_con] = [i for i in range(1,25)]
+                    events.loc[np.where(events.trial_type==cs)[0],_con] = [i for i in range(1,25)]
                     
 
                 events['phase'] = phase #this isn't in the dataframe yet
@@ -98,13 +98,13 @@ class roi_rsa():
                 #load in the weights here
                 self.W[phase] = OrderedDict()
                 for con in self.conditions:
-                    self.W[phase][con] = nib.load(
+                    self.W[phase][con] = get_data(
                             os.path.join(
-                            self.weight_dir,'%s_%s.nii.gz'%
-                            (self.w_phases[phase],self.conditions[con])))
+                            self.subj.weights,'%s_%s.nii.gz'%
+                            (phase,self.conditions[con])))
         
             elif phase in self.mem_phases:
-                events = glm_timing(self.subj.num,phase).mem_events(stims=True)
+                events = bids_events(self.subj.num).phase_events(phase=phase)
                 events['phase'] = phase #add phase to df
                 #save labels & data
                 self.mem_labels[phase] = events
@@ -113,19 +113,19 @@ class roi_rsa():
         #get 1 dataframe & image for encoding
         self.encoding_labels = pd.concat(self.encoding_labels.values())
         self.encoding_labels.reset_index(inplace=True,drop=True) #need this bc phase events are all numbered the same
-        self.encoding_data = nib.concat_images(self.encoding_data.values(),axis=3)
+        self.encoding_data = np.concatenate(self.encoding_data.values(),axis=-1)
         #same for retrieval, except we have to remove foils
         self.mem_labels = pd.concat(self.mem_labels.values())
-        foil_mask = self.mem_labels.memcond.isin(['Old'])
+        foil_mask = self.mem_labels.memory_condition.isin(['Old'])
         self.mem_labels = self.mem_labels[foil_mask].reset_index(drop=True)
-        self.mem_data = image.index_img(nib.concat_images(self.mem_data.values(),axis=3), foil_mask)
+        self.mem_data = (np.concatenate(self.mem_data.values(),axis=-1))[:,:,:foil_mask]
 
         #we need this for the roi bootstrapping, probably best to do it here and broadcast
-        self.dACC_nvox = np.where( nib.load(os.path.join(self.subj.fs_mask,'dACC.nii.gz')).get_data() == 1 )[0].shape[0]
+        self.dACC_nvox = np.where( get_data(os.path.join(self.subj.masks,'dACC_mask.nii.gz')) == 1 )[0].shape[0]
 
     def apply_mask(self,roi=None,target=None):
         #pass in an roi and a nifti image to return the data located in the roi mask
-        mask = nib.load(os.path.join(self.subj.fs_mask,'%s.nii.gz'%(roi)))
+        mask = get_data(os.path.join(self.subj.masks,'%s_mask.nii.gz'%(roi)))
         # else: mask = nib.load(os.path.join(self.subj.roi,'%s_mask.nii.gz'%(roi)))
         coor = np.where(mask == 1)
         values = target[coor]
@@ -173,7 +173,7 @@ class roi_rsa():
                 mem_trial      = mem_data[mem_loc] * W[_phase][_trial_type]
 
                 
-                if roi == 'vmPFC':
+                if roi == 'mOFC':
                     self.rsa.loc[i,roi] = self.boot_rsa(encoding_trial,mem_trial)
                 else:
                     p = pearsonr(encoding_trial,mem_trial)[0]
@@ -227,6 +227,7 @@ class roi_rsa():
             self.cross_mats[roi]['ers'] = ers_mat
         with open(os.path.join(self.subj.rsa,'cross_mats.p'),'wb') as file:
             pickle.dump(self.cross_mats,file)
+
 class group_roi_rsa():
 
     def __init__(self,group='control',ext_split=True,fs=True,hemi=False):
