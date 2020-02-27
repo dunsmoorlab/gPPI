@@ -122,7 +122,7 @@ class roi_rsa():
         self.mem_labels = self.mem_labels[foil_mask].reset_index(drop=True)
         self.mem_data = np.concatenate([self.mem_data['memory_run-01'],self.mem_data['memory_run-02'],self.mem_data['memory_run-03']],axis=-1)
         self.mem_data = np.array([self.mem_data[:,:,:,i] for i in foil_mask if i is True])
-        print('MEM_DATA SHAPE = %s'%(self.mem_data.shape))
+        print('MEM_DATA SHAPE = ',self.mem_data.shape)
 
 
         #we need this for the roi bootstrapping, probably best to do it here and broadcast
