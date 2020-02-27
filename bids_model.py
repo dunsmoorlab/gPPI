@@ -8,6 +8,7 @@ from collections import OrderedDict
 from nilearn.image import concat_imgs, get_data
 from nilearn.signal import clean
 from sklearn.linear_model import Ridge
+from scipy.signal import convolve
 
 from fg_config import *
 from brainiak_utils import _double_gamma_hrf, convolve_hrf
@@ -101,24 +102,24 @@ class lss():
 
                     trial_types = events.trial_type.unique()
 
-                    # for trial in range(events.shape[0]):
-                    #     beta_folder = os.path.join(lss_dir,'trial_{0:0=2d}'.format(trial))
-                    #     mkdir(beta_folder)
-                    #     beta_trial = events.loc[trial,['onset','duration']]
-                    #     beta_trial['PM'] = 1
-                    #     beta_trial.to_csv(os.path.join(beta_folder,'beta.txt'),
-                    #                 sep='\t', float_format='%.8e', index=False, header=False)
+                    for trial in range(events.shape[0]):
+                        beta_folder = os.path.join(lss_dir,'trial_{0:0=2d}'.format(trial))
+                        mkdir(beta_folder)
+                        beta_trial = events.loc[trial,['onset','duration']]
+                        beta_trial['PM'] = 1
+                        beta_trial.to_csv(os.path.join(beta_folder,'beta.txt'),
+                                    sep='\t', float_format='%.8e', index=False, header=False)
 
-                    #     for i, condition in enumerate(trial_types):
-                    #         #grab all trials of each condition
-                    #         con_trials = np.where(events.trial_type == condition)[0]
-                    #         #make sure we don't model the same trial twice
-                    #         con_trials = [t for t in con_trials if t != trial]
-                    #         #get the onsets/durations
-                    #         con_events = events.loc[con_trials,['onset','duration']]
-                    #         con_events['PM'] = 1
-                    #         con_events.to_csv(os.path.join(beta_folder,'no_interest_%s.txt'%(i)),
-                    #                         sep='\t', float_format='%.8e', index=False, header=False)
+                        for i, condition in enumerate(trial_types):
+                            #grab all trials of each condition
+                            con_trials = np.where(events.trial_type == condition)[0]
+                            #make sure we don't model the same trial twice
+                            con_trials = [t for t in con_trials if t != trial]
+                            #get the onsets/durations
+                            con_events = events.loc[con_trials,['onset','duration']]
+                            con_events['PM'] = 1
+                            con_events.to_csv(os.path.join(beta_folder,'no_interest_%s.txt'%(i)),
+                                            sep='\t', float_format='%.8e', index=False, header=False)
 
                     self._autofill_lss(lss_dir=lss_dir,phase=phase,n_trials=events.shape[0])
 
@@ -139,15 +140,15 @@ class lss():
                 beta_folder = os.path.join(lss_dir,trial)
                 outfeat = os.path.join(beta_folder,'%s.fsf'%(trial))
 
-                # with open(template) as infile: 
-                #     with open(outfeat, 'w') as outfile:
-                #         for line in infile:
-                #             for src, target in replacements.items():
-                #                 line = line.replace(src, target)
-                #             outfile.write(line)
+                with open(template) as infile: 
+                    with open(outfeat, 'w') as outfile:
+                        for line in infile:
+                            for src, target in replacements.items():
+                                line = line.replace(src, target)
+                            outfile.write(line)
 
-                # with open('jobs/lss_betas/%s_%s_job.txt'%(self.subj.fsub,phase),'w') as txt_file:
-                #     txt_file.write('feat %s'%(outfeat))
+                with open('jobs/lss_betas/%s_%s_job.txt'%(self.subj.fsub,phase),'w') as txt_file:
+                    txt_file.write('feat %s'%(outfeat))
                 #also go ahead and make the job script here
                 os.system('echo "feat %s" >> jobs/lss_betas/%s_job.txt'%(outfeat,self.subj.fsub))
 
@@ -173,7 +174,7 @@ class lss():
                     except: 
                         os.system('echo "%s" >> bad_lss.txt'%(os.path.join(self.subj.model_dir,task,'lss_betas',trial)))
                         concat_ = False
-#/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC002/memory_run-01/lss_betas/trial_00/trial_00.feat/stats/cope1.nii.gz
+
             if concat_:
                 # concatenate them
                 beta_img = concat_imgs(beta_img.values())
@@ -187,11 +188,11 @@ class gPPI():
     def __init__(self,sub,mask=None,phases=None):
 
         self.subj = bids_meta(sub)
-        self.mask = self._load_mask(mask)
-        # self.timecourse()
-        self.data = self._load_clean_data(phases=phases)
+        self.mask = self.load_mask(mask)
+        self.data = self.load_clean_data(phases=phases)
+        self.extract_timecourse(mask_name=mask)
 
-    def _load_mask(self,mask):
+    def load_mask(self,mask):
         
         if mask is not None:
             if 'mask' in mask or 'lh_' in mask or 'rh_' in mask: 
@@ -209,7 +210,7 @@ class gPPI():
             values = np.transpose(values) #swap axes to get feature X sample
         return values
     
-    def _load_clean_data(self,phases=None):
+    def load_clean_data(self,phases=None):
         if phases is 'all':
             phases = tasks
         elif type(phases) is str:
@@ -217,26 +218,65 @@ class gPPI():
 
         #load the data
         data = {phase:get_data(os.path.join(self.subj.func,file)) for phase in phases for file in os.listdir(self.subj.func) if phase in file}
-        #mask the data
-        data = {phase: self._apply_mask(mask=self.mask,target=data[phase]) for phase in data}
-        #clean the data
-        data = {phase: clean(data[phase],
+        #mask the data and take mean timeseries
+        data = {phase: self._apply_mask(mask=self.mask,target=data[phase]).mean(axis=1) for phase in data}
+        #clean the data 
+        data = {phase: clean(data[phase][:,np.newaxis], #need this here to be feature X sample after meaning
                         
                         confounds=pd.read_csv(os.path.join(self.subj.model_dir,phase,'confounds.txt'),
                                         sep='\t',header=None).values,
                 
                         t_r=2,detrend=False,standardize='zscore')
                                                             for phase in data}
-        #need to check if cleaning >> averaging is the same as averaging >> cleaning
+
         return data
 
     #extract the givin timecourse for each run
-    def timecourse(self,phases=None): 
-        #deconvolve, load in task regressors, multiply, and convolve
-        pass
+    def extract_timecourse(self,mask_name=None): 
+        #deconvolve
+        self.neuronal = {phase: self._deconvolve(self.data[phase]) for phase in self.data}
 
-    def _deconvolve(self):
-        pass
+        for phase in self.neuronal:
+                df = pd.Series(self.neuronal[phase])
+                df.to_csv(os.path.join(self.subj.model_dir,phase,'%s_neuronal_signal.txt'%(mask_name)),
+                    sep='\t', float_format='%.8e', index=False, header=False)
+        
+
+    def _deconvolve(self,dat):
+        #create an HRF in unit AU (0-1)
+        hrf = np.array(_double_gamma_hrf(temporal_resolution=.5))
+        hrf /= np.max(hrf)
+
+        #how long the data is
+        N = dat.shape[0] 
+        
+        #create basis set
+        xb = self._dct_mat(N,N) 
+        
+        #convolve it with HRF
+        Hxb = np.zeros((N,N)) 
+        for i in range(N):
+            Hx = convolve(xb[:,i],hrf)[:N]
+            Hxb[:,i] = Hx
+        
+        #initialize the ridge regression
+        reg = Ridge(alpha=1,solver='lsqr',fit_intercept=False,normalize=False,max_iter=1000)
+        #fit it
+        reg.fit(Hxb,dat)
+        
+        #transforms neuronal signal out of cosine space
+        neuronal = np.matmul(xb,reg.coef_[0,:])
+        # neuronal = [neuronal,np.newaxis]
+        return neuronal
+
+    #basis set function
+    def _dct_mat(self,N_,K_):
+        n = np.array((range(0,N_))).T
+        C_ = np.zeros((n.shape[0],K_))
+        C_[:,0] = np.ones(n.shape[0])/np.sqrt(N_)
+        for q in range(1,K_):
+            C_[:,q] = np.sqrt(2/N_)* np.cos( np.pi*(2*n)* (q) /(2*N_))
+        return C_
 
 def autofill_fsf(template='',ses=None):
     outstr = re.search('template_(.*)',template)[1]
