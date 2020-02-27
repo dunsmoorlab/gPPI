@@ -21,7 +21,7 @@ class bids_events():
         # self.fsl_events()
         # self.confounds()
     
-    def phase_events(self,phase)
+    def phase_events(self,phase):
         ses_ = tasks[task]['ses']
         return pd.read_csv(os.path.join(self.subj.subj_dir,'ses-'+str(ses_),'func',self.subj.fsub+'_ses-'+str(ses_)+'_task-'+phase+'_events.tsv'),sep='\t')
 
