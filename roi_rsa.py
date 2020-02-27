@@ -43,17 +43,18 @@ class roi_rsa():
         #                  'extinction'       : 'ext'
         self.w_slices = {'CS+':{
                              'baseline':slice(0,24),
-                    'fear_conditioning':slice(24,48),                     
+                          'acquisition':slice(24,48),                     
                            'extinction':slice(48,72)},
                          'CS-':{
-                            'baseline':slice(72,96),
-                    'fear_conditioning':slice(96,120),                     
+                             'baseline':slice(72,96),
+                          'acquisition':slice(96,120),                     
                            'extinction':slice(120,144)}
                            }
 
         
         #hardcode rois for now
-        if self.fs: self.rois = ['mOFC','dACC','amyg_cem','amyg_bla','hc_head','hc_body','hc_tail'] 
+        #if self.fs: self.rois = ['mOFC','dACC','amyg_cem','amyg_bla','hc_head','hc_body','hc_tail'] 
+        if self.fs: self.rois = ['mOFC','dACC','amyg','hpc','ins'] 
             # if hemi:
                 # self.rois = ['rh_hc_head','rh_hc_body','rh_hc_tail','rh_amyg_bla','rh_amyg_cem',
                 #              'lh_hc_head','lh_hc_body','lh_hc_tail','lh_amyg_bla','lh_amyg_cem']
@@ -64,7 +65,7 @@ class roi_rsa():
         
         #data needs to be loaded WITHOUT mask to facilitate more intricate analyses
         self.load_data() 
-        # self.compute_item_rsa()
+        self.compute_item_rsa()
         self.compute_cross_rsa()
 
     def load_data(self):
@@ -127,7 +128,9 @@ class roi_rsa():
         self.mem_data = np.concatenate([self.mem_data['memory_run-01'],self.mem_data['memory_run-02'],self.mem_data['memory_run-03']],axis=-1)
         
         print('MEM_DATA SHAPE =',self.mem_data.shape)
-        self.mem_data = np.array([self.mem_data[:,:,:,i] for i in foil_mask if i is True])
+        #self.mem_data = np.array([self.mem_data[:,:,:,i] for i in foil_mask if i is True])
+        foil_mask = foil_mask.values.ravel()
+        self.mem_data = self.mem_data[:,:,:,foil_mask]
         print('MEM_DATA SHAPE =',self.mem_data.shape)
 
 
@@ -156,6 +159,7 @@ class roi_rsa():
     def compute_item_rsa(self):
     
         self.rsa = self.mem_labels.copy().drop(columns=['onset','duration'])
+        self.rsa['encode'] = ''
         for cs in self.conditions: self.rsa[self.conditions[cs]+'_'+'trial'] = ''
         for roi in self.rois:
             print(roi)
@@ -171,11 +175,12 @@ class roi_rsa():
                     W[phase][con] = self.apply_mask(roi,self.W[phase][con])
             
             #great, you've got everything in the mask shape, now run the item rsa
-            for i, stim in enumerate(self.rsa.stim):
+            for i, stim in enumerate(self.rsa.stimulus):
                 mem_loc = i
-                encoding_loc = np.where(self.encoding_labels.stim == stim)[0][0]
+                encoding_loc = np.where(self.encoding_labels.stimulus == stim)[0][0]
                 
-                _phase      = self.rsa.loc[mem_loc,'encode']
+                _phase      = self.encoding_labels.loc[encoding_loc,'phase']
+                self.rsa.loc[mem_loc,'encode'] = _phase
                 _trial_type = self.rsa.loc[mem_loc,'trial_type']
                 _con        = self.conditions[_trial_type]+'_'+'trial'
                 self.rsa.loc[i,_con] = self.encoding_labels.loc[encoding_loc,_con] 
@@ -190,7 +195,7 @@ class roi_rsa():
                     p = pearsonr(encoding_trial,mem_trial)[0]
                     z = np.arctanh(p)
                     self.rsa.loc[i,roi] = z
-                    np.corrcoef()
+                    #np.corrcoef()
                 
 
         self.rsa['subject'] = self.subj.num
@@ -208,7 +213,7 @@ class roi_rsa():
     def compute_cross_rsa(self):
         self.cross_mats = {}
         encode_reorder = list(self.encoding_labels.sort_values(by=['trial_type','phase']).index)
-        mem_reorder = [np.where(self.mem_labels.stim == self.encoding_labels.loc[i,'stim'])[0][0] for i in encode_reorder]
+        mem_reorder = [np.where(self.mem_labels.stimulus == self.encoding_labels.loc[i,'stimulus'])[0][0] for i in encode_reorder]
         for roi in self.rois:
             self.cross_mats[roi] = {}
             print(roi)
