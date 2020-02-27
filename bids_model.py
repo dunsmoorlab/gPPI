@@ -242,7 +242,7 @@ class gPPI():
                 df = pd.Series(self.neuronal[phase])
                 df.to_csv(os.path.join(self.subj.model_dir,phase,'%s_neuronal_signal.txt'%(self.mask_name)),
                     sep='\t', float_format='%.8e', index=False, header=False)
-        
+
     def _autofill_fsf(self):
         for phase in self.neuronal:
             template = os.path.join(gPPI_codebase,'feats','template_%s_CS_PPI.fsf'%(phase))
@@ -354,3 +354,13 @@ def clean_bad_lss():
                 # print(os.path.exists(beta_path))
                 os.system('rm -r %s'%(beta_path))
         os.system('echo "feat %s/%s.fsf" >> jobs/bad_lss_job.txt'%(beta,trial))
+
+def wrangle_first_level():
+    for sub in all_sub_args:
+        subj = bids_meta(sub)
+        for phase in ['baseline','acquisition','extinction']:
+            csp_cope = os.path.join(subj.model_dir,phase,'rsa_model.feat','stats','cope1.nii.gz')
+            csm_cope = os.path.join(subj.model_dir,phase,'rsa_model.feat','stats','cope2.nii.gz')
+
+            os.system('cp %s %s'%(csp_cope,os.path.join(subj.weights,'%s_CSp.nii.gz'%(phase))))
+            os.system('cp %s %s'%(csm_cope,os.path.join(subj.weights,'%s_CSp.nii.gz'%(phase))))

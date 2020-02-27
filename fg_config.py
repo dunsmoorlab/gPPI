@@ -86,7 +86,7 @@ class bids_meta(object):
             self.faa       = os.path.join(self.reference,'aparc+aseg.nii.gz')
             
             self.masks  = os.path.join(self.preproc_dir,'masks');mkdir(self.masks)
-            
+            self.weights = os.path.join(self.preproc_dir,'rsa_weights');mkdir(self.weights)
     def cs_lookup(self):    
         if self.meta['DataFile.Basename'][0][0] == 'A':
             self.csplus = 'animal'
