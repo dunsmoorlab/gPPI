@@ -1,0 +1,265 @@
+ Starting at Wed Feb 26 20:55:37 CST 2020
+ WORKING DIR: /opt/tacc_mounts/home1/05426/ach3377/gPPI/
+ JOB ID:      2721094
+ JOB NAME:    gPPI
+ NODES:       nid0[0054,0063,0076,0114,0272,0622-0623,0630,0669,0693-0694,0787-0791,0809-0814,0816-0818,0848-0850,0873,0876,0978,0982,1033-1034,1057,1066,1074,1119,1151-1153,1155-1156,1251-1253,1303-1304]
+ N NODES:     48
+ N TASKS:     48
+Launcher: Setup complete.
+
+------------- SUMMARY ---------------
+   Number of hosts:    48
+   Working directory:  /opt/tacc_mounts/home1/05426/ach3377/gPPI
+   Processes per host: 1
+   Total processes:    48
+   Total jobs:         48
+   Scheduling method:  dynamic
+
+-------------------------------------
+Launcher: Starting parallel tasks...
+using /tmp/launcher.2721094.hostlist.VlWlEQrM to get hosts
+starting job on nid00054
+starting job on nid00063
+starting job on nid00076
+starting job on nid00114
+starting job on nid00272
+starting job on nid00622
+starting job on nid00623
+starting job on nid00630
+starting job on nid00669
+starting job on nid00693
+starting job on nid00694
+starting job on nid00787
+starting job on nid00788
+starting job on nid00789
+starting job on nid00790
+starting job on nid00791
+starting job on nid00809
+starting job on nid00810
+starting job on nid00811
+starting job on nid00812
+starting job on nid00813
+starting job on nid00814
+starting job on nid00816
+starting job on nid00817
+starting job on nid00818
+starting job on nid00848
+starting job on nid00849
+starting job on nid00850
+starting job on nid00873
+starting job on nid00876
+starting job on nid00978
+starting job on nid00982
+starting job on nid01033
+starting job on nid01034
+starting job on nid01057
+starting job on nid01066
+starting job on nid01074
+starting job on nid01119
+starting job on nid01151
+starting job on nid01152
+starting job on nid01153
+starting job on nid01155
+starting job on nid01156
+starting job on nid01251
+starting job on nid01252
+starting job on nid01253
+starting job on nid01303
+starting job on nid01304
+Launcher: Task 9 running job 1 on nid00693 (feat /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC001/feats/sub-FC001_acquisition_lh_amyg_PPI.fsf)
+Launcher: Task 28 running job 2 on nid00873 (feat /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC002/feats/sub-FC002_acquisition_lh_amyg_PPI.fsf)
+Launcher: Task 16 running job 3 on nid00809 (feat /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC003/feats/sub-FC003_acquisition_lh_amyg_PPI.fsf)
+Launcher: Task 17 running job 4 on nid00810 (feat /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC004/feats/sub-FC004_acquisition_lh_amyg_PPI.fsf)
+Launcher: Task 38 running job 5 on nid01151 (feat /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC005/feats/sub-FC005_acquisition_lh_amyg_PPI.fsf)
+Launcher: Task 27 running job 6 on nid00850 (feat /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC006/feats/sub-FC006_acquisition_lh_amyg_PPI.fsf)
+To view the FEAT progress and final report, point your web browser at /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC001/acquisition/lh_amyg_CS_PPI.feat/report_log.html
+To view the FEAT progress and final report, point your web browser at /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC002/acquisition/lh_amyg_CS_PPI.feat/report_log.html
+To view the FEAT progress and final report, point your web browser at /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC003/acquisition/lh_amyg_CS_PPI.feat/report_log.html
+Launcher: Task 1 running job 7 on nid00063 (feat /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC007/feats/sub-FC007_acquisition_lh_amyg_PPI.fsf)
+Launcher: Task 39 running job 8 on nid01152 (feat /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC008/feats/sub-FC008_acquisition_lh_amyg_PPI.fsf)
+To view the FEAT progress and final report, point your web browser at /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC005/acquisition/lh_amyg_CS_PPI.feat/report_log.html
+To view the FEAT progress and final report, point your web browser at /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC006/acquisition/lh_amyg_CS_PPI.feat/report_log.html
+To view the FEAT progress and final report, point your web browser at /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC004/acquisition/lh_amyg_CS_PPI.feat/report_log.html
+Launcher: Task 13 running job 9 on nid00789 (feat /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC009/feats/sub-FC009_acquisition_lh_amyg_PPI.fsf)
+To view the FEAT progress and final report, point your web browser at /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC007/acquisition/lh_amyg_CS_PPI.feat/report_log.html
+To view the FEAT progress and final report, point your web browser at /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC008/acquisition/lh_amyg_CS_PPI.feat/report_log.html
+Launcher: Task 31 running job 10 on nid00982 (feat /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC010/feats/sub-FC010_acquisition_lh_amyg_PPI.fsf)
+Launcher: Task 21 running job 11 on nid00814 (feat /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC012/feats/sub-FC012_acquisition_lh_amyg_PPI.fsf)
+Launcher: Task 29 running job 12 on nid00876 (feat /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC013/feats/sub-FC013_acquisition_lh_amyg_PPI.fsf)
+To view the FEAT progress and final report, point your web browser at /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC009/acquisition/lh_amyg_CS_PPI.feat/report_log.html
+Launcher: Task 24 running job 13 on nid00818 (feat /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC014/feats/sub-FC014_acquisition_lh_amyg_PPI.fsf)
+To view the FEAT progress and final report, point your web browser at /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC012/acquisition/lh_amyg_CS_PPI.feat/report_log.html
+To view the FEAT progress and final report, point your web browser at /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC010/acquisition/lh_amyg_CS_PPI.feat/report_log.html
+To view the FEAT progress and final report, point your web browser at /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC013/acquisition/lh_amyg_CS_PPI.feat/report_log.html
+Launcher: Task 37 running job 14 on nid01119 (feat /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC015/feats/sub-FC015_acquisition_lh_amyg_PPI.fsf)
+Launcher: Task 3 running job 15 on nid00114 (feat /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC016/feats/sub-FC016_acquisition_lh_amyg_PPI.fsf)
+To view the FEAT progress and final report, point your web browser at /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC014/acquisition/lh_amyg_CS_PPI.feat/report_log.html
+Launcher: Task 35 running job 16 on nid01066 (feat /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC017/feats/sub-FC017_acquisition_lh_amyg_PPI.fsf)
+Launcher: Task 20 running job 17 on nid00813 (feat /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC018/feats/sub-FC018_acquisition_lh_amyg_PPI.fsf)
+Launcher: Task 8 running job 18 on nid00669 (feat /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC019/feats/sub-FC019_acquisition_lh_amyg_PPI.fsf)
+Launcher: Task 46 running job 19 on nid01303 (feat /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC020/feats/sub-FC020_acquisition_lh_amyg_PPI.fsf)
+To view the FEAT progress and final report, point your web browser at /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC016/acquisition/lh_amyg_CS_PPI.feat/report_log.html
+To view the FEAT progress and final report, point your web browser at /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC015/acquisition/lh_amyg_CS_PPI.feat/report_log.html
+Launcher: Task 0 running job 20 on nid00054 (feat /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC021/feats/sub-FC021_acquisition_lh_amyg_PPI.fsf)
+Launcher: Task 43 running job 21 on nid01251 (feat /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC023/feats/sub-FC023_acquisition_lh_amyg_PPI.fsf)
+Launcher: Task 42 running job 22 on nid01156 (feat /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC024/feats/sub-FC024_acquisition_lh_amyg_PPI.fsf)
+To view the FEAT progress and final report, point your web browser at /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC017/acquisition/lh_amyg_CS_PPI.feat/report_log.html
+To view the FEAT progress and final report, point your web browser at /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC018/acquisition/lh_amyg_CS_PPI.feat/report_log.html
+To view the FEAT progress and final report, point your web browser at /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC020/acquisition/lh_amyg_CS_PPI.feat/report_log.html
+To view the FEAT progress and final report, point your web browser at /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC019/acquisition/lh_amyg_CS_PPI.feat/report_log.html
+Launcher: Task 10 running job 23 on nid00694 (feat /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC025/feats/sub-FC025_acquisition_lh_amyg_PPI.fsf)
+To view the FEAT progress and final report, point your web browser at /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC021/acquisition/lh_amyg_CS_PPI.feat/report_log.html
+To view the FEAT progress and final report, point your web browser at /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC023/acquisition/lh_amyg_CS_PPI.feat/report_log.html
+To view the FEAT progress and final report, point your web browser at /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC024/acquisition/lh_amyg_CS_PPI.feat/report_log.html
+Launcher: Task 18 running job 24 on nid00811 (feat /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC026/feats/sub-FC026_acquisition_lh_amyg_PPI.fsf)
+Launcher: Task 33 running job 25 on nid01034 (feat /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC101/feats/sub-FC101_acquisition_lh_amyg_PPI.fsf)
+To view the FEAT progress and final report, point your web browser at /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC025/acquisition/lh_amyg_CS_PPI.feat/report_log.html
+Launcher: Task 19 running job 26 on nid00812 (feat /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC102/feats/sub-FC102_acquisition_lh_amyg_PPI.fsf)
+Launcher: Task 2 running job 27 on nid00076 (feat /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC103/feats/sub-FC103_acquisition_lh_amyg_PPI.fsf)
+Launcher: Task 12 running job 28 on nid00788 (feat /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC104/feats/sub-FC104_acquisition_lh_amyg_PPI.fsf)
+Launcher: Task 40 running job 29 on nid01153 (feat /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC105/feats/sub-FC105_acquisition_lh_amyg_PPI.fsf)
+To view the FEAT progress and final report, point your web browser at /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC026/acquisition/lh_amyg_CS_PPI.feat/report_log.html
+To view the FEAT progress and final report, point your web browser at /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC101/acquisition/lh_amyg_CS_PPI.feat/report_log.html
+Launcher: Task 15 running job 30 on nid00791 (feat /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC106/feats/sub-FC106_acquisition_lh_amyg_PPI.fsf)
+Launcher: Task 14 running job 31 on nid00790 (feat /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC107/feats/sub-FC107_acquisition_lh_amyg_PPI.fsf)
+To view the FEAT progress and final report, point your web browser at /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC103/acquisition/lh_amyg_CS_PPI.feat/report_log.html
+To view the FEAT progress and final report, point your web browser at /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC104/acquisition/lh_amyg_CS_PPI.feat/report_log.html
+To view the FEAT progress and final report, point your web browser at /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC102/acquisition/lh_amyg_CS_PPI.feat/report_log.html
+To view the FEAT progress and final report, point your web browser at /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC105/acquisition/lh_amyg_CS_PPI.feat/report_log.html
+Launcher: Task 7 running job 32 on nid00630 (feat /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC108/feats/sub-FC108_acquisition_lh_amyg_PPI.fsf)
+To view the FEAT progress and final report, point your web browser at /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC107/acquisition/lh_amyg_CS_PPI.feat/report_log.html
+To view the FEAT progress and final report, point your web browser at /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC106/acquisition/lh_amyg_CS_PPI.feat/report_log.html
+Launcher: Task 34 running job 33 on nid01057 (feat /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC109/feats/sub-FC109_acquisition_lh_amyg_PPI.fsf)
+Launcher: Task 47 running job 34 on nid01304 (feat /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC110/feats/sub-FC110_acquisition_lh_amyg_PPI.fsf)
+To view the FEAT progress and final report, point your web browser at /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC108/acquisition/lh_amyg_CS_PPI.feat/report_log.html
+Launcher: Task 26 running job 35 on nid00849 (feat /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC111/feats/sub-FC111_acquisition_lh_amyg_PPI.fsf)
+To view the FEAT progress and final report, point your web browser at /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC109/acquisition/lh_amyg_CS_PPI.feat/report_log.html
+To view the FEAT progress and final report, point your web browser at /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC110/acquisition/lh_amyg_CS_PPI.feat/report_log.html
+Launcher: Task 45 running job 36 on nid01253 (feat /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC112/feats/sub-FC112_acquisition_lh_amyg_PPI.fsf)
+To view the FEAT progress and final report, point your web browser at /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC111/acquisition/lh_amyg_CS_PPI.feat/report_log.html
+Launcher: Task 36 running job 37 on nid01074 (feat /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC113/feats/sub-FC113_acquisition_lh_amyg_PPI.fsf)
+Launcher: Task 23 running job 38 on nid00817 (feat /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC114/feats/sub-FC114_acquisition_lh_amyg_PPI.fsf)
+Launcher: Task 4 running job 39 on nid00272 (feat /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC115/feats/sub-FC115_acquisition_lh_amyg_PPI.fsf)
+Launcher: Task 22 running job 40 on nid00816 (feat /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC116/feats/sub-FC116_acquisition_lh_amyg_PPI.fsf)
+Launcher: Task 44 running job 41 on nid01252 (feat /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC117/feats/sub-FC117_acquisition_lh_amyg_PPI.fsf)
+To view the FEAT progress and final report, point your web browser at /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC112/acquisition/lh_amyg_CS_PPI.feat/report_log.html
+To view the FEAT progress and final report, point your web browser at /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC113/acquisition/lh_amyg_CS_PPI.feat/report_log.html
+To view the FEAT progress and final report, point your web browser at /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC117/acquisition/lh_amyg_CS_PPI.feat/report_log.html
+To view the FEAT progress and final report, point your web browser at /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC116/acquisition/lh_amyg_CS_PPI.feat/report_log.html
+To view the FEAT progress and final report, point your web browser at /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC114/acquisition/lh_amyg_CS_PPI.feat/report_log.html
+To view the FEAT progress and final report, point your web browser at /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC115/acquisition/lh_amyg_CS_PPI.feat/report_log.html
+Launcher: Task 6 running job 42 on nid00623 (feat /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC118/feats/sub-FC118_acquisition_lh_amyg_PPI.fsf)
+Launcher: Task 11 running job 43 on nid00787 (feat /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC120/feats/sub-FC120_acquisition_lh_amyg_PPI.fsf)
+To view the FEAT progress and final report, point your web browser at /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC118/acquisition/lh_amyg_CS_PPI.feat/report_log.html
+Launcher: Task 32 running job 44 on nid01033 (feat /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC121/feats/sub-FC121_acquisition_lh_amyg_PPI.fsf)
+Launcher: Task 41 running job 45 on nid01155 (feat /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC122/feats/sub-FC122_acquisition_lh_amyg_PPI.fsf)
+To view the FEAT progress and final report, point your web browser at /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC120/acquisition/lh_amyg_CS_PPI.feat/report_log.html
+Launcher: Task 30 running job 46 on nid00978 (feat /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC123/feats/sub-FC123_acquisition_lh_amyg_PPI.fsf)
+Launcher: Task 5 running job 47 on nid00622 (feat /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC124/feats/sub-FC124_acquisition_lh_amyg_PPI.fsf)
+Launcher: Task 25 running job 48 on nid00848 (feat /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC125/feats/sub-FC125_acquisition_lh_amyg_PPI.fsf)
+To view the FEAT progress and final report, point your web browser at /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC121/acquisition/lh_amyg_CS_PPI.feat/report_log.html
+To view the FEAT progress and final report, point your web browser at /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC122/acquisition/lh_amyg_CS_PPI.feat/report_log.html
+To view the FEAT progress and final report, point your web browser at /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC124/acquisition/lh_amyg_CS_PPI.feat/report_log.html
+To view the FEAT progress and final report, point your web browser at /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC123/acquisition/lh_amyg_CS_PPI.feat/report_log.html
+To view the FEAT progress and final report, point your web browser at /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC125/acquisition/lh_amyg_CS_PPI.feat/report_log.html
+Launcher: Job 30 completed in 809 seconds.
+Launcher: Task 15 done. Exiting.
+Launcher: Job 27 completed in 830 seconds.
+Launcher: Task 2 done. Exiting.
+Launcher: Job 36 completed in 834 seconds.
+Launcher: Task 45 done. Exiting.
+Launcher: Job 39 completed in 842 seconds.
+Launcher: Task 4 done. Exiting.
+Launcher: Job 6 completed in 926 seconds.
+Launcher: Task 27 done. Exiting.
+Launcher: Job 18 completed in 969 seconds.
+Launcher: Task 8 done. Exiting.
+Launcher: Job 14 completed in 972 seconds.
+Launcher: Task 37 done. Exiting.
+Launcher: Job 1 completed in 981 seconds.
+Launcher: Task 9 done. Exiting.
+Launcher: Job 37 completed in 964 seconds.
+Launcher: Task 36 done. Exiting.
+Launcher: Job 4 completed in 998 seconds.
+Launcher: Task 17 done. Exiting.
+Launcher: Job 47 completed in 1007 seconds.
+Launcher: Task 5 done. Exiting.
+Launcher: Job 13 completed in 1040 seconds.
+Launcher: Task 24 done. Exiting.
+Launcher: Job 2 completed in 1064 seconds.
+Launcher: Task 28 done. Exiting.
+Launcher: Job 23 completed in 1067 seconds.
+Launcher: Task 10 done. Exiting.
+Launcher: Job 10 completed in 1076 seconds.
+Launcher: Task 31 done. Exiting.
+Launcher: Job 7 completed in 1079 seconds.
+Launcher: Task 1 done. Exiting.
+Launcher: Job 11 completed in 1093 seconds.
+Launcher: Task 21 done. Exiting.
+Launcher: Job 17 completed in 1093 seconds.
+Launcher: Task 20 done. Exiting.
+Launcher: Job 15 completed in 1100 seconds.
+Launcher: Task 3 done. Exiting.
+Launcher: Job 34 completed in 1097 seconds.
+Launcher: Task 47 done. Exiting.
+Launcher: Job 28 completed in 1111 seconds.
+Launcher: Task 12 done. Exiting.
+Launcher: Job 19 completed in 1137 seconds.
+Launcher: Task 46 done. Exiting.
+Launcher: Job 31 completed in 1134 seconds.
+Launcher: Task 14 done. Exiting.
+Launcher: Job 48 completed in 1126 seconds.
+Launcher: Task 25 done. Exiting.
+Launcher: Job 45 completed in 1127 seconds.
+Launcher: Task 41 done. Exiting.
+Launcher: Job 41 completed in 1158 seconds.
+Launcher: Task 44 done. Exiting.
+Launcher: Job 46 completed in 1153 seconds.
+Launcher: Task 30 done. Exiting.
+Launcher: Job 20 completed in 1168 seconds.
+Launcher: Task 0 done. Exiting.
+Launcher: Job 38 completed in 1170 seconds.
+Launcher: Task 23 done. Exiting.
+Launcher: Job 44 completed in 1174 seconds.
+Launcher: Task 32 done. Exiting.
+Launcher: Job 22 completed in 1196 seconds.
+Launcher: Task 42 done. Exiting.
+Launcher: Job 5 completed in 1209 seconds.
+Launcher: Task 38 done. Exiting.
+Launcher: Job 24 completed in 1222 seconds.
+Launcher: Task 18 done. Exiting.
+Launcher: Job 43 completed in 1265 seconds.
+Launcher: Task 11 done. Exiting.
+Launcher: Job 3 completed in 1314 seconds.
+Launcher: Task 16 done. Exiting.
+Launcher: Job 12 completed in 1315 seconds.
+Launcher: Task 29 done. Exiting.
+Launcher: Job 8 completed in 1321 seconds.
+Launcher: Task 39 done. Exiting.
+Launcher: Job 40 completed in 1338 seconds.
+Launcher: Task 22 done. Exiting.
+Launcher: Job 29 completed in 1350 seconds.
+Launcher: Task 40 done. Exiting.
+Launcher: Job 33 completed in 1364 seconds.
+Launcher: Task 34 done. Exiting.
+Launcher: Job 42 completed in 1363 seconds.
+Launcher: Task 6 done. Exiting.
+Launcher: Job 16 completed in 1399 seconds.
+Launcher: Task 35 done. Exiting.
+Launcher: Job 32 completed in 1403 seconds.
+Launcher: Task 7 done. Exiting.
+Launcher: Job 26 completed in 1422 seconds.
+Launcher: Task 19 done. Exiting.
+Launcher: Job 21 completed in 1619 seconds.
+Launcher: Task 43 done. Exiting.
+Launcher: Job 25 completed in 2310 seconds.
+Launcher: Task 33 done. Exiting.
+Launcher: Job 9 completed in 2530 seconds.
+Launcher: Task 13 done. Exiting.
+Launcher: Job 35 completed in 7725 seconds.
+Launcher: Task 26 done. Exiting.
+Launcher: Done. Job exited without errors
+ 
+ Job complete at Wed Feb 26 23:04:42 CST 2020
+ 
+Job duration: 02:09:05 (7745 s)
