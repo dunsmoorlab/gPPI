@@ -115,12 +115,12 @@ class roi_rsa():
         #get 1 dataframe & image for encoding
         self.encoding_labels = pd.concat(self.encoding_labels.values(),sort=False)
         self.encoding_labels.reset_index(inplace=True,drop=True) #need this bc phase events are all numbered the same
-        self.encoding_data = np.concatenate([self.encoding_data.values()],axis=-1)
+        self.encoding_data = np.concatenate([self.encoding_data['baseline'],self.encoding_data['acquisition'],self.encoding_data['extinction']],axis=-1)
         #same for retrieval, except we have to remove foils
         self.mem_labels = pd.concat(self.mem_labels.values(),sort=False)
         foil_mask = self.mem_labels.memory_condition.isin(['Old'])
         self.mem_labels = self.mem_labels[foil_mask].reset_index(drop=True)
-        self.mem_data = (np.concatenate(self.mem_data.values(),axis=-1))[:,:,:foil_mask]
+        self.mem_data = (np.concatenate([self.mem_data['memory_run-01'],self.mem_data['memory_run-02'],self.mem_data['memory_run-03']],axis=-1))[:,:,:foil_mask]
 
         #we need this for the roi bootstrapping, probably best to do it here and broadcast
         self.dACC_nvox = np.where( get_data(os.path.join(self.subj.masks,'dACC_mask.nii.gz')) == 1 )[0].shape[0]
