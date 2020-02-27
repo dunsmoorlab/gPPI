@@ -10,12 +10,14 @@ import nibabel as nib
 from matplotlib.ticker import MultipleLocator, ScalarFormatter
 from collections import OrderedDict
 from nilearn import image
+from nilearn.image import get_data
 from nilearn.input_data import NiftiMasker
 from scipy.stats import pearsonr, spearmanr, zscore
 from sklearn.linear_model import LogisticRegression
 from scipy.special import expit
 
 from fg_config import *
+from bids_model import bids_events
 # from glm_timing import glm_timing
 
 class roi_rsa():
