@@ -32,7 +32,7 @@ class roi_rsa():
         
         #hardcode copes as weights (as opposed to zmaps)
         weights = 'copes'
-        self.weight_dir = os.path.join(data_dir,'rsa_%s'%(weights),self.subj.fsub)
+        # self.weight_dir = os.path.join(data_dir,'rsa_%s'%(weights),self.subj.fsub)
         #need these to load the weights becauase I named them lazily
         self.conditions = {'CS+': 'CSp',
                            'CS-': 'CSm'}
