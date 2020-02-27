@@ -120,7 +120,9 @@ class roi_rsa():
         self.mem_labels = pd.concat(self.mem_labels.values(),sort=False)
         foil_mask = self.mem_labels.memory_condition.isin(['Old'])
         self.mem_labels = self.mem_labels[foil_mask].reset_index(drop=True)
-        self.mem_data = (np.concatenate([self.mem_data['memory_run-01'],self.mem_data['memory_run-02'],self.mem_data['memory_run-03']],axis=-1))[:,:,:foil_mask]
+        self.mem_data = np.concatenate([self.mem_data['memory_run-01'],self.mem_data['memory_run-02'],self.mem_data['memory_run-03']],axis=-1)
+        self.mem_data = [:,:,:foil_mask]
+
 
         #we need this for the roi bootstrapping, probably best to do it here and broadcast
         self.dACC_nvox = np.where( get_data(os.path.join(self.subj.masks,'dACC_mask.nii.gz')) == 1 )[0].shape[0]
