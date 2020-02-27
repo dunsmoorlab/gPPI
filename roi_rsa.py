@@ -115,7 +115,7 @@ class roi_rsa():
         #get 1 dataframe & image for encoding
         self.encoding_labels = pd.concat(self.encoding_labels.values(),sort=False)
         self.encoding_labels.reset_index(inplace=True,drop=True) #need this bc phase events are all numbered the same
-        self.encoding_data = np.concatenate(self.encoding_data.values(),axis=-1)
+        self.encoding_data = np.concatenate([self.encoding_data.values()],axis=-1)
         #same for retrieval, except we have to remove foils
         self.mem_labels = pd.concat(self.mem_labels.values(),sort=False)
         foil_mask = self.mem_labels.memory_condition.isin(['Old'])
