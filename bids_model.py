@@ -21,6 +21,10 @@ class bids_events():
         # self.fsl_events()
         # self.confounds()
     
+    def phase_events(self,phase)
+        ses_ = tasks[task]['ses']
+        return pd.read_csv(os.path.join(self.subj.subj_dir,'ses-'+str(ses_),'func',self.subj.fsub+'_ses-'+str(ses_)+'_task-'+phase+'_events.tsv'),sep='\t')
+
     #generate CS+, CS-, US timing files for use in FSL
     def fsl_events(self):
 
@@ -363,4 +367,4 @@ def wrangle_first_level():
             csm_cope = os.path.join(subj.model_dir,phase,'rsa_model.feat','stats','cope2.nii.gz')
 
             os.system('cp %s %s'%(csp_cope,os.path.join(subj.weights,'%s_CSp.nii.gz'%(phase))))
-            os.system('cp %s %s'%(csm_cope,os.path.join(subj.weights,'%s_CSp.nii.gz'%(phase))))
+            os.system('cp %s %s'%(csm_cope,os.path.join(subj.weights,'%s_CSm.nii.gz'%(phase))))

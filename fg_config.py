@@ -35,15 +35,15 @@ std_1mm_brain = os.path.join(WORK,'standard','MNI152_T1_1mm_brain.nii.gz')
 std_3mm_brain = os.path.join(WORK,'standard','MNI152_T1_3mm_brain.nii.gz')
 std_3mm_brain_mask = os.path.join(WORK,'standard','MNI152_T1_3mm_brain_mask.nii.gz')
 
-tasks = {'baseline':{'n_trials':48},
-         'acquisition':{'n_trials':48},
-         'extinction':{'n_trials':48},
-         'renewal':{'n_trials':24},
-         'memory_run-01':{'n_trials':80},
-         'memory_run-02':{'n_trials':80},
-         'memory_run-03':{'n_trials':80},
-         'localizer_run-01':{'n_trials':24},
-         'localizer_run-02':{'n_trials':24}
+tasks = {'baseline':{'n_trials':48,'ses':1},
+         'acquisition':{'n_trials':48,'ses':1},
+         'extinction':{'n_trials':48,'ses':1},
+         'renewal':{'n_trials':24,'ses':2},
+         'memory_run-01':{'n_trials':80,'ses':2},
+         'memory_run-02':{'n_trials':80,'ses':2},
+         'memory_run-03':{'n_trials':80,'ses':2},
+         'localizer_run-01':{'n_trials':24,'ses':2},
+         'localizer_run-02':{'n_trials':24,'ses':2}
          }
 
 
