@@ -1,0 +1,14 @@
+ Starting at Thu Feb 27 14:40:29 CST 2020
+ WORKING DIR: /opt/tacc_mounts/home1/05426/ach3377/gPPI/
+ JOB ID:      2721531
+ JOB NAME:    gPPI
+ NODES:       nid01306
+ N NODES:     1
+ N TASKS:     1
++ feat /home1/05426/ach3377/gPPI/feats/group_acq_CS_gPPI.fsf
+To view the FEAT progress and final report, point your web browser at /scratch/05426/ach3377/acq_CS_gPPI+.gfeat/report_log.html
++ set +x
+ 
+ Job complete at Thu Feb 27 15:54:49 CST 2020
+ 
+Job duration: 01:14:20 (4460 s)
