@@ -159,7 +159,6 @@ class roi_rsa():
     def compute_item_rsa(self):
     
         self.rsa = self.mem_labels.copy().drop(columns=['onset','duration'])
-        self.rsa['encode'] = ''
         for cs in self.conditions: self.rsa[self.conditions[cs]+'_'+'trial'] = ''
         for roi in self.rois:
             print(roi)
@@ -179,8 +178,7 @@ class roi_rsa():
                 mem_loc = i
                 encoding_loc = np.where(self.encoding_labels.stimulus == stim)[0][0]
                 
-                _phase      = self.encoding_labels.loc[encoding_loc,'phase']
-                self.rsa.loc[mem_loc,'encode'] = _phase
+                _phase = self.rsa.loc[mem_loc,'encode_phase']
                 _trial_type = self.rsa.loc[mem_loc,'trial_type']
                 _con        = self.conditions[_trial_type]+'_'+'trial'
                 self.rsa.loc[i,_con] = self.encoding_labels.loc[encoding_loc,_con] 
@@ -199,8 +197,8 @@ class roi_rsa():
                 
 
         self.rsa['subject'] = self.subj.num
-        self.rsa = self.rsa.melt(id_vars=['subject','trial_type','stim','memcond','encode','response',
-                               'acc','hc_acc','phase','csp_trial','csm_trial'],
+        self.rsa = self.rsa.melt(id_vars=['subject','trial_type','stimulus','memory_condition','encode_phase','response',
+                               'low_confidence_accuracy','hight_confidence_accuracy','phase','CSp_trial','CSm_trial'],
                       value_vars=self.rois
                   ).rename(columns={'variable':'roi', 'value':'rsa'})
 
