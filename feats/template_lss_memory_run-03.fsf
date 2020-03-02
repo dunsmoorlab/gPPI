@@ -30,7 +30,7 @@ set fmri(featwatcher_yn) 0
 set fmri(sscleanup_yn) 0
 
 # Output directory
-set fmri(outputdir) "/scratch/05426/ach3377/fc-bids/derivatives/model/SUBID/memory_run-03/lss_betas/TRIAL"
+set fmri(outputdir) "/scratch/05426/ach3377/fc-bids/derivatives/model/SUBID/memory_run-03/lss_betas/TRIAL/TRIAL"
 
 # TR(s)
 set fmri(tr) 2.000000 

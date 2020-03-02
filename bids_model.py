@@ -80,10 +80,11 @@ class bids_events():
                     C = pd.read_csv(os.path.join(self.subj.prep_dir,folder[0],file), sep='\t')
                     run_COI = COI.copy()
                     for _c in C.columns:
-                        if 'cosine' in _c or 'motion_outlier' in _c:
+                        #if 'cosine' in _c or 'motion_outlier' in _c:
+                        if 'cosine' in _c:
                                 run_COI.append(_c)
                     C = C[run_COI]
-                    C['constant'] = 1
+                    #C['constant'] = 1
                     C['framewise_displacement'][0] = 0
                     
                     phase = re.search('task-(.*)_desc',file)[1]
@@ -151,8 +152,8 @@ class lss():
                                 line = line.replace(src, target)
                             outfile.write(line)
 
-                with open('jobs/lss_betas/%s_%s_job.txt'%(self.subj.fsub,phase),'w') as txt_file:
-                    txt_file.write('feat %s'%(outfeat))
+                #with open('jobs/lss_betas/%s_%s_job.txt'%(self.subj.fsub,phase),'w') as txt_file:
+                #    txt_file.write('feat %s'%(outfeat))
                 #also go ahead and make the job script here
                 os.system('echo "feat %s" >> jobs/lss_betas/%s_job.txt'%(outfeat,self.subj.fsub))
 

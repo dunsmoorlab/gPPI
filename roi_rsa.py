@@ -198,7 +198,7 @@ class roi_rsa():
 
         self.rsa['subject'] = self.subj.num
         self.rsa = self.rsa.melt(id_vars=['subject','trial_type','stimulus','memory_condition','encode_phase','response',
-                               'low_confidence_accuracy','hight_confidence_accuracy','phase','CSp_trial','CSm_trial'],
+                               'low_confidence_accuracy','high_confidence_accuracy','phase','CSp_trial','CSm_trial'],
                       value_vars=self.rois
                   ).rename(columns={'variable':'roi', 'value':'rsa'})
 
