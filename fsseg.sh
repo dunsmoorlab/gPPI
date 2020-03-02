@@ -1,4 +1,5 @@
 #!/bin/bash
+#had to install dev of freesurfer and matlab runtime on my own
 
 export FREESURFER_HOME=/scratch/05426/ach3377/freesurfer
 source $FREESURFER_HOME/SetUpFreeSurfer.sh

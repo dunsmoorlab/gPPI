@@ -210,6 +210,7 @@ class roi_rsa():
 
     def compute_cross_rsa(self):
         self.cross_mats = {}
+        self.encoding_labels.phase = pd.Categorical(self.encoding_labels.phase,self.encoding_phases,ordered=True)
         encode_reorder = list(self.encoding_labels.sort_values(by=['trial_type','phase']).index)
         mem_reorder = [np.where(self.mem_labels.stimulus == self.encoding_labels.loc[i,'stimulus'])[0][0] for i in encode_reorder]
         for roi in self.rois:
@@ -393,7 +394,7 @@ class group_roi_rsa():
         self.bc_overlap = bc_overlap
 
     def inspect(self):
-        df = self.df.groupby(['subject','roi','encode','trial_type']
+        df = self.df.groupby(['subject','roi','encode_phase','trial_type']
                     ).mean(
                     ).reset_index()
         
@@ -403,13 +404,13 @@ class group_roi_rsa():
                 dat = df[df.hemi == hemi]
                 dat.roi = pd.Categorical(dat.roi,dat.roi.unique(),ordered=True)
                 g = sns.catplot(data=dat,y='rsa',x='trial_type',
-                row='roi',col='encode',
+                row='roi',col='encode_phase',
                 kind='point',palette=cpal)
                 for ax in g.axes.ravel(): ax.hlines(0,ax.get_xlim()[0],ax.get_xlim()[1])
         else:
 
             g = sns.catplot(data=df,y='rsa',x='trial_type',
-                            row='roi',col='encode',
+                            row='roi',col='encode_phase',
                             kind='point',palette=cpal)
             for ax in g.axes.ravel(): ax.hlines(0,ax.get_xlim()[0],ax.get_xlim()[1])
 

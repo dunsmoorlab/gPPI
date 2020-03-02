@@ -13,7 +13,8 @@ cdf = (cdf.loc['CS+'] - cdf.loc['CS-']).reset_index()
 cdf['group'] = cdf.subject.apply(lgroup)
 
 pdf = p.df.groupby(['trial_type','encode_phase','roi','subject']).mean()
-pdf = (pdf.loc['CS+'] - pdf.loc['CS-']).reset_index()
+# pdf = (pdf.loc['CS+'] - pdf.loc['CS-']).reset_index()
+
 pdf['group'] = pdf.subject.apply(lgroup)
 
 pfc = pd.concat((cdf,pdf))
