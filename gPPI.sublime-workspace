@@ -4,6 +4,10 @@
 		"selected_items":
 		[
 			[
+				"enc",
+				"encode"
+			],
+			[
 				"memory",
 				"memory_run-01"
 			],
@@ -129,10 +133,6 @@
 			],
 			[
 				"encodin",
-				"encoding_phases"
-			],
-			[
-				"enc",
 				"encoding_phases"
 			],
 			[
@@ -625,10 +625,11 @@
 	"file_history":
 	[
 		"/Users/ach3377/Dropbox (LewPeaLab)/Gus/gPPI/fg_config.py",
+		"/Users/ach3377/Dropbox (LewPeaLab)/Gus/gPPI/roi_rsa.py",
+		"/Users/ach3377/Dropbox (LewPeaLab)/Gus/gPPI/roi_rsa_graphing.py",
 		"/Users/ach3377/Dropbox (LewPeaLab)/Gus/gPPI/fg_preproc.py",
 		"/Users/ach3377/Dropbox (LewPeaLab)/Gus/gPPI/deconvolve.ipynb",
 		"/Users/ach3377/Dropbox (LewPeaLab)/Gus/gPPI/bids_model.py",
-		"/Users/ach3377/Dropbox (LewPeaLab)/Gus/gPPI/roi_rsa.py",
 		"/Users/ach3377/Library/Application Support/Sublime Text 3/Packages/Colorsublime - Themes/cache/Colorsublime-Themes-master/themes/mutedrainbow_sky.tmTheme",
 		"/Users/ach3377/Library/Application Support/Sublime Text 3/Packages/Colorsublime/Colorsublime.sublime-settings",
 		"/Users/ach3377/Library/Application Support/Sublime Text 3/Packages/Colorsublime/colorsublime/theme.py",
@@ -750,8 +751,7 @@
 		"/Users/ach3377/Dropbox (LewPeaLab)/STUDY/FearCon/CodeBase/bs.py",
 		"/Users/ach3377/Dropbox (LewPeaLab)/Dunsmoor Lab/posgen/gengraph.py",
 		"/Users/ach3377/Dropbox (LewPeaLab)/STUDY/FearCon/CodeBase/lil_bootstrap.py",
-		"/Users/ach3377/Desktop/fcmantra",
-		"/Users/ach3377/matlab/startup.m"
+		"/Users/ach3377/Desktop/fcmantra"
 	],
 	"find":
 	{
@@ -770,6 +770,9 @@
 		"case_sensitive": true,
 		"find_history":
 		[
+			"lgroup",
+			"df.encode",
+			"class ",
 			"self.mem_data = ",
 			"concatenate",
 			"w_slice",

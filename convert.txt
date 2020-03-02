@@ -1,0 +1,1 @@
+jupyter nbconvert deconvolve.ipynb --to slides --post serve

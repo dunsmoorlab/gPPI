@@ -334,9 +334,13 @@ def autofill_fsf(template='',ses=None):
         os.system('echo "feat %s" >> jobs/%s_job.txt'%(outfeat,outstr))
 
 def wrap_lss_jobs():
+    for sub in all_subs_args:
+        subj = bids_meta(sub)
+        os.system('launch -N 1 -n 12 -J lss_%s -s jobs/lss_betas/sub-%s_job.txt -m achennings@utexas.edu -p normal -r 12:00:00 -A LewPea_MRI_Analysis'%(sub,subj.fsub))
+
     for i, job in enumerate(os.listdir('jobs/lss_betas')):
         if '.txt' in job:
-            os.system('launch -N 1 -n 12 -J lss_%s -s jobs/lss_betas/%s -m achennings@utexas.edu -p normal -r 09:00:00 -A fMRI-Fear-Conditioni'%(i,job))
+            os.system('launch -N 1 -n 12 -J lss_%s -s jobs/lss_betas/%s -m achennings@utexas.edu -p normal -r 09:00:00 -A LewPea_MRI_Analysis'%(i,job))
 
     for job in ['acquisition','extinction','baseline']:
         os.system('launch -N 1 -n 12 -J %s -s jobs/%s_rsa_job.txt -m achennings@utexas.edu -p normal -r 12:00:00')
@@ -368,3 +372,23 @@ def wrangle_first_level():
 
             os.system('cp %s %s'%(csp_cope,os.path.join(subj.weights,'%s_CSp.nii.gz'%(phase))))
             os.system('cp %s %s'%(csm_cope,os.path.join(subj.weights,'%s_CSm.nii.gz'%(phase))))
+
+def motion_outlier_count():
+    import re
+    import matplotlib.pyplot as plt
+    import seaborn as sns
+
+    df = pd.DataFrame(index=pd.MultiIndex.from_product([all_sub_args,tasks]))
+    df['censored'] = 0.
+    for sub in all_sub_args:
+        subj = bids_meta(sub)
+        for folder in os.walk(subj.prep_dir):
+            for file in folder[2]:
+                if 'confounds' in file and '.tsv' in file:
+                    C = pd.read_csv(os.path.join(subj.prep_dir,folder[0],file), sep='\t')
+                    mo = [c for c in C.columns if 'motion_outlier' in c]
+                    task = re.search('task-(.*)_desc',file)[1]
+                    df.loc[(sub,task),'censored'] = len(mo)/C.shape[0]
+
+    sns.boxplot(data=df,y='censored')
+    sns.swarmplot(data=df,y='censored',color='black')

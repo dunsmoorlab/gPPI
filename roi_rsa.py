@@ -264,13 +264,14 @@ class group_roi_rsa():
                       'rh_hc_body' ,'lh_hc_body',
                       'rh_hc_tail' ,'lh_hc_tail']
         elif self.fs:
-                self.rois = ['vmPFC','dACC','amyg_cem','amyg_bla','hc_head','hc_body','hc_tail']
+                # self.rois = ['vmPFC','dACC','amyg_cem','amyg_bla','hc_head','hc_body','hc_tail']
+                self.rois = ['mOFC','dACC','amyg','hpc','ins']
+
+        self.conditions = {'CS+': 'CSp',
+                           'CS-': 'CSm'}
         
-        self.conditions = {'CS+': 'csp',
-                           'CS-': 'csm'}
-        
-        if self.ext_split: self.encoding_phases = ['baseline','fear_conditioning','early_extinction','extinction']
-        else:              self.encoding_phases = ['baseline','fear_conditioning','extinction']
+        if self.ext_split: self.encoding_phases = ['baseline','acquisition','early_extinction','extinction']
+        else:              self.encoding_phases = ['baseline','acquisition','extinction']
 
         self.load_rois()
         self.load_cross_mats()
@@ -280,9 +281,9 @@ class group_roi_rsa():
         df = {} #ultimate output
 
         for sub in self.subs:
-            subj = meta(sub)
+            subj = bids_meta(sub)
             # self.hemi: df[sub] = pd.read_csv(os.path.join(subj.rsa,'roi_ER_HCA_hemi.csv'))
-            df[sub] = pd.read_csv(os.path.join(subj.rsa,'fs_mask_roi_ER.csv'))
+            df[sub] = pd.read_csv(os.path.join('rsa_results',subj.fsub,'fs_mask_roi_ER.csv'))
 
         self.df = pd.concat(df.values()).reset_index(drop=True)
         #lets label the first 8 trials of extinction as "early_extinction"
@@ -290,18 +291,18 @@ class group_roi_rsa():
             for cs in self.conditions:
                 con = '%s_trial'%(self.conditions[cs])
                 for i in range(1,9): 
-                    self.df.loc[ self.df[ self.df.encode == 'extinction' ][ self.df[con] == i ].index,'encode' ] = 'early_extinction'
-        self.df.encode = pd.Categorical(self.df.encode,self.encoding_phases,ordered=True)
+                    self.df.loc[ self.df[ self.df.encode_phase == 'extinction' ][ self.df[con] == i ].index,'encode_phase' ] = 'early_extinction'
+        self.df.encode_phase = pd.Categorical(self.df.encode_phase,self.encoding_phases,ordered=True)
         self.df.roi = pd.Categorical(self.df.roi,self.rois,ordered=True)
-        self.df.hc_acc = (self.df.hc_acc == 'H').astype(int)
-        self.df.acc = (self.df.acc == 'H').astype(int)
+        self.df.high_confidence_accuracy = (self.df.high_confidence_accuracy == 'H').astype(int)
+        self.df.low_confidence_accuracy = (self.df.low_confidence_accuracy == 'H').astype(int)
         if self.hemi: self.df['hemi'] = self.df.roi.apply(lambda x: x[0])
 
     def load_cross_mats(self):
         in_mats = {}
         for sub in self.subs:
-            subj = meta(sub)
-            with open(os.path.join(subj.rsa,'cross_mats.p'),'rb') as file:
+            subj = bids_meta(sub)
+            with open(os.path.join('rsa_results',subj.fsub,'cross_mats.p'),'rb') as file:
                 in_mats[sub] = pickle.load(file)
         mats = {}
         for roi in self.rois:
@@ -332,8 +333,8 @@ class group_roi_rsa():
          }
 
 
-        # for roi in self.rois:
-        for roi in ['dACC']:
+        for roi in self.rois:
+        # for roi in ['dACC']:
             mat = self.mats[roi].mean(axis=0)
             
             mask = np.zeros_like(mat)
@@ -488,7 +489,7 @@ class group_roi_rsa():
         idx = pd.IndexSlice
         if self.hemi:
             for hemi in self.df.hemi.unique():
-                df = self.df.set_index(['hemi','encode','trial_type','roi']).sort_index()
+                df = self.df.set_index(['hemi','encode_phase','trial_type','roi']).sort_index()
                 fig, ax = plt.subplots(1,len(self.encoding_phases),sharey=True)
                 for i, phase in enumerate(self.encoding_phases):
                     dat = df.loc[(hemi,phase,'CS+')].reset_index()
@@ -501,7 +502,7 @@ class group_roi_rsa():
                 plt.sup_title(hemi)
         else:
 
-            df = self.df.set_index(['encode','trial_type','roi','subject']).sort_index()
+            df = self.df.set_index(['encode_phase','trial_type','roi','subject']).sort_index()
             df['block'] = 0
             for con in self.conditions:
                 df = df.sort_values(by='%s_trial'%(self.conditions[con]))
@@ -510,11 +511,11 @@ class group_roi_rsa():
                         for sub in self.subs:
                             df.loc[(phase,con,roi,sub),'block'] = np.repeat(range(1,7),4)
             df = df.reset_index()
-            df = df.groupby(['trial_type','block','encode','roi','subject']).mean()
+            df = df.groupby(['trial_type','block','encode_phase','roi','subject']).mean()
             df = (df.loc['CS+','rsa'] - df.loc['CS-','rsa']).reset_index()
             df = df[df.roi != 'insula']
             df.roi = pd.Categorical(df.roi,df.roi.unique())
-            df = df.set_index('encode').sort_index()
+            df = df.set_index('encode_phase').sort_index()
             self.csdf = df
 
             fig, ax = plt.subplots(1,len(self.encoding_phases),sharey=True)
@@ -534,7 +535,7 @@ class group_roi_rsa():
             #     xl=ax[i].get_xlim();ax[i].hlines(0,xl[0],xl[1],color='grey',linestyle='--')
 
 
-    def roi_logreg(self,acc='hc_acc'):
+    def roi_logreg(self,acc='high_confidence_accuracy'):
         logreg = LogisticRegression(solver='lbfgs')
    
         def boot_roi_logreg(bdf,n_boot=1000):
@@ -549,7 +550,7 @@ class group_roi_rsa():
                 boot_res[i] = logreg.coef_[0][0]
             return boot_res
 
-        df = self.df.set_index(['encode','roi','trial_type']).sort_index()
+        df = self.df.set_index(['encode_phase','roi','trial_type']).sort_index()
         betas = {}
         for phase in self.encoding_phases:
             betas[phase] = {};print(phase)
@@ -559,7 +560,7 @@ class group_roi_rsa():
                     print(con);betas[phase][roi][con] = boot_roi_logreg(df.loc[(phase,roi,con)])
 
         self.betas = betas
-    def bc_logreg(self,acc='hc_acc'):
+    def bc_logreg(self,acc='high_confidence_accuracy'):
         logreg = LogisticRegression(solver='lbfgs')
         
         #need to match up the values to each baseline trial
@@ -731,3 +732,10 @@ def resp_count():
             ax[i].set_ylim(0,1.01)
             ax[i].legend_.remove()
             ax[i].set_title(group)
+
+def copy_out():
+    out = os.path.join(SCRATCH,'rsa_results');mkdir(out)
+    for sub in all_sub_args:
+        subj = bids_meta(sub)
+        sub_out = os.path.join(out,subj.fsub);mkdir(out)
+        os.system('cp -R %s %s'%(subj.rsa,sub_out))
