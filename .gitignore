@@ -2,3 +2,5 @@ __pycache__/
 example_data/
 rsa_results/
 .ipynb_checkpoints/
+*.sublime-workspace
+*.sublime-project
