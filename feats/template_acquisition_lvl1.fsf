@@ -30,10 +30,10 @@ set fmri(featwatcher_yn) 0
 set fmri(sscleanup_yn) 0
 
 # Output directory
-set fmri(outputdir) "/scratch/05426/ach3377/fc-bids/derivatives/model/SUBID/feats/SUBID_lvl1_acq_RR"
+set fmri(outputdir) "/scratch/05426/ach3377/fc-bids/derivatives/model/SUBID/feats/SUBID_acquisition_lvl1"
 
 # TR(s)
-set fmri(tr) TR_length 
+set fmri(tr) TR_length
 
 # Total volumes
 set fmri(npts) 259
