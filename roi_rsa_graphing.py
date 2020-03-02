@@ -2,7 +2,8 @@ from roi_rsa import *
 from scipy.interpolate import interp1d
 from fg_config import *
 
-sns.set_style({'axes.facecolor':'.9','figure.facecolor':'.9'})
+# sns.set_style({'axes.facecolor':'.9','figure.facecolor':'.9'})
+sns.set_style({'axes.facecolor':'1','figure.facecolor':'1'})
 idx = pd.IndexSlice
 c = group_roi_rsa(group='control',ext_split=True,fs=True,hemi=False)
 p = group_roi_rsa(group='ptsd',ext_split=True,fs=True,hemi=False)
@@ -61,7 +62,7 @@ def cscomp(group,df,rois,n_boot=1000):
     dist = dist.set_index('roi').sort_index()
 
     phase_pal = sns.color_palette(['black','darkmagenta','lightgreen','seagreen'],desat=.75)
-    fig, ax = plt.subplots(1,len(rois),sharey=True)
+    fig, ax = plt.subplots(1,len(rois),sharey=True,figsize=(12,8))
     for i, roi in enumerate(rois):
         if len(rois) == 1: Ax = ax
         else: Ax = ax[i]
@@ -480,8 +481,26 @@ cspal = [gpal[1],gpal[0]]
 # groups = ['control']
 # cspal = [gpal[0]] 
 blocks = np.array(range(1,7))
-bint = np.linspace(blocks.min(),x.max(),1000,endpoint=True)
+bint = np.linspace(blocks.min(),blocks.max(),1000,endpoint=True)
 phases = ['baseline','acquisition','extinction']
+def interp(x,point,ci):
+    if 'series' in str(type(ci)):
+      lower = ci.apply(pd.Series)[0].values
+      upper = ci.apply(pd.Series)[1].values
+
+    if 'series' in str(type(point)): point = point.values
+    if type(x) is range: x = np.array(x)    
+    x_interp = np.linspace(x.min(),x.max(),1000,endpoint=True)
+
+    up_spliner = interp1d(x,upper,kind='cubic')
+    lo_spliner = interp1d(x,lower,kind='cubic')
+    mean_spliner = interp1d(x,point,kind='cubic')
+
+    upper_interp = up_spliner(x_interp)
+    lower_interp = lo_spliner(x_interp)
+    mean_interp = mean_spliner(x_interp)
+
+    return mean_interp, lower_interp, upper_interp
 def cstrial(roi,df,n_boot=1000):
     df = df.loc[roi]
     out = {}
@@ -537,7 +556,7 @@ def cstrial(roi,df,n_boot=1000):
             # draw
             # ax[i].plot(x_interp,gp[group],color=cspal[g],alpha=.8,linewidth=3)
             ax[i].fill_between(bint,gl[group],gu[group],
-                            color=cspal[g],alpha=1)
+                            color=cspal[g],alpha=.5)
             ax[i].hlines(0,ax[i].get_xlim()[0],ax[i].get_xlim()[1],color='black',linestyle='--',linewidth=1)
             ax[i].set_xlim(1,6)
             ax[i].set_title(phase)

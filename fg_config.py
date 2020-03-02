@@ -5,6 +5,8 @@ import pandas as pd
 import numpy as np
 import seaborn as sns
 
+from wesanderson import wes_palettes
+
 sub_args = [1,2,3,4,5,6,7,8,9,10,12,13,14,15,16,17,18,19,20,21,23,24,25,26]
 p_sub_args = [101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117,118, 120, 121, 122, 123, 124, 125]
 all_sub_args = sub_args + p_sub_args
@@ -12,9 +14,11 @@ all_sub_args = sub_args + p_sub_args
 subjects = {'control':sub_args,
             'ptsd':p_sub_args,
             'all':all_sub_args}
-# gpal = list((wes_palettes['Zissou'][0],wes_palettes['Royal1'][1]))
+
+gpal = list((wes_palettes['Zissou'][0],wes_palettes['Royal1'][1]))
 cpal = ['darkorange','grey']
 cpoint = sns.color_palette(cpal,n_colors=2,desat=.75)
+
 WORK = '/work/05426/ach3377/lonestar/'
 HOME = '/home1/05426/ach3377/'
 SCRATCH = '/scratch/05426/ach3377/'

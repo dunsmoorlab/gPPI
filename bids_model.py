@@ -375,15 +375,24 @@ def wrangle_first_level():
             os.system('cp %s %s'%(csm_cope,os.path.join(subj.weights,'%s_CSm.nii.gz'%(phase))))
 
 def motion_outlier_count():
+    import os
     import re
     import matplotlib.pyplot as plt
     import seaborn as sns
 
+    '''to build the output you need a list of all subjects "all_sub_args"
+    and a list of all tasks "tasks"
+    '''
     df = pd.DataFrame(index=pd.MultiIndex.from_product([all_sub_args,tasks]))
     df['censored'] = 0.
     for sub in all_sub_args:
+        '''
+        to make this work for CCX, comment out the next line
+        and change the subj.prep_dir so it is the path to each subject's
+        fMRIprep directory
+        '''
         subj = bids_meta(sub)
-        for folder in os.walk(subj.prep_dir):
+        for folder in os.walk(subj.prep_dir): 
             for file in folder[2]:
                 if 'confounds' in file and '.tsv' in file:
                     C = pd.read_csv(os.path.join(subj.prep_dir,folder[0],file), sep='\t')
