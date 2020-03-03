@@ -86,6 +86,6 @@ class fmriprep_preproc():
     def fsl_reg(self):
 
         os.system('flirt -in %s -ref %s -dof 12 -omat %s'%(self.subj.refvol_brain, std_1mm_brain, self.subj.ref2std))
-        os.sysmte('convert_xfm -omat %s -inverse %s'%(self.subj.std2ref,self.subj.ref2std))
+        os.system('convert_xfm -omat %s -inverse %s'%(self.subj.std2ref,self.subj.ref2std))
 
 
