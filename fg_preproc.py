@@ -83,6 +83,16 @@ class fmriprep_preproc():
             cmd = 'fslmaths %s -add %s -bin %s'%(l,r,out)
             os.system(cmd)
 
+    def group_func_mask(self):
+        
+        rois = {'gvmPFC':os.path.join(SCRATCH,'roi_masks','thr_CSm_CSp.nii.gz'),
+                'gdACC':os.path.join(SCRATCH,'roi_masks','thr_CSp_CSm.nii.gz')}
+
+        for roi in rois:
+                out_mask = os.path.join(self.subj.masks,'%s_mask.nii.gz'%(roi))
+                os.system('flirt -in %s -ref %s -applyxfm -init %s -out %s -interp nearestneighbour'%(
+                        rois[roi], self.subj.refvol_be, self.std2ref, out_mask))
+    
     def fsl_reg(self):
 
         os.system('flirt -in %s -ref %s -dof 12 -omat %s'%(self.subj.refvol_brain, std_1mm_brain, self.subj.ref2std))

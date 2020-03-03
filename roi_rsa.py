@@ -291,7 +291,7 @@ class group_roi_rsa():
         if self.ext_split:
             for cs in self.conditions:
                 con = '%s_trial'%(self.conditions[cs])
-                for i in range(1,9): 
+                for i in range(1,5): 
                     self.df.loc[ self.df[ self.df.encode_phase == 'extinction' ][ self.df[con] == i ].index,'encode_phase' ] = 'early_extinction'
         self.df.encode_phase = pd.Categorical(self.df.encode_phase,self.encoding_phases,ordered=True)
         self.df.roi = pd.Categorical(self.df.roi,self.rois,ordered=True)
@@ -735,7 +735,7 @@ def resp_count():
             ax[i].set_title(group)
 
 def copy_out():
-    from fg_config import *
+    # from fg_config import *
     import os
     out = os.path.join(SCRATCH,'rsa_results');mkdir(out)
     for sub in all_sub_args:
