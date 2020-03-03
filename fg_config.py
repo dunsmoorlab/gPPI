@@ -58,6 +58,30 @@ tasks = {'baseline':{'n_trials':48,'ses':1},
          'localizer_run-02':{'n_trials':24,'ses':2}
          }
 
+slices={'CS+':{
+                 'baseline':{'encoding':slice(0,24),
+                             'retrieval':slice(144,168)},
+              
+              'acquisition':{'encoding':slice(24,48),
+                             'retrieval':slice(168,192)},
+
+         'early_extinction':{'encoding':slice(48,56),
+                            'retrieval':slice(192,200)},
+               
+               'extinction':{'encoding':slice(56,72),
+                             'retrieval':slice(200,216)}},
+        'CS-':{
+                 'baseline':{'encoding':slice(72,96),
+                            'retrieval':slice(216,240)},
+              
+              'acquisition':{'encoding':slice(96,120),
+                            'retrieval':slice(240,264)},
+
+         'early_extinction':{'encoding':slice(120,128),
+                            'retrieval':slice(264,272)},
+               
+               'extinction':{'encoding':slice(128,144),
+                            'retrieval':slice(272,288)}}}
 
 class bids_meta(object):
 
@@ -94,6 +118,8 @@ class bids_meta(object):
             self.refvol       = os.path.join(self.reference,'boldref.nii.gz')
             self.refvol_mask  = os.path.join(self.reference,'boldref_mask.nii.gz')
             self.refvol_brain = os.path.join(self.reference,'boldref_brain.nii.gz')
+            self.ref2std      = os.path.join(self.reference,'ref2std.mat')
+            self.std2ref      = os.path.join(self.reference,'std2ref.mat')
 
             self.func = os.path.join(self.preproc_dir,'func');mkdir(self.func,local)
             self.beta = os.path.join(self.preproc_dir,'lss_betas');mkdir(self.beta,local) 
