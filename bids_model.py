@@ -404,7 +404,7 @@ def motion_outlier_count():
     sns.swarmplot(data=df,y='censored',color='black')
 
 from fg_config import *
-def pop_for_level3(subs=all_sub_args,feat=None):
+def copypasta(subs=all_sub_args,feat=None):
     os.system('rm copypasta.txt')
     for sub in subs:
         subj = bids_meta(sub)
