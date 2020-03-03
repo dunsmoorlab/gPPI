@@ -735,6 +735,8 @@ def resp_count():
             ax[i].set_title(group)
 
 def copy_out():
+    from fg_config import *
+    import os
     out = os.path.join(SCRATCH,'rsa_results');mkdir(out)
     for sub in all_sub_args:
         subj = bids_meta(sub)
