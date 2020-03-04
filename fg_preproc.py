@@ -1,6 +1,6 @@
 from fg_config import *
 import nibabel as nib
-from nilearn.image import mean_img, threshold_img
+from nilearn.image import mean_img, threshold_img, new_img_like
 from subprocess import Popen
 
 class fmriprep_preproc():
@@ -85,14 +85,30 @@ class fmriprep_preproc():
 
     def group_func_mask(self):
         
-        rois = {'gvmPFC':os.path.join(SCRATCH,'roi_masks','thr_CSm_CSp.nii.gz'),
-                'gdACC':os.path.join(SCRATCH,'roi_masks','thr_CSp_CSm.nii.gz')}
+        rois = {'fvmPFC':os.path.join(SCRATCH,'roi_masks','thr_CSm_CSp.nii.gz'),
+                'fdACC':os.path.join(SCRATCH,'roi_masks','thr_CSp_CSm.nii.gz')}
+        vals = {'fvmPFC':[1014,2014,1026,2026],
+                'fdACC':[1002,2002,1023,2023,1028,2028]}
 
         for roi in rois:
-                out_mask = os.path.join(self.subj.masks,'%s_mask.nii.gz'%(roi))
-                os.system('flirt -in %s -ref %s -applyxfm -init %s -out %s -interp nearestneighbour'%(
-                        rois[roi], self.subj.refvol_be, self.std2ref, out_mask))
-    
+            out_mask = os.path.join(self.subj.masks,'%s_mask.nii.gz'%(roi))
+            os.system('flirt -in %s -ref %s -applyxfm -init %s -out %s -interp nearestneighbour'%(
+                    rois[roi], self.subj.refvol_be, self.std2ref, out_mask))
+            
+            mask_img = nib.load(rois[roi])
+            mask_dat = mask_img.get_fdata()
+
+            coor = [np.where(mask_dat == val) for val in rois[vals]]
+            #set all values to 0 except the ones we want
+            mask_dat[:,:,:] = 0
+            for val in coor: mask_dat[val] = 1
+
+            #make it a nifti
+            mask_img = new_img_like(mask_img,mask_dat)
+            #and save
+            nib.save(mask_img,os.path.join(self.subj.masks,'%s_mask.nii.gz'%(roi)))
+
+
     def fsl_reg(self):
 
         os.system('flirt -in %s -ref %s -dof 12 -omat %s'%(self.subj.refvol_brain, std_1mm_brain, self.subj.ref2std))
