@@ -54,7 +54,7 @@ class roi_rsa():
         
         #hardcode rois for now
         #if self.fs: self.rois = ['mOFC','dACC','amyg_cem','amyg_bla','hc_head','hc_body','hc_tail'] 
-        if self.fs: self.rois = ['fvmPFC','fdACC','mOFC','dACC','amyg','hpc','ins'] 
+        if self.fs: self.rois = ['mOFC','dACC','amyg','hpc','ins','hc_head','hc_body','hc_tail','rh_hc_head','rh_hc_body','rh_hc_tail','lh_hc_head','lh_hc_body','lh_hc_tail','amyg_bla','amyg_cem','rh_amyg_bla','rh_amyg_cem','lh_amyg_bla','rh_amyg_cem'] 
             # if hemi:
                 # self.rois = ['rh_hc_head','rh_hc_body','rh_hc_tail','rh_amyg_bla','rh_amyg_cem',
                 #              'lh_hc_head','lh_hc_body','lh_hc_tail','lh_amyg_bla','lh_amyg_cem']
@@ -139,7 +139,10 @@ class roi_rsa():
 
     def apply_mask(self,roi=None,target=None):
         #pass in an roi and a nifti image to return the data located in the roi mask
-        mask = get_data(os.path.join(self.subj.masks,'%s_mask.nii.gz'%(roi)))
+        try:
+            mask = get_data(os.path.join(self.subj.masks,'%s_mask.nii.gz'%(roi)))
+        except:
+            mask = get_data(os.path.join(self.subj.masks,'%s.nii.gz'%(roi)))
         # else: mask = nib.load(os.path.join(self.subj.roi,'%s_mask.nii.gz'%(roi)))
         coor = np.where(mask == 1)
         values = target[coor]
