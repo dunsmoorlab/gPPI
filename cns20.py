@@ -6,7 +6,7 @@ p = group_roi_rsa(group='ptsd',ext_split=True,fs=True,hemi=False)
 memcon = ['encoding','retrieval']
 mems = ['hit','miss']
 cons = ['CS+','CS-']
-rois = ['fvmPFC','fdACC','mOFC', 'dACC', 'amyg', 'hpc', 'ins']
+rois = ['mOFC','dACC','amyg','hpc','ins','hc_head','hc_body','hc_tail','rh_hc_head','rh_hc_body','rh_hc_tail','lh_hc_head','lh_hc_body','lh_hc_tail','amyg_bla','amyg_cem','rh_amyg_bla','rh_amyg_cem','lh_amyg_bla','lh_amyg_cem']
 phases = {'baseline':24,'acquisition':24,'early_extinction':8,'extinction':16}
 # phases = {'baseline':24,'acquisition':24,'extinction':24}
 subs = range(24)
@@ -26,8 +26,11 @@ mdf = pd.concat((cdf,pdf))
 # mdf.roi = mdf.roi.apply(lambda x: 'vmPFC' if x == 'mOFC' else x)
 
 mdf = mdf.set_index(['group','roi','encode_phase'])
-cscomp('control',mdf,['mOFC','fdACC'],phases=phases.keys())
-cscomp('ptsd',mdf,['mOFC','fdACC'],phases=phases.keys())
+cscomp('control',mdf,['mOFC','dACC'],phases=phases.keys())
+cscomp('ptsd',mdf,['mOFC','dACC'],phases=phases.keys())
+cscomp('control',mdf,['rh_amyg_bla','lh_amyg_bla'],phases=phases.keys())
+cscomp('ptsd',mdf,['rh_amyg_bla','lh_amyg_bla'],phases=phases.keys())
+
 
 ##############Set level##############################
 csl = pd.DataFrame(index=pd.MultiIndex.from_product([cons,rois,phases,subs],names=['condition','roi','encode_phase','subject']))
@@ -47,8 +50,12 @@ sl = pd.concat([csl,psl])
 sl['group'] = sl.subject.apply(lgroup)
 
 sl = sl.set_index(['group','roi','encode_phase'])
-cscomp('control',sl,['fvmPFC','fdACC'],phases=phases.keys())
-cscomp('ptsd',sl,['fvmPFC','fdACC'],phases=phases.keys())
+cscomp('control',sl,['mOFC','dACC'],phases=phases.keys())
+cscomp('ptsd',sl,['mOFC','dACC'],phases=phases.keys())
+cscomp('control',sl,['rh_amyg_bla','lh_amyg_bla'],phases=phases.keys())
+cscomp('ptsd',sl,['rh_amyg_bla','lh_amyg_bla'],phases=phases.keys())
+
+
 
 ##############Within session similarity###############
 cws = pd.DataFrame(index=pd.MultiIndex.from_product([memcon,cons,rois,phases,subs],names=['memory_phase','condition','roi','encode_phase','subject']))
