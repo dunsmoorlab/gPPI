@@ -1,6 +1,6 @@
 from fg_config import *
 import nibabel as nib
-from nilearn.image import mean_img, threshold_img, new_img_like
+from nilearn.image import mean_img, get_data, threshold_img, new_img_like
 from subprocess import Popen
 
 class fmriprep_preproc():
@@ -99,15 +99,15 @@ class fmriprep_preproc():
             os.system('fslmaths %s -mul %s %s'%(out_mask,self.subj.faa,out_mask)) 
 
             mask_img = nib.load(out_mask)
-            mask_dat = mask_img.get_fdata()
+            mask_dat = get_data(mask_img)
 
-            coor = [np.where(mask_dat == val) for val in rois[vals]]
+            coor = [np.where(mask_dat == val) for val in vals[roi]]
             #set all values to 0 except the ones we want
             mask_dat[:,:,:] = 0
             for val in coor: mask_dat[val] = 1
 
             #make it a nifti
-            mask_img = new_img_like(mask_img,mask_dat)
+            mask_img = new_img_like(mask_img,mask_dat,affine=mask_img.affine,copy_header=True)
             #and save
             nib.save(mask_img,os.path.join(self.subj.masks,'%s_mask.nii.gz'%(roi)))
 
