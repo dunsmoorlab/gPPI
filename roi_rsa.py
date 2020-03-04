@@ -266,7 +266,7 @@ class group_roi_rsa():
                       'rh_hc_tail' ,'lh_hc_tail']
         elif self.fs:
                 # self.rois = ['vmPFC','dACC','amyg_cem','amyg_bla','hc_head','hc_body','hc_tail']
-                self.rois = ['mOFC','dACC','amyg','hpc','ins']
+                self.rois = ['fvmPFC','fdACC','mOFC','dACC','amyg','hpc','ins']
 
         self.conditions = {'CS+': 'CSp',
                            'CS-': 'CSm'}

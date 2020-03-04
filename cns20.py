@@ -6,7 +6,7 @@ p = group_roi_rsa(group='ptsd',ext_split=True,fs=True,hemi=False)
 memcon = ['encoding','retrieval']
 mems = ['hit','miss']
 cons = ['CS+','CS-']
-rois = ['mOFC', 'dACC', 'amyg', 'hpc', 'ins']
+rois = ['fvmPFC','fdACC','mOFC', 'dACC', 'amyg', 'hpc', 'ins']
 phases = {'baseline':24,'acquisition':24,'early_extinction':8,'extinction':16}
 # phases = {'baseline':24,'acquisition':24,'extinction':24}
 subs = range(24)
@@ -23,11 +23,11 @@ pdf = (pdf.loc['CS+'] - pdf.loc['CS-']).reset_index()
 pdf['group'] = pdf.subject.apply(lgroup)
 
 mdf = pd.concat((cdf,pdf))
-mdf.roi = mdf.roi.apply(lambda x: 'vmPFC' if x == 'mOFC' else x)
+# mdf.roi = mdf.roi.apply(lambda x: 'vmPFC' if x == 'mOFC' else x)
 
 mdf = mdf.set_index(['group','roi','encode_phase'])
-cscomp('control',mdf,['vmPFC','dACC'],phases=phases.keys())
-cscomp('ptsd',mdf,['vmPFC','dACC'],phases=phases.keys())
+cscomp('control',mdf,['mOFC','fdACC'],phases=phases.keys())
+cscomp('ptsd',mdf,['mOFC','fdACC'],phases=phases.keys())
 
 ##############Set level##############################
 csl = pd.DataFrame(index=pd.MultiIndex.from_product([cons,rois,phases,subs],names=['condition','roi','encode_phase','subject']))
@@ -47,8 +47,8 @@ sl = pd.concat([csl,psl])
 sl['group'] = sl.subject.apply(lgroup)
 
 sl = sl.set_index(['group','roi','encode_phase'])
-cscomp('control',sl,['mOFC','dACC'],phases=phases.keys())
-cscomp('ptsd',sl,['mOFC','dACC'],phases=phases.keys())
+cscomp('control',sl,['fvmPFC','fdACC'],phases=phases.keys())
+cscomp('ptsd',sl,['fvmPFC','fdACC'],phases=phases.keys())
 
 ##############Within session similarity###############
 cws = pd.DataFrame(index=pd.MultiIndex.from_product([memcon,cons,rois,phases,subs],names=['memory_phase','condition','roi','encode_phase','subject']))
@@ -77,7 +77,7 @@ def mem_phase(roi):
 
 
 ##############ERS with memory############################
-mem = 'low_confidence_accuracy'
+mem = 'high_confidence_accuracy'
 cdf = c.df.groupby(['trial_type','encode_phase','roi',mem,'subject']).mean()
 cdf = (cdf.loc['CS+'] - cdf.loc['CS-']).reset_index()
 cdf['group'] = cdf.subject.apply(lgroup)
@@ -93,10 +93,10 @@ if 'high' in mem: mdf[mem] = mdf[mem].apply(lambda x: 'hit' if x == 1 else 'miss
 else: mdf[mem] = mdf[mem].apply(lambda x: 'hit' if x in [1,2] else 'miss')
 mdf = mdf.set_index(['group','roi','encode_phase',mem])
 
-mem_cscomp('control',mdf,['vmPFC','dACC'],phases=phases)
-mem_cscomp('ptsd',mdf,['vmPFC','dACC'],phases=phases)
+mem_cscomp('control',mdf,['fvmPFC','fdACC'],phases=phases)
+mem_cscomp('ptsd',mdf,['fvmPFC','fdACC'],phases=phases)
 ###############hits vs. miss samephase with cs#####################
-mem = 'low_confidence_accuracy'
+mem = 'high_confidence_accuracy'
 cdf = c.df.groupby([mem,'trial_type','encode_phase','roi','subject']).mean()
 cdf = (cdf.loc[1] - cdf.loc[0]).reset_index()
 cdf['group'] = cdf.subject.apply(lgroup)
@@ -106,7 +106,7 @@ pdf = (pdf.loc[1] - pdf.loc[0]).reset_index()
 pdf['group'] = pdf.subject.apply(lgroup)
 
 hm = pd.concat([cdf,pdf]).reset_index(drop=True)
-roi = 'mOFC'
+roi = 'fvmPFC'
 g = sns.catplot(x='encode_phase',y='rsa',hue='trial_type',col='group',data=hm.query('roi == @roi'),
                 kind='bar',aspect=1,palette=cpal)
 g.set_titles("{col_name} {col_var}")
