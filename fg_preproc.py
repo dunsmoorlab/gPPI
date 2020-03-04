@@ -91,6 +91,7 @@ class fmriprep_preproc():
                 'fdACC':[1002,2002,1023,2023,1028,2028]}
 
         for roi in rois:
+<<<<<<< Updated upstream
             out_mask = os.path.join(self.subj.masks,'%s_mask.nii.gz'%(roi))
             os.system('flirt -in %s -ref %s -applyxfm -init %s -out %s -interp nearestneighbour'%(
                     rois[roi], self.subj.refvol_be, self.std2ref, out_mask))
@@ -109,6 +110,13 @@ class fmriprep_preproc():
             nib.save(mask_img,os.path.join(self.subj.masks,'%s_mask.nii.gz'%(roi)))
 
 
+=======
+                out_mask = os.path.join(self.subj.masks,'%s_mask.nii.gz'%(roi))
+                os.system('flirt -in %s -ref %s -applyxfm -init %s -out %s -interp nearestneighbour'%(
+                        rois[roi], self.subj.refvol_brain, self.subj.std2ref, out_mask))
+   
+                os.system('fslmaths %s -mul %s %s'%(out_mask,self.subj.faa,out_mask)) 
+>>>>>>> Stashed changes
     def fsl_reg(self):
 
         os.system('flirt -in %s -ref %s -dof 12 -omat %s'%(self.subj.refvol_brain, std_1mm_brain, self.subj.ref2std))
