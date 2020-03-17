@@ -176,7 +176,7 @@ phasecomp('ptsd',pfc,['amyg','hpc'])
 c = group_roi_rsa(group='control',ext_split=True,fs=True,hemi=False)
 p = group_roi_rsa(group='ptsd',ext_split=True,fs=True,hemi=False)
 
-mem = 'low_confidence_accuracy'
+mem = 'high_confidence_accuracy'
 cdf = c.df.groupby(['trial_type','encode_phase','roi',mem,'subject']).mean()
 cdf = (cdf.loc['CS+'] - cdf.loc['CS-']).reset_index()
 cdf['group'] = cdf.subject.apply(lgroup)

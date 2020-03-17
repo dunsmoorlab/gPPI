@@ -315,7 +315,7 @@ class group_roi_rsa():
             mats[roi] = np.stack([in_mats[sub][roi]['ers'] for sub in in_mats])
 
         self.mats = mats
-    def vis_cross_mat(self):
+    def vis_cross_mat(self,rois):
         matlines = {
         'CS+':{
                         'linestyle':'-',                
@@ -337,18 +337,20 @@ class group_roi_rsa():
                  }
          }
 
-
-        for roi in self.rois:
-        # for roi in ['dACC']:
+        if type(rois) is str: rois = [rois]
+        # for roi in self.rois:
+        for roi in rois:
             mat = self.mats[roi].mean(axis=0)
-            
+            mat = np.tanh(mat)
             mask = np.zeros_like(mat)
             mask[np.triu_indices_from(mask)] = True
             
+            # _cmap = sns.diverging_palette(220, 20, sep=20, as_cmap=True)
+            _cmap = sns.diverging_palette(33,282,center='dark',as_cmap=True)
             fig, ax = plt.subplots()
-            sns.heatmap(mat,cmap='BrBG',ax=ax,mask=mask,square=True,center=0)
+            sns.heatmap(mat,cmap='twilight_shifted',ax=ax,mask=mask,square=True,center=0)
 
-            ax.set_title(self.group+' - '+roi)
+            ax.set_title(self.group+' - '+roi+'_%s__%s'%(np.round(mat.max(),3),np.round(mat.min(),3)))
 
             ax.xaxis.set_major_locator(MultipleLocator(24))
             ax.xaxis.set_major_formatter(ScalarFormatter())
