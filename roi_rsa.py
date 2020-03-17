@@ -188,7 +188,6 @@ class roi_rsa():
                 
                 encoding_trial = encoding_data[encoding_loc] * W[_phase][_trial_type]
                 mem_trial      = mem_data[mem_loc] * W[_phase][_trial_type]
-
                 
                 #if roi == 'mOFC':
                 #    self.rsa.loc[i,roi] = self.boot_rsa(encoding_trial,mem_trial)
