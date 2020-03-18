@@ -34,7 +34,7 @@ class fmriprep_preproc():
                         for file in folder[2]
                         if '%s_desc-brain_mask.nii.gz'%(self.space) in file]
         mask = mean_img(masks)
-        mask = threshold_img(mask,.5)
+        mask = threshold_img(mask,.1)
         nib.save(mask,self.subj.refvol_mask)
 
         os.system('fslmaths %s -bin %s'%(self.subj.refvol_mask,self.subj.refvol_mask))
