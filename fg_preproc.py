@@ -8,7 +8,9 @@ class fmriprep_preproc():
     def __init__(self,sub):
 
         self.subj = bids_meta(sub)
-
+        self.space = 'MNI152NLin2009cAsym'
+        # self.space = 'T1w'
+    
     def be_t1(self): #brain extract T1w
 
         t1 = os.path.join(self.subj.prep_dir,'anat','%s_desc-preproc_T1w.nii.gz'%(self.subj.fsub))
@@ -23,14 +25,14 @@ class fmriprep_preproc():
         refs = [nib.load( os.path.join(self.subj.prep_dir,folder[0],file) )
                         for folder in os.walk(self.subj.prep_dir)
                         for file in folder[2]
-                        if 'T1w_boldref.nii.gz' in file]
+                        if '%s_boldref.nii.gz'%(self.space) in file]
         ref = mean_img(refs)
         nib.save(ref,self.subj.refvol)
         
         masks = [nib.load( os.path.join(self.subj.prep_dir,folder[0],file) )
                         for folder in os.walk(self.subj.prep_dir)
                         for file in folder[2]
-                        if 'T1w_desc-brain_mask.nii.gz' in file]
+                        if '%s_desc-brain_mask.nii.gz'%(self.space) in file]
         mask = mean_img(masks)
         mask = threshold_img(mask,1)
         nib.save(mask,self.subj.refvol_mask)
@@ -41,7 +43,7 @@ class fmriprep_preproc():
 
         for folder in os.walk(self.subj.prep_dir):
             for file in folder[2]:
-                if 'T1w_desc-preproc_bold.nii.gz' in file:
+                if '%s_desc-preproc_bold.nii.gz'%(self.space) in file:
                     os.system('fslmaths %s -mas %s %s'%(os.path.join(self.subj.prep_dir,folder[0],file), self.subj.refvol_mask, os.path.join(self.subj.func,file)))
 
     def bbreg(self):
