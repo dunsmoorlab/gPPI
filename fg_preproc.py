@@ -8,8 +8,8 @@ class fmriprep_preproc():
     def __init__(self,sub):
 
         self.subj = bids_meta(sub)
-        self.space = 'MNI152NLin2009cAsym'
-        # self.space = 'T1w'
+        # self.space = 'MNI152NLin2009cAsym'
+        self.space = 'T1w'
     
     def be_t1(self): #brain extract T1w
 
@@ -36,6 +36,8 @@ class fmriprep_preproc():
         mask = mean_img(masks)
         mask = threshold_img(mask,.5)
         nib.save(mask,self.subj.refvol_mask)
+
+        os.system('fslmaths %s -bin %s'%(self.subj.refvol_mask,self.subj.refvol_mask))
 
         os.system('fslmaths %s -mas %s %s'%(self.subj.refvol,self.subj.refvol_mask,self.subj.refvol_brain))
     
