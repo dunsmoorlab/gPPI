@@ -34,7 +34,7 @@ class fmriprep_preproc():
                         for file in folder[2]
                         if '%s_desc-brain_mask.nii.gz'%(self.space) in file]
         mask = mean_img(masks)
-        mask = threshold_img(mask,1)
+        mask = threshold_img(mask,.5)
         nib.save(mask,self.subj.refvol_mask)
 
         os.system('fslmaths %s -mas %s %s'%(self.subj.refvol,self.subj.refvol_mask,self.subj.refvol_brain))
@@ -47,8 +47,8 @@ class fmriprep_preproc():
                     os.system('fslmaths %s -mas %s %s'%(os.path.join(self.subj.prep_dir,folder[0],file), self.subj.refvol_mask, os.path.join(self.subj.func,file)))
 
     def bbreg(self):
-        reg = 'export SUBJECTS_DIR=%s; bbregister --s %s --mov %s --init-fsl --bold --reg %s'%(fs_dir,self.subj.fsub,self.subj.refvol,self.subj.fs_regmat)
-        v2v = 'export SUBJECTS_DIR=%s; mri_vol2vol --subject %s --targ %s --mov %s --reg %s --nearest --inv --o %s'%(fs_dir,self.subj.fsub,os.path.join(self.subj.fs_dir,'mri','aparc+aseg.mgz'),self.subj.refvol,self.subj.fs_regmat,self.subj.faa)
+        reg = 'export SUBJECTS_DIR=%s; bbregister --s %s --mov %s --bold --reg %s'%(fs_dir,self.subj.fsub,self.subj.refvol_brain,self.subj.fs_regmat)
+        v2v = 'export SUBJECTS_DIR=%s; mri_vol2vol --subject %s --targ %s --mov %s --reg %s --nearest --inv --o %s'%(fs_dir,self.subj.fsub,os.path.join(self.subj.fs_dir,'mri','aparc+aseg.mgz'),self.subj.refvol_brain,self.subj.fs_regmat,self.subj.faa)
         mask = 'fslmaths %s -mas %s %s'%(self.subj.faa,self.subj.refvol_mask,self.subj.faa)
         for cmd in [reg,v2v,mask]: os.system(cmd)
 
