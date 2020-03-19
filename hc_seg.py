@@ -33,7 +33,7 @@ for sub in all_sub_args:
                 '-thr', thr,
                 '-uthr', thr,
                 '-bin', out]
-    Popen(hc_cmd).wait()
+      Popen(hc_cmd).wait()
 
     amyg_rois = {'amyg_bla':[7001,7003],
                  'amyg_cem':[7004,7010]}
@@ -45,7 +45,7 @@ for sub in all_sub_args:
                             '-thr', lthr,
                            '-uthr', uthr,
                             '-bin', out ]
-    Popen(amyg_cmd).wait()
+      Popen(amyg_cmd).wait()
 
 
 
