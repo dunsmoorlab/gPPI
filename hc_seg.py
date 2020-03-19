@@ -20,7 +20,7 @@ for sub in all_sub_args:
             '--fillthresh', '.3' ,
             '--o', vol]
 
-    # Popen(l2v).wait()
+    Popen(l2v).wait()
 
     hc_rois = {'hc_head':232,
                'hc_body':231,
@@ -33,7 +33,7 @@ for sub in all_sub_args:
                 '-thr', thr,
                 '-uthr', thr,
                 '-bin', out]
-      # Popen(hc_cmd).wait()
+    Popen(hc_cmd).wait()
 
     amyg_rois = {'amyg_bla':[7001,7003],
                  'amyg_cem':[7004,7010]}
@@ -45,7 +45,7 @@ for sub in all_sub_args:
                             '-thr', lthr,
                            '-uthr', uthr,
                             '-bin', out ]
-      # Popen(amyg_cmd).wait()
+    Popen(amyg_cmd).wait()
 
 
 
@@ -53,7 +53,7 @@ for sub in all_sub_args:
     cmd = ['fslmaths', os.path.join(subj.masks,'rh_'+roi+'.nii.gz'),
                    '-add', os.path.join(subj.masks,'lh_'+roi+'.nii.gz'),
                    '-bin', os.path.join(subj.masks,roi+'.nii.gz')]
-    # Popen(cmd).wait()
+    Popen(cmd).wait()
 
 
     #make the full circuit mask
