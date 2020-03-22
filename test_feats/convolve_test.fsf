@@ -263,7 +263,7 @@ set fmri(regstandard_nonlinear_yn) 1
 set fmri(regstandard_nonlinear_warpres) 10 
 
 # High pass filter cutoff
-set fmri(paradigm_hp) 100
+set fmri(paradigm_hp) 1.0
 
 # Total voxels
 set fmri(totalVoxels) 47848500
@@ -276,10 +276,7 @@ set fmri(ncopeinputs) 0
 set feat_files(1) "/scratch/05426/ach3377/fc-bids/derivatives/preproc/sub-FC001/func/sub-FC001_ses-2_task-memory_run-01_space-T1w_desc-preproc_bold"
 
 # Add confound EVs text file
-set fmri(confoundevs) 1
-
-# Confound EVs text file for analysis 1
-set confoundev_files(1) "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC001/memory_run-01/confounds.txt"
+set fmri(confoundevs) 0
 
 # Subject's structural image for analysis 1
 set highres_files(1) "/scratch/05426/ach3377/fc-bids/derivatives/preproc/sub-FC001/reference/T1w_brain"
