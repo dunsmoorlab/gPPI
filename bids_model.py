@@ -66,6 +66,26 @@ class bids_events():
 
                     #handle early/late for associative learning phases
 
+    def mem_events(self):
+        outstr = {'CS+'      :'CSp',
+                  'CS-'      :'CSm'}
+
+        #walk through every folder containing the raw data and find all the event files
+        for folder in os.walk(self.subj.subj_dir):
+            for file in folder[2]:
+                if 'events' in file and '.tsv' in file and 'memory' in file:
+                    events = pd.read_csv(os.path.join(self.subj.subj_dir,folder[0],file), sep='\t')
+                    phase = re.search('task-(.*)_events',file)[1]
+                    out = os.path.join(self.subj.model_dir,'%s'%(phase))
+
+                    #for every trial type
+                    for con in events.trial_type.unique():
+                        for encode in events.encode_phase.unique():
+                            _timing = events[events.trial_type == con][events.encode_phase == encode][['onset','duration']]
+                            _timing['PM'] = 1
+                            _timing.to_csv( os.path.join(out, '%s_%s_all.txt'%(outstr[con],encode)),
+                            sep='\t', float_format='%.8e', index=False, header=False)
+
     #collect confound regressors from fMRIprep
     def confounds(self):
 
@@ -197,7 +217,7 @@ class gPPI():
         self.mask = self.load_mask(mask)
         self.data = self.load_clean_data(phases=phases)
         self.extract_timecourse()
-        self._autofill_fsf()
+        # self._autofill_fsf()
 
     def load_mask(self,mask):
         
