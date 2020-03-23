@@ -361,27 +361,44 @@ def autofill_fsf(template='',ses=None,name=None,roi=None):
         outstr = roi+'_'+name
     else:
         outstr = name
-    for sub in all_sub_args:
-        subj = bids_meta(sub)
-        replacements = {'SUBID':subj.fsub}
+    if group:
         if roi is not None: replacements['ROI'] = roi
-        #need to handle the special cases where the TR is longer
-        if ses == 1 and sub in [105,106]:
-            replacements['TR_length'] = '2.23'
-        else:
-            replacements['TR_length'] = '2'
+        for cope in range(1,13):
+            replacements['COPEID'] = 'cope%s'%(cope)
+            outfeat = os.path.join(SCRATCH,roi,'%s.fsf'%(outstr))
 
-        outfeat = os.path.join(subj.feat_dir,'%s_%s.fsf'%(subj.fsub,outstr))
+            with open(os.path.join(gPPI_codebase,'feats','%s.fsf'%(template))) as infile: 
+                with open(outfeat, 'w') as outfile:
+                    for line in infile:
+                        for src, target in replacements.items():
+                            line = line.replace(src, target)
+                        outfile.write(line)
 
-        with open(os.path.join(gPPI_codebase,'feats','%s.fsf'%(template))) as infile: 
-            with open(outfeat, 'w') as outfile:
-                for line in infile:
-                    for src, target in replacements.items():
-                        line = line.replace(src, target)
-                    outfile.write(line)
+            #also go ahead and make the job script here
+            os.system('echo "feat %s" >> jobs/%s_job.txt'%(outfeat,outstr))
 
-        #also go ahead and make the job script here
-        os.system('echo "feat %s" >> jobs/%s_job.txt'%(outfeat,outstr))
+    else:
+        for sub in all_sub_args:
+            subj = bids_meta(sub)
+            replacements = {'SUBID':subj.fsub}
+            if roi is not None: replacements['ROI'] = roi
+            #need to handle the special cases where the TR is longer
+            if ses == 1 and sub in [105,106]:
+                replacements['TR_length'] = '2.23'
+            else:
+                replacements['TR_length'] = '2'
+
+            outfeat = os.path.join(subj.feat_dir,'%s_%s.fsf'%(subj.fsub,outstr))
+
+            with open(os.path.join(gPPI_codebase,'feats','%s.fsf'%(template))) as infile: 
+                with open(outfeat, 'w') as outfile:
+                    for line in infile:
+                        for src, target in replacements.items():
+                            line = line.replace(src, target)
+                        outfile.write(line)
+
+            #also go ahead and make the job script here
+            os.system('echo "feat %s" >> jobs/%s_job.txt'%(outfeat,outstr))
 
 def wrap_lss_jobs():
     for sub in all_subs_args:
@@ -408,7 +425,7 @@ def wrap_lss_jobs():
             os.system('launch -N 1 -n 12 -J %s_%s -s jobs/%s_memory_run-0%s_gPPI_job.txt -m achennings@utexas.edu -p normal -r 24:00:00 -A LewPea_MRI_Analysis'%(run,roi,roi,run))
 
     for roi in ['lh_amyg','rh_amyg']:
-        os.system('launch -N 1 -n 12 -J %s_lvl2 -s jobs/%s_lvl2_gPPI_job.txt -m achennings@utexas.edu -p normal -r 2:00:00 -A LewPea_MRI_Analysis'%(roi,roi))
+        os.system('launch -N 1 -n 12 -J %s_lvl2 -s jobs/%s_mem_encode_lvl2_gPPI_job.txt -m achennings@utexas.edu -p normal -r 2:00:00 -A LewPea_MRI_Analysis'%(roi,roi))
 
 def clean_bad_lss():
     bad = pd.read_csv('bad_lss.txt',header=None)
