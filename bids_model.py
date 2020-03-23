@@ -403,6 +403,9 @@ def wrap_lss_jobs():
         for roi in ['lh_amyg','rh_amyg']:
             os.system('launch -N 1 -n 12 -J %s_%s -s jobs/%s_memory_run-0%s_gPPI_job.txt -m achennings@utexas.edu -p normal -r 24:00:00 -A LewPea_MRI_Analysis'%(run,roi,roi,run))
 
+    for roi in ['lh_amyg','rh_amyg']:
+        os.system('launch -N 1 -n 12 -J %s_lvl2 -s jobs/%s_lvl2_gPPI_job.txt -m achennings@utexas.edu -p normal -r 2:00:00 -A LewPea_MRI_Analysis'%(roi,roi))
+
 def clean_bad_lss():
     bad = pd.read_csv('bad_lss.txt',header=None)
     for beta in bad[0]:
