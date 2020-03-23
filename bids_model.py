@@ -355,13 +355,13 @@ class gPPI():
             C_[:,q] = np.sqrt(2/N_)* np.cos( np.pi*(2*n)* (q) /(2*N_))
         return C_
 
-def autofill_fsf(template='',ses=None,name=None):
+def autofill_fsf(template='',ses=None,name=None,roi=None):
     if 'template' in template: outstr = re.search('template_(.*)',template)[1]
     else: outstr = name
     for sub in all_sub_args:
         subj = bids_meta(sub)
         replacements = {'SUBID':subj.fsub}
-        
+        if roi is not None: replacements['ROI'] = roi
         #need to handle the special cases where the TR is longer
         if ses == 1 and sub in [105,106]:
             replacements['TR_length'] = '2.23'
