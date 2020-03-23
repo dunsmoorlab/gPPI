@@ -1,0 +1,221 @@
+ Starting at Mon Mar 23 14:15:21 CDT 2020
+ WORKING DIR: /opt/tacc_mounts/home1/05426/ach3377/gPPI/
+ JOB ID:      2767113
+ JOB NAME:    rh_amyg_lvl3
+ NODES:       nid00330
+ N NODES:     1
+ N TASKS:     12
+Launcher: Setup complete.
+
+------------- SUMMARY ---------------
+   Number of hosts:    1
+   Working directory:  /opt/tacc_mounts/home1/05426/ach3377/gPPI
+   Processes per host: 12
+   Total processes:    12
+   Total jobs:         12
+   Scheduling method:  dynamic
+
+-------------------------------------
+Launcher: Starting parallel tasks...
+using /tmp/launcher.2767113.hostlist.VtnUt3HZ to get hosts
+starting job on nid00330
+Launcher: Task 11 running job 1 on nid00330 (feat /scratch/05426/ach3377/group_gPPI/rh_amyg/rh_amyg_group_cope_1.fsf)
+To view the FEAT progress and final report, point your web browser at /scratch/05426/ach3377/group_gPPI/rh_amyg/cope1.gfeat/report_log.html
+couldn't read file "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC001/feats/rh_amyg_soure.gfeat/cope1.feat/design.fsf": no such file or directory
+    while executing
+"source ${featdir}/design.fsf"
+    (procedure "feat5:getconname" line 2)
+    invoked from within
+"feat5:getconname $ff_one $nci "
+    invoked from within
+"if { $done_something == 0 } {
+
+    if { ! $fmri(inmelodic) } {
+       if { $fmri(level) == 1 } {
+	      for { set session 1 } { $session <= $fmri(mult..."
+    (file "/work/IRC/ls5/opt/apps/fsl-5.0.10/bin/feat" line 390)
+Launcher: Job 1 completed in 2 seconds.
+Launcher: Task 11 running job 2 on nid00330 (feat /scratch/05426/ach3377/group_gPPI/rh_amyg/rh_amyg_group_cope_2.fsf)
+Launcher: Task 1 running job 3 on nid00330 (feat /scratch/05426/ach3377/group_gPPI/rh_amyg/rh_amyg_group_cope_3.fsf)
+To view the FEAT progress and final report, point your web browser at /scratch/05426/ach3377/group_gPPI/rh_amyg/cope2.gfeat/report_log.html
+To view the FEAT progress and final report, point your web browser at /scratch/05426/ach3377/group_gPPI/rh_amyg/cope3.gfeat/report_log.html
+couldn't read file "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC001/feats/rh_amyg_soure.gfeat/cope2.feat/design.fsf": no such file or directory
+    while executing
+"source ${featdir}/design.fsf"
+    (procedure "feat5:getconname" line 2)
+    invoked from within
+"feat5:getconname $ff_one $nci "
+    invoked from within
+"if { $done_something == 0 } {
+
+    if { ! $fmri(inmelodic) } {
+       if { $fmri(level) == 1 } {
+	      for { set session 1 } { $session <= $fmri(mult..."
+    (file "/work/IRC/ls5/opt/apps/fsl-5.0.10/bin/feat" line 390)
+Launcher: Job 2 completed in 1 seconds.
+couldn't read file "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC001/feats/rh_amyg_soure.gfeat/cope3.feat/design.fsf": no such file or directory
+    while executing
+"source ${featdir}/design.fsf"
+    (procedure "feat5:getconname" line 2)
+    invoked from within
+"feat5:getconname $ff_one $nci "
+    invoked from within
+"if { $done_something == 0 } {
+
+    if { ! $fmri(inmelodic) } {
+       if { $fmri(level) == 1 } {
+	      for { set session 1 } { $session <= $fmri(mult..."
+    (file "/work/IRC/ls5/opt/apps/fsl-5.0.10/bin/feat" line 390)
+Launcher: Job 3 completed in 1 seconds.
+Launcher: Task 11 running job 4 on nid00330 (feat /scratch/05426/ach3377/group_gPPI/rh_amyg/rh_amyg_group_cope_4.fsf)
+Launcher: Task 1 running job 5 on nid00330 (feat /scratch/05426/ach3377/group_gPPI/rh_amyg/rh_amyg_group_cope_5.fsf)
+To view the FEAT progress and final report, point your web browser at /scratch/05426/ach3377/group_gPPI/rh_amyg/cope4.gfeat/report_log.html
+To view the FEAT progress and final report, point your web browser at /scratch/05426/ach3377/group_gPPI/rh_amyg/cope5.gfeat/report_log.html
+couldn't read file "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC001/feats/rh_amyg_soure.gfeat/cope4.feat/design.fsf": no such file or directory
+    while executing
+"source ${featdir}/design.fsf"
+    (procedure "feat5:getconname" line 2)
+    invoked from within
+"feat5:getconname $ff_one $nci "
+    invoked from within
+"if { $done_something == 0 } {
+
+    if { ! $fmri(inmelodic) } {
+       if { $fmri(level) == 1 } {
+	      for { set session 1 } { $session <= $fmri(mult..."
+    (file "/work/IRC/ls5/opt/apps/fsl-5.0.10/bin/feat" line 390)
+Launcher: Job 4 completed in 2 seconds.
+couldn't read file "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC001/feats/rh_amyg_soure.gfeat/cope5.feat/design.fsf": no such file or directory
+    while executing
+"source ${featdir}/design.fsf"
+    (procedure "feat5:getconname" line 2)
+    invoked from within
+"feat5:getconname $ff_one $nci "
+    invoked from within
+"if { $done_something == 0 } {
+
+    if { ! $fmri(inmelodic) } {
+       if { $fmri(level) == 1 } {
+	      for { set session 1 } { $session <= $fmri(mult..."
+    (file "/work/IRC/ls5/opt/apps/fsl-5.0.10/bin/feat" line 390)
+Launcher: Task 11 running job 6 on nid00330 (feat /scratch/05426/ach3377/group_gPPI/rh_amyg/rh_amyg_group_cope_6.fsf)
+Launcher: Job 5 completed in 2 seconds.
+Launcher: Task 1 running job 7 on nid00330 (feat /scratch/05426/ach3377/group_gPPI/rh_amyg/rh_amyg_group_cope_7.fsf)
+To view the FEAT progress and final report, point your web browser at /scratch/05426/ach3377/group_gPPI/rh_amyg/cope6.gfeat/report_log.html
+To view the FEAT progress and final report, point your web browser at /scratch/05426/ach3377/group_gPPI/rh_amyg/cope7.gfeat/report_log.html
+couldn't read file "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC001/feats/rh_amyg_soure.gfeat/cope6.feat/design.fsf": no such file or directory
+    while executing
+"source ${featdir}/design.fsf"
+    (procedure "feat5:getconname" line 2)
+    invoked from within
+"feat5:getconname $ff_one $nci "
+    invoked from within
+"if { $done_something == 0 } {
+
+    if { ! $fmri(inmelodic) } {
+       if { $fmri(level) == 1 } {
+	      for { set session 1 } { $session <= $fmri(mult..."
+    (file "/work/IRC/ls5/opt/apps/fsl-5.0.10/bin/feat" line 390)
+Launcher: Job 6 completed in 1 seconds.
+couldn't read file "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC001/feats/rh_amyg_soure.gfeat/cope7.feat/design.fsf": no such file or directory
+    while executing
+"source ${featdir}/design.fsf"
+    (procedure "feat5:getconname" line 2)
+    invoked from within
+"feat5:getconname $ff_one $nci "
+    invoked from within
+"if { $done_something == 0 } {
+
+    if { ! $fmri(inmelodic) } {
+       if { $fmri(level) == 1 } {
+	      for { set session 1 } { $session <= $fmri(mult..."
+    (file "/work/IRC/ls5/opt/apps/fsl-5.0.10/bin/feat" line 390)
+Launcher: Task 11 running job 8 on nid00330 (feat /scratch/05426/ach3377/group_gPPI/rh_amyg/rh_amyg_group_cope_8.fsf)
+Launcher: Job 7 completed in 1 seconds.
+Launcher: Task 1 running job 9 on nid00330 (feat /scratch/05426/ach3377/group_gPPI/rh_amyg/rh_amyg_group_cope_9.fsf)
+Launcher: Task 7 running job 10 on nid00330 (feat /scratch/05426/ach3377/group_gPPI/rh_amyg/rh_amyg_group_cope_10.fsf)
+To view the FEAT progress and final report, point your web browser at /scratch/05426/ach3377/group_gPPI/rh_amyg/cope8.gfeat/report_log.html
+To view the FEAT progress and final report, point your web browser at /scratch/05426/ach3377/group_gPPI/rh_amyg/cope9.gfeat/report_log.html
+couldn't read file "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC001/feats/rh_amyg_soure.gfeat/cope8.feat/design.fsf": no such file or directory
+    while executing
+"source ${featdir}/design.fsf"
+    (procedure "feat5:getconname" line 2)
+    invoked from within
+"feat5:getconname $ff_one $nci "
+    invoked from within
+"if { $done_something == 0 } {
+
+    if { ! $fmri(inmelodic) } {
+       if { $fmri(level) == 1 } {
+	      for { set session 1 } { $session <= $fmri(mult..."
+    (file "/work/IRC/ls5/opt/apps/fsl-5.0.10/bin/feat" line 390)
+Launcher: Job 8 completed in 2 seconds.
+couldn't read file "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC001/feats/rh_amyg_soure.gfeat/cope9.feat/design.fsf": no such file or directory
+    while executing
+"source ${featdir}/design.fsf"
+    (procedure "feat5:getconname" line 2)
+    invoked from within
+"feat5:getconname $ff_one $nci "
+    invoked from within
+"if { $done_something == 0 } {
+
+    if { ! $fmri(inmelodic) } {
+       if { $fmri(level) == 1 } {
+	      for { set session 1 } { $session <= $fmri(mult..."
+    (file "/work/IRC/ls5/opt/apps/fsl-5.0.10/bin/feat" line 390)
+Launcher: Job 9 completed in 2 seconds.
+Launcher: Task 11 running job 11 on nid00330 (feat /scratch/05426/ach3377/group_gPPI/rh_amyg/rh_amyg_group_cope_11.fsf)
+Launcher: Task 1 running job 12 on nid00330 (feat /scratch/05426/ach3377/group_gPPI/rh_amyg/rh_amyg_group_cope_12.fsf)
+To view the FEAT progress and final report, point your web browser at /scratch/05426/ach3377/group_gPPI/rh_amyg/cope10.gfeat/report_log.html
+couldn't read file "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC001/feats/rh_amyg_soure.gfeat/cope10.feat/design.fsf": no such file or directory
+    while executing
+"source ${featdir}/design.fsf"
+    (procedure "feat5:getconname" line 2)
+    invoked from within
+"feat5:getconname $ff_one $nci "
+    invoked from within
+"if { $done_something == 0 } {
+
+    if { ! $fmri(inmelodic) } {
+       if { $fmri(level) == 1 } {
+	      for { set session 1 } { $session <= $fmri(mult..."
+    (file "/work/IRC/ls5/opt/apps/fsl-5.0.10/bin/feat" line 390)
+Launcher: Job 10 completed in 1 seconds.
+Launcher: Task 7 done. Exiting.
+To view the FEAT progress and final report, point your web browser at /scratch/05426/ach3377/group_gPPI/rh_amyg/cope11.gfeat/report_log.html
+To view the FEAT progress and final report, point your web browser at /scratch/05426/ach3377/group_gPPI/rh_amyg/cope12.gfeat/report_log.html
+couldn't read file "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC001/feats/rh_amyg_soure.gfeat/cope11.feat/design.fsf": no such file or directory
+    while executing
+"source ${featdir}/design.fsf"
+    (procedure "feat5:getconname" line 2)
+    invoked from within
+"feat5:getconname $ff_one $nci "
+    invoked from within
+"if { $done_something == 0 } {
+
+    if { ! $fmri(inmelodic) } {
+       if { $fmri(level) == 1 } {
+	      for { set session 1 } { $session <= $fmri(mult..."
+    (file "/work/IRC/ls5/opt/apps/fsl-5.0.10/bin/feat" line 390)
+Launcher: Job 11 completed in 1 seconds.
+couldn't read file "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC001/feats/rh_amyg_soure.gfeat/cope12.feat/design.fsf": no such file or directory
+    while executing
+"source ${featdir}/design.fsf"
+    (procedure "feat5:getconname" line 2)
+    invoked from within
+"feat5:getconname $ff_one $nci "
+    invoked from within
+"if { $done_something == 0 } {
+
+    if { ! $fmri(inmelodic) } {
+       if { $fmri(level) == 1 } {
+	      for { set session 1 } { $session <= $fmri(mult..."
+    (file "/work/IRC/ls5/opt/apps/fsl-5.0.10/bin/feat" line 390)
+Launcher: Task 11 done. Exiting.
+Launcher: Job 12 completed in 1 seconds.
+Launcher: Task 1 done. Exiting.
+Launcher: Done. Job exited without errors
+ 
+ Job complete at Mon Mar 23 14:15:45 CDT 2020
+ 
+Job duration: 00:00:24 (24 s)
