@@ -399,6 +399,10 @@ def wrap_lss_jobs():
     for i in range(bad.shape[0]):
         os.system('echo "%s" >> jobs/final_lss_job_%s.txt'%(bad[0][i],int(np.floor(i/12))))
 
+    for run in [1,2,3]:
+        for roi in ['lh_amyg','rh_amyg']:
+            os.system('launch -N 1 -n 12 -J %s_%s -s jobs/%s_memory_run-0%s_gPPI_job.txt -m achennings@utexas.edu -p normal -r 24:00:00 -A LewPea_MRI_Analysis'%(run,roi,roi,run))
+
 def clean_bad_lss():
     bad = pd.read_csv('bad_lss.txt',header=None)
     for beta in bad[0]:
