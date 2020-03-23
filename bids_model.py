@@ -277,14 +277,14 @@ class gPPI():
             out = os.path.join(self.subj.model_dir,phase,self.mask_name)
             for file in os.listdir(os.path.join(self.subj.model_dir,phase)):
                 if 'confounds' not in file and '.txt' in file:
-                    long_events = np.zeros(tasks[phase][n_tr]*2)
+                    long_events = np.zeros(tasks[phase]['n_tr']*2)
                     events = pd.read_csv(os.path.join(self.subj.model_dir,phase,file),sep='\t',header=None)
                     for i in events.index:
-                        onset = int(events.loc[i,'onset'])
-                        duration = int(events.loc[i,'duration'])
+                        onset = int(events.loc[i,0])
+                        duration = int(events.loc[i,1])
                         long_events[onset:onset+duration] = 1
-                        long_events = long_events[::2]
-                    assert long_events.shape[0] == tasks[phase][n_tr]
+                    long_events = long_events[::2]
+                    assert long_events.shape[0] == tasks[phase]['n_tr']
 
                     ppi = (self.neuronal[phase] - self.neuronal[phase].mean()) * long_events
                     ppi = pd.Series(ppi)
