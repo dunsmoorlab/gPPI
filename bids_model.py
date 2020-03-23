@@ -210,13 +210,14 @@ class lss():
 
 class gPPI():
     
-    def __init__(self,sub,mask=None,phases=None):
+    def __init__(self,sub,mask=None,phases='all'):
 
         self.subj = bids_meta(sub)
         self.mask_name = mask
         self.mask = self.load_mask(mask)
         self.data = self.load_clean_data(phases=phases)
         self.extract_timecourse()
+        self.interact()
         # self._autofill_fsf()
 
     def load_mask(self,mask):
@@ -265,8 +266,30 @@ class gPPI():
 
         for phase in self.neuronal:
                 df = pd.Series(self.neuronal[phase])
-                df.to_csv(os.path.join(self.subj.model_dir,phase,'%s_neuronal_signal.txt'%(self.mask_name)),
+                out = os.path.join(self.subj.model_dir,phase,self.mask_name)
+                mkdir(out)
+                df.to_csv(os.path.join(out,'%s_neuronal_signal.txt'%(self.mask_name)),
                     sep='\t', float_format='%.8e', index=False, header=False)
+
+    def interact(self):
+
+        for phase in self.neuronal:
+            out = os.path.join(self.subj.model_dir,phase,self.mask_name)
+            for file in os.listdir(os.path.join(self.subj.model_dir,phase)):
+                if 'confounds' not in file and '.txt' in file:
+                    long_events = np.zeros(tasks[phase][n_tr]*2)
+                    events = pd.read_csv(os.path.join(self.subj.model_dir,phase,file),sep='\t',header=None)
+                    for i in events.index:
+                        onset = int(events.loc[i,'onset'])
+                        duration = int(events.loc[i,'duration'])
+                        long_events[onset:onset+duration] = 1
+                        long_events = long_events[::2]
+                    assert long_events.shape[0] == tasks[phase][n_tr]
+
+                    ppi = (self.neuronal[phase] - self.neuronal[phase].mean()) * long_events
+                    ppi = pd.Series(ppi)
+                    ppi.to_csv(os.path.join(out,'ppi_%s'%(file)),
+                        sep='\t', float_format='%.8e', index=False, header=False)
 
     def _autofill_fsf(self):
         for phase in self.neuronal:
