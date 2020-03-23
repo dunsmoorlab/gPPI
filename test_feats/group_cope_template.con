@@ -1,0 +1,22 @@
+/ContrastName1	healthy > 0 
+/ContrastName2	healhty < 0 
+/ContrastName3	ptsd > 0 
+/ContrastName4	ptsd < 0 
+/ContrastName5	healthy > ptsd 
+/ContrastName6	ptsd > healhty 
+/ContrastName7	healthy & ptsd > 0 
+/ContrastName8	healhty & ptsd < 0 
+/NumWaves	2
+/NumContrasts	8
+/PPheights		1.000000e+00	1.000000e+00	1.000000e+00	1.000000e+00	1.000000e+00	1.000000e+00	1.000000e+00	1.000000e+00
+/RequiredEffect		0.844	0.844	0.844	0.844	1.194	1.194	0.597	0.597
+
+/Matrix
+1.000000e+00 0.000000e+00 
+-1.000000e+00 0.000000e+00 
+0.000000e+00 1.000000e+00 
+0.000000e+00 -1.000000e+00 
+1.000000e+00 -1.000000e+00 
+-1.000000e+00 1.000000e+00 
+5.000000e-01 5.000000e-01 
+-5.000000e-01 -5.000000e-01 

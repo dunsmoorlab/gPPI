@@ -357,7 +357,10 @@ class gPPI():
 
 def autofill_fsf(template='',ses=None,name=None,roi=None):
     if 'template' in template: outstr = re.search('template_(.*)',template)[1]
-    else: outstr = name
+    elif roi is not None:
+        outstr = roi+'_'+name
+    else:
+        outstr = name
     for sub in all_sub_args:
         subj = bids_meta(sub)
         replacements = {'SUBID':subj.fsub}
