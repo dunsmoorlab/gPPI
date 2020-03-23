@@ -214,10 +214,10 @@ class gPPI():
 
         self.subj = bids_meta(sub)
         self.mask_name = mask
-        self.mask = self.load_mask(mask)
-        self.data = self.load_clean_data(phases=phases)
-        self.extract_timecourse()
-        self.interact()
+        #self.mask = self.load_mask(mask)
+        #self.data = self.load_clean_data(phases=phases)
+        #self.extract_timecourse()
+        #self.interact()
         self._autofill_fsf()
 
     def load_mask(self,mask):
@@ -292,30 +292,31 @@ class gPPI():
                         sep='\t', float_format='%.8e', index=False, header=False)
 
     def _autofill_fsf(self):
-        for phase in self.neuronal:
-            template = os.path.join(gPPI_codebase,'feats','gPPI','mem_encode_gPPI.fsf')
+        for phase in tasks:
+            if 'memory' in phase:       
+                template = os.path.join(gPPI_codebase,'feats','gPPI','mem_encode_gPPI.fsf')
 
-            replacements = {'SUBID':self.subj.fsub,
+                replacements = {'SUBID':self.subj.fsub,
                             'RUNID':phase,
-                            'ROIID':self.mask_name}            
+                            'ROI':self.mask_name}            
             
             #need to handle the special cases where the TR is longer
-            if self.subj.num in [105,106]:
-                replacements['TR_length'] = '2.23'
-            else:
-                replacements['TR_length'] = '2'
+                if self.subj.num in [105,106]:
+                    replacements['TR_length'] = '2.23'
+                else:
+                    replacements['TR_length'] = '2'
         
-            outfeat = os.path.join(self.subj.feat_dir,'%s_%s_%s_mem_encode_gPPI.fsf'%(self.subj.fsub,phase,self.mask_name))
+                outfeat = os.path.join(self.subj.feat_dir,'%s_%s_%s_mem_encode_gPPI.fsf'%(self.subj.fsub,phase,self.mask_name))
 
-            with open(template) as infile: 
-                with open(outfeat, 'w') as outfile:
-                    for line in infile:
-                        for src, target in replacements.items():
-                            line = line.replace(src, target)
-                        outfile.write(line)
+                with open(template) as infile: 
+                    with open(outfeat, 'w') as outfile:
+                        for line in infile:
+                            for src, target in replacements.items():
+                                line = line.replace(src, target)
+                            outfile.write(line)
 
             #also go ahead and make the job script here
-            os.system('echo "feat %s" >> jobs/%s_%s_gPPI_job.txt'%(outfeat,self.mask_name,phase)) 
+                os.system('echo "feat %s" >> jobs/%s_%s_gPPI_job.txt'%(outfeat,self.mask_name,phase)) 
         
 
     def _deconvolve(self,dat):
