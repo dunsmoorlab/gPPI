@@ -355,17 +355,17 @@ class gPPI():
             C_[:,q] = np.sqrt(2/N_)* np.cos( np.pi*(2*n)* (q) /(2*N_))
         return C_
 
-def autofill_fsf(template='',ses=None,name=None,roi=None):
+def autofill_fsf(group=False,template='',ses=None,name=None,roi=None):
     if 'template' in template: outstr = re.search('template_(.*)',template)[1]
     elif roi is not None:
         outstr = roi+'_'+name
     else:
         outstr = name
     if group:
-        if roi is not None: replacements['ROI'] = roi
+        if roi is not None: replacements = {'ROI':roi}
         for cope in range(1,13):
             replacements['COPEID'] = 'cope%s'%(cope)
-            outfeat = os.path.join(SCRATCH,roi,'%s.fsf'%(outstr))
+            outfeat = os.path.join(SCRATCH,'group_gPPI',roi,'%s_%s.fsf'%(outstr,cope))
 
             with open(os.path.join(gPPI_codebase,'feats','%s.fsf'%(template))) as infile: 
                 with open(outfeat, 'w') as outfile:
