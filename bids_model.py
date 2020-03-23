@@ -218,7 +218,7 @@ class gPPI():
         self.data = self.load_clean_data(phases=phases)
         self.extract_timecourse()
         self.interact()
-        # self._autofill_fsf()
+        self._autofill_fsf()
 
     def load_mask(self,mask):
         
@@ -293,9 +293,10 @@ class gPPI():
 
     def _autofill_fsf(self):
         for phase in self.neuronal:
-            template = os.path.join(gPPI_codebase,'feats','template_%s_CS_PPI.fsf'%(phase))
+            template = os.path.join(gPPI_codebase,'feats','gPPI','mem_encode_gPPI.fsf')
 
             replacements = {'SUBID':self.subj.fsub,
+                            'RUNID':phase,
                             'ROIID':self.mask_name}            
             
             #need to handle the special cases where the TR is longer
@@ -304,7 +305,7 @@ class gPPI():
             else:
                 replacements['TR_length'] = '2'
         
-            outfeat = os.path.join(self.subj.feat_dir,'%s_%s_%s_PPI.fsf'%(self.subj.fsub,phase,self.mask_name))
+            outfeat = os.path.join(self.subj.feat_dir,'%s_%s_%s_mem_encode_gPPI.fsf'%(self.subj.fsub,phase,self.mask_name))
 
             with open(template) as infile: 
                 with open(outfeat, 'w') as outfile:
@@ -314,7 +315,7 @@ class gPPI():
                         outfile.write(line)
 
             #also go ahead and make the job script here
-            os.system('echo "feat %s" >> jobs/%s_job.txt'%(outfeat,'acq_CS_gPPI')) 
+            os.system('echo "feat %s" >> jobs/%s_%s_gPPI_job.txt'%(outfeat,self.mask_name,phase)) 
         
 
     def _deconvolve(self,dat):
