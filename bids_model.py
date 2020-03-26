@@ -214,10 +214,10 @@ class gPPI():
 
         self.subj = bids_meta(sub)
         self.mask_name = mask
-        #self.mask = self.load_mask(mask)
-        #self.data = self.load_clean_data(phases=phases)
-        #self.extract_timecourse()
-        #self.interact()
+        self.mask = self.load_mask(mask)
+        self.data = self.load_clean_data(phases=phases)
+        self.extract_timecourse()
+        self.interact()
         self._autofill_fsf()
 
     def load_mask(self,mask):
@@ -426,7 +426,7 @@ def wrap_lss_jobs():
 
     for roi in ['lh_amyg','rh_amyg']:
         # os.system('launch -N 1 -n 12 -J %s_lvl2 -s jobs/%s_mem_encode_lvl2_gPPI_job.txt -m achennings@utexas.edu -p normal -r 2:00:00 -A LewPea_MRI_Analysis'%(roi,roi))        
-        os.system('launch -N 1 -n 1 -J %s_lvl3 -s jobs/%s_group_cope_job.txt -m achennings@utexas.edu -p normal -r 6:00:00 -A LewPea_MRI_Analysis'%(roi,roi))
+        os.system('launch -N 1 -n 12 -J %s_lvl3 -s jobs/%s_group_cope_job.txt -m achennings@utexas.edu -p normal -r 1:00:00 -A LewPea_MRI_Analysis'%(roi,roi))
 
 
 

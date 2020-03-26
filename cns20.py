@@ -30,7 +30,7 @@ mdf['group'] = mdf.subject.apply(lgroup)
 mdf['level'] = 'item'
 
 mdf = mdf.set_index(['group','roi','encode_phase']).sort_index()
-# cscomp('control',mdf,['mOFC','dACC'],phases=phases.keys())
+cscomp('control',mdf,['mOFC','dACC'],phases=phases.keys())
 # cscomp('ptsd',mdf,['mOFC','dACC'],phases=phases.keys())
 # cscomp('control',mdf,['rh_amyg_bla','lh_amyg_bla'],phases=phases.keys())
 # cscomp('ptsd',mdf,['rh_amyg_bla','lh_amyg_bla'],phases=phases.keys())
@@ -202,3 +202,23 @@ memdf = memdf.set_index(['group','roi','encode_phase']).sort_index()
 #         ax[i].set_title(group)
 
 # beh = beh.set_
+
+
+########################################################Fear to extinction similarity#####################################################################
+cae = pd.DataFrame(index=pd.MultiIndex.from_product([memcon,cons,rois,sub_args],names=['memory_phase','condition','roi','subject']))
+pae = pd.DataFrame(index=pd.MultiIndex.from_product([memcon,cons,rois,p_sub_args],names=['memory_phase','condition','roi','subject']))
+for mem in memcon:
+    for con in cons:
+        for roi in rois:
+            for sub in subs:
+                cae.loc[(mem,con,roi,sub_args[sub]),'rsa'] = c.mats[roi][sub,slices[con]['acquisition'][mem],slices[con]['extinction'][mem]].mean()
+                pae.loc[(mem,con,roi,p_sub_args[sub]),'rsa'] = p.mats[roi][sub,slices[con]['acquisition'][mem],slices[con]['extinction'][mem]].mean()
+ae = pd.concat((cae,pae))
+
+ae = ae.reset_index()
+ae['group'] = ae.subject.apply(lgroup)
+
+def ae_graph(roi):
+    g = sns.catplot(x='condition',y='rsa',hue='memory_phase',col='group',data=ae.query('roi == @roi'),
+                    kind='bar',aspect=1)
+    g.set_titles('%s {col_name}'%(roi))

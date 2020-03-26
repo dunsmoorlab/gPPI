@@ -66,22 +66,62 @@ def cscomp(group,df,rois,n_boot=1000,phases=None):
     ci = ci.sort_values(by='encode_phase')
     dist = dist.set_index('roi').sort_index()
 
+    pvals = pd.DataFrame(columns=['p'],index=pd.MultiIndex.from_product([rois,phases],names = ['roi','encode_phase']))
+    for roi in rois:
+        for phase in phases:
+            pvals.loc[(roi,phase),'p'] = pg.ttest(df.loc[(roi,phase),'rsa'].values,0)['p-val'].values[0]
+    pvals['corrp'] = pg.multicomp(list(pvals.p.values),method='fdr_bh')[1]
+    pvals['sig'] = pvals.corrp.apply(pconvert)
+
+    ymax = dist.dist.max() + .05
+    ymin = dist.dist.min() - .05
+
     phase_pal = sns.color_palette(['black','darkmagenta','lightgreen','seagreen'],desat=.75)
-    fig, ax = plt.subplots(1,len(rois),sharey=True,figsize=(12,8))
+    fig, ax = plt.subplots(1,len(rois),sharey=True,figsize=(12,6))
     for i, roi in enumerate(rois):
         if len(rois) == 1: Ax = ax
         else: Ax = ax[i]
+        dat = df.loc[roi].reset_index()
+        
+        '''
+        #dist violins
         sns.violinplot(data=dist.loc[roi],x='encode_phase',y='dist',
                         inner=None,ax=Ax,scale='count',palette=phase_pal)
-        lower = ci.loc[roi,'ci'].apply(lambda x: x[0])
-        upper = ci.loc[roi,'ci'].apply(lambda x: x[1])
-        Y = ci.loc[roi,'point']
+        '''
+        # sns.barplot(data=dat,x='encode_phase',y='rsa',hue='encode_phase',palette=phase_pal,ax=Ax,
+                    # order=phases,seed=42,errcolor='black')
+        # change_width(Ax,.75)
+        sns.pointplot(data=dat,x='encode_phase',y='rsa',hue='encode_phase',palette=phase_pal,ax=Ax,
+                        order=phases,seed=42)
         X = Ax.get_xticks()
-        Ax.vlines(X,lower,upper,linewidth=3,color='white').set_capstyle('round')
-        Ax.scatter(X,Y,s=50,color='white')
-        Ax.hlines(0,Ax.get_xlim()[0],Ax.get_xlim()[1],color='grey',linestyle='--',linewidth=3)
-        Ax.set_xticklabels('',rotation=45)
-        Ax.set_title(group+'_'+roi)
+
+        # sns.pointplot(data=dat,x='encode_phase',y='rsa',ci=None,units='subject',order=phases,ax=Ax)
+        # sdat = dat.set_index(['subject','encode_phase'])
+        # for sub in dat.subject.unique():
+        #     Ax.plot(X,sdat.loc[(sub,phases),'rsa'].values,color='grey',lw=1,alpha=.5)
+
+
+        # lower = ci.loc[roi,'ci'].apply(lambda x: x[0])
+        # upper = ci.loc[roi,'ci'].apply(lambda x: x[1])
+        # Y = ci.loc[roi,'point']
+
+
+        # Ax.vlines(X,lower,upper,linewidth=3,color='white').set_capstyle('round')
+        # Ax.scatter(X,Y,s=50,color='white')
+        # Ax.hlines(0,Ax.get_xlim()[0],Ax.get_xlim()[1],color='grey',linestyle='--',linewidth=3)
+        # Ax.set_xticklabels('',rotation=45)
+        # Ax.set_title(group+'_'+roi)
+        Ax.legend_.remove()
+
+        # Ax.set_ylim(ymin,ymax)            
+        Ax.yaxis.set_major_locator(MultipleLocator(.1))
+        Ax.yaxis.set_minor_locator(MultipleLocator(.05))
+        
+        sns.despine(ax=Ax,trim=True)
+
+        for i, x in enumerate(X): Ax.annotate(pvals.loc[roi,'sig'].values[i], xy=(x-.05,Ax.get_ylim()[1]-.1))
+
+
     if len(rois) > 1:
         ax[0].set_ylabel('∆ fisher z(r)')
         ax[1].set_ylabel('')
