@@ -213,7 +213,10 @@ class gPPI():
     def __init__(self,sub,mask=None,phases='all'):
 
         self.subj = bids_meta(sub)
-        self.mask_name = mask
+        if '_mask' in mask:
+            self.mask_name = mask[:-5]
+        else:
+            self.mask_name = mask
         self.mask = self.load_mask(mask)
         self.data = self.load_clean_data(phases=phases)
         self.extract_timecourse()
