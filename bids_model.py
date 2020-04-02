@@ -427,9 +427,9 @@ def wrap_lss_jobs():
         for roi in ['lh_amyg','rh_amyg']:
             os.system('launch -N 1 -n 12 -J %s_%s -s jobs/%s_memory_run-0%s_gPPI_job.txt -m achennings@utexas.edu -p normal -r 24:00:00 -A LewPea_MRI_Analysis'%(run,roi,roi,run))
 
-    for roi in ['lh_amyg','rh_amyg']:
+    for roi in ['lh_amyg','rh_amyg','rh_hpc','lh_hpc','dACC','mOFC']:
         # os.system('launch -N 1 -n 12 -J %s_lvl2 -s jobs/%s_mem_encode_lvl2_gPPI_job.txt -m achennings@utexas.edu -p normal -r 2:00:00 -A LewPea_MRI_Analysis'%(roi,roi))        
-        os.system('launch -N 1 -n 12 -J %s_lvl3 -s jobs/%s_group_cope_job.txt -m achennings@utexas.edu -p normal -r 1:00:00 -A LewPea_MRI_Analysis'%(roi,roi))
+        os.system('launch -N 1 -n 14 -J %s_lvl3 -s jobs/%s_group_cope_job.txt -m achennings@utexas.edu -p normal -r 2:00:00 -A LewPea_MRI_Analysis'%(roi,roi))
 
 
 
@@ -452,6 +452,42 @@ def wrangle_first_level():
 
             os.system('cp %s %s'%(csp_cope,os.path.join(subj.weights,'%s_CSp.nii.gz'%(phase))))
             os.system('cp %s %s'%(csm_cope,os.path.join(subj.weights,'%s_CSm.nii.gz'%(phase))))
+
+def group_gPPI_clean(roi):
+    copes = {'baseline_csp':1,
+             'baseline_csm':2,
+             'baseline_csp_csm':3,
+             'acquisition_csp':4,
+             'acquisition_csm':5,
+             'acquisition_csp_csm':6,
+             'extinction_csp':7,
+             'extinction_csm':8,
+             'extinction_csp_csm':9,
+             'foil_csp':10,
+             'foil_csm':11,
+             'foil_csp_csm':12,
+             'acq_csp_ext_csp':13,
+             'ext_csp_acq_csp':14}
+
+    stats = {'healthy_0':1,
+             '0_healthy':2,
+             'ptsd_0':3,
+             '0_ptsd':4,
+             'healthy_ptsd':5,
+             'ptsd_healthy':6,
+             'healhty_ptsd_0':7,
+             '0_healthy_ptsd':8}
+
+    wd = os.path.join(SCRATCH,'group_gPPI',roi)
+    od = os.path.join(SCRATCH,'group_gPPI_out',roi);mkdir(od)
+
+    for cope in copes:
+        out = os.path.join(od,cope);mkdir(out)
+        for stat in stats:
+            infile = os.path.join(wd,'cope%s.gfeat'%(copes[cope]),'cope1.feat','stats','zstat%s.nii.gz'%(stats[stat]))
+            outfile = os.path.join(out,'%s.nii.gz'%(stat))
+            os.system('cp %s %s'%(infile, outfile))
+            
 
 def motion_outlier_count():
     import os

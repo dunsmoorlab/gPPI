@@ -118,7 +118,24 @@ class fmriprep_preproc():
 
     def fsl_reg(self):
 
-        os.system('flirt -in %s -ref %s -dof 12 -omat %s'%(self.subj.refvol_brain, std_1mm_brain, self.subj.ref2std))
-        os.system('convert_xfm -omat %s -inverse %s'%(self.subj.std2ref,self.subj.ref2std))
+        # os.system('flirt -in %s -ref %s -dof 12 -omat %s'%(self.subj.refvol_brain, std_1mm_brain, self.subj.ref2std))
+        # os.system('convert_xfm -omat %s -inverse %s'%(self.subj.std2ref,self.subj.ref2std))
 
 
+        standard      = '/work/IRC/ls5/opt/apps/fsl-5.0.10/data/standard/MNI152_T1_1mm_brain'
+        standard_head = '/work/IRC/ls5/opt/apps/fsl-5.0.10/data/standard/MNI152_T1_1mm'
+        standard_mask = '/work/IRC/ls5/opt/apps/fsl-5.0.10/data/standard/MNI152_T1_1mm_brain_mask_dil'
+        
+        os.system('epi_reg --epi=%s --t1=%s --t1brain=%s --out%s'%(self.subj.refvol_brain,self.subj.t1,self.subj.t1_brain,self.subj.ref2t1))
+
+        os.system('flirt -in %s -ref %s -omat %s \
+                        -cost corratio -dof 12 -searchx -90 90 \
+                        -searchy -90 90 -searchz -90 90 -interp trilinear'%(self.subj.t1_brain,standard,self.subj.t12std))
+
+        os.system('fnirt --in=%s --aff=%s --cout=%s \
+                         --config=T1_2_MNI152_2mm \
+                         --ref=%s --refmask=%s --warpres=10,10,10'%(self.subj.t1,self.subj.t12std,self.subj.t12std_warp,standard_head,standard_mask))
+
+        os.system('applywarp --ref=%s --in=%s \
+                             --out=%s --warp=%s \
+                             --premat=%s --interp=nn'%(standard,self.subj.faa,self.subj.saa,self.subj.t12std_warp,self.subj.ref2t1))

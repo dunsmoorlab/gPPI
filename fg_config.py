@@ -121,11 +121,17 @@ class bids_meta(object):
             self.ref2std      = os.path.join(self.reference,'ref2std.mat')
             self.std2ref      = os.path.join(self.reference,'std2ref.mat')
 
+            self.ref2t1       = os.path.join(self.reference,'ref2t1.mat')
+            self.t12std_nii   = os.path.join(self.reference,'t12std')
+            self.t12std       = os.path.join(self.reference,'t12std.mat')
+            self.t12std_warp  = os.path.join(self.reference,'t12std_warp')
+
             self.func = os.path.join(self.preproc_dir,'func');mkdir(self.func,local)
             self.beta = os.path.join(self.preproc_dir,'lss_betas');mkdir(self.beta,local) 
 
             self.fs_regmat = os.path.join(self.reference,'RegMat.dat')
             self.faa       = os.path.join(self.reference,'aparc+aseg.nii.gz')
+            self.saa       = os.path.join(self.reference,'std_aparc+aseg.nii.gz')
             
             self.masks  = os.path.join(self.preproc_dir,'masks');mkdir(self.masks,local)
             self.weights = os.path.join(self.preproc_dir,'rsa_weights');mkdir(self.weights,local)
