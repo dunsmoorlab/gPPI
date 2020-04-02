@@ -126,7 +126,7 @@ class fmriprep_preproc():
         standard_head = '/work/IRC/ls5/opt/apps/fsl-5.0.10/data/standard/MNI152_T1_1mm'
         standard_mask = '/work/IRC/ls5/opt/apps/fsl-5.0.10/data/standard/MNI152_T1_1mm_brain_mask_dil'
         
-        os.system('epi_reg --epi=%s --t1=%s --t1brain=%s --out%s'%(self.subj.refvol_brain,self.subj.t1,self.subj.t1_brain,self.subj.ref2t1[:-4]))
+        os.system('epi_reg --epi=%s --t1=%s --t1brain=%s --out=%s'%(self.subj.refvol_brain,self.subj.t1,self.subj.t1_brain,self.subj.ref2t1[:-4]))
 
         os.system('flirt -in %s -ref %s -omat %s \
                         -cost corratio -dof 12 -searchrx -90 90 \
