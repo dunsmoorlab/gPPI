@@ -1,0 +1,82 @@
+ Starting at Wed Apr  1 12:37:44 CDT 2020
+ WORKING DIR: /opt/tacc_mounts/home1/05426/ach3377/gPPI/
+ JOB ID:      2779115
+ JOB NAME:    dACC_lvl3
+ NODES:       nid00354
+ N NODES:     1
+ N TASKS:     14
+Launcher: Setup complete.
+
+------------- SUMMARY ---------------
+   Number of hosts:    1
+   Working directory:  /opt/tacc_mounts/home1/05426/ach3377/gPPI
+   Processes per host: 14
+   Total processes:    14
+   Total jobs:         14
+   Scheduling method:  dynamic
+
+-------------------------------------
+Launcher: Starting parallel tasks...
+using /tmp/launcher.2779115.hostlist.okcNpMam to get hosts
+starting job on nid00354
+Launcher: Task 10 running job 1 on nid00354 (feat /scratch/05426/ach3377/group_gPPI/dACC/dACC_group_cope_1.fsf)
+Launcher: Task 7 running job 2 on nid00354 (feat /scratch/05426/ach3377/group_gPPI/dACC/dACC_group_cope_2.fsf)
+To view the FEAT progress and final report, point your web browser at /scratch/05426/ach3377/group_gPPI/dACC/cope2.gfeat/report_log.html
+To view the FEAT progress and final report, point your web browser at /scratch/05426/ach3377/group_gPPI/dACC/cope1.gfeat/report_log.html
+Launcher: Task 4 running job 3 on nid00354 (feat /scratch/05426/ach3377/group_gPPI/dACC/dACC_group_cope_3.fsf)
+Launcher: Task 0 running job 4 on nid00354 (feat /scratch/05426/ach3377/group_gPPI/dACC/dACC_group_cope_4.fsf)
+Launcher: Task 3 running job 5 on nid00354 (feat /scratch/05426/ach3377/group_gPPI/dACC/dACC_group_cope_5.fsf)
+To view the FEAT progress and final report, point your web browser at /scratch/05426/ach3377/group_gPPI/dACC/cope3.gfeat/report_log.html
+To view the FEAT progress and final report, point your web browser at /scratch/05426/ach3377/group_gPPI/dACC/cope5.gfeat/report_log.html
+To view the FEAT progress and final report, point your web browser at /scratch/05426/ach3377/group_gPPI/dACC/cope4.gfeat/report_log.html
+Launcher: Task 8 running job 6 on nid00354 (feat /scratch/05426/ach3377/group_gPPI/dACC/dACC_group_cope_6.fsf)
+To view the FEAT progress and final report, point your web browser at /scratch/05426/ach3377/group_gPPI/dACC/cope6.gfeat/report_log.html
+Launcher: Task 11 running job 7 on nid00354 (feat /scratch/05426/ach3377/group_gPPI/dACC/dACC_group_cope_7.fsf)
+To view the FEAT progress and final report, point your web browser at /scratch/05426/ach3377/group_gPPI/dACC/cope7.gfeat/report_log.html
+Launcher: Task 1 running job 8 on nid00354 (feat /scratch/05426/ach3377/group_gPPI/dACC/dACC_group_cope_8.fsf)
+Launcher: Task 2 running job 9 on nid00354 (feat /scratch/05426/ach3377/group_gPPI/dACC/dACC_group_cope_9.fsf)
+To view the FEAT progress and final report, point your web browser at /scratch/05426/ach3377/group_gPPI/dACC/cope8.gfeat/report_log.html
+To view the FEAT progress and final report, point your web browser at /scratch/05426/ach3377/group_gPPI/dACC/cope9.gfeat/report_log.html
+Launcher: Task 13 running job 10 on nid00354 (feat /scratch/05426/ach3377/group_gPPI/dACC/dACC_group_cope_10.fsf)
+Launcher: Task 6 running job 11 on nid00354 (feat /scratch/05426/ach3377/group_gPPI/dACC/dACC_group_cope_11.fsf)
+Launcher: Task 9 running job 12 on nid00354 (feat /scratch/05426/ach3377/group_gPPI/dACC/dACC_group_cope_12.fsf)
+To view the FEAT progress and final report, point your web browser at /scratch/05426/ach3377/group_gPPI/dACC/cope10.gfeat/report_log.html
+Launcher: Task 5 running job 13 on nid00354 (feat /scratch/05426/ach3377/group_gPPI/dACC/dACC_group_cope_13.fsf)
+Launcher: Task 12 running job 14 on nid00354 (feat /scratch/05426/ach3377/group_gPPI/dACC/dACC_group_cope_14.fsf)
+To view the FEAT progress and final report, point your web browser at /scratch/05426/ach3377/group_gPPI/dACC/cope12.gfeat/report_log.html
+To view the FEAT progress and final report, point your web browser at /scratch/05426/ach3377/group_gPPI/dACC/cope11.gfeat/report_log.html
+To view the FEAT progress and final report, point your web browser at /scratch/05426/ach3377/group_gPPI/dACC/cope13.gfeat/report_log.html
+To view the FEAT progress and final report, point your web browser at /scratch/05426/ach3377/group_gPPI/dACC/cope14.gfeat/report_log.html
+Launcher: Job 10 completed in 1931 seconds.
+Launcher: Task 13 done. Exiting.
+Launcher: Job 1 completed in 1974 seconds.
+Launcher: Task 10 done. Exiting.
+Launcher: Job 2 completed in 2012 seconds.
+Launcher: Task 7 done. Exiting.
+Launcher: Job 5 completed in 2011 seconds.
+Launcher: Task 3 done. Exiting.
+Launcher: Job 11 completed in 1997 seconds.
+Launcher: Task 6 done. Exiting.
+Launcher: Job 4 completed in 2016 seconds.
+Launcher: Task 0 done. Exiting.
+Launcher: Job 7 completed in 2015 seconds.
+Launcher: Task 11 done. Exiting.
+Launcher: Job 8 completed in 2014 seconds.
+Launcher: Task 1 done. Exiting.
+Launcher: Job 3 completed in 2029 seconds.
+Launcher: Task 4 done. Exiting.
+Launcher: Job 6 completed in 2027 seconds.
+Launcher: Task 8 done. Exiting.
+Launcher: Job 12 completed in 2019 seconds.
+Launcher: Task 9 done. Exiting.
+Launcher: Job 9 completed in 2024 seconds.
+Launcher: Task 2 done. Exiting.
+Launcher: Job 14 completed in 2019 seconds.
+Launcher: Task 12 done. Exiting.
+Launcher: Job 13 completed in 2019 seconds.
+Launcher: Task 5 done. Exiting.
+Launcher: Done. Job exited without errors
+ 
+ Job complete at Wed Apr  1 13:11:47 CDT 2020
+ 
+Job duration: 00:34:03 (2043 s)
