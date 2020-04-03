@@ -227,7 +227,7 @@ set fmri(reginitial_highres_search) 90
 set fmri(reginitial_highres_dof) 3
 
 # Registration to main structural
-set fmri(reghighres_yn) 1
+set fmri(reghighres_yn) 0
 
 # Search space for registration to main structural
 # 0   : No search
@@ -257,7 +257,7 @@ set fmri(regstandard_search) 90
 set fmri(regstandard_dof) 12
 
 # Do nonlinear registration from structural to standard space?
-set fmri(regstandard_nonlinear_yn) 1
+set fmri(regstandard_nonlinear_yn) 0
 
 # Control nonlinear warp field resolution
 set fmri(regstandard_nonlinear_warpres) 10 
@@ -273,7 +273,7 @@ set fmri(totalVoxels) 47848500
 set fmri(ncopeinputs) 0
 
 # 4D AVW data or FEAT directory (1)
-set feat_files(1) "/scratch/05426/ach3377/fc-bids/derivatives/preproc/SUBID/func/SUBID_ses-2_task-RUNID_space-T1w_desc-preproc_bold"
+set feat_files(1) "/scratch/05426/ach3377/fc-bids/derivatives/preproc/SUBID/func/SUBID_ses-2_task-RUNID_space-MNI152NLin2009cAsym_desc-preproc_bold"
 
 # Add confound EVs text file
 set fmri(confoundevs) 1
