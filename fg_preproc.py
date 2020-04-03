@@ -8,13 +8,15 @@ class fmriprep_preproc():
     def __init__(self,sub):
 
         self.subj = bids_meta(sub)
-        # self.space = 'MNI152NLin2009cAsym'
-        self.space = 'T1w'
+        self.space = 'MNI152NLin2009cAsym'
+        # self.space = 'T1w'
     
     def be_t1(self): #brain extract T1w
 
-        t1 = os.path.join(self.subj.prep_dir,'anat','%s_desc-preproc_T1w.nii.gz'%(self.subj.fsub))
-        t1_mask = os.path.join(self.subj.prep_dir,'anat','%s_desc-brain_mask.nii.gz'%(self.subj.fsub))
+        # t1 = os.path.join(self.subj.prep_dir,'anat','%s_desc-preproc_T1w.nii.gz'%(self.subj.fsub))
+        # t1_mask = os.path.join(self.subj.prep_dir,'anat','%s_desc-brain_mask.nii.gz'%(self.subj.fsub))
+        t1 = os.path.join(self.subj.prep_dir,'anat','%s_space-%s_desc-preproc_T1w.nii.gz')
+        t1_mask = os.path.join(self.subj.prep_dir,'anat','%s_space-%s_desc-brain_mask.nii.gz')
 
         os.system('cp %s %s'%(t1,self.subj.t1))
         os.system('cp %s %s'%(t1_mask,self.subj.t1_mask))
@@ -49,10 +51,12 @@ class fmriprep_preproc():
                     os.system('fslmaths %s -mas %s %s'%(os.path.join(self.subj.prep_dir,folder[0],file), self.subj.refvol_mask, os.path.join(self.subj.func,file)))
 
     def bbreg(self):
-        reg = 'export SUBJECTS_DIR=%s; bbregister --s %s --mov %s --bold --reg %s'%(fs_dir,self.subj.fsub,self.subj.refvol_brain,self.subj.fs_regmat)
-        v2v = 'export SUBJECTS_DIR=%s; mri_vol2vol --subject %s --targ %s --mov %s --reg %s --nearest --inv --o %s'%(fs_dir,self.subj.fsub,os.path.join(self.subj.fs_dir,'mri','aparc+aseg.mgz'),self.subj.refvol_brain,self.subj.fs_regmat,self.subj.faa)
-        mask = 'fslmaths %s -mas %s %s'%(self.subj.faa,self.subj.refvol_mask,self.subj.faa)
-        for cmd in [reg,v2v,mask]: os.system(cmd)
+        # reg = 'export SUBJECTS_DIR=%s; bbregister --s %s --mov %s --bold --reg %s'%(fs_dir,self.subj.fsub,self.subj.refvol_brain,self.subj.fs_regmat)
+        # v2v = 'export SUBJECTS_DIR=%s; mri_vol2vol --subject %s --targ %s --mov %s --reg %s --nearest --inv --o %s'%(fs_dir,self.subj.fsub,os.path.join(self.subj.fs_dir,'mri','aparc+aseg.mgz'),self.subj.refvol_brain,self.subj.fs_regmat,self.subj.faa)
+        # mask = 'fslmaths %s -mas %s %s'%(self.subj.faa,self.subj.refvol_mask,self.subj.faa)
+        # for cmd in [reg,v2v,mask]: os.system(cmd)
+
+        os.system('fslmaths %s/ses-1/func/%s_ses-1_task-extinction_space-%s_desc-aparcaseg_dseg.nii.gz -mas %s %s'%(self.subj.prep_dir,self.subj.fsub,self.space,self.subj.refvol_mask,self.subj.faa))
 
     def fs_mask(self):
 
@@ -139,3 +143,14 @@ class fmriprep_preproc():
         os.system('applywarp --ref=%s --in=%s \
                              --out=%s --warp=%s \
                              --premat=%s --interp=nn'%(standard,self.subj.faa,self.subj.saa,self.subj.t12std_warp,self.subj.ref2t1))
+
+def std_space_check():
+    from nilearn.image import get_data
+    pdir = 'D:\\fc-bids\\derivatives\\fmriprep'
+    for sub in all_sub_args:
+        print(sub)
+        subj = bids_meta(sub)
+        sub_dir = os.path.join(pdir,subj.fsub)
+        aparcs = glob('%s/ses-*/func/%s_ses-*_task-**_space-MNI152NLin2009cAsym_desc-aparcaseg_dseg.nii.gz'%(sub_dir,subj.fsub))
+        for a in aparcs:
+            assert np.array_equal(get_data(aparcs[0]),get_data(a))
