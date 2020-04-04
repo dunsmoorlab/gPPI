@@ -404,9 +404,9 @@ def autofill_fsf(group=False,template='',ses=None,name=None,roi=None):
             os.system('echo "feat %s" >> jobs/%s_job.txt'%(outfeat,outstr))
 
 def wrap_lss_jobs():
-    for sub in all_subs_args:
+    for sub in all_sub_args:
         subj = bids_meta(sub)
-        os.system('launch -N 1 -n 12 -J lss_%s -s jobs/lss_betas/sub-%s_job.txt -m achennings@utexas.edu -p normal -r 12:00:00 -A LewPea_MRI_Analysis'%(sub,subj.fsub))
+        os.system('launch -N 1 -n 12 -J lss_%s -s jobs/lss_betas/%s_job.txt -m achennings@utexas.edu -p normal -r 6:00:00 -A LewPea_MRI_Analysis'%(sub,subj.fsub))
 
     for i, job in enumerate(os.listdir('jobs/lss_betas')):
         if '.txt' in job:
@@ -443,7 +443,7 @@ def clean_bad_lss():
                 os.system('rm -r %s'%(beta_path))
         os.system('echo "feat %s/%s.fsf" >> jobs/bad_lss_job.txt'%(beta,trial))
 
-def wrangle_first_level():
+def wrangle_first_level_rsa():
     for sub in all_sub_args:
         subj = bids_meta(sub)
         for phase in ['baseline','acquisition','extinction']:
