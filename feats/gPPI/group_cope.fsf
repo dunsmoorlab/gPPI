@@ -179,13 +179,13 @@ set fmri(threshmask) ""
 # 1 : Uncorrected
 # 2 : Voxel
 # 3 : Cluster
-set fmri(thresh) 0
+set fmri(thresh) 3
 
 # P threshold
 set fmri(prob_thresh) 0.05
 
 # Z threshold
-set fmri(z_thresh) 3.1
+set fmri(z_thresh) 2.3
 
 # Z min/max for colour rendering
 # 0 : Use actual Z min/max
@@ -209,7 +209,7 @@ set fmri(rendertype) 1
 # 3 : Mean functional
 # 4 : First functional
 # 5 : Standard space template
-set fmri(bgimage) 1
+set fmri(bgimage) 5
 
 # Create time series plots
 set fmri(tsplot_yn) 0

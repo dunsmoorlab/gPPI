@@ -15,8 +15,8 @@ class fmriprep_preproc():
 
         # t1 = os.path.join(self.subj.prep_dir,'anat','%s_desc-preproc_T1w.nii.gz'%(self.subj.fsub))
         # t1_mask = os.path.join(self.subj.prep_dir,'anat','%s_desc-brain_mask.nii.gz'%(self.subj.fsub))
-        t1 = os.path.join(self.subj.prep_dir,'anat','%s_space-%s_desc-preproc_T1w.nii.gz')
-        t1_mask = os.path.join(self.subj.prep_dir,'anat','%s_space-%s_desc-brain_mask.nii.gz')
+        t1 = os.path.join(self.subj.prep_dir,'anat','%s_space-%s_desc-preproc_T1w.nii.gz'%(self.subj.fsub,self.space))
+        t1_mask = os.path.join(self.subj.prep_dir,'anat','%s_space-%s_desc-brain_mask.nii.gz'%(self.subj.fsub,self.space))
 
         os.system('cp %s %s'%(t1,self.subj.t1))
         os.system('cp %s %s'%(t1_mask,self.subj.t1_mask))

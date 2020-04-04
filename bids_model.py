@@ -149,7 +149,7 @@ class lss():
                     self._autofill_lss(lss_dir=lss_dir,phase=phase,n_trials=events.shape[0])
 
     def _autofill_lss(self,lss_dir,phase,n_trials):
-            template = os.path.join(gPPI_codebase,'feats','template_lss_%s.fsf'%(phase))
+            template = os.path.join(gPPI_codebase,'feats','lss','template_lss_%s.fsf'%(phase))
 
             replacements = {'SUBID':self.subj.fsub}            
             #need to handle the special cases where the TR is longer
@@ -366,7 +366,7 @@ def autofill_fsf(group=False,template='',ses=None,name=None,roi=None):
         outstr = name
     if group:
         if roi is not None: replacements = {'ROI':roi}
-        for cope in range(1,13):
+        for cope in range(1,15):
             replacements['COPEID'] = 'cope%s'%(cope)
             outfeat = os.path.join(SCRATCH,'group_gPPI',roi,'%s_%s.fsf'%(outstr,cope))
 
