@@ -46,6 +46,7 @@ preproc = os.path.join(deriv,'preproc');#mkdir(preproc)
 std_1mm_brain = os.path.join(WORK,'standard','MNI152_T1_1mm_brain.nii.gz')
 std_3mm_brain = os.path.join(WORK,'standard','MNI152_T1_3mm_brain.nii.gz')
 std_3mm_brain_mask = os.path.join(WORK,'standard','MNI152_T1_3mm_brain_mask.nii.gz')
+std_2009_brain = os.path.join(SCRATCH,'standard','MNI152NLin2009cAsym_T1_1mm_brain.nii.gz')
 
 tasks = {'baseline':{'n_trials':48,'ses':1,'n_tr':259},
          'acquisition':{'n_trials':48,'ses':1,'n_tr':259},

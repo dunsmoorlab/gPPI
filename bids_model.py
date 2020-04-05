@@ -424,12 +424,12 @@ def wrap_lss_jobs():
         os.system('echo "%s" >> jobs/final_lss_job_%s.txt'%(bad[0][i],int(np.floor(i/12))))
 
     for run in [1,2,3]:
-        for roi in ['lh_amyg','rh_amyg']:
-            os.system('launch -N 1 -n 12 -J %s_%s -s jobs/%s_memory_run-0%s_gPPI_job.txt -m achennings@utexas.edu -p normal -r 24:00:00 -A LewPea_MRI_Analysis'%(run,roi,roi,run))
+        for roi in ['dACC','mOFC','rh_hpc','lh_hpc','lh_amyg','rh_amyg']:
+            os.system('launch -N 1 -n 24 -J %s_%s -s jobs/%s_memory_run-0%s_gPPI_job.txt -m achennings@utexas.edu -p normal -r 3:00:00 -A LewPea_MRI_Analysis'%(run,roi,roi,run))
 
     for roi in ['lh_amyg','rh_amyg','rh_hpc','lh_hpc','dACC','mOFC']:
-        # os.system('launch -N 1 -n 12 -J %s_lvl2 -s jobs/%s_mem_encode_lvl2_gPPI_job.txt -m achennings@utexas.edu -p normal -r 2:00:00 -A LewPea_MRI_Analysis'%(roi,roi))        
-        os.system('launch -N 1 -n 14 -J %s_lvl3 -s jobs/%s_group_cope_job.txt -m achennings@utexas.edu -p normal -r 2:00:00 -A LewPea_MRI_Analysis'%(roi,roi))
+        # os.system('launch -N 1 -n 24 -J %s_lvl2 -s jobs/%s_mem_encode_lvl2_gPPI_job.txt -m achennings@utexas.edu -p normal -r 1:30:00 -A LewPea_MRI_Analysis -d 2783989'%(roi,roi))        
+        os.system('launch -N 1 -n 14 -J %s_lvl3 -s jobs/%s_group_cope_job.txt -m achennings@utexas.edu -p normal -r 2:00:00 -A LewPea_MRI_Analysis -d 2784003'%(roi,roi))
 
 
 
