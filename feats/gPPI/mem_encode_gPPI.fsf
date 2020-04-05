@@ -245,7 +245,7 @@ set fmri(regstandard_yn) 1
 set fmri(alternateReference_yn) 0
 
 # Standard image
-set fmri(regstandard) "/work/IRC/ls5/opt/apps/fsl-5.0.10/data/standard/MNI152_T1_1mm_brain"
+set fmri(regstandard) "/scratch/05426/ach3377/standard/MNI152NLin2009cAsym_T1_1mm_brain"
 
 # Search space for registration to standard space
 # 0   : No search
@@ -280,9 +280,6 @@ set fmri(confoundevs) 1
 
 # Confound EVs text file for analysis 1
 set confoundev_files(1) "/scratch/05426/ach3377/fc-bids/derivatives/model/SUBID/RUNID/confounds.txt"
-
-# Subject's structural image for analysis 1
-set highres_files(1) "/scratch/05426/ach3377/fc-bids/derivatives/preproc/SUBID/reference/T1w_brain"
 
 # EV 1 title
 set fmri(evtitle1) "neuronal"
