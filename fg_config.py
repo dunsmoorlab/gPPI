@@ -40,6 +40,7 @@ fs_dir   = os.path.join(deriv,'freesurfer')
 #these are user made
 model   = os.path.join(deriv,'model');#mkdir(model)
 preproc = os.path.join(deriv,'preproc');#mkdir(preproc)
+group_masks os.path.join(deriv,'group_masks')
 
 
 

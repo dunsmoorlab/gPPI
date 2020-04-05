@@ -154,3 +154,27 @@ def std_space_check():
         aparcs = glob('%s/ses-*/func/%s_ses-*_task-**_space-MNI152NLin2009cAsym_desc-aparcaseg_dseg.nii.gz'%(sub_dir,subj.fsub))
         for a in aparcs:
             assert np.array_equal(get_data(aparcs[0]),get_data(a))
+
+def group_std_masks():
+
+    saa = {}
+    
+    thr = {'mOFC':     [1014,2014]
+            'dACC':     [1002,2002],
+            'lh_amyg':  [18],
+            'rh_amyg':  [54],
+            'lh_hpc':   [17],
+            'rh_hpc':   [53]}
+
+    masks = {}
+
+    for sub in all_sub_args:
+        subj = bids_meta(sub)
+
+        os.system('flirt -in %s -out %s -ref %s -applyxfm -init %s -interp=nn'%(subj.faa,subj.saa,std_2009_brain,subj.ref2std))
+
+        saa[sub] = get_data(subj.saa)
+
+        
+
+
