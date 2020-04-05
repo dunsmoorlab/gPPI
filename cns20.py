@@ -8,7 +8,8 @@ memcon = ['encoding','retrieval']
 levels = ['item','set']
 mems = ['hit','miss']
 cons = ['CS+','CS-']
-rois = ['mOFC','dACC','amyg','hpc','ins','hc_head','hc_body','hc_tail','rh_hc_head','rh_hc_body','rh_hc_tail','lh_hc_head','lh_hc_body','lh_hc_tail','amyg_bla','amyg_cem','rh_amyg_bla','rh_amyg_cem','lh_amyg_bla','lh_amyg_cem']
+# rois = ['mOFC','dACC','amyg','hpc','ins','hc_head','hc_body','hc_tail','rh_hc_head','rh_hc_body','rh_hc_tail','lh_hc_head','lh_hc_body','lh_hc_tail','amyg_bla','amyg_cem','rh_amyg_bla','rh_amyg_cem','lh_amyg_bla','lh_amyg_cem']
+rois = ['mOFC','dACC','amyg','hpc','ins','lh_hpc','rh_hpc','rh_amyg','lh_amyg']
 phases = {'baseline':24,'acquisition':24,'early_extinction':8,'extinction':16}
 # phases = {'baseline':24,'acquisition':24,'extinction':24}
 subs = range(24)
@@ -28,10 +29,10 @@ mdf = pd.concat((cdf,pdf))
 mdf = (mdf.loc['CS+'] - mdf.loc['CS-']).reset_index()
 mdf['group'] = mdf.subject.apply(lgroup)
 mdf['level'] = 'item'
-
+phase3 = ['baseline','acquisition','extinction']
 mdf = mdf.set_index(['group','roi','encode_phase']).sort_index()
-cscomp('control',mdf,['mOFC','dACC'],phases=phases.keys())
-# cscomp('ptsd',mdf,['mOFC','dACC'],phases=phases.keys())
+cscomp('control',mdf,['mOFC','dACC'],phases=phase3)
+cscomp('ptsd',mdf,['mOFC','dACC'],phases=phase3)
 # cscomp('control',mdf,['rh_amyg_bla','lh_amyg_bla'],phases=phases.keys())
 # cscomp('ptsd',mdf,['rh_amyg_bla','lh_amyg_bla'],phases=phases.keys())
 
@@ -156,8 +157,8 @@ memdf = memdf.set_index(['group','roi','encode_phase']).sort_index()
 # else: mdf[mem] = mdf[mem].apply(lambda x: 'hit' if x in [1,2] else 'miss')
 # mdf = mdf.set_index(['group','roi','encode_phase',mem])
 
-# mem_cscomp('control',mdf,['fvmPFC','fdACC'],phases=phases)
-# mem_cscomp('ptsd',mdf,['fvmPFC','fdACC'],phases=phases)
+mem_cscomp('control',mdf,['mOFC','fdACC'],phases=phases)
+mem_cscomp('ptsd',mdf,['mOFC','dACC'],phases=phases)
 ###############hits vs. miss samephase with cs#####################
 # mem = 'high_confidence_accuracy'
 # cdf = c.df.groupby([mem,'trial_type','encode_phase','roi','subject']).mean()

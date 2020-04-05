@@ -13,7 +13,7 @@ cdf = (cdf.loc['CS+'] - cdf.loc['CS-']).reset_index()
 cdf['group'] = cdf.subject.apply(lgroup)
 
 pdf = p.df.groupby(['trial_type','encode_phase','roi','subject']).mean()
-# pdf = (pdf.loc['CS+'] - pdf.loc['CS-']).reset_index()
+pdf = (pdf.loc['CS+'] - pdf.loc['CS-']).reset_index()
 
 pdf['group'] = pdf.subject.apply(lgroup)
 
@@ -91,6 +91,12 @@ cscomp('control',pfc,['ins'])
 cscomp('ptsd',pfc,['ins'])
 cscomp('control',pfc,['amyg','hpc'])
 cscomp('ptsd',pfc,['amyg','hpc'])
+
+cscomp('control',pfc,['rh_hpc','lh_hpc'])
+cscomp('ptsd',pfc,['rh_hpc','lh_hpc'])
+
+cscomp('control',pfc,['rh_amyg','lh_amyg'])
+cscomp('ptsd',pfc,['rh_amyg','lh_amyg'])
 
 # cscomp('control',pfc,['amyg_cem','amyg_bla'])
 # cscomp('ptsd',pfc,['amyg_cem','amyg_bla'])
@@ -176,7 +182,7 @@ phasecomp('ptsd',pfc,['amyg','hpc'])
 c = group_roi_rsa(group='control',ext_split=True,fs=True,hemi=False)
 p = group_roi_rsa(group='ptsd',ext_split=True,fs=True,hemi=False)
 
-mem = 'high_confidence_accuracy'
+mem = 'low_confidence_accuracy'
 cdf = c.df.groupby(['trial_type','encode_phase','roi',mem,'subject']).mean()
 cdf = (cdf.loc['CS+'] - cdf.loc['CS-']).reset_index()
 cdf['group'] = cdf.subject.apply(lgroup)

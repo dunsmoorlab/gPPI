@@ -83,11 +83,11 @@ def cscomp(group,df,rois,n_boot=1000,phases=None):
         else: Ax = ax[i]
         dat = df.loc[roi].reset_index()
         
-        '''
+    
         #dist violins
         sns.violinplot(data=dist.loc[roi],x='encode_phase',y='dist',
                         inner=None,ax=Ax,scale='count',palette=phase_pal)
-        '''
+        
         # sns.barplot(data=dat,x='encode_phase',y='rsa',hue='encode_phase',palette=phase_pal,ax=Ax,
                     # order=phases,seed=42,errcolor='black')
         # change_width(Ax,.75)
@@ -95,10 +95,10 @@ def cscomp(group,df,rois,n_boot=1000,phases=None):
                         order=phases,seed=42)
         X = Ax.get_xticks()
 
-        # sns.pointplot(data=dat,x='encode_phase',y='rsa',ci=None,units='subject',order=phases,ax=Ax)
-        # sdat = dat.set_index(['subject','encode_phase'])
-        # for sub in dat.subject.unique():
-        #     Ax.plot(X,sdat.loc[(sub,phases),'rsa'].values,color='grey',lw=1,alpha=.5)
+        sns.pointplot(data=dat,x='encode_phase',y='rsa',ci=None,units='subject',order=phases,ax=Ax)
+        sdat = dat.set_index(['subject','encode_phase'])
+        for sub in dat.subject.unique():
+            Ax.plot(X,sdat.loc[(sub,phases),'rsa'].values,color='grey',lw=1,alpha=.5)
 
 
         # lower = ci.loc[roi,'ci'].apply(lambda x: x[0])
@@ -286,7 +286,7 @@ def split_level(df,group,phases=None,split=None):
         ax.set_ylabel('∆ fisher z(r)')
         ax.set_ylabel('')
     plt.savefig('./plots/%s_%s.eps'%(group,split),format='eps')
-    plt.close()
+    # plt.close()
 
 
 def group_comp(df,phases,split):
@@ -347,7 +347,7 @@ def group_comp(df,phases,split):
         ax.set_ylabel('')
  
     plt.savefig('./plots/group_comp_%s.eps'%(split),format='eps')
-    plt.close()
+    # plt.close()
 
 
 def mem_cscomp(group,df,rois,n_boot=1000,phases=None):
