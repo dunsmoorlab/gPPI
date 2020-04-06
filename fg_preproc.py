@@ -159,7 +159,7 @@ def group_std_masks():
 
     saa = {}
     
-    thr = {'mOFC':     [1014,2014]
+    thr = {'mOFC':     [1014,2014],
             'dACC':     [1002,2002],
             'lh_amyg':  [18],
             'rh_amyg':  [54],
@@ -171,10 +171,19 @@ def group_std_masks():
     for sub in all_sub_args:
         subj = bids_meta(sub)
 
-        os.system('flirt -in %s -out %s -ref %s -applyxfm -init %s -interp=nn'%(subj.faa,subj.saa,std_2009_brain,subj.ref2std))
+        os.system('fslmaths %s -mas %s %s'%(subj.faa,std_2009_brain_mask,subj.saa))
+        os.system('flirt -in %s -out %s -ref %s -applyxfm -init %s -interp nearestneighbour'%(subj.saa,subj.saa,std_2009_brain,subj.ref2std))
 
         saa[sub] = get_data(subj.saa)
 
-        
+        for roi in thr:
+            if len(thr[roi] == 2):
+                l = np.zeros(saa[sub].shape)
+                l[np.where(saa[sub] == thr[roi][0])] = 1
 
+                r = np.zeros(saa[sub].shape)
+                r[np.where(saa[sub] == thr[roi][1])] = 1
 
+                m = l+r
+
+                masks[roi] = {}

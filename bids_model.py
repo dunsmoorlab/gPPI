@@ -478,16 +478,17 @@ def group_gPPI_clean(roi):
              'healhty_ptsd_0':7,
              '0_healthy_ptsd':8}
 
-    wd = os.path.join(SCRATCH,'group_gPPI',roi)
-    od = os.path.join(SCRATCH,'group_gPPI_out',roi);mkdir(od)
+    for roi in ['mOFC','dACC','lh_amyg','rh_amyg','lh_hpc','rh_hpc']:
+        wd = os.path.join(SCRATCH,'group_gPPI',roi)
+        od = os.path.join(SCRATCH,'group_gPPI_out',roi);mkdir(od)
 
-    for cope in copes:
-        out = os.path.join(od,cope);mkdir(out)
-        for stat in stats:
-            infile = os.path.join(wd,'cope%s.gfeat'%(copes[cope]),'cope1.feat','stats','zstat%s.nii.gz'%(stats[stat]))
-            outfile = os.path.join(out,'%s.nii.gz'%(stat))
-            os.system('cp %s %s'%(infile, outfile))
-            
+        for cope in copes:
+            out = os.path.join(od,cope);mkdir(out)
+            for stat in stats:
+                infile = os.path.join(wd,'cope%s.gfeat'%(copes[cope]),'cope1.feat','stats','zstat%s.nii.gz'%(stats[stat]))
+                outfile = os.path.join(out,'%s.nii.gz'%(stat))
+                os.system('cp %s %s'%(infile, outfile))
+                
 
 def motion_outlier_count():
     import os
