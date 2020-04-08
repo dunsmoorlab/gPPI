@@ -4,3 +4,4 @@ rsa_results/
 .ipynb_checkpoints/
 *.sublime-workspace
 *.sublime-project
+group_gPPI_out/

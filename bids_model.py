@@ -454,6 +454,9 @@ def wrangle_first_level_rsa():
             os.system('cp %s %s'%(csm_cope,os.path.join(subj.weights,'%s_CSm.nii.gz'%(phase))))
 
 def group_gPPI_clean(roi):
+    import nibabel as nib
+    from nilearn.image import index_img
+
     copes = {'baseline_csp':1,
              'baseline_csm':2,
              'baseline_csp_csm':3,
@@ -480,14 +483,30 @@ def group_gPPI_clean(roi):
 
     for roi in ['mOFC','dACC','lh_amyg','rh_amyg','lh_hpc','rh_hpc']:
         wd = os.path.join(SCRATCH,'group_gPPI',roi)
-        od = os.path.join(SCRATCH,'group_gPPI_out',roi);mkdir(od)
+        # od = os.path.join(SCRATCH,'group_gPPI_out',roi);mkdir(od)
+        od = os.path.join(SCRATCH,'group_gPPI_out','copes',roi);mkdir(od)
 
         for cope in copes:
-            out = os.path.join(od,cope);mkdir(out)
-            for stat in stats:
-                infile = os.path.join(wd,'cope%s.gfeat'%(copes[cope]),'cope1.feat','stats','zstat%s.nii.gz'%(stats[stat]))
-                outfile = os.path.join(out,'%s.nii.gz'%(stat))
-                os.system('cp %s %s'%(infile, outfile))
+            # out = os.path.join(od,cope);mkdir(out)
+            # for stat in stats:
+                # infile = os.path.join(wd,'cope%s.gfeat'%(copes[cope]),'cope1.feat','stats','zstat%s.nii.gz'%(stats[stat]))
+                # outfile = os.path.join(out,'%s.nii.gz'%(stat))
+                # os.system('cp %s %s'%(infile, outfile))
+
+            if copes[cope] > 12:
+                raw_in = os.path.join(wd,'cope%s.gfeat'%(copes[cope]),'cope1.feat','filtered_func_data.nii.gz')
+                raw_out = os.path.join(od,'%s.nii.gz'%(cope))
+                # os.system('cp %s %s'%(raw_in, raw_out))
+
+                group_img = nib.load(raw_out)
+                h = index_img(group_img,np.repeat([True,False],24))
+                p = index_img(group_img,np.repeat([False,True],24))
+
+                nib.save(h,os.path.join(od,'healthy_%s.nii.gz'%(cope)))
+                nib.save(p,os.path.join(od,'ptsd_%s.nii.gz'%(cope)))
+
+
+                
                 
 
 def motion_outlier_count():

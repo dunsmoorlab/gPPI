@@ -156,7 +156,9 @@ def std_space_check():
             assert np.array_equal(get_data(aparcs[0]),get_data(a))
 
 def group_std_masks():
-
+    from nilearn.image import get_data, new_img_like, resample_img
+    import nibabel as nib
+    
     saa = {}
     
     thr = {'mOFC':     [1014,2014],
@@ -167,17 +169,18 @@ def group_std_masks():
             'rh_hpc':   [53]}
 
     masks = {}
+    for roi in thr: masks[roi] = {}
+
 
     for sub in all_sub_args:
         subj = bids_meta(sub)
+        print(sub)
+        # os.system('flirt -in %s -out %s -ref %s -applyxfm -init %s -interp nearestneighbour'%(subj.faa,subj.saa,std_2009_brain,subj.ref2std))
 
-        os.system('fslmaths %s -mas %s %s'%(subj.faa,std_2009_brain_mask,subj.saa))
-        os.system('flirt -in %s -out %s -ref %s -applyxfm -init %s -interp nearestneighbour'%(subj.saa,subj.saa,std_2009_brain,subj.ref2std))
-
-        saa[sub] = get_data(subj.saa)
+        saa[sub] = get_data(subj.faa)
 
         for roi in thr:
-            if len(thr[roi] == 2):
+            if len(thr[roi]) == 2:
                 l = np.zeros(saa[sub].shape)
                 l[np.where(saa[sub] == thr[roi][0])] = 1
 
@@ -185,5 +188,41 @@ def group_std_masks():
                 r[np.where(saa[sub] == thr[roi][1])] = 1
 
                 m = l+r
+            
+            else:
+                m = np.zeros(saa[sub].shape)
+                m[np.where(saa[sub] == thr[roi][0])] = 1
 
-                masks[roi] = {}
+            masks[roi][sub] = m
+
+    for roi in masks:
+        masks[roi] = np.array([masks[roi][i] for i in masks[roi]])
+
+        masks[roi] = np.sum(masks[roi],axis=0) / 48
+        
+        masks[roi] = new_img_like(subj.faa,masks[roi],copy_header=False)
+        # masks[roi].header['pixdim'] = [1.,3., 3., 3., 0., 0., 0., 0.,]
+        # masks[roi] = new_img_like(std_2009_brain,masks[roi],copy_header=False)
+        std = nib.load(std_2009_brain)
+        masks[roi] = resample_img(masks[roi],target_affine=std.affine,target_shape=std.shape,interpolation='nearest')
+        
+        # nib.save(masks[roi],os.path.join(group_masks,'%s_3mm_raw.nii.gz'%(roi)))
+        # nib.save(masks[roi],os.path.join(group_masks,'%s_1mm_raw.nii.gz'%(roi)))
+        nib.save(masks[roi],os.path.join(group_masks,'%s_1mm.nii.gz'%(roi)))
+        
+        os.system('fslmaths %s -bin %s'%(os.path.join(group_masks,'%s_1mm.nii.gz'%(roi)), os.path.join(group_masks,'%s_group_mask.nii.gz'%(roi))))
+
+    for hemi in ['l','r']:
+        amyg = get_data(os.path.join(group_masks,'%sh_amyg_1mm.nii.gz'%(hemi)))
+        hpc  = get_data(os.path.join(group_masks,'%sh_hpc_1mm.nii.gz'%(hemi)))
+
+        a_bin = np.where(amyg > hpc, 1, 0)
+        h_bin = np.where(hpc > amyg, 1, 0)
+
+        a_out = new_img_like(std_2009_brain,a_bin,copy_header=False)
+        h_out = new_img_like(std_2009_brain,h_bin,copy_header=False)
+
+        nib.save(a_out,os.path.join(group_masks,'%sh_amyg_group_mask.nii.gz'%(hemi)))
+        nib.save(h_out,os.path.join(group_masks,'%sh_hpc_group_mask.nii.gz'%(hemi)))
+
+        
