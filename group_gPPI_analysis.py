@@ -97,3 +97,74 @@ def cluster():
                             print('OOPSIE')
 
 
+def pconvert(p):
+    if p < .001:
+        return '***'
+    elif p < .01:
+        return '**'
+    elif p < .05:
+        return '*'
+    elif p < .1:
+        return '~'
+    else:
+        return ''
+
+
+
+def graph_gPPI():
+    from fg_config import lgroup
+
+    import pingouin as pg
+    import seaborn as sns
+
+    ROIS = ['mOFC','dACC','lh_hpc','rh_hpc','lh_amyg','rh_amyg']
+    COPES = ['acq_ext','ext_acq']
+    groups = ['healthy','ptsd']
+
+    df = pd.read_csv('extracted_gPPI.csv')
+    df = df.groupby(['seed','cope','target','subject']).mean().reset_index()
+    df['group'] = df.subject.apply(lgroup) 
+    df = df.set_index(['cope','group','seed','target']).sort_index()
+
+    stats = pd.DataFrame(columns=['t','p'],index=pd.MultiIndex.from_product([COPES,groups,ROIS,ROIS],names=['cope','group','seed','target']))
+    gstats = pd.DataFrame(columns=['t','p'],index=pd.MultiIndex.from_product([COPES,ROIS,ROIS],names=['cope','seed','target']))
+    
+    for cope in COPES:
+        for group in groups:
+            for seed in ROIS:
+                for target in ROIS:
+                    tres = pg.ttest(df.loc[(cope,group,seed,target),'conn'].values,0,tail='greater')
+                    stats.loc[(cope,group,seed,target)][['t','p']] = tres.loc['T-test'][['T','p-val']]
+
+                    gres = pg.ttest(df.loc[(cope,'healthy',seed,target),'conn'].values,df.loc[(cope,'ptsd',seed,target),'conn'].values,paired=False)
+                    gstats.loc[(cope,seed,target)][['t','p']] = gres.loc['T-test'][['T','p-val']]
+
+    
+    mask = np.zeros([len(ROIS),len(ROIS)])
+    mask[np.diag_indices_from(mask)] = True 
+
+    fig, (gax, gcbar) = plt.subplots(2,2,gridspec_kw={'height_ratios':(.9,.05),'hspace':.5})
+    for j, cope in enumerate(COPES):
+        
+        gt = gstats.loc[(cope),'t'].unstack(level=-1).astype(float).loc[ROIS][ROIS]
+        gp = gstats.loc[(cope),'p'].apply(pconvert).unstack(level=-1).astype(str).loc[ROIS][ROIS]
+
+        sns.heatmap(gt,mask=mask,ax=gax[j],square=True,
+                    annot=gp,fmt='',cmap='PRGn',center=0,vmin=-3,vmax=3,
+                    cbar_ax=gcbar[j],cbar_kws={'orientation':'horizontal'})
+        gax[j].set_title(cope + '_group_comp')
+
+        fig, (ax, cbar) = plt.subplots(2,2,gridspec_kw={'height_ratios':(.9,.05),'hspace':.5})
+        for i, group in enumerate(groups):
+            t = stats.loc[(cope,group),'t'].unstack(level=-1).astype(float).loc[ROIS][ROIS]
+            p = stats.loc[(cope,group),'p'].apply(pconvert).unstack(level=-1).astype(str).loc[ROIS][ROIS]
+
+            sns.heatmap(t,mask=mask,ax=ax[i],square=True,
+                        annot=p,fmt='',cmap='PRGn',center=0,vmin=-3,vmax=3,
+                        cbar_ax=cbar[i],cbar_kws={'orientation':'horizontal'})
+            ax[i].set_title(group + '_' + cope)
+
+
+
+
+

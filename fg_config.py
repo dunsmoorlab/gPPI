@@ -11,7 +11,7 @@ sub_args = [1,2,3,4,5,6,7,8,9,10,12,13,14,15,16,17,18,19,20,21,23,24,25,26]
 p_sub_args = [101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117,118, 120, 121, 122, 123, 124, 125]
 all_sub_args = sub_args + p_sub_args
 
-subjects = {'control':sub_args,
+subjects = {'healthy':sub_args,
             'ptsd':p_sub_args,
             'all':all_sub_args}
 
@@ -29,7 +29,7 @@ def mkdir(path,local=False):
         os.makedirs(path)
 def lgroup(x):
     if x > 100: return 'ptsd'
-    else: return 'control'
+    else: return 'healthy'
 
 #these are BIDS-app made
 bids_dir = os.path.join(SCRATCH,'fc-bids')
