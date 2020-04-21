@@ -91,34 +91,18 @@ class fmriprep_preproc():
             cmd = 'fslmaths %s -add %s -bin %s'%(l,r,out)
             os.system(cmd)
 
-    def group_func_mask(self):
+    def group_mask(self):
         
-        rois = {'fvmPFC':os.path.join(SCRATCH,'roi_masks','thr_CSm_CSp.nii.gz'),
-                'fdACC':os.path.join(SCRATCH,'roi_masks','thr_CSp_CSm.nii.gz')}
-        vals = {'fvmPFC':[1014,2014,1026,2026],
-                'fdACC':[1002,2002,1023,2023,1028,2028]}
+        masks = ['sgACC','rSMA','rACG'] 
 
-        for roi in rois:
+        for roi in masks:
+            in_mask = os.path.join(group_masks,'%s_group_mask.nii.gz'%(roi))
+
             out_mask = os.path.join(self.subj.masks,'%s_mask.nii.gz'%(roi))
             
             os.system('flirt -in %s -ref %s -applyxfm -init %s -out %s -interp nearestneighbour'%(
-                    rois[roi], self.subj.refvol_brain, self.subj.std2ref, out_mask))
+                    in_mask, self.subj.refvol_brain, self.subj.std2ref, out_mask))
             
-            os.system('fslmaths %s -mul %s %s'%(out_mask,self.subj.faa,out_mask)) 
-
-            mask_img = nib.load(out_mask)
-            mask_dat = get_data(mask_img)
-
-            coor = [np.where(mask_dat == val) for val in vals[roi]]
-            #set all values to 0 except the ones we want
-            mask_dat[:,:,:] = 0
-            for val in coor: mask_dat[val] = 1
-
-            #make it a nifti
-            mask_img = new_img_like(mask_img,mask_dat,affine=mask_img.affine,copy_header=True)
-            #and save
-            nib.save(mask_img,os.path.join(self.subj.masks,'%s_mask.nii.gz'%(roi)))
-
 
     def fsl_reg(self):
 
@@ -225,4 +209,23 @@ def group_std_masks():
         nib.save(a_out,os.path.join(group_masks,'%sh_amyg_group_mask.nii.gz'%(hemi)))
         nib.save(h_out,os.path.join(group_masks,'%sh_hpc_group_mask.nii.gz'%(hemi)))
 
-        
+
+def copy_events_confounds():
+    from fg_config import *
+    from bids_model import bids_events
+    dest = os.path.join(SCRATCH,'preproc')
+    for sub in all_sub_args:
+        subj = bids_meta(sub)
+        sub_dest = os.path.join(dest,subj.fsub)
+        mkdir(sub_dest)
+        events = os.path.join(sub_dest,'events')
+        confounds = os.path.join(sub_dest,'confounds')
+        mkdir(events)
+        mkdir(confounds)
+        for task in tasks:
+            c = os.path.join(subj.model_dir,task,'confounds.txt')
+            c_out = os.path.join(confounds,'%s_task-%s_confounds.txt'%(subj.fsub,task))
+            os.system('cp %s %s'%(c,c_out))
+
+            e = bids_events(sub).phase_events(task)
+            e.to_csv(os.path.join(events, '%s_task-%s_events.tsv'%(subj.fsub,task)), sep='\t', index=False)
