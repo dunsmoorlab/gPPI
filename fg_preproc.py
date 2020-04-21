@@ -211,7 +211,6 @@ def group_std_masks():
 
 
 def copy_events_confounds():
-    from fg_config import *
     from bids_model import bids_events
     dest = os.path.join(SCRATCH,'preproc')
     for sub in all_sub_args:
