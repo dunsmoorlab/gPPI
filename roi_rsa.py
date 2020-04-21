@@ -55,7 +55,7 @@ class roi_rsa():
         #hardcode rois for now
         #if self.fs: self.rois = ['mOFC','dACC','amyg_cem','amyg_bla','hc_head','hc_body','hc_tail'] 
         # if self.fs: self.rois = ['mOFC','dACC','amyg','hpc','ins','hc_head','hc_body','hc_tail','rh_hc_head','rh_hc_body','rh_hc_tail','lh_hc_head','lh_hc_body','lh_hc_tail','amyg_bla','amyg_cem','rh_amyg_bla','rh_amyg_cem','lh_amyg_bla','lh_amyg_cem'] 
-        if self.fs: self.rois = ['mOFC','dACC','amyg','hpc','ins','lh_amyg','rh_amyg','lh_hpc','rh_hpc']  
+        if self.fs: self.rois = ['mOFC','dACC','amyg','hpc','ins','lh_amyg','rh_amyg','lh_hpc','rh_hpc','sgACC','rSMA','rACG']  
             # if hemi:
                 # self.rois = ['rh_hc_head','rh_hc_body','rh_hc_tail','rh_amyg_bla','rh_amyg_cem',
                 #              'lh_hc_head','lh_hc_body','lh_hc_tail','lh_amyg_bla','lh_amyg_cem']
@@ -271,7 +271,7 @@ class group_roi_rsa():
                 # self.rois = ['vmPFC','dACC','amyg_cem','amyg_bla','hc_head','hc_body','hc_tail']
                 # self.rois = ['fvmPFC','fdACC','mOFC','dACC','amyg','hpc','ins']
                 #self.rois = ['mOFC','dACC','amyg','hpc','ins','hc_head','hc_body','hc_tail','rh_hc_head','rh_hc_body','rh_hc_tail','lh_hc_head','lh_hc_body','lh_hc_tail','amyg_bla','amyg_cem','rh_amyg_bla','rh_amyg_cem','lh_amyg_bla','lh_amyg_cem']
-                self.rois = ['mOFC','dACC','amyg','hpc','ins','lh_hpc','rh_hpc','rh_amyg','lh_amyg']
+                self.rois = ['mOFC','dACC','amyg','hpc','ins','lh_amyg','rh_amyg','lh_hpc','rh_hpc','sgACC','rSMA','rACG']  
 
 
         self.conditions = {'CS+': 'CSp',
