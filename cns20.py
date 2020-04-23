@@ -9,7 +9,7 @@ levels = ['item','set']
 mems = ['hit','miss']
 cons = ['CS+','CS-']
 # rois = ['mOFC','dACC','amyg','hpc','ins','hc_head','hc_body','hc_tail','rh_hc_head','rh_hc_body','rh_hc_tail','lh_hc_head','lh_hc_body','lh_hc_tail','amyg_bla','amyg_cem','rh_amyg_bla','rh_amyg_cem','lh_amyg_bla','lh_amyg_cem']
-rois = ['mOFC','dACC','amyg','hpc','ins','lh_hpc','rh_hpc','rh_amyg','lh_amyg']
+rois = ['mOFC','dACC','amyg','hpc','ins','lh_amyg','rh_amyg','lh_hpc','rh_hpc','sgACC','rSMA','rACG']
 phases = {'baseline':24,'acquisition':24,'early_extinction':8,'extinction':16}
 # phases = {'baseline':24,'acquisition':24,'extinction':24}
 subs = range(24)
@@ -31,10 +31,10 @@ mdf['group'] = mdf.subject.apply(lgroup)
 mdf['level'] = 'item'
 phase3 = ['baseline','acquisition','extinction']
 mdf = mdf.set_index(['group','roi','encode_phase']).sort_index()
-cscomp('control',mdf,['mOFC','dACC'],phases=phase3)
-cscomp('ptsd',mdf,['mOFC','dACC'],phases=phase3)
-# cscomp('control',mdf,['rh_amyg_bla','lh_amyg_bla'],phases=phases.keys())
-# cscomp('ptsd',mdf,['rh_amyg_bla','lh_amyg_bla'],phases=phases.keys())
+cscomp_simp('healthy',mdf,['sgACC','rSMA'],phases=phase3)
+cscomp_simp('ptsd',mdf,['sgACC','rSMA'],phases=phase3)
+cscomp('healthy',mdf,['rh_amyg','lh_amyg'],phases=phase3)
+cscomp('ptsd',mdf,['rh_amyg_bla','lh_amyg_bla'],phases=phase3)
 
 
 ##############Set level##############################
@@ -132,8 +132,30 @@ beh = beh.groupby(['subject','encode_phase','trial_type']).mean().reset_index()
 beh['group'] = beh.subject.apply(lgroup)
 beh = beh.set_index(['trial_type','group','encode_phase']).sort_index()
 
+######################no correlations to be found
+ppem = beh.loc[('CS+','ptsd','extinction')].reset_index()
+pmem = beh.loc[('CS-','ptsd','extinction')].reset_index()
+ppem[['hc_cr','hc_hr','lc_cr','lc_hr']] -= pmem[['hc_cr','hc_hr','lc_cr','lc_hr']]
+ppem = ppem.set_index('subject')
+# pper = pdf.loc[('CS+','extinction','sgACC'),'rsa']
+pper = mdf.loc[('ptsd','sgACC','extinction'),['subject','rsa']].reset_index()
+pper = pper.set_index('subject')
+ppem = pd.concat((ppem,pper),axis=1)
+ppem = ppem.drop(index=120)
+#######################but lets try a within subejct logreg
+coef = np.zeros(len(p_sub_args))
+df = p.df.set_index(['trial_type',mem,'encode_phase','roi','subject']).reset_index()
+df = df[df.roi == 'sgACC'][df.encode_phase == 'extinction']
+pmem = df.set_index(['subject','trial_type'])
+for i, sub in enumerate(p_sub_args):
+    logreg = LogisticRegression(solver='lbfgs')
+    _X = pmem.loc[(sub,'CS+'),'rsa'].values.reshape(-1,1)
+    _y = pmem.loc[(101,'CS+'),mem].values
+    logreg.fit(_X,_y)
+    coef[i] = logreg.coef_[0][0]
 
-mem = 'high_confidence_accuracy'
+
+mem = 'low_confidence_accuracy'
 cm = c.df.groupby(['trial_type',mem,'encode_phase','roi','subject']).mean()
 pm = p.df.groupby(['trial_type',mem,'encode_phase','roi','subject']).mean()
 memdf = pd.concat((cm,pm)).reset_index()
@@ -157,8 +179,8 @@ memdf = memdf.set_index(['group','roi','encode_phase']).sort_index()
 # else: mdf[mem] = mdf[mem].apply(lambda x: 'hit' if x in [1,2] else 'miss')
 # mdf = mdf.set_index(['group','roi','encode_phase',mem])
 
-mem_cscomp('control',mdf,['mOFC','fdACC'],phases=phases)
-mem_cscomp('ptsd',mdf,['mOFC','dACC'],phases=phases)
+mem_cscomp('healthy',mdf,['sgACC','rSMA'],phases=phase3)
+mem_cscomp('ptsd',mdf,['sgACC','rSMA'],phases=phase3)
 ###############hits vs. miss samephase with cs#####################
 # mem = 'high_confidence_accuracy'
 # cdf = c.df.groupby([mem,'trial_type','encode_phase','roi','subject']).mean()

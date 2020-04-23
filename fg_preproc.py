@@ -91,6 +91,79 @@ class fmriprep_preproc():
             cmd = 'fslmaths %s -add %s -bin %s'%(l,r,out)
             os.system(cmd)
 
+    def hca_mask(self):
+
+        fsn2t1w = os.path.join(self.subj.prep_dir,'anat','%s_from-fsnative_to-T1w_mode-image_xfm.txt'%(self.subj.fsub))
+        t1w2std = os.path.join(self.subj.prep_dir,'anat','%s_from-T1w_to-MNI152NLin2009cAsym_mode-image_xfm.h5'%(self.subj.fsub)) 
+
+        t1w_in_t1w_space = os.path.join(self.subj.prep_dir,'anat','%s_desc-preproc_T1w.nii.gz'%(self.subj.fsub))
+            
+        hc_rois = {'hc_head':232,
+                   'hc_body':231,
+                   'hc_tail':226}
+
+        amyg_rois = {'amyg_bla':[7001,7003],
+                     'amyg_cem':[7004,7010]}
+
+
+        for hemi in ['l','r']:  
+
+            in_label  = os.path.join(self.subj.fs_dir,'mri',hemi+'h.hippoAmygLabels-T1.v21.HBT.FSvoxelSpace.mgz')
+            working_label = os.path.join(self.subj.masks,hemi+'h_hca_mask.nii.gz')
+            
+            t1_convert  = 'antsApplyTransforms -i %s \
+                                               -t %s \
+                                               -r %s \
+                                               -o %s \
+                                               -n MultiLabel'%(in_label,fsn2t1w,t1w_in_t1w_space,working_label)
+
+            std_convert = 'antsApplyTransforms -i %s \
+                                               -t %s \
+                                               -r %s \
+                                               -o %s \
+                                               -n MultiLabel'%(working_label,t1w2std,std_2009_brain,working_label)
+
+            resamp = 'ResampleImage 3 %s %s 65x77x65 1'%(working_label,working_label)
+
+            for cmd in [t1_convert,std_convert,resamp]: os.system(cmd)
+
+
+            #do the whole hippocamppus
+            hemi_hpc = 'fslmaths %s -thr 226 -uthr 232 -bin %s'%(working_label,os.path.join(self.subj.masks,hemi+'h_hpc.nii.gz'))
+            os.system(hemi_hpc)
+
+            #and then head/body/tail
+            for roi in hc_rois:
+                thr = str(hc_rois[roi])
+                out = os.path.join(self.subj.masks,hemi+'h_%s.nii.gz'%(roi))
+                hc_cmd = ['fslmaths', working_label,
+                              '-thr', thr,
+                             '-uthr', thr,
+                              '-bin', out]
+                Popen(hc_cmd).wait()
+
+            #do the whole amygdala
+            hemi_amyg = 'fslmaths %s -thr 7001 -uthr 7010 -bin %s'%(working_label,os.path.join(self.subj.masks,hemi+'h_amyg.nii.gz'))
+            os.system(hemi_amyg)
+
+            #and then bla/cem
+            for roi in amyg_rois:
+                lthr = str(amyg_rois[roi][0])
+                uthr = str(amyg_rois[roi][1])
+                out = os.path.join(self.subj.masks,hemi+'h_%s.nii.gz'%(roi))
+                amyg_cmd = ['fslmaths', working_label,
+                                    '-thr', lthr,
+                                   '-uthr', uthr,
+                                    '-bin', out ]
+                Popen(amyg_cmd).wait()
+
+
+        for roi in ['hpc','amyg','hc_head','hc_body','hc_tail','amyg_bla','amyg_cem']:
+            cmd = ['fslmaths', os.path.join(self.subj.masks,'rh_'+roi+'.nii.gz'),
+                       '-add', os.path.join(self.subj.masks,'lh_'+roi+'.nii.gz'),
+                       '-bin', os.path.join(self.subj.masks,roi+'.nii.gz')]
+            Popen(cmd).wait()
+
     def group_mask(self):
         
         masks = ['sgACC','rSMA','rACG'] 

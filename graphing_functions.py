@@ -29,6 +29,47 @@ def pconvert(p):
         return ''
 
 
+def cscomp_simp(group,df,rois,phases=None):
+    df = df.loc[(group,rois,phases)].reset_index()
+    df.encode_phase = pd.Categorical(df.encode_phase.values,categories=df.encode_phase.unique(),ordered=True)
+
+    pvals = pd.DataFrame(columns=['p'],index=pd.MultiIndex.from_product([rois,phases],names = ['roi','encode_phase']))
+    df = df.set_index(['roi','encode_phase'])
+    for roi in rois:
+        for phase in phases:
+            pvals.loc[(roi,phase),'p'] = pg.ttest(df.loc[(roi,phase),'rsa'].values,0)['p-val'].values[0]
+    pvals['corrp'] = pg.multicomp(list(pvals.p.values),method='fdr_bh')[1]
+    pvals['sig'] = pvals.corrp.apply(pconvert)
+    df = df.reset_index()
+
+    if len(phases) == 4: phase_pal = sns.color_palette(['darkgrey','darkmagenta','lightgreen','seagreen'],desat=1)
+    elif len(phases) == 3:phase_pal = sns.color_palette(['darkgrey','darkmagenta','seagreen'],desat=1)
+
+    fig, ax = plt.subplots(1,len(rois),sharey=True,figsize=(12,6))
+    for i, roi in enumerate(rois):
+        if len(rois) == 1: Ax = ax
+        else: Ax = ax[i]
+        dat = df[df.roi == roi]
+        sns.barplot(data=dat,x='encode_phase',y='rsa',
+                    palette=phase_pal,ax=Ax,errcolor='black')
+        X = Ax.get_xticks()
+
+        # Ax.set_ylim(ymin,ymax)            
+        Ax.yaxis.set_major_locator(MultipleLocator(.1))
+        Ax.yaxis.set_minor_locator(MultipleLocator(.05))
+        
+        sns.despine(ax=Ax,trim=True)
+
+        for i, x in enumerate(X): Ax.annotate(pvals.loc[roi,'sig'].values[i], xy=(x-.05,Ax.get_ylim()[1]-.1))
+
+
+    if len(rois) > 1:
+        ax[0].set_ylabel('∆ fisher z(r)')
+        ax[1].set_ylabel('')
+    else:
+        ax.set_ylabel('∆ fisher z(r)')
+        ax.set_ylabel('')
+
 
 def cscomp(group,df,rois,n_boot=1000,phases=None):
     df = df.loc[group]
@@ -85,20 +126,20 @@ def cscomp(group,df,rois,n_boot=1000,phases=None):
         
     
         #dist violins
-        sns.violinplot(data=dist.loc[roi],x='encode_phase',y='dist',
-                        inner=None,ax=Ax,scale='count',palette=phase_pal)
+        # sns.violinplot(data=dist.loc[roi],x='encode_phase',y='dist',
+        #                 inner=None,ax=Ax,scale='count',palette=phase_pal)
         
-        # sns.barplot(data=dat,x='encode_phase',y='rsa',hue='encode_phase',palette=phase_pal,ax=Ax,
-                    # order=phases,seed=42,errcolor='black')
+        sns.barplot(data=dat,x='encode_phase',y='rsa',hue='encode_phase',palette=phase_pal,ax=Ax,
+                    order=phases,seed=42,errcolor='black')
         # change_width(Ax,.75)
-        sns.pointplot(data=dat,x='encode_phase',y='rsa',hue='encode_phase',palette=phase_pal,ax=Ax,
-                        order=phases,seed=42)
+        # sns.pointplot(data=dat,x='encode_phase',y='rsa',hue='encode_phase',palette=phase_pal,ax=Ax,
+        #                 order=phases,seed=42)
         X = Ax.get_xticks()
 
-        sns.pointplot(data=dat,x='encode_phase',y='rsa',ci=None,units='subject',order=phases,ax=Ax)
-        sdat = dat.set_index(['subject','encode_phase'])
-        for sub in dat.subject.unique():
-            Ax.plot(X,sdat.loc[(sub,phases),'rsa'].values,color='grey',lw=1,alpha=.5)
+        # sns.pointplot(data=dat,x='encode_phase',y='rsa',ci=None,units='subject',order=phases,ax=Ax)
+        # sdat = dat.set_index(['subject','encode_phase'])
+        # for sub in dat.subject.unique():
+            # Ax.plot(X,sdat.loc[(sub,phases),'rsa'].values,color='grey',lw=1,alpha=.5)
 
 
         # lower = ci.loc[roi,'ci'].apply(lambda x: x[0])

@@ -563,7 +563,7 @@ class group_roi_rsa():
         betas = {}
         for phase in self.encoding_phases:
             betas[phase] = {};print(phase)
-            for roi in ['mOFC','dACC']:
+            for roi in ['sgACC','rSMA']:
                 betas[phase][roi] = {};print(roi)
                 for con in self.conditions: 
                     print(con);betas[phase][roi][con] = boot_roi_logreg(df.loc[(phase,roi,con)])

@@ -277,8 +277,8 @@ def mem_cscomp(group,df,rois,n_boot=1000):
     else:
         ax.set_ylabel('∆ fisher z(r)')
         ax.set_ylabel('')
-mem_cscomp('control',pfc,['vmPFC','dACC'])
-mem_cscomp('ptsd',pfc,['vmPFC','dACC'])
+mem_cscomp('healthy',pfc,['sgACC','rSMA'])
+mem_cscomp('ptsd',pfc,['sgACC','rSMA'])
 mem_cscomp('control',pfc,['ins'])
 mem_cscomp('ptsd',pfc,['ins'])
 mem_cscomp('control',pfc,['amyg','hpc'])
@@ -389,11 +389,11 @@ pfc.roi = pfc.roi.apply(lambda x: 'vmPFC' if x == 'mOFC' else x)
 pfc.encode_phase = pfc.encode_phase.apply(lambda x: 'conditioning' if x == 'fear_conditioning' else x)
 pfc.high_confidence_accuracy = pfc.high_confidence_accuracy.apply(lambda x: 'hit' if x == 1 else 'miss')
 
-pfc = pfc.set_index(['roi','group','encode_phase','high_confidence_accuracy'])
-groups = ['control','ptsd']
+pfc = pfc.set_index(['roi','group','encode_phase','low_confidence_accuracy'])
+groups = ['healthy','ptsd']
 mems = ['hit','miss']
 def mem_group_comp(roi,df,n_boot=1000):
-    roi = 'vmPFC'
+    roi = 'sgACC'
     phase = 'extinction'
     df = df.loc[roi]
     out = {}
