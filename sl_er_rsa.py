@@ -158,8 +158,8 @@ class ER_searchlight():
             _con        = self.conditions[_trial_type]+'_'+'trial'
             self.rsa.loc[i,_con] = self.encoding_labels.loc[encoding_loc,_con] 
             
-            encoding_trial = self.encoding_data[:,:,:,encoding_loc] * W[_phase][_trial_type]
-            mem_trial      = self.mem_data[:,:,:,mem_loc] * W[_phase][_trial_type]
+            encoding_trial = self.encoding_data[:,:,:,encoding_loc] * self.W[_phase][_trial_type]
+            mem_trial      = self.mem_data[:,:,:,mem_loc] * self.W[_phase][_trial_type]
 
             ER_item = np.stack([encoding_trial,mem_trial],axis=-1)
             
