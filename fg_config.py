@@ -128,8 +128,8 @@ class bids_meta(object):
             self.std2ref      = os.path.join(self.reference,'std2ref.mat')
 
             self.ref2std3     = os.path.join(self.reference,'ref2std3.mat')
-            self.std32ref     = os.path.join(self.reference,'std32ref.mat')
-
+            self.std32ref     = os.path.join(self.reference,'std32ref.mat'
+)
 
 
             self.ref2t1       = os.path.join(self.reference,'ref2t1.mat')
