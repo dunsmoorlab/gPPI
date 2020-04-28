@@ -1,4 +1,5 @@
 import os
+import pickle
 import numpy as np
 import pandas as pd
 import nibabel as nib
@@ -151,6 +152,7 @@ class ER_searchlight():
         self.ER_res = OrderedDict()
         
         for i, stim in enumerate(self.rsa.stimulus):
+            print(i)
             mem_loc = i
             encoding_loc = np.where(self.encoding_labels.stimulus == stim)[0][0]
             _phase = self.rsa.loc[mem_loc,'encode_phase']
@@ -163,7 +165,7 @@ class ER_searchlight():
 
             ER_item = np.stack([encoding_trial,mem_trial],axis=-1)
             
-            ER_item = new_img_like(refvol,ER_item,copy_header=True)
+            ER_item = new_img_like(self.refvol,ER_item,copy_header=True)
 
             self.ER_res[i] = self.run_SL(ER_item,labels,groups)
         
