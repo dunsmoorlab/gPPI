@@ -45,7 +45,7 @@ def cscomp_simp(group,df,rois,phases=None):
     if len(phases) == 4: phase_pal = sns.color_palette(['darkgrey','darkmagenta','lightgreen','seagreen'],desat=1)
     elif len(phases) == 3:phase_pal = sns.color_palette(['darkgrey','darkmagenta','seagreen'],desat=1)
 
-    fig, ax = plt.subplots(1,len(rois),sharey=True,figsize=(12,6))
+    fig, ax = plt.subplots(1,len(rois),sharey=True,figsize=(9,3.5))
     for i, roi in enumerate(rois):
         if len(rois) == 1: Ax = ax
         else: Ax = ax[i]
@@ -69,7 +69,8 @@ def cscomp_simp(group,df,rois,phases=None):
     else:
         ax.set_ylabel('∆ fisher z(r)')
         ax.set_ylabel('')
-
+    # plt.savefig('./plots/group_comp_%s.eps'%(split),format='eps')
+    # plt.close()
 
 def cscomp(group,df,rois,n_boot=1000,phases=None):
     df = df.loc[group]
@@ -170,7 +171,7 @@ def cscomp(group,df,rois,n_boot=1000,phases=None):
         ax.set_ylabel('∆ fisher z(r)')
         ax.set_ylabel('')
 
-def split_level(df,group,phases=None,split=None):
+def split_level(df,group,rois=['rSMA','sgACC'],phases=None,split=None):
     if split == 'level':
         splits = ['item','set']
         # pal = sns.palettes.color_palette('Set2',n_colors=2)
@@ -181,7 +182,6 @@ def split_level(df,group,phases=None,split=None):
         # pal = sns.palettes.color_palette('Set2',n_colors=4)[2:]
         pal = ['firebrick','salmon']
 
-    rois = ['dACC','mOFC']
 
     df = df.loc[group]
     out = {}
@@ -248,7 +248,7 @@ def split_level(df,group,phases=None,split=None):
 
     ymax = dist.dist.max() + .05
     ymin = dist.dist.min() - .05
-    fig, ax = plt.subplots(1,2,sharey=True,figsize=(24,12))
+    fig, ax = plt.subplots(1,2,sharey=True,figsize=(8,3))
     for i, roi in enumerate(rois):
         dat = df.loc[roi].reset_index()
         Ax = ax[i]
@@ -312,8 +312,8 @@ def split_level(df,group,phases=None,split=None):
         Ax.legend_.remove()
 
         Ax.set_ylim(ymin,ymax)            
-        Ax.yaxis.set_major_locator(MultipleLocator(.1))
-        Ax.yaxis.set_minor_locator(MultipleLocator(.05))
+        Ax.yaxis.set_major_locator(MultipleLocator(.2))
+        Ax.yaxis.set_minor_locator(MultipleLocator(.1))
         
         sns.despine(ax=Ax,trim=True)
 
@@ -329,6 +329,59 @@ def split_level(df,group,phases=None,split=None):
     plt.savefig('./plots/%s_%s.eps'%(group,split),format='eps')
     # plt.close()
 
+def group_comp_simp(df,phases,rois=['rSMA','sgACC']):
+    comp = pd.DataFrame(index=pd.MultiIndex.from_product([rois,phases],names=['roi','encode_phase']))
+    phase_pal = sns.color_palette(['black','darkmagenta','lightgreen','seagreen'],desat=1)
+
+    for roi in rois:
+        for phase in phases:
+                
+                c = df.loc[('healthy',roi,phase),'rsa'].values
+                cci, cdist = pg.compute_bootci(c,func='mean',n_boot=1000,return_dist=True,method='cper',decimals=3,seed=42)
+                
+                p = df.loc[('ptsd',roi,phase),'rsa'].values
+                cci, pdist = pg.compute_bootci(p,func='mean',n_boot=1000,return_dist=True,method='cper',decimals=3,seed=42)
+                
+                dif = cdist - pdist
+
+                comp.loc[(roi,phase),'point'] = dif.mean()
+                
+                # tres = pg.ttest(c,p,paired=False,correction=False)
+                comp.loc[(roi,phase),'ci_l'] = np.percentile(dif,5)#tres['CI95%'][0][0]
+                comp.loc[(roi,phase),'ci_u'] = np.percentile(dif,100)#tres['CI95%'][0][1]
+                comp.loc[(roi,phase),'p'] = 1-np.mean(dif > 0)#tres['p-val'][0]
+        comp.loc[roi,'corrp'] = pg.multicomp(list(comp.loc[roi,'p'].values),method='fdr_bh')[1]
+    
+    comp['sig'] = comp.corrp.apply(pconvert)
+    
+    fig, ax = plt.subplots(1,2,sharey=True,sharex=True,figsize=(10.5,4.5))
+    for i, roi in enumerate(rois):
+        dat = comp.loc[roi].reset_index()
+        Ax = ax[i]
+        
+        sns.barplot(data=dat,y='encode_phase',x='point',palette=phase_pal,ax=Ax,
+                    seed=42,errcolor='black',orient='h')
+        # X_together = [[x-.2,x+.2] for x in Ax.get_xticks()]
+        # X = [x for t in X_together for x in t]
+        X = Ax.get_yticks()
+        Ax.hlines(X,dat.ci_l.values,dat.ci_u.values,linewidth=5,color='black').set_capstyle('round')
+        Ax.vlines(0,Ax.get_ylim()[0],Ax.get_ylim()[1],color='grey',linestyle='--',linewidth=3)
+
+        # Ax.legend_.remove()
+
+        # Ax.set_ylim(ymin,ymax)            
+        Ax.xaxis.set_major_locator(MultipleLocator(.1))
+        Ax.xaxis.set_minor_locator(MultipleLocator(.05))
+        
+        sns.despine(ax=Ax,trim=True)
+
+        for i, x in enumerate(X): Ax.annotate(comp.loc[roi,'sig'].values[i], xy=(x-.05,Ax.get_ylim()[1]-.1))
+
+    
+
+    ax[0].set_xlabel('∆ fisher z(r)')
+    ax[1].set_xlabel('∆ fisher z(r)')
+
 
 def group_comp(df,phases,split):
     if split == 'level':
@@ -340,7 +393,7 @@ def group_comp(df,phases,split):
         splits = ['encoding','retrieval']
         # pal = sns.palettes.color_palette('Set2',n_colors=4)[2:]
         pal = ['firebrick','salmon']
-    rois = ['dACC','mOFC']
+    rois = ['rSMA','sgACC']
     comp = pd.DataFrame(index=pd.MultiIndex.from_product([rois,phases,splits],names=['roi','encode_phase',split]))
     for roi in rois:
         for phase in phases:

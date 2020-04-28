@@ -49,6 +49,8 @@ std_3mm_brain = os.path.join(WORK,'standard','MNI152_T1_3mm_brain.nii.gz')
 std_3mm_brain_mask = os.path.join(WORK,'standard','MNI152_T1_3mm_brain_mask.nii.gz')
 std_2009_brain = os.path.join(SCRATCH,'standard','MNI152NLin2009cAsym_T1_1mm_brain.nii.gz')
 std_2009_brain_mask = os.path.join(SCRATCH,'standard','MNI152NLin2009cAsym_T1_1mm_brain_mask.nii.gz')
+std_2009_brain_3mm = os.path.join(SCRATCH,'standard','MNI152NLin2009cAsym_T1_3mm_brain.nii.gz')
+std_2009_brain_mask_3mm = os.path.join(SCRATCH,'standard','MNI152NLin2009cAsym_T1_3mm_brain_mask.nii.gz')
 
 tasks = {'baseline':{'n_trials':48,'ses':1,'n_tr':259},
          'acquisition':{'n_trials':48,'ses':1,'n_tr':259},
@@ -121,8 +123,14 @@ class bids_meta(object):
             self.refvol       = os.path.join(self.reference,'boldref.nii.gz')
             self.refvol_mask  = os.path.join(self.reference,'boldref_mask.nii.gz')
             self.refvol_brain = os.path.join(self.reference,'boldref_brain.nii.gz')
+            
             self.ref2std      = os.path.join(self.reference,'ref2std.mat')
             self.std2ref      = os.path.join(self.reference,'std2ref.mat')
+
+            self.ref2std3     = os.path.join(self.reference,'ref2std3.mat')
+            self.std32ref     = os.path.join(self.reference,'std32ref.mat')
+
+
 
             self.ref2t1       = os.path.join(self.reference,'ref2t1.mat')
             self.t12std_nii   = os.path.join(self.reference,'t12std')

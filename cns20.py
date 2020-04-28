@@ -9,7 +9,7 @@ levels = ['item','set']
 mems = ['hit','miss']
 cons = ['CS+','CS-']
 # rois = ['mOFC','dACC','amyg','hpc','ins','hc_head','hc_body','hc_tail','rh_hc_head','rh_hc_body','rh_hc_tail','lh_hc_head','lh_hc_body','lh_hc_tail','amyg_bla','amyg_cem','rh_amyg_bla','rh_amyg_cem','lh_amyg_bla','lh_amyg_cem']
-rois = ['mOFC','dACC','amyg','hpc','ins','lh_amyg','rh_amyg','lh_hpc','rh_hpc','sgACC','rSMA','rACG']
+rois = ['mOFC','dACC','amyg','hpc','ins','lh_amyg','rh_amyg','lh_hpc','rh_hpc','sgACC','rSMA','rACG','hc_head','hc_body','hc_tail','rh_hc_head','rh_hc_body','rh_hc_tail','lh_hc_head','lh_hc_body','lh_hc_tail','amyg_bla','amyg_cem','rh_amyg_bla','rh_amyg_cem','lh_amyg_bla','lh_amyg_cem']  
 phases = {'baseline':24,'acquisition':24,'early_extinction':8,'extinction':16}
 # phases = {'baseline':24,'acquisition':24,'extinction':24}
 subs = range(24)
@@ -31,10 +31,10 @@ mdf['group'] = mdf.subject.apply(lgroup)
 mdf['level'] = 'item'
 phase3 = ['baseline','acquisition','extinction']
 mdf = mdf.set_index(['group','roi','encode_phase']).sort_index()
-cscomp_simp('healthy',mdf,['sgACC','rSMA'],phases=phase3)
-cscomp_simp('ptsd',mdf,['sgACC','rSMA'],phases=phase3)
-cscomp('healthy',mdf,['rh_amyg','lh_amyg'],phases=phase3)
-cscomp('ptsd',mdf,['rh_amyg_bla','lh_amyg_bla'],phases=phase3)
+cscomp_simp('healthy',mdf,['rSMA','sgACC'],phases=phase3)
+cscomp_simp('ptsd',mdf,['rSMA','sgACC'],phases=phase3)
+cscomp_simp('healthy',mdf,['hc_head','amyg'],phases=phase3)
+cscomp_simp('ptsd',mdf,['hc_head','amyg'],phases=phase3)
 
 
 ##############Set level##############################
@@ -92,13 +92,13 @@ ws = (ws.loc['CS+'] - ws.loc['CS-']).reset_index()
 ws['group'] = ws.subject.apply(lgroup)
 ws = ws.set_index(['group','roi','encode_phase','memory_phase']).sort_index()
 #go to graphing_functions and figure out how to swap in memory_phase for levels
-split_level(ws,'control',phases=phases,split='memory_phase')
-split_level(ws,'ptsd',phases=phases,split='memory_phase')
+split_level(ws,'healthy',phases=phase3,split='memory_phase')
+split_level(ws,'ptsd',phases=phase3,split='memory_phase')
 # split_level(ws,'amyg_cem',phases=phases,split='memory_phase')
 # split_level(ws,'amyg_bla',phases=phases,split='memory_phase')
 # split_level(ws,'hc_tail',phases=phases,split='memory_phase')
 # split_level(ws,'hc_body',phases=phases,split='memory_phase')
-# split_level(ws,'hc_head',phases=phases,split='memory_phase')
+split_level(ws,'healthy',rois=['amyg_bla','amyg_cem'],phases=phase3,split='memory_phase')
 
 
 pal = sns.color_palette(['orangered','slategrey','orange','lightgrey'])

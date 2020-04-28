@@ -182,6 +182,14 @@ class fmriprep_preproc():
         os.system('flirt -in %s -ref %s -dof 12 -omat %s'%(self.subj.refvol_brain, std_2009_brain, self.subj.ref2std))
         os.system('convert_xfm -omat %s -inverse %s'%(self.subj.std2ref,self.subj.ref2std))
 
+        os.system('flirt -in %s -ref %s -dof 12 -omat %s'%(self.subj.refvol_brain, std_2009_brain_3mm, self.subj.ref2std3))
+        os.system('convert_xfm -omat %s -inverse %s'%(self.subj.std32ref,self.subj.ref2std3))
+
+    def apply_reg_betas(self):
+        for task in tasks:
+            inbeta = os.path.join(self.subj.beta,'%s_beta.nii.gz'%(task))
+            outbeta = os.path.join(self.subj.beta,'%s_beta_std.nii.gz'%(task))
+            os.system('flirt -in %s -ref %s -applyxfm -init %s -out %s'%(inbeta,std_2009_brain_3mm,self.subj.ref2std3,outbeta))
 
         # standard      = '/work/IRC/ls5/opt/apps/fsl-5.0.10/data/standard/MNI152_T1_1mm_brain'
         # standard_head = '/work/IRC/ls5/opt/apps/fsl-5.0.10/data/standard/MNI152_T1_1mm'
