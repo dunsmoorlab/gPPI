@@ -217,11 +217,11 @@ class gPPI():
             self.mask_name = mask[:-5]
         else:
             self.mask_name = mask
-        #self.mask = self.load_mask(mask)
-        #self.data = self.load_clean_data(phases=phases)
-        #self.extract_timecourse()
+        self.mask = self.load_mask(mask)
+        self.data = self.load_clean_data(phases=phases)
+        self.extract_timecourse()
         #self.interact()
-        self._autofill_fsf()
+        # self._autofill_fsf()
 
     def load_mask(self,mask):
         
@@ -257,7 +257,7 @@ class gPPI():
                         confounds=pd.read_csv(os.path.join(self.subj.model_dir,phase,'confounds.txt'),
                                         sep='\t',header=None).values,
                 
-                        t_r=2,detrend=False,standardize='zscore')
+                        t_r=2,detrend=False,standardize=False)
                                                             for phase in data}
 
         return data
@@ -265,13 +265,14 @@ class gPPI():
     #extract the givin timecourse for each run
     def extract_timecourse(self): 
         #deconvolve
-        self.neuronal = {phase: self._deconvolve(self.data[phase]) for phase in self.data}
+        # self.neuronal = {phase: self._deconvolve(self.data[phase]) for phase in self.data}
 
-        for phase in self.neuronal:
-                df = pd.Series(self.neuronal[phase])
+
+        for phase in self.data:
+                df = pd.Series(self.data[phase])
                 out = os.path.join(self.subj.model_dir,phase,self.mask_name)
                 mkdir(out)
-                df.to_csv(os.path.join(out,'%s_neuronal_signal.txt'%(self.mask_name)),
+                df.to_csv(os.path.join(out,'%s_bold_signal.txt'%(self.mask_name)),
                     sep='\t', float_format='%.8e', index=False, header=False)
 
     def interact(self):
@@ -431,7 +432,8 @@ def wrap_lss_jobs():
         # os.system('launch -N 1 -n 24 -J %s_lvl2 -s jobs/%s_mem_encode_lvl2_gPPI_job.txt -m achennings@utexas.edu -p normal -r 1:30:00 -A LewPea_MRI_Analysis -d 2783989'%(roi,roi))        
         os.system('launch -N 1 -n 14 -J %s_lvl3 -s jobs/%s_group_cope_job.txt -m achennings@utexas.edu -p normal -r 2:00:00 -A LewPea_MRI_Analysis -d 2784003'%(roi,roi))
 
-
+    for phase in ['baseline','acquisition','extinction','memory_run-01','memory_run-02','memory_run-03']:
+        os.system('launch -N 1 -n 24 -J %s_gPPI -s jobs/%s_gPPI_job.txt -m achennings@utexas.edu -p normal -r 2:00:00 -A LewPea_MRI_Analysis'%(phase,phase))
 
 def clean_bad_lss():
     bad = pd.read_csv('bad_lss.txt',header=None)
