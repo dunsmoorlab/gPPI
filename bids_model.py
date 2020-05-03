@@ -269,11 +269,12 @@ class gPPI():
 
 
         for phase in self.data:
-                df = pd.Series(self.data[phase])
+                # df = pd.Series(self.data[phase])
                 out = os.path.join(self.subj.model_dir,phase,self.mask_name)
                 mkdir(out)
-                df.to_csv(os.path.join(out,'%s_bold_signal.txt'%(self.mask_name)),
-                    sep='\t', float_format='%.8e', index=False, header=False)
+                # df.to_csv(os.path.join(out,'%s_bold_signal.txt'%(self.mask_name)),
+                    # sep='\t', float_format='%.8e', index=False, header=False)
+                np.savetxt(os.path.join(out,'%s_bold_signal.txt'%(self.mask_name)),self.data[phase])
 
     def interact(self):
 
