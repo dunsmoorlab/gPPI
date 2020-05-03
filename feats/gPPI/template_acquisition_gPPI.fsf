@@ -30,7 +30,7 @@ set fmri(featwatcher_yn) 0
 set fmri(sscleanup_yn) 0
 
 # Output directory
-set fmri(outputdir) "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC001/acquisition/sub-FC001_acquisition_gPPI"
+set fmri(outputdir) "/scratch/05426/ach3377/fc-bids/derivatives/model/SUBID/acquisition/SUBID_acquisition_gPPI"
 
 # TR(s)
 set fmri(tr) 2.000000
@@ -273,13 +273,13 @@ set fmri(totalVoxels) 84259175
 set fmri(ncopeinputs) 0
 
 # 4D AVW data or FEAT directory (1)
-set feat_files(1) "/scratch/05426/ach3377/fc-bids/derivatives/preproc/sub-FC001/func/sub-FC001_ses-1_task-acquisition_space-MNI152NLin2009cAsym_desc-preproc_bold"
+set feat_files(1) "/scratch/05426/ach3377/fc-bids/derivatives/preproc/SUBID/func/SUBID_ses-1_task-acquisition_space-MNI152NLin2009cAsym_desc-preproc_bold"
 
 # Add confound EVs text file
 set fmri(confoundevs) 1
 
 # Confound EVs text file for analysis 1
-set confoundev_files(1) "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC001/acquisition/confounds.txt"
+set confoundev_files(1) "/scratch/05426/ach3377/fc-bids/derivatives/model/SUBID/acquisition/confounds.txt"
 
 # EV 1 title
 set fmri(evtitle1) "CSp"
@@ -313,7 +313,7 @@ set fmri(tempfilt_yn1) 0
 set fmri(deriv_yn1) 1
 
 # Custom EV file (EV 1)
-set fmri(custom1) "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC001/acquisition/CSp_all.txt"
+set fmri(custom1) "/scratch/05426/ach3377/fc-bids/derivatives/model/SUBID/acquisition/CSp_all.txt"
 
 # Orthogonalise EV 1 wrt EV 0
 set fmri(ortho1.0) 0
@@ -359,7 +359,7 @@ set fmri(tempfilt_yn2) 0
 set fmri(deriv_yn2) 1
 
 # Custom EV file (EV 2)
-set fmri(custom2) "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC001/acquisition/CSm_all.txt"
+set fmri(custom2) "/scratch/05426/ach3377/fc-bids/derivatives/model/SUBID/acquisition/CSm_all.txt"
 
 # Orthogonalise EV 2 wrt EV 0
 set fmri(ortho2.0) 0
@@ -405,7 +405,7 @@ set fmri(tempfilt_yn3) 0
 set fmri(deriv_yn3) 1
 
 # Custom EV file (EV 3)
-set fmri(custom3) "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC001/acquisition/US_all.txt"
+set fmri(custom3) "/scratch/05426/ach3377/fc-bids/derivatives/model/SUBID/acquisition/US_all.txt"
 
 # Orthogonalise EV 3 wrt EV 0
 set fmri(ortho3.0) 0
