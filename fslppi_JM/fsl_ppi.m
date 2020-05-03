@@ -1,4 +1,4 @@
-function [PPI,design] = fsl_ppi(featdir,voi,ppi_contrast,figs)
+function [PPI,design] = fsl_ppi(featdir,voi,ppi_contrast,figs,tr)
 % 
 % Bold deconvolution to create physio- or psycho-physiologic interactions
 % 
@@ -532,9 +532,7 @@ str     = ['PPI_' PPI.name];
 %    save(fullfile(SPM.swd,str),'PPI')
 %end
 
-
-eval(['cd ' currdir ''])
-
+cd(currdir);
 % clean up
 %-------------------------------------------------------------------------
 spm('Pointer','arrow')

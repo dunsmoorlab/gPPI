@@ -52,14 +52,14 @@ end;
 
 % convert design.fsf to design.m
 
-%[s,w]=system(sprintf('sed -f %s design.fsf > design.m',SED_CONVERTER));
-%if s,
-%   fprintf('problem converting design.fsf to design.m\n');
-%   fprintf('make sure the program sed is in your path\n');
-%   fprintf(' e.g. click My Computer, Properties, Advanced, Environment Variables\n');
-%   fprintf('      then cdouble-lick on Path and add ;c:\cygwin\bin to end and press OK \n');
-%  return;
-%end;
+[s,w]=system(sprintf('sed -f %s design.fsf > design.m',SED_CONVERTER));
+if s,
+   fprintf('problem converting design.fsf to design.m\n');
+   fprintf('make sure the program sed is in your path\n');
+   fprintf(' e.g. click My Computer, Properties, Advanced, Environment Variables\n');
+   fprintf('      then cdouble-lick on Path and add ;c:\cygwin\bin to end and press OK \n');
+  return;
+end;
 
 
 design_file=which('design');

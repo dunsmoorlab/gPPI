@@ -183,3 +183,14 @@ class ER_searchlight():
         std = os.path.join(WORK,'standard','MNI152_T1_3mm_brain.nii.gz')
 
         os.system('flirt -in %s -ref %s -out %s -init %s -applyxfm'%(self.save_str,std,self.save_str,ref2std))
+
+def sl_jobs():
+    from fg_config import gPPI_codebase, all_sub_args
+    import os
+
+    for sub in all_sub_args:
+        os.system('echo "python3 %swrap_sl.py -s %s" >> jobs/er_sl_job.txt'%(gPPI_codebase,sub))
+
+    os.system('chmod u+x jobs/er_sl_job.txt')
+
+    os.system('launch -N 48 -n 48 -J er_sl -s jobs/er_sl_job.txt -m achennings@utexas.edu -p normal -r 6:00:00 -A LewPea_MRI_Analysis')

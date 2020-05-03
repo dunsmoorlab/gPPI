@@ -166,7 +166,8 @@ class fmriprep_preproc():
 
     def group_mask(self):
         
-        masks = ['sgACC','rSMA','rACG'] 
+        # masks = ['sgACC','rSMA','rACG'] 
+        masks = ['rACC']
 
         for roi in masks:
             in_mask = os.path.join(group_masks,'%s_group_mask.nii.gz'%(roi))
@@ -175,7 +176,6 @@ class fmriprep_preproc():
             
             os.system('flirt -in %s -ref %s -applyxfm -init %s -out %s -interp nearestneighbour'%(
                     in_mask, self.subj.refvol_brain, self.subj.std2ref, out_mask))
-            
 
     def fsl_reg(self):
 
