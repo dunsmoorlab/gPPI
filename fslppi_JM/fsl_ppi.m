@@ -1,4 +1,4 @@
-function [PPI,design] = fsl_ppi(featdir,voi,ppi_contrast,figs,tr)
+function [PPI,design] = fsl_ppi(featdir,voi,ppi_contrast,figs)
 % 
 % Bold deconvolution to create physio- or psycho-physiologic interactions
 % 
@@ -277,7 +277,8 @@ end % (switch setup)
 % >>> name of PPI file to be saved <<<
 %-------------------------------------------------------------------------
 %PPI.name    = spm_input('Name of PPI',3,'s','PPI');
-PPI.name='PPI';
+%PPI.name='PPI';
+PPI.name = U.name;
 
 
 % Setup variables

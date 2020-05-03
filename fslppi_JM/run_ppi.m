@@ -9,7 +9,7 @@ addpath /space/raid/fmri/spm5
 addpath ~/MatlabCode/fslppi_JM
 
 % The path to the feat directory
- featdir='/space/raid6/data/engel/rad/Analysis/Intact_Scrambled/2003/2003_S1.feat';
+featdir='/space/raid6/data/engel/rad/Analysis/Intact_Scrambled/2003/2003_S1.feat';
 
 %the path to the seed voxel.  You'll need to make this file on your
 % own, probably using fslmeants with your ROI mask for the seed.
@@ -45,5 +45,5 @@ ppi_02=A2.ppi;
 %you might want to use a better path, this will just stick the
 %regressor in the feat directory
 
-save('ppi_01.txt', 'ppi_01', '-ascii')
+save('ppi_01_z.txt', 'ppi_01', '-ascii')
 save('ppi_02.txt', 'ppi_02', '-ascii')
