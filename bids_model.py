@@ -377,19 +377,30 @@ def autofill_fsf(group=False,template='',ses=None,name=None,roi=None):
         outstr = name
     if group:
         if roi is not None: replacements = {'ROI':roi}
-        for cope in range(1,15):
-            replacements['COPEID'] = 'cope%s'%(cope)
-            outfeat = os.path.join(SCRATCH,'group_gPPI',roi,'%s_%s.fsf'%(outstr,cope))
+        if ses == 'mem':
+            for cope in range(1,15):
+                replacements['COPEID'] = 'cope%s'%(cope)
+                outfeat = os.path.join(SCRATCH,'group_gPPI',roi,'%s_%s.fsf'%(outstr,cope))
 
-            with open(os.path.join(gPPI_codebase,'feats','%s.fsf'%(template))) as infile: 
+                with open(os.path.join(gPPI_codebase,'feats','%s.fsf'%(template))) as infile: 
+                    with open(outfeat, 'w') as outfile:
+                        for line in infile:
+                            for src, target in replacements.items():
+                                line = line.replace(src, target)
+                            outfile.write(line)
+
+                #also go ahead and make the job script here
+                os.system('echo "feat %s" >> jobs/%s_job.txt'%(outfeat,outstr))
+        if ses == 1:
+            outfeat = os.path.join(SCRATCH,'group_gPPI',roi,'%s_%s.fsf'%(roi,name))
+            with open(os.path.join(gPPI_codebase,'feats','%s.fsf'%(template))) as infile:
                 with open(outfeat, 'w') as outfile:
                     for line in infile:
-                        for src, target in replacements.items():
+                        for scr, target in replacements.items():
                             line = line.replace(src, target)
                         outfile.write(line)
 
-            #also go ahead and make the job script here
-            os.system('echo "feat %s" >> jobs/%s_job.txt'%(outfeat,outstr))
+            os.system('echo "feat %s" >> jobs/%s_group_gPPI_job.txt'%(outfeat,name))
 
     else:
         for sub in all_sub_args:
@@ -439,14 +450,13 @@ def wrap_lss_jobs():
             os.system('launch -N 1 -n 24 -J %s_%s -s jobs/%s_memory_run-0%s_gPPI_job.txt -m achennings@utexas.edu -p normal -r 3:00:00 -A LewPea_MRI_Analysis'%(run,roi,roi,run))
 
     for roi in ['lh_amyg','rh_amyg','rh_hpc','lh_hpc','rACC','sgACC']:
-        # os.system('launch -N 1 -n 24 -J %s_lvl2 -s jobs/%s_mem_encode_lvl2_gPPI_job.txt -m achennings@utexas.edu -p normal -r 1:30:00 -A LewPea_MRI_Analysis'%(roi,roi))        
-        os.system('launch -N 1 -n 14 -J %s_lvl3 -s jobs/%s_group_cope_job.txt -m achennings@utexas.edu -p normal -r 2:00:00 -A LewPea_MRI_Analysis -d 2834404'%(roi,roi))
+        # os.system('launch -N 1 -n 24 -J %s_lvl2 -s jobs/%s_mem_encode_lvl2_gPPI_job.txt -m achennings@utexas.edu -p normal -r 00:45:00 -A LewPea_MRI_Analysis -d 2835991'%(roi,roi))        
+        os.system('launch -N 1 -n 14 -J %s_lvl3 -s jobs/%s_group_cope_job.txt -m achennings@utexas.edu -p normal -r 2:00:00 -A LewPea_MRI_Analysis -d 2836020'%(roi,roi))
 
     for phase in ['baseline','acquisition','extinction','memory_run-01','memory_run-02','memory_run-03']:
-            # for roi in ['rACC','sgACC','rh_hpc','lh_hpc','lh_amyg','rh_amyg']:
-                for roi in ['sgACC']:
+            for roi in ['rACC','sgACC','rh_hpc','lh_hpc','lh_amyg','rh_amyg']:
                     # os.system('launch -N 1 -n 24 -J %s_gPPI -s jobs/%s_gPPI_job.txt -m achennings@utexas.edu -p normal -r 2:00:00 -A LewPea_MRI_Analysis'%(phase,phase))
-                    os.system('launch -N 1 -n 24 -J %s_%s -s jobs/%s_%s_gPPI_job.txt -m achennings@utexas.edu -p normal -r 3:00:00 -A LewPea_MRI_Analysis'%(phase,roi,roi,phase))
+                    os.system('launch -N 1 -n 24 -J %s_%s -s jobs/%s_%s_gPPI_job.txt -m achennings@utexas.edu -p normal -r 00:45:00 -A LewPea_MRI_Analysis'%(phase,roi,roi,phase))
 
 def clean_bad_lss():
     bad = pd.read_csv('bad_lss.txt',header=None)

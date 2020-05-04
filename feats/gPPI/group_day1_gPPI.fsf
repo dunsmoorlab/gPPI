@@ -30,7 +30,7 @@ set fmri(featwatcher_yn) 0
 set fmri(sscleanup_yn) 0
 
 # Output directory
-set fmri(outputdir) "/scratch/05426/ach3377/group_gPPI/rACC/baseline"
+set fmri(outputdir) "/scratch/05426/ach3377/group_gPPI/ROI/RUNID"
 
 # TR(s)
 set fmri(tr) 3
@@ -278,148 +278,148 @@ set fmri(copeinput.2) 1
 set fmri(copeinput.3) 1
 
 # 4D AVW data or FEAT directory (1)
-set feat_files(1) "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC001/baseline/rACC/source.feat"
+set feat_files(1) "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC001/RUNID/ROI/source.feat"
 
 # 4D AVW data or FEAT directory (2)
-set feat_files(2) "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC002/baseline/rACC/source.feat"
+set feat_files(2) "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC002/RUNID/ROI/source.feat"
 
 # 4D AVW data or FEAT directory (3)
-set feat_files(3) "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC003/baseline/rACC/source.feat"
+set feat_files(3) "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC003/RUNID/ROI/source.feat"
 
 # 4D AVW data or FEAT directory (4)
-set feat_files(4) "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC004/baseline/rACC/source.feat"
+set feat_files(4) "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC004/RUNID/ROI/source.feat"
 
 # 4D AVW data or FEAT directory (5)
-set feat_files(5) "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC005/baseline/rACC/source.feat"
+set feat_files(5) "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC005/RUNID/ROI/source.feat"
 
 # 4D AVW data or FEAT directory (6)
-set feat_files(6) "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC006/baseline/rACC/source.feat"
+set feat_files(6) "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC006/RUNID/ROI/source.feat"
 
 # 4D AVW data or FEAT directory (7)
-set feat_files(7) "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC007/baseline/rACC/source.feat"
+set feat_files(7) "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC007/RUNID/ROI/source.feat"
 
 # 4D AVW data or FEAT directory (8)
-set feat_files(8) "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC008/baseline/rACC/source.feat"
+set feat_files(8) "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC008/RUNID/ROI/source.feat"
 
 # 4D AVW data or FEAT directory (9)
-set feat_files(9) "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC009/baseline/rACC/source.feat"
+set feat_files(9) "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC009/RUNID/ROI/source.feat"
 
 # 4D AVW data or FEAT directory (10)
-set feat_files(10) "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC010/baseline/rACC/source.feat"
+set feat_files(10) "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC010/RUNID/ROI/source.feat"
 
 # 4D AVW data or FEAT directory (11)
-set feat_files(11) "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC012/baseline/rACC/source.feat"
+set feat_files(11) "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC012/RUNID/ROI/source.feat"
 
 # 4D AVW data or FEAT directory (12)
-set feat_files(12) "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC013/baseline/rACC/source.feat"
+set feat_files(12) "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC013/RUNID/ROI/source.feat"
 
 # 4D AVW data or FEAT directory (13)
-set feat_files(13) "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC014/baseline/rACC/source.feat"
+set feat_files(13) "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC014/RUNID/ROI/source.feat"
 
 # 4D AVW data or FEAT directory (14)
-set feat_files(14) "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC015/baseline/rACC/source.feat"
+set feat_files(14) "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC015/RUNID/ROI/source.feat"
 
 # 4D AVW data or FEAT directory (15)
-set feat_files(15) "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC016/baseline/rACC/source.feat"
+set feat_files(15) "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC016/RUNID/ROI/source.feat"
 
 # 4D AVW data or FEAT directory (16)
-set feat_files(16) "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC017/baseline/rACC/source.feat"
+set feat_files(16) "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC017/RUNID/ROI/source.feat"
 
 # 4D AVW data or FEAT directory (17)
-set feat_files(17) "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC018/baseline/rACC/source.feat"
+set feat_files(17) "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC018/RUNID/ROI/source.feat"
 
 # 4D AVW data or FEAT directory (18)
-set feat_files(18) "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC019/baseline/rACC/source.feat"
+set feat_files(18) "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC019/RUNID/ROI/source.feat"
 
 # 4D AVW data or FEAT directory (19)
-set feat_files(19) "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC020/baseline/rACC/source.feat"
+set feat_files(19) "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC020/RUNID/ROI/source.feat"
 
 # 4D AVW data or FEAT directory (20)
-set feat_files(20) "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC021/baseline/rACC/source.feat"
+set feat_files(20) "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC021/RUNID/ROI/source.feat"
 
 # 4D AVW data or FEAT directory (21)
-set feat_files(21) "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC023/baseline/rACC/source.feat"
+set feat_files(21) "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC023/RUNID/ROI/source.feat"
 
 # 4D AVW data or FEAT directory (22)
-set feat_files(22) "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC024/baseline/rACC/source.feat"
+set feat_files(22) "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC024/RUNID/ROI/source.feat"
 
 # 4D AVW data or FEAT directory (23)
-set feat_files(23) "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC025/baseline/rACC/source.feat"
+set feat_files(23) "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC025/RUNID/ROI/source.feat"
 
 # 4D AVW data or FEAT directory (24)
-set feat_files(24) "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC026/baseline/rACC/source.feat"
+set feat_files(24) "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC026/RUNID/ROI/source.feat"
 
 # 4D AVW data or FEAT directory (25)
-set feat_files(25) "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC101/baseline/rACC/source.feat"
+set feat_files(25) "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC101/RUNID/ROI/source.feat"
 
 # 4D AVW data or FEAT directory (26)
-set feat_files(26) "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC102/baseline/rACC/source.feat"
+set feat_files(26) "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC102/RUNID/ROI/source.feat"
 
 # 4D AVW data or FEAT directory (27)
-set feat_files(27) "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC103/baseline/rACC/source.feat"
+set feat_files(27) "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC103/RUNID/ROI/source.feat"
 
 # 4D AVW data or FEAT directory (28)
-set feat_files(28) "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC104/baseline/rACC/source.feat"
+set feat_files(28) "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC104/RUNID/ROI/source.feat"
 
 # 4D AVW data or FEAT directory (29)
-set feat_files(29) "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC105/baseline/rACC/source.feat"
+set feat_files(29) "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC105/RUNID/ROI/source.feat"
 
 # 4D AVW data or FEAT directory (30)
-set feat_files(30) "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC106/baseline/rACC/source.feat"
+set feat_files(30) "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC106/RUNID/ROI/source.feat"
 
 # 4D AVW data or FEAT directory (31)
-set feat_files(31) "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC107/baseline/rACC/source.feat"
+set feat_files(31) "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC107/RUNID/ROI/source.feat"
 
 # 4D AVW data or FEAT directory (32)
-set feat_files(32) "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC108/baseline/rACC/source.feat"
+set feat_files(32) "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC108/RUNID/ROI/source.feat"
 
 # 4D AVW data or FEAT directory (33)
-set feat_files(33) "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC109/baseline/rACC/source.feat"
+set feat_files(33) "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC109/RUNID/ROI/source.feat"
 
 # 4D AVW data or FEAT directory (34)
-set feat_files(34) "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC110/baseline/rACC/source.feat"
+set feat_files(34) "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC110/RUNID/ROI/source.feat"
 
 # 4D AVW data or FEAT directory (35)
-set feat_files(35) "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC111/baseline/rACC/source.feat"
+set feat_files(35) "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC111/RUNID/ROI/source.feat"
 
 # 4D AVW data or FEAT directory (36)
-set feat_files(36) "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC112/baseline/rACC/source.feat"
+set feat_files(36) "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC112/RUNID/ROI/source.feat"
 
 # 4D AVW data or FEAT directory (37)
-set feat_files(37) "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC113/baseline/rACC/source.feat"
+set feat_files(37) "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC113/RUNID/ROI/source.feat"
 
 # 4D AVW data or FEAT directory (38)
-set feat_files(38) "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC114/baseline/rACC/source.feat"
+set feat_files(38) "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC114/RUNID/ROI/source.feat"
 
 # 4D AVW data or FEAT directory (39)
-set feat_files(39) "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC115/baseline/rACC/source.feat"
+set feat_files(39) "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC115/RUNID/ROI/source.feat"
 
 # 4D AVW data or FEAT directory (40)
-set feat_files(40) "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC116/baseline/rACC/source.feat"
+set feat_files(40) "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC116/RUNID/ROI/source.feat"
 
 # 4D AVW data or FEAT directory (41)
-set feat_files(41) "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC117/baseline/rACC/source.feat"
+set feat_files(41) "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC117/RUNID/ROI/source.feat"
 
 # 4D AVW data or FEAT directory (42)
-set feat_files(42) "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC118/baseline/rACC/source.feat"
+set feat_files(42) "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC118/RUNID/ROI/source.feat"
 
 # 4D AVW data or FEAT directory (43)
-set feat_files(43) "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC120/baseline/rACC/source.feat"
+set feat_files(43) "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC120/RUNID/ROI/source.feat"
 
 # 4D AVW data or FEAT directory (44)
-set feat_files(44) "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC121/baseline/rACC/source.feat"
+set feat_files(44) "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC121/RUNID/ROI/source.feat"
 
 # 4D AVW data or FEAT directory (45)
-set feat_files(45) "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC122/baseline/rACC/source.feat"
+set feat_files(45) "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC122/RUNID/ROI/source.feat"
 
 # 4D AVW data or FEAT directory (46)
-set feat_files(46) "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC123/baseline/rACC/source.feat"
+set feat_files(46) "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC123/RUNID/ROI/source.feat"
 
 # 4D AVW data or FEAT directory (47)
-set feat_files(47) "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC124/baseline/rACC/source.feat"
+set feat_files(47) "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC124/RUNID/ROI/source.feat"
 
 # 4D AVW data or FEAT directory (48)
-set feat_files(48) "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC125/baseline/rACC/source.feat"
+set feat_files(48) "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC125/RUNID/ROI/source.feat"
 
 # Add confound EVs text file
 set fmri(confoundevs) 0
