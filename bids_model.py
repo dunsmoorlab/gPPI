@@ -285,6 +285,8 @@ class gPPI():
                 if 'confounds' not in file and '.txt' in file:
                     long_events = np.zeros(tasks[phase]['n_tr']*2)
                     events = pd.read_csv(os.path.join(self.subj.model_dir,phase,file),sep='\t',header=None)
+                    if self.subj.num in [105,106] and tasks[phase]['ses'] == 1:
+                        events *= (2/2.23)
                     for i in events.index:
                         onset = int(events.loc[i,0])
                         duration = int(events.loc[i,1])
