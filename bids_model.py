@@ -217,10 +217,10 @@ class gPPI():
             self.mask_name = mask[:-5]
         else:
             self.mask_name = mask
-        # self.mask = self.load_mask(mask)
-        # self.data = self.load_clean_data(phases=phases)
-        # self.extract_timecourse()
-        #self.interact()
+        self.mask = self.load_mask(mask)
+        self.data = self.load_clean_data(phases=phases)
+        self.extract_timecourse()
+        self.interact()
         self._autofill_fsf()
 
     def load_mask(self,mask):
@@ -265,7 +265,7 @@ class gPPI():
     #extract the givin timecourse for each run
     def extract_timecourse(self): 
         #deconvolve
-        # self.neuronal = {phase: self._deconvolve(self.data[phase]) for phase in self.data}
+        self.neuronal = {phase: self._deconvolve(self.data[phase]) for phase in self.data}
 
 
         for phase in self.data:
@@ -275,6 +275,7 @@ class gPPI():
                 # df.to_csv(os.path.join(out,'%s_bold_signal.txt'%(self.mask_name)),
                     # sep='\t', float_format='%.8e', index=False, header=False)
                 np.savetxt(os.path.join(out,'%s_bold_signal.txt'%(self.mask_name)),self.data[phase])
+                np.savetxt(os.path.join(out,'%s_neuronal_signal.txt'%(self.mask_name)),self.neuronal[phase])
 
     def interact(self):
 
@@ -293,7 +294,7 @@ class gPPI():
 
                     ppi = (self.neuronal[phase] - self.neuronal[phase].mean()) * long_events
                     ppi = pd.Series(ppi)
-                    ppi.to_csv(os.path.join(out,'ppi_%s'%(file)),
+                    ppi.to_csv(os.path.join(out,'%s'%(file[:-4]+'_ppi'+file[-4:])),
                         sep='\t', float_format='%.8e', index=False, header=False)
 
     def _autofill_fsf(self):
@@ -435,12 +436,15 @@ def wrap_lss_jobs():
         for roi in ['dACC','mOFC','rh_hpc','lh_hpc','lh_amyg','rh_amyg']:
             os.system('launch -N 1 -n 24 -J %s_%s -s jobs/%s_memory_run-0%s_gPPI_job.txt -m achennings@utexas.edu -p normal -r 3:00:00 -A LewPea_MRI_Analysis'%(run,roi,roi,run))
 
-    for roi in ['lh_amyg','rh_amyg','rh_hpc','lh_hpc','dACC','mOFC']:
-        # os.system('launch -N 1 -n 24 -J %s_lvl2 -s jobs/%s_mem_encode_lvl2_gPPI_job.txt -m achennings@utexas.edu -p normal -r 1:30:00 -A LewPea_MRI_Analysis -d 2783989'%(roi,roi))        
-        os.system('launch -N 1 -n 14 -J %s_lvl3 -s jobs/%s_group_cope_job.txt -m achennings@utexas.edu -p normal -r 2:00:00 -A LewPea_MRI_Analysis -d 2784003'%(roi,roi))
+    for roi in ['lh_amyg','rh_amyg','rh_hpc','lh_hpc','rACC','sgACC']:
+        # os.system('launch -N 1 -n 24 -J %s_lvl2 -s jobs/%s_mem_encode_lvl2_gPPI_job.txt -m achennings@utexas.edu -p normal -r 1:30:00 -A LewPea_MRI_Analysis'%(roi,roi))        
+        os.system('launch -N 1 -n 14 -J %s_lvl3 -s jobs/%s_group_cope_job.txt -m achennings@utexas.edu -p normal -r 2:00:00 -A LewPea_MRI_Analysis -d 2834404'%(roi,roi))
 
     for phase in ['baseline','acquisition','extinction','memory_run-01','memory_run-02','memory_run-03']:
-        os.system('launch -N 1 -n 24 -J %s_gPPI -s jobs/%s_gPPI_job.txt -m achennings@utexas.edu -p normal -r 2:00:00 -A LewPea_MRI_Analysis'%(phase,phase))
+            # for roi in ['rACC','sgACC','rh_hpc','lh_hpc','lh_amyg','rh_amyg']:
+                for roi in ['sgACC']:
+                    # os.system('launch -N 1 -n 24 -J %s_gPPI -s jobs/%s_gPPI_job.txt -m achennings@utexas.edu -p normal -r 2:00:00 -A LewPea_MRI_Analysis'%(phase,phase))
+                    os.system('launch -N 1 -n 24 -J %s_%s -s jobs/%s_%s_gPPI_job.txt -m achennings@utexas.edu -p normal -r 3:00:00 -A LewPea_MRI_Analysis'%(phase,roi,roi,phase))
 
 def clean_bad_lss():
     bad = pd.read_csv('bad_lss.txt',header=None)
@@ -490,29 +494,29 @@ def group_gPPI_clean(roi):
              'healhty_ptsd_0':7,
              '0_healthy_ptsd':8}
 
-    for roi in ['mOFC','dACC','lh_amyg','rh_amyg','lh_hpc','rh_hpc']:
+    for roi in ['sgACC','rACC','lh_amyg','rh_amyg','lh_hpc','rh_hpc']:
         wd = os.path.join(SCRATCH,'group_gPPI',roi)
-        # od = os.path.join(SCRATCH,'group_gPPI_out',roi);mkdir(od)
-        od = os.path.join(SCRATCH,'group_gPPI_out','copes',roi);mkdir(od)
+        od = os.path.join(SCRATCH,'group_gPPI_out',roi);mkdir(od)
+        # od = os.path.join(SCRATCH,'group_gPPI_out','copes',roi);mkdir(od)
 
         for cope in copes:
-            # out = os.path.join(od,cope);mkdir(out)
-            # for stat in stats:
-                # infile = os.path.join(wd,'cope%s.gfeat'%(copes[cope]),'cope1.feat','stats','zstat%s.nii.gz'%(stats[stat]))
-                # outfile = os.path.join(out,'%s.nii.gz'%(stat))
-                # os.system('cp %s %s'%(infile, outfile))
+            out = os.path.join(od,cope);mkdir(out)
+            for stat in stats:
+                infile = os.path.join(wd,'cope%s.gfeat'%(copes[cope]),'cope1.feat','stats','zstat%s.nii.gz'%(stats[stat]))
+                outfile = os.path.join(out,'%s.nii.gz'%(stat))
+                os.system('cp %s %s'%(infile, outfile))
 
-            if copes[cope] > 12:
-                raw_in = os.path.join(wd,'cope%s.gfeat'%(copes[cope]),'cope1.feat','filtered_func_data.nii.gz')
-                raw_out = os.path.join(od,'%s.nii.gz'%(cope))
-                # os.system('cp %s %s'%(raw_in, raw_out))
+            # if copes[cope] > 12:
+            #     raw_in = os.path.join(wd,'cope%s.gfeat'%(copes[cope]),'cope1.feat','filtered_func_data.nii.gz')
+            #     raw_out = os.path.join(od,'%s.nii.gz'%(cope))
+            #     # os.system('cp %s %s'%(raw_in, raw_out))
 
-                group_img = nib.load(raw_out)
-                h = index_img(group_img,np.repeat([True,False],24))
-                p = index_img(group_img,np.repeat([False,True],24))
+            #     group_img = nib.load(raw_out)
+            #     h = index_img(group_img,np.repeat([True,False],24))
+            #     p = index_img(group_img,np.repeat([False,True],24))
 
-                nib.save(h,os.path.join(od,'healthy_%s.nii.gz'%(cope)))
-                nib.save(p,os.path.join(od,'ptsd_%s.nii.gz'%(cope)))
+            #     nib.save(h,os.path.join(od,'healthy_%s.nii.gz'%(cope)))
+            #     nib.save(p,os.path.join(od,'ptsd_%s.nii.gz'%(cope)))
 
 
                 
