@@ -217,11 +217,11 @@ class gPPI():
             self.mask_name = mask[:-5]
         else:
             self.mask_name = mask
-        self.mask = self.load_mask(mask)
-        self.data = self.load_clean_data(phases=phases)
-        self.extract_timecourse()
+        # self.mask = self.load_mask(mask)
+        # self.data = self.load_clean_data(phases=phases)
+        # self.extract_timecourse()
         #self.interact()
-        # self._autofill_fsf()
+        self._autofill_fsf()
 
     def load_mask(self,mask):
         
@@ -297,15 +297,21 @@ class gPPI():
                         sep='\t', float_format='%.8e', index=False, header=False)
 
     def _autofill_fsf(self):
-        for phase in tasks:
+        for phase in [task for task in tasks if 'mem' in task or tasks[task]['ses'] ==1]:
             if 'memory' in phase:       
                 template = os.path.join(gPPI_codebase,'feats','gPPI','mem_encode_gPPI.fsf')
+
+            elif phase == 'acquisition':
+                template = os.path.join(gPPI_codebase,'feats','gPPI','acq_encode_gPPI.fsf')
+
+            elif phase in ['baseline','extinction']:
+                template = os.path.join(gPPI_codebase,'feats','gPPI','day1_encode_gPPI.fsf')
 
                 replacements = {'SUBID':self.subj.fsub,
                             'RUNID':phase,
                             'ROI':self.mask_name}            
             
-            #need to handle the special cases where the TR is longer
+                #need to handle the special cases where the TR is longer
                 if self.subj.num in [105,106]:
                     replacements['TR_length'] = '2.23'
                 else:
@@ -320,7 +326,7 @@ class gPPI():
                                 line = line.replace(src, target)
                             outfile.write(line)
 
-            #also go ahead and make the job script here
+                #also go ahead and make the job script here
                 os.system('echo "feat %s" >> jobs/%s_%s_gPPI_job.txt'%(outfeat,self.mask_name,phase)) 
         
 
