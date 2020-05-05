@@ -66,8 +66,9 @@ class roi_rsa():
         
         #data needs to be loaded WITHOUT mask to facilitate more intricate analyses
         self.load_data() 
-        self.compute_item_rsa()
-        self.compute_cross_rsa()
+        # self.compute_item_rsa()
+        # self.compute_cross_rsa()
+        self.compute_mem_mats()
 
     def load_data(self):
             
@@ -121,13 +122,15 @@ class roi_rsa():
         print('ENCODING DATA SHAPE =',self.encoding_data.shape)
         #same for retrieval, except we have to remove foils
         self.mem_labels = pd.concat(self.mem_labels.values(),sort=False)
-        
+        self.all_mem_labels = self.mem_labels.copy().reset_index(drop=True)
+
         foil_mask = self.mem_labels.memory_condition.isin(['Old'])
-        
+
         self.mem_labels = self.mem_labels[foil_mask].reset_index(drop=True)
         
+        self.all_mem_data = np.concatenate([self.mem_data['memory_run-01'],self.mem_data['memory_run-02'],self.mem_data['memory_run-03']],axis=-1)
         self.mem_data = np.concatenate([self.mem_data['memory_run-01'],self.mem_data['memory_run-02'],self.mem_data['memory_run-03']],axis=-1)
-        
+
         print('MEM_DATA SHAPE =',self.mem_data.shape)
         #self.mem_data = np.array([self.mem_data[:,:,:,i] for i in foil_mask if i is True])
         foil_mask = foil_mask.values.ravel()
@@ -246,6 +249,24 @@ class roi_rsa():
         with open(os.path.join(self.subj.rsa,'cross_mats.p'),'wb') as file:
             pickle.dump(self.cross_mats,file)
 
+    def compute_mem_mats(self):
+        self.mem_mats = {}
+        mem_phase4 = ['baseline','acquisition','extinction','foil']
+        self.all_mem_labels.encode_phase = pd.Categorical(self.all_mem_labels.encode_phase,mem_phase4,ordered=True)
+        mem_reorder = list(self.all_mem_labels.sort_values(by=['trial_type','encode_phase']).index)
+        for roi in self.rois:
+            print(roi)
+
+            mem_data = self.apply_mask(roi,self.all_mem_data)[mem_reorder]
+
+            mem_mat = np.arctanh(np.corrcoef(mem_data))
+            mem_mat[np.eye(mem_mat.shape[0],dtype=bool)] = 0
+            self.mem_mats[roi] = mem_mat
+            print(mem_mat.shape)
+            
+        with open(os.path.join(self.subj.rsa,'mem_mats.p'),'wb') as file:
+                    pickle.dump(self.mem_mats,file)
+
 class group_roi_rsa():
 
     def __init__(self,group='control',ext_split=True,fs=True,hemi=False):
@@ -297,7 +318,7 @@ class group_roi_rsa():
         if self.ext_split:
             for cs in self.conditions:
                 con = '%s_trial'%(self.conditions[cs])
-                for i in range(1,5): 
+                for i in range(1,9): 
                     self.df.loc[ self.df[ self.df.encode_phase == 'extinction' ][ self.df[con] == i ].index,'encode_phase' ] = 'early_extinction'
         self.df.encode_phase = pd.Categorical(self.df.encode_phase,self.encoding_phases,ordered=True)
         self.df.roi = pd.Categorical(self.df.roi,self.rois,ordered=True)
@@ -522,7 +543,7 @@ class group_roi_rsa():
             df = df.reset_index()
             df = df.groupby(['trial_type','block','encode_phase','roi','subject']).mean()
             df = (df.loc['CS+','rsa'] - df.loc['CS-','rsa']).reset_index()
-            df = df[df.roi != 'insula']
+            df = df[df.roi.isin(['sgACC','rACC'])]
             df.roi = pd.Categorical(df.roi,df.roi.unique())
             df = df.set_index('encode_phase').sort_index()
             self.csdf = df
