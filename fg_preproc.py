@@ -91,6 +91,10 @@ class fmriprep_preproc():
             cmd = 'fslmaths %s -add %s -bin %s'%(l,r,out)
             os.system(cmd)
 
+    def brainnetome(self):
+        pass
+
+
     def hca_mask(self):
 
         fsn2t1w = os.path.join(self.subj.prep_dir,'anat','%s_from-fsnative_to-T1w_mode-image_xfm.txt'%(self.subj.fsub))
@@ -167,8 +171,9 @@ class fmriprep_preproc():
     def group_mask(self):
         
         # masks = ['sgACC','rSMA','rACG'] 
-        masks = ['rACC']
-
+        # masks = ['rACC']
+        masks = ['A32sg','A32p','A24cd','A24rv','A14m','A11m','A13','A10m','A9m','A8m','A6m',]
+        
         for roi in masks:
             in_mask = os.path.join(group_masks,'%s_group_mask.nii.gz'%(roi))
 
@@ -215,6 +220,34 @@ class fmriprep_preproc():
         # os.system('applywarp --ref=%s --in=%s \
         #                      --out=%s --warp=%s \
         #                      --premat=%s --interp=nn'%(standard,self.subj.faa,self.subj.saa,self.subj.t12std_warp,self.subj.ref2t1))
+def brainnetome_group():
+    rois = {
+             'A32sg':[187,188],
+             'A32p':[179,180],
+             'A24cd':[183,184],
+             'A24rv':[177,178],
+             'A14m':[41,42],
+             'A11m':[47,48],
+             'A13':[49,50],
+             'A10m':[13,14],
+             'A9m':[11,12],
+             'A8m':[1,2],
+             'A6m':[9,10]
+             }
+    gmask = os.path.join(SCRATCH,'fc-bids','derivatives','group_masks')
+    atlas = os.path.join(gmask,'BNA-maxprob-thr0-1mm.nii.gz')
+    gprob = os.path.join(gmask,'std_gm_thr.nii.gz')
+
+    for roi in rois:
+
+        out_mask = os.path.join(gmask,'%s_group_mask.nii.gz'%(roi))
+        mask_cmd = 'fslmaths %s -thr %s -uthr %s -bin %s'%(atlas,rois[roi][0],rois[roi][1],out_mask)
+        thr_cmd = 'fslmaths %s -mas %s -bin %s'%(gprob,out_mask,out_mask)
+
+        os.system(mask_cmd)
+
+        os.system(thr_cmd)
+
 
 def std_space_check():
     from nilearn.image import get_data

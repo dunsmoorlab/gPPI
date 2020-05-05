@@ -127,14 +127,14 @@ def cscomp(group,df,rois,n_boot=1000,phases=None):
         
     
         #dist violins
-        # sns.violinplot(data=dist.loc[roi],x='encode_phase',y='dist',
-        #                 inner=None,ax=Ax,scale='count',palette=phase_pal)
+        sns.violinplot(data=dist.loc[roi],x='encode_phase',y='dist',
+                        inner=None,ax=Ax,scale='count',palette=phase_pal)
         
-        sns.barplot(data=dat,x='encode_phase',y='rsa',hue='encode_phase',palette=phase_pal,ax=Ax,
-                    order=phases,seed=42,errcolor='black')
+        # sns.barplot(data=dat,x='encode_phase',y='rsa',hue='encode_phase',palette=phase_pal,ax=Ax,
+                    # order=phases,seed=42,errcolor='black')
         # change_width(Ax,.75)
         # sns.pointplot(data=dat,x='encode_phase',y='rsa',hue='encode_phase',palette=phase_pal,ax=Ax,
-        #                 order=phases,seed=42)
+                        # order=phases,seed=42)
         X = Ax.get_xticks()
 
         # sns.pointplot(data=dat,x='encode_phase',y='rsa',ci=None,units='subject',order=phases,ax=Ax)
@@ -143,17 +143,17 @@ def cscomp(group,df,rois,n_boot=1000,phases=None):
             # Ax.plot(X,sdat.loc[(sub,phases),'rsa'].values,color='grey',lw=1,alpha=.5)
 
 
-        # lower = ci.loc[roi,'ci'].apply(lambda x: x[0])
-        # upper = ci.loc[roi,'ci'].apply(lambda x: x[1])
-        # Y = ci.loc[roi,'point']
+        lower = ci.loc[roi,'ci'].apply(lambda x: x[0])
+        upper = ci.loc[roi,'ci'].apply(lambda x: x[1])
+        Y = ci.loc[roi,'point']
 
 
-        # Ax.vlines(X,lower,upper,linewidth=3,color='white').set_capstyle('round')
-        # Ax.scatter(X,Y,s=50,color='white')
-        # Ax.hlines(0,Ax.get_xlim()[0],Ax.get_xlim()[1],color='grey',linestyle='--',linewidth=3)
-        # Ax.set_xticklabels('',rotation=45)
-        # Ax.set_title(group+'_'+roi)
-        Ax.legend_.remove()
+        Ax.vlines(X,lower,upper,linewidth=3,color='white').set_capstyle('round')
+        Ax.scatter(X,Y,s=50,color='white')
+        Ax.hlines(0,Ax.get_xlim()[0],Ax.get_xlim()[1],color='grey',linestyle='--',linewidth=3)
+        Ax.set_xticklabels('',rotation=45)
+        Ax.set_title(group+'_'+roi)
+        # Ax.legend_.remove()
 
         # Ax.set_ylim(ymin,ymax)            
         Ax.yaxis.set_major_locator(MultipleLocator(.1))
@@ -329,7 +329,7 @@ def split_level(df,group,rois=['rSMA','sgACC'],phases=None,split=None):
     plt.savefig('./plots/%s_%s.eps'%(group,split),format='eps')
     # plt.close()
 
-def group_comp_simp(df,phases,rois=['rSMA','sgACC']):
+def group_comp_simp(df,phases,rois=['rACC','sgACC']):
     comp = pd.DataFrame(index=pd.MultiIndex.from_product([rois,phases],names=['roi','encode_phase']))
     phase_pal = sns.color_palette(['black','darkmagenta','lightgreen','seagreen'],desat=1)
 

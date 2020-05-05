@@ -262,8 +262,7 @@ class roi_rsa():
             mem_mat = np.arctanh(np.corrcoef(mem_data))
             mem_mat[np.eye(mem_mat.shape[0],dtype=bool)] = 0
             self.mem_mats[roi] = mem_mat
-            print(mem_mat.shape)
-            
+
         with open(os.path.join(self.subj.rsa,'mem_mats.p'),'wb') as file:
                     pickle.dump(self.mem_mats,file)
 
@@ -303,7 +302,8 @@ class group_roi_rsa():
 
         self.load_rois()
         self.load_cross_mats()
-    
+        self.load_mem_mats()
+        
     def load_rois(self):
 
         df = {} #ultimate output
@@ -336,8 +336,16 @@ class group_roi_rsa():
         for roi in self.rois:
             print(roi)
             mats[roi] = np.stack([in_mats[sub][roi]['ers'] for sub in in_mats])
-
         self.mats = mats
+
+    def load_mem_mats(self):
+        in_mats = {}
+        for sub in self.subs:
+            subj = bids_meta(sub)
+            with open(os.path.join('rsa_results',subj.fsub,'mem_mats.p'),'rb') as file:
+                in_mats[sub] = pickle.load(file)
+        self.mem_mats = in_mats
+
     def vis_cross_mat(self,rois):
         matlines = {
         'CS+':{
@@ -766,8 +774,10 @@ def resp_count():
 def copy_out():
     # from fg_config import *
     import os
+    from glob import glob
     out = os.path.join(SCRATCH,'rsa_results');mkdir(out)
     for sub in all_sub_args:
         subj = bids_meta(sub)
         sub_out = os.path.join(out,subj.fsub);mkdir(out)
         os.system('cp -R %s %s'%(subj.rsa,sub_out))
+    q = glob('/scratch/05426/ach3377/rsa_results/sub-FC***/sl_er.p')

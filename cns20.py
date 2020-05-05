@@ -13,6 +13,7 @@ rois = ['mOFC','dACC','amyg','hpc','ins','lh_amyg','rh_amyg','lh_hpc','rh_hpc','
 phases = {'baseline':24,'acquisition':24,'early_extinction':8,'extinction':16}
 # phases = {'baseline':24,'acquisition':24,'extinction':24}
 subs = range(24)
+conds = ['CSp','CSm']
 
 from graphing_functions import *
 ##############Item level##############################
@@ -31,8 +32,8 @@ mdf['group'] = mdf.subject.apply(lgroup)
 mdf['level'] = 'item'
 phase3 = ['baseline','acquisition','extinction']
 mdf = mdf.set_index(['group','roi','encode_phase']).sort_index()
-cscomp_simp('healthy',mdf,['rACC','sgACC'],phases=phase3)
-cscomp_simp('ptsd',mdf,['rACC','sgACC'],phases=phase3)
+cscomp('healthy',mdf,['rACC','sgACC'],phases=phases)
+cscomp('ptsd',mdf,['rACC','sgACC'],phases=phases)
 cscomp_simp('healthy',mdf,['hc_head','amyg'],phases=phase3)
 cscomp_simp('ptsd',mdf,['hc_head','amyg'],phases=phase3)
 
@@ -245,3 +246,110 @@ def ae_graph(roi):
     g = sns.catplot(x='condition',y='rsa',hue='memory_phase',col='group',data=ae.query('roi == @roi'),
                     kind='bar',aspect=1)
     g.set_titles('%s {col_name}'%(roi))
+
+
+
+
+
+########time course########
+c = group_roi_rsa(group='control',ext_split=False,fs=True,hemi=False)
+p = group_roi_rsa(group='ptsd',ext_split=False,fs=True,hemi=False)
+
+csdf = pd.concat((c.df,p.df))
+csdf = csdf[csdf.roi.isin(['rACC','sgACC'])].set_index(['encode_phase','trial_type','roi','subject']).sort_index()
+csdf['block'] = 0
+for i, con in enumerate(cons):
+    csdf = csdf.sort_values(by='%s_trial'%(conds[i]))
+    for phase in phase3:
+        for roi in ['rACC','sgACC']:
+            for sub in all_sub_args:
+                csdf.loc[(phase,con,roi,sub),'block'] = np.repeat(range(1,7),4)
+csdf = csdf.reset_index()
+csdf.roi = pd.Categorical(csdf.roi,csdf.roi.unique(),ordered=True)
+csdf = csdf.groupby(['trial_type','encode_phase','roi','block','subject']).mean()
+csdf = (csdf.loc['CS+'] - csdf.loc['CS-']).reset_index()
+csdf['group'] = csdf.subject.apply(lgroup)
+
+sns.catplot(data=csdf,x='block',y='rsa',hue='roi',kind='point',col='encode_phase',row='group')
+
+
+
+#######acquisition US reinforcement########
+c = group_roi_rsa(group='control',ext_split=False,fs=True,hemi=False)
+p = group_roi_rsa(group='ptsd',ext_split=False,fs=True,hemi=False)
+adf = pd.concat((c.df,p.df))
+adf.roi = adf.roi.astype(str)
+adf = adf[adf.roi.isin(['rACC','sgACC'])]
+adf = adf[adf.encode_phase == 'acquisition'].set_index(['subject','roi','trial_type','stimulus']).sort_index()
+adf['US'] = 0
+
+for sub in all_sub_args:
+    subj = bids_meta(sub)
+    events = pd.read_csv('./acquisition_events/%s_acquisition_events.csv'%(subj.fsub))
+    for roi in ['rACC','sgACC']:
+        for i, stim in enumerate(events.stimulus):
+            if events.loc[i,'shock'] == 'CSUS':
+                adf.loc[(sub,roi,'CS+',stim),'US'] = 1
+adf = adf.reset_index()
+adf = adf.groupby(['trial_type','US','roi','subject']).mean()
+
+y = (adf.loc['CS+',1] - adf.loc['CS-',0]).reset_index()
+n = (adf.loc['CS+',0] - adf.loc['CS-',0]).reset_index()
+y['US'] = 1
+n['US'] = 0
+adf = pd.concat((y,n))
+adf['group'] = adf.subject.apply(lgroup)
+
+sns.catplot(data=adf,x='roi',y='rsa',hue='US',kind='bar',col='group')
+
+adf.roi = adf.roi.astype(str)
+adf.group = adf.group.astype(str)
+
+pg.mixed_anova(data=adf,subject='subject',dv='rsa',within=['roi','US'],between=['group'])
+
+
+########false alarms#######
+def roi_rename(x):
+    if x == 'sgACC':
+        return 'vmPFC'
+    elif x == 'rACC':
+        return 'dACC'
+    else:
+        return x
+
+cf = pd.DataFrame(index=pd.MultiIndex.from_product([cons,rois,phases,sub_args],names=['condition','roi','encode_phase','subject']))
+pf = pd.DataFrame(index=pd.MultiIndex.from_product([cons,rois,phases,p_sub_args],names=['condition','roi','encode_phase','subject']))
+for con in cons:
+    for roi in rois:
+        for phase in phases:
+            for sub in subs:
+                cf.loc[(con,roi,phase,sub_args[sub]),'rsa'] = c.mem_mats[sub_args[sub]][roi][mem_slices[con][phase], mem_slices[con]['foil']].mean()
+                pf.loc[(con,roi,phase,p_sub_args[sub]),'rsa'] = p.mem_mats[p_sub_args[sub]][roi][mem_slices[con][phase], mem_slices[con]['foil']].mean()
+
+fdf = pd.concat((cf,pf))
+fdf = (fdf.loc['CS+'] - fdf.loc['CS-']).reset_index()
+# fdf = fdf[fdf.roi.isin(['rACC','sgACC'])]
+fdf = fdf[fdf.roi.isin(['hpc','amyg'])]
+fdf['group'] = fdf.subject.apply(lgroup)
+fdf.roi = fdf.roi.apply(roi_rename)
+
+phase_pal = sns.color_palette(['black','darkmagenta','lightgreen','seagreen'],desat=1)
+sns.catplot(data=fdf,x='encode_phase',y='rsa',kind='bar',col='roi',row='group',palette=phase_pal)
+
+
+cfo = pd.DataFrame(index=pd.MultiIndex.from_product([cons,rois,sub_args],names=['condition','roi','subject']))
+pfo = pd.DataFrame(index=pd.MultiIndex.from_product([cons,rois,p_sub_args],names=['condition','roi','subject']))
+for con in cons:
+    for roi in rois:
+        for sub in subs:
+            cfo.loc[(con,roi,sub_args[sub]),'rsa'] = c.mem_mats[sub_args[sub]][roi][mem_slices[con]['foil'], mem_slices[con]['foil']][np.tril_indices(phases[phase],-1)].mean()
+            pfo.loc[(con,roi,p_sub_args[sub]),'rsa'] = p.mem_mats[p_sub_args[sub]][roi][mem_slices[con]['foil'], mem_slices[con]['foil']][np.tril_indices(phases[phase],-1)].mean()
+
+afdf = pd.concat((cfo,pfo))
+afdf = (afdf.loc['CS+'] - afdf.loc['CS-']).reset_index()
+# afdf = afdf[afdf.roi.isin(['rACC','sgACC'])]
+afdf = afdf[afdf.roi.isin(['hpc','amyg'])]
+afdf['group'] = afdf.subject.apply(lgroup)
+afdf.roi = afdf.roi.apply(roi_rename)
+
+sns.catplot(data=afdf,x='roi',y='rsa',kind='bar',col='group')

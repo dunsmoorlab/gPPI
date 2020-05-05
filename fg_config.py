@@ -88,6 +88,28 @@ slices={'CS+':{
                'extinction':{'encoding':slice(128,144),
                             'retrieval':slice(272,288)}}}
 
+mem_slices = {'CS+':{
+                 'baseline':slice(0,24),
+              
+              'acquisition':slice(24,48),
+
+         'early_extinction':slice(48,56),
+               
+               'extinction':slice(56,72),
+
+                     'foil':slice(72,120)},
+
+        'CS-':{
+                 'baseline':slice(120,144),
+              
+              'acquisition':slice(144,168),
+
+         'early_extinction':slice(168,176),
+               
+               'extinction':slice(176,192),
+
+                     'foil':slice(192,240)}}
+
 class bids_meta(object):
 
     def __init__(self, sub):
