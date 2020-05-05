@@ -221,6 +221,8 @@ class fmriprep_preproc():
         #                      --out=%s --warp=%s \
         #                      --premat=%s --interp=nn'%(standard,self.subj.faa,self.subj.saa,self.subj.t12std_warp,self.subj.ref2t1))
 def brainnetome_group():
+    from nilearn.image import resample_to_img
+
     rois = {
              'A32sg':[187,188],
              'A32p':[179,180],
@@ -237,6 +239,9 @@ def brainnetome_group():
     gmask = os.path.join(SCRATCH,'fc-bids','derivatives','group_masks')
     atlas = os.path.join(gmask,'BNA-maxprob-thr0-1mm.nii.gz')
     gprob = os.path.join(gmask,'std_gm_thr.nii.gz')
+    
+    std = nib.load(std_2009_brain)
+
 
     for roi in rois:
 
@@ -245,7 +250,8 @@ def brainnetome_group():
         thr_cmd = 'fslmaths %s -mas %s -bin %s'%(gprob,out_mask,out_mask)
 
         os.system(mask_cmd)
-
+        resamp = resample_to_img(nib.load(out_mask),std,interpolation='nearest')
+        nib.save(resamp,out_mask)
         os.system(thr_cmd)
 
 
