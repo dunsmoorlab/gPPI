@@ -3,8 +3,9 @@ from scipy.interpolate import interp1d
 from fg_config import *
 from matplotlib.ticker import MultipleLocator, ScalarFormatter
 
-sns.set_context('poster')
+sns.set_context('talk')
 sns.set_style('ticks', {'axes.spines.right':False, 'axes.spines.top':False})
+sns.set_style({'axes.facecolor':'.9','figure.facecolor':'.9'})
 
 def change_width(ax, new_value):
     for patch in ax.patches:
@@ -119,7 +120,7 @@ def cscomp(group,df,rois,n_boot=1000,phases=None):
     ymin = dist.dist.min() - .05
 
     phase_pal = sns.color_palette(['black','darkmagenta','lightgreen','seagreen'],desat=.75)
-    fig, ax = plt.subplots(1,len(rois),sharey=True,figsize=(12,6))
+    fig, ax = plt.subplots(1,len(rois),sharey=True,figsize=(6.5,5))
     for i, roi in enumerate(rois):
         if len(rois) == 1: Ax = ax
         else: Ax = ax[i]
@@ -181,7 +182,6 @@ def split_level(df,group,rois=['rSMA','sgACC'],phases=None,split=None):
         splits = ['encoding','retrieval']
         # pal = sns.palettes.color_palette('Set2',n_colors=4)[2:]
         pal = ['firebrick','salmon']
-
 
     df = df.loc[group]
     out = {}
@@ -491,6 +491,18 @@ def mem_cscomp(group,df,rois,n_boot=1000,phases=None):
 
     ci = ci.sort_values(by=['roi','encode_phase','mem'])
 
+    pvals = pd.DataFrame(columns=['p'],index=pd.MultiIndex.from_product([rois,phases],names = ['roi','encode_phase']))
+    pvals = pd.DataFrame(columns=['p'],index=pd.MultiIndex.from_product([rois,phases,mems],names = ['roi','encode_phase','mem']))
+    for roi in rois:
+        for phase in phases:
+            for mem in mems:
+                pvals.loc[(roi,phase,mem),'p'] = pg.ttest(df.loc[(roi,phase,mem),'rsa'].values,0)['p-val'].values[0]
+            # pvals.loc[(roi,phase),'p'] = pg.ttest(df.loc[(roi,phase,'hit'),'rsa'], df.loc[(roi,phase,'miss'),'rsa'])['p-val'].values[0]
+    pvals['corrp'] = pg.multicomp(list(pvals.p.values),method='fdr_bh')[1]
+    pvals['sig'] = pvals.corrp.apply(pconvert)
+
+    print(pvals)
+
 
     # hit_pal = sns.color_palette(['black','darkmagenta','lightgreen','seagreen'],desat=.75)
     # miss_pal = sns.color_palette(['midnightblue','darkmagenta','lightgreen','seagreen'],desat=.25)
@@ -499,7 +511,7 @@ def mem_cscomp(group,df,rois,n_boot=1000,phases=None):
     # phase_pal[1::2] = miss_pal
     mem_pal = ['darkblue','lightblue']
 
-    fig, ax = plt.subplots(1,len(rois),sharey=True)
+    fig, ax = plt.subplots(1,len(rois),sharey=True,figsize=(6.5,5))
     for i, roi in enumerate(rois):
         if len(rois) == 1: Ax = ax
         else: Ax = ax[i]
@@ -522,3 +534,5 @@ def mem_cscomp(group,df,rois,n_boot=1000,phases=None):
     else:
         ax.set_ylabel('∆ fisher z(r)')
         ax.set_ylabel('')
+
+    # for i, x in enumerate(X): Ax.annotate(pvals.loc[roi,'sig'].values[i], xy=(x-.05,Ax.get_ylim()[1]-.1))
