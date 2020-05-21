@@ -1,6 +1,6 @@
 from fg_config import *
 import nibabel as nib
-from nilearn.image import mean_img, get_data, threshold_img, new_img_like
+from nilearn.image import mean_img, get_data, threshold_img, new_img_like, clean_img
 from subprocess import Popen
 
 class fmriprep_preproc():
@@ -206,7 +206,15 @@ class fmriprep_preproc():
     def denoise(self):
 
         for task in tasks:
-            inbold = os.path.join(self.subj)
+            if 'memory' in task:
+                inbold = os.path.join(self.subj.func,'%s_ses-2_task-%s_space-%s_desc-preproc_bold.nii.gz'%(self.subj.fsub,task,self.space))
+                outbold = os.path.join(self.subj.func,'%s_ses-2_task-%s_space-%s_desc-preproc_denoised.nii.gz'%(self.subj.fsub,task,self.space))')
+                confounds = os.path.join(self.subj.model_dir,task,'confounds.txt')
+
+                tmp = clean_img(nib.load(inbold), detrend=False, standardize=True, confounds=confounds,
+                                low_pass=None, high_pass=None, t_r=2, ensure_finite=False, mask_img=None)
+
+                nib.save(tmp,outbold)
 
         # standard      = '/work/IRC/ls5/opt/apps/fsl-5.0.10/data/standard/MNI152_T1_1mm_brain'
         # standard_head = '/work/IRC/ls5/opt/apps/fsl-5.0.10/data/standard/MNI152_T1_1mm'
