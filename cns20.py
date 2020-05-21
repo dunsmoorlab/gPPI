@@ -34,8 +34,10 @@ phase3 = ['baseline','acquisition','extinction']
 mdf = mdf.set_index(['group','roi','encode_phase']).sort_index()
 cscomp('healthy',mdf,['rACC','sgACC'],phases=phases)
 cscomp('ptsd',mdf,['rACC','sgACC'],phases=phases)
-cscomp_simp('healthy',mdf,['hc_head','amyg'],phases=phase3)
-cscomp_simp('ptsd',mdf,['hc_head','amyg'],phases=phase3)
+cscomp('healthy',mdf,['hpc','amyg'],phases=phases)
+cscomp('ptsd',mdf,['hpc','amyg'],phases=phases)
+cscomp('healthy',mdf,['ins'],phases=phases)
+cscomp('ptsd',mdf,['ins'],phases=phases)
 
 
 ##############Set level##############################
@@ -156,16 +158,22 @@ for i, sub in enumerate(p_sub_args):
     coef[i] = logreg.coef_[0][0]
 
 
-mem = 'low_confidence_accuracy'
+mem = 'high_confidence_accuracy'
 cm = c.df.groupby(['trial_type',mem,'encode_phase','roi','subject']).mean()
 pm = p.df.groupby(['trial_type',mem,'encode_phase','roi','subject']).mean()
 memdf = pd.concat((cm,pm)).reset_index()
-
+memdf = memdf.set_index('subject')
+memdf = memdf.drop(index=[18,20,120]).reset_index()
 memdf = memdf.set_index(['trial_type',mem,'encode_phase','roi','subject'])
-memdf = (memdf.loc['CS+'] - memdf.loc['CS-'])
-memdf = (memdf.loc[1] - memdf.loc[0]).reset_index()
+memdf = (memdf.loc['CS+'] - memdf.loc['CS-']).reset_index()
+
+# memdf = (memdf.loc[1] - memdf.loc[0]).reset_index()
 memdf['group'] = memdf.subject.apply(lgroup)
-memdf = memdf.set_index(['group','roi','encode_phase']).sort_index()
+if 'high' in mem: memdf[mem] = memdf[mem].apply(lambda x: 'hit' if x == 1 else 'miss')
+memdf = memdf.set_index(['group','roi','encode_phase',mem]).sort_index()
+
+
+
 # cscomp('control',memdf,['mOFC'],phases=phases)
 # cdf['group'] = cdf.subject.apply(lgroup)
 
@@ -180,8 +188,8 @@ memdf = memdf.set_index(['group','roi','encode_phase']).sort_index()
 # else: mdf[mem] = mdf[mem].apply(lambda x: 'hit' if x in [1,2] else 'miss')
 # mdf = mdf.set_index(['group','roi','encode_phase',mem])
 
-mem_cscomp('healthy',mdf,['sgACC','rSMA'],phases=phase3)
-mem_cscomp('ptsd',mdf,['sgACC','rSMA'],phases=phase3)
+mem_cscomp('healthy',memdf,['hpc','amyg'],phases=phases)
+mem_cscomp('ptsd',memdf,['hpc','amyg'],phases=phases)
 ###############hits vs. miss samephase with cs#####################
 # mem = 'high_confidence_accuracy'
 # cdf = c.df.groupby([mem,'trial_type','encode_phase','roi','subject']).mean()
@@ -300,7 +308,7 @@ n['US'] = 0
 adf = pd.concat((y,n))
 adf['group'] = adf.subject.apply(lgroup)
 
-sns.catplot(data=adf,x='roi',y='rsa',hue='US',kind='bar',col='group')
+sns.catplot(data=adf,x='roi',y='rsa',hue='US',palette=['plum','darkmagenta'],kind='bar',col='group')
 
 adf.roi = adf.roi.astype(str)
 adf.group = adf.group.astype(str)
@@ -332,6 +340,13 @@ fdf = (fdf.loc['CS+'] - fdf.loc['CS-']).reset_index()
 fdf = fdf[fdf.roi.isin(['hpc','amyg'])]
 fdf['group'] = fdf.subject.apply(lgroup)
 fdf.roi = fdf.roi.apply(roi_rename)
+fdf = fdf.set_index(['group','roi','encode_phase'])
+
+# cscomp('healthy',fdf,['dACC','vmPFC'],phases=phases)
+# cscomp('ptsd',fdf,['dACC','vmPFC'],phases=phases)
+cscomp('healthy',fdf,['hpc','amyg'],phases=phases)
+cscomp('ptsd',fdf,['hpc','amyg'],phases=phases)
+
 
 phase_pal = sns.color_palette(['black','darkmagenta','lightgreen','seagreen'],desat=1)
 sns.catplot(data=fdf,x='encode_phase',y='rsa',kind='bar',col='roi',row='group',palette=phase_pal)
@@ -347,8 +362,8 @@ for con in cons:
 
 afdf = pd.concat((cfo,pfo))
 afdf = (afdf.loc['CS+'] - afdf.loc['CS-']).reset_index()
-# afdf = afdf[afdf.roi.isin(['rACC','sgACC'])]
-afdf = afdf[afdf.roi.isin(['hpc','amyg'])]
+afdf = afdf[afdf.roi.isin(['rACC','sgACC'])]
+# afdf = afdf[afdf.roi.isin(['hpc','amyg'])]
 afdf['group'] = afdf.subject.apply(lgroup)
 afdf.roi = afdf.roi.apply(roi_rename)
 
