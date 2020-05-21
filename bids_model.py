@@ -257,7 +257,7 @@ class gPPI():
                         confounds=pd.read_csv(os.path.join(self.subj.model_dir,phase,'confounds.txt'),
                                         sep='\t',header=None).values,
                 
-                        t_r=2,detrend=False,standardize=False)
+                        t_r=2,detrend=False,standardize='zscore')
                                                             for phase in data}
 
         return data
