@@ -202,7 +202,12 @@ class fmriprep_preproc():
                 infile = os.path.join(self.subj.weights,'%s_%s.nii.gz'%(phase,con))
                 outfile = os.path.join(self.subj.weights,'%s_%s_std.nii.gz'%(phase,con))
                 os.system('flirt -in %s -ref %s -applyxfm -init %s -out %s'%(infile,std_2009_brain_3mm,self.subj.ref2std3,outfile))
-        
+    
+    def denoise(self):
+
+        for task in tasks:
+            inbold = os.path.join(self.subj)
+
         # standard      = '/work/IRC/ls5/opt/apps/fsl-5.0.10/data/standard/MNI152_T1_1mm_brain'
         # standard_head = '/work/IRC/ls5/opt/apps/fsl-5.0.10/data/standard/MNI152_T1_1mm'
         # standard_mask = '/work/IRC/ls5/opt/apps/fsl-5.0.10/data/standard/MNI152_T1_1mm_brain_mask_dil'
