@@ -210,7 +210,7 @@ class lss():
 
 class gPPI():
     
-    def __init__(self,sub,mask=None,phases='all'):
+    def __init__(self,sub,mask=None,phases='encode_mem'):
 
         self.subj = bids_meta(sub)
         if '_mask' in mask:
@@ -220,7 +220,7 @@ class gPPI():
         self.mask = self.load_mask(mask)
         self.data = self.load_clean_data(phases=phases)
         self.extract_timecourse()
-        self.interact()
+        # self.interact()
         self._autofill_fsf()
 
     def load_mask(self,mask):
@@ -238,34 +238,39 @@ class gPPI():
         coor = np.where(mask == 1)
         values = target[coor]
         if values.ndim > 1:
-            values = np.transpose(values) #swap axes to get feature X sample
+            values = np.transpose(values) #swap axes to get sample X feature
         return values
     
     def load_clean_data(self,phases=None):
-        if phases is 'all':
+        if phases == 'all':
             phases = tasks
         elif type(phases) is str:
             phases = [phases]
+        elif phases == 'encode_mem':
+            phases = ['baseline','acquisition','extinction','memory_run-01','memory_run-02','memory_run-03']
 
         #load the data
-        data = {phase:get_data(os.path.join(self.subj.func,file)) for phase in phases for file in os.listdir(self.subj.func) if phase in file}
-        #mask the data and take mean timeseries
+        data = {phase: get_data(os.path.join(self.subj.model_dir,phase,'%s_%s_gPPI.feat'%(self.subj.fsub,phase),'filtered_func_data.nii.gz')) for phase in phases}
+        # data = {phase: get_data(os.path.join(self.subj.func,file)) for phase in phases for file in os.listdir(self.subj.func) if phase in file}
+
+        # mask the data and take mean timeseries
         data = {phase: self._apply_mask(mask=self.mask,target=data[phase]).mean(axis=1) for phase in data}
+        
         #clean the data 
-        data = {phase: clean(data[phase][:,np.newaxis], #need this here to be feature X sample after meaning
+        # data = {phase: clean(data[phase][:,np.newaxis], #need this here to be feature X sample after meaning
                         
-                        confounds=pd.read_csv(os.path.join(self.subj.model_dir,phase,'confounds.txt'),
-                                        sep='\t',header=None).values,
+        #                 confounds=pd.read_csv(os.path.join(self.subj.model_dir,phase,'confounds.txt'),
+        #                                 sep='\t',header=None).values,
                 
-                        t_r=2,detrend=False,standardize='zscore')
-                                                            for phase in data}
+        #                 t_r=2,detrend=False,standardize='zscore')
+        #                                                     for phase in data}
 
         return data
 
     #extract the givin timecourse for each run
     def extract_timecourse(self): 
         #deconvolve
-        self.neuronal = {phase: self._deconvolve(self.data[phase]) for phase in self.data}
+        # self.neuronal = {phase: self._deconvolve(self.data[phase]) for phase in self.data}
 
 
         for phase in self.data:
@@ -275,7 +280,7 @@ class gPPI():
                 # df.to_csv(os.path.join(out,'%s_bold_signal.txt'%(self.mask_name)),
                     # sep='\t', float_format='%.8e', index=False, header=False)
                 np.savetxt(os.path.join(out,'%s_bold_signal.txt'%(self.mask_name)),self.data[phase])
-                np.savetxt(os.path.join(out,'%s_neuronal_signal.txt'%(self.mask_name)),self.neuronal[phase])
+                # np.savetxt(os.path.join(out,'%s_neuronal_signal.txt'%(self.mask_name)),self.neuronal[phase])
 
     def interact(self):
 
