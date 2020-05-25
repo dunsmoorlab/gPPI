@@ -210,7 +210,7 @@ class lss():
 
 class gPPI():
     
-    def __init__(self,sub,mask=None,phases_='encode_mem'):
+    def __init__(self,sub,mask=None,phases='encode_mem'):
 
         self.subj = bids_meta(sub)
         if '_mask' in mask:
@@ -218,7 +218,7 @@ class gPPI():
         else:
             self.mask_name = mask
         self.mask = self.load_mask(mask)
-        self.data = self.load_clean_data(phases_=phases_)
+        self.data = self.load_clean_data(phases=phases)
         self.extract_timecourse()
         # self.interact()
         self._autofill_fsf()
@@ -241,14 +241,13 @@ class gPPI():
             values = np.transpose(values) #swap axes to get sample X feature
         return values
     
-    def load_clean_data(self,phases_=None):
-        if phases_ == 'all':
+    def load_clean_data(self,phases=None):
+        if phases == 'all':
             phases = tasks
-        elif type(phases_) is str:
-            phases = [phases]
-        elif phases_ == 'encode_mem':
+        elif phases == 'encode_mem':
             phases = ['baseline','acquisition','extinction','memory_run-01','memory_run-02','memory_run-03']
-
+        elif type(phases) is str:
+            phases = [phases]
         #load the data
         data = {phase: get_data(os.path.join(self.subj.model_dir,phase,'%s_%s_gPPI.feat'%(self.subj.fsub,phase),'filtered_func_data.nii.gz')) for phase in phases}
         # data = {phase: get_data(os.path.join(self.subj.func,file)) for phase in phases for file in os.listdir(self.subj.func) if phase in file}
