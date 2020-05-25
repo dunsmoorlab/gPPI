@@ -208,7 +208,7 @@ class fmriprep_preproc():
         for task in tasks:
             if 'memory' in task:
                 inbold = os.path.join(self.subj.func,'%s_ses-2_task-%s_space-%s_desc-preproc_bold.nii.gz'%(self.subj.fsub,task,self.space))
-                outbold = os.path.join(self.subj.func,'%s_ses-2_task-%s_space-%s_desc-preproc_denoised.nii.gz'%(self.subj.fsub,task,self.space))')
+                outbold = os.path.join(self.subj.func,'%s_ses-2_task-%s_space-%s_desc-preproc_denoised_bold.nii.gz'%(self.subj.fsub,task,self.space))
                 confounds = os.path.join(self.subj.model_dir,task,'confounds.txt')
 
                 tmp = clean_img(nib.load(inbold), detrend=False, standardize=True, confounds=confounds,

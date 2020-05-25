@@ -1,6 +1,0 @@
-feat /scratch/05426/ach3377/group_gPPI/rACC/rACC_extinction.fsf
-feat /scratch/05426/ach3377/group_gPPI/sgACC/sgACC_extinction.fsf
-feat /scratch/05426/ach3377/group_gPPI/rh_hpc/rh_hpc_extinction.fsf
-feat /scratch/05426/ach3377/group_gPPI/lh_hpc/lh_hpc_extinction.fsf
-feat /scratch/05426/ach3377/group_gPPI/lh_amyg/lh_amyg_extinction.fsf
-feat /scratch/05426/ach3377/group_gPPI/rh_amyg/rh_amyg_extinction.fsf
