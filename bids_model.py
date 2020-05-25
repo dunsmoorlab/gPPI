@@ -210,7 +210,7 @@ class lss():
 
 class gPPI():
     
-    def __init__(self,sub,mask=None,phases='encode_mem'):
+    def __init__(self,sub,mask=None,phases_='encode_mem'):
 
         self.subj = bids_meta(sub)
         if '_mask' in mask:
@@ -218,7 +218,7 @@ class gPPI():
         else:
             self.mask_name = mask
         self.mask = self.load_mask(mask)
-        self.data = self.load_clean_data(phases=phases)
+        self.data = self.load_clean_data(phases_=phases_)
         self.extract_timecourse()
         # self.interact()
         self._autofill_fsf()
@@ -241,12 +241,12 @@ class gPPI():
             values = np.transpose(values) #swap axes to get sample X feature
         return values
     
-    def load_clean_data(self,phases=None):
-        if phases == 'all':
+    def load_clean_data(self,phases_=None):
+        if phases_ == 'all':
             phases = tasks
-        elif type(phases) is str:
+        elif type(phases_) is str:
             phases = [phases]
-        elif phases == 'encode_mem':
+        elif phases_ == 'encode_mem':
             phases = ['baseline','acquisition','extinction','memory_run-01','memory_run-02','memory_run-03']
 
         #load the data
