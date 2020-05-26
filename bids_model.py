@@ -248,6 +248,7 @@ class gPPI():
             phases = ['baseline','acquisition','extinction','memory_run-01','memory_run-02','memory_run-03']
         elif type(phases) is str:
             phases = [phases]
+        
         #load the data
         data = {phase: get_data(os.path.join(self.subj.model_dir,phase,'%s_%s_gPPI.feat'%(self.subj.fsub,phase),'filtered_func_data.nii.gz')) for phase in phases}
         # data = {phase: get_data(os.path.join(self.subj.func,file)) for phase in phases for file in os.listdir(self.subj.func) if phase in file}
@@ -461,8 +462,10 @@ def wrap_lss_jobs():
         os.system('launch -N 1 -n 6 -J %s_lvl3 -s jobs/%s_group_gPPI_job.txt -m achennings@utexas.edu -p normal -r 3:00:00 -A LewPea_MRI_Analysis'%(phase,phase))
 
 
-    for phase in ['baseline','acquisition','extinction','memory_run-01','memory_run-02','memory_run-03']:
-        for roi in ['rACC','sgACC','rh_hpc','lh_hpc','lh_amyg','rh_amyg']:
+    # for phase in ['baseline','acquisition','extinction','memory_run-01','memory_run-02','memory_run-03']:
+    for phase in ['memory_run-01','memory_run-02','memory_run-03']:
+        for roi in ['rh_hpc']:
+        # for roi in ['rACC','sgACC','rh_hpc','lh_hpc','lh_amyg','rh_amyg']:
             # os.system('launch -N 1 -n 24 -J %s_gPPI -s jobs/%s_gPPI_job.txt -m achennings@utexas.edu -p normal -r 2:00:00 -A LewPea_MRI_Analysis'%(phase,phase))
             os.system('launch -N 1 -n 24 -J %s_%s -s jobs/%s_%s_gPPI_job.txt -m achennings@utexas.edu -p normal -r 01:30:00 -A LewPea_MRI_Analysis'%(phase,roi,roi,phase))
 
@@ -486,7 +489,19 @@ def wrangle_first_level_rsa():
             os.system('cp %s %s'%(csp_cope,os.path.join(subj.weights,'%s_CSp.nii.gz'%(phase))))
             os.system('cp %s %s'%(csm_cope,os.path.join(subj.weights,'%s_CSm.nii.gz'%(phase))))
 
+def prep_lvl2():
+    import os
+    from fg_config import bids_meta, all_sub_args
+    
+    for sub in all_sub_args:
+        subj = bids_meta(sub)
+        for phase in ['memory_run-01','memory_run-02','memory_run-03']:
+            regfolder = os.path.join(subj.model_dir,phase,'%s_%s_gPPI.feat'%(subj.fsub,phase),'reg')
 
+            for roi in ['rh_hpc']:
+                dest = os.path.join(subj.model_dir,phase,roi,'source.feat','reg')
+
+                os.system('cp -r %s %s'%(regfolder,dest))
                 
 
 def motion_outlier_count():

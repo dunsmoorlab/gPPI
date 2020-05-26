@@ -114,6 +114,8 @@ def mask_and_extract():
     encode_df.to_csv('extracted_encode_gPPI.csv',index=False)
 
 def group_gPPI_clean():
+    import os
+    from fg_config import SCRATCH, mkdir
     import nibabel as nib
     from nilearn.image import index_img
 
@@ -148,7 +150,8 @@ def group_gPPI_clean():
              'healhty_ptsd_0':7,
              '0_healthy_ptsd':8}
 
-    for roi in ['sgACC','rACC','lh_amyg','rh_amyg','lh_hpc','rh_hpc']:
+    # for roi in ['sgACC','rACC','lh_amyg','rh_amyg','lh_hpc','rh_hpc']:
+    for roi in ['rh_hpc']:
         wd = os.path.join(SCRATCH,'group_gPPI',roi)
         mem_od = os.path.join(SCRATCH,'group_gPPI_out',roi,'retrieval');mkdir(mem_od)
         encode_od = os.path.join(SCRATCH,'group_gPPI_out',roi,'encoding');mkdir(encode_od)
@@ -156,7 +159,7 @@ def group_gPPI_clean():
         for cope in mem_copes:
             out = os.path.join(mem_od,cope);mkdir(out)
             for stat in stats:
-                infile = os.path.join(wd,'cope%s.gfeat'%(mem_copes[cope]),'cope1.feat','stats','zstat%s.nii.gz'%(stats[stat]))
+                infile = os.path.join(wd,'cope%s+++++.gfeat'%(mem_copes[cope]),'cope1.feat','stats','zstat%s.nii.gz'%(stats[stat]))
                 outfile = os.path.join(out,'%s.nii.gz'%(stat))
                 os.system('cp %s %s'%(infile, outfile))
 
