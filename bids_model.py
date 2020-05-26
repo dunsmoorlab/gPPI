@@ -217,9 +217,9 @@ class gPPI():
             self.mask_name = mask[:-5]
         else:
             self.mask_name = mask
-        self.mask = self.load_mask(mask)
-        self.data = self.load_clean_data(phases=phases)
-        self.extract_timecourse()
+        #self.mask = self.load_mask(mask)
+        #self.data = self.load_clean_data(phases=phases)
+        #self.extract_timecourse()
         # self.interact()
         self._autofill_fsf()
 
@@ -230,8 +230,11 @@ class gPPI():
                 fname = os.path.join(self.subj.masks,'%s.nii.gz'%(mask))
             else:
                 fname = os.path.join(self.subj.masks,'%s_mask.nii.gz')
-
-            return get_data(fname)
+        
+        if not os.path.exists(fname):
+            fname = os.path.join(self.subj.masks,'%s.nii.gz'%(mask))
+        
+        return get_data(fname)
     
     def _apply_mask(self,mask=None,target=None):
 
@@ -306,7 +309,7 @@ class gPPI():
     def _autofill_fsf(self):
         for phase in [task for task in tasks if 'mem' in task or tasks[task]['ses'] ==1]:
             if 'memory' in phase:       
-                template = os.path.join(gPPI_codebase,'feats','gPPI','mem_encode_gPPI.fsf')
+                template = os.path.join(gPPI_codebase,'feats','gPPI','nd_mem_encode_gPPI.fsf')
 
             elif phase == 'acquisition':
                 template = os.path.join(gPPI_codebase,'feats','gPPI','acq_encode_gPPI.fsf')
