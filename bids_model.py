@@ -217,9 +217,9 @@ class gPPI():
             self.mask_name = mask[:-5]
         else:
             self.mask_name = mask
-        #self.mask = self.load_mask(mask)
-        #self.data = self.load_clean_data(phases=phases)
-        #self.extract_timecourse()
+        self.mask = self.load_mask(mask)
+        self.data = self.load_clean_data(phases=phases)
+        self.extract_timecourse()
         # self.interact()
         self._autofill_fsf()
 
@@ -259,14 +259,14 @@ class gPPI():
         # mask the data and take mean timeseries
         data = {phase: self._apply_mask(mask=self.mask,target=data[phase]).mean(axis=1) for phase in data}
         
-        #clean the data 
-        # data = {phase: clean(data[phase][:,np.newaxis], #need this here to be feature X sample after meaning
+        # clean the data 
+        data = {phase: clean(data[phase][:,np.newaxis], #need this here to be feature X sample after meaning
                         
-        #                 confounds=pd.read_csv(os.path.join(self.subj.model_dir,phase,'confounds.txt'),
-        #                                 sep='\t',header=None).values,
+                        confounds=pd.read_csv(os.path.join(self.subj.model_dir,phase,'confounds.txt'),
+                                        sep='\t',header=None).values,
                 
-        #                 t_r=2,detrend=False,standardize='zscore')
-        #                                                     for phase in data}
+                        t_r=2,detrend=False,standardize='zscore')
+                                                            for phase in data}
 
         return data
 
@@ -310,7 +310,7 @@ class gPPI():
     def _autofill_fsf(self):
         for phase in [task for task in tasks if 'mem' in task or tasks[task]['ses'] ==1]:
             if 'memory' in phase:       
-                template = os.path.join(gPPI_codebase,'feats','gPPI','nd_mem_encode_gPPI.fsf')
+                template = os.path.join(gPPI_codebase,'feats','gPPI','mem_encode_gPPI.fsf')
 
             elif phase == 'acquisition':
                 template = os.path.join(gPPI_codebase,'feats','gPPI','acq_encode_gPPI.fsf')
