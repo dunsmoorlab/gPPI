@@ -159,7 +159,7 @@ def group_gPPI_clean():
         for cope in mem_copes:
             out = os.path.join(mem_od,cope);mkdir(out)
             for stat in stats:
-                infile = os.path.join(wd,'cope%s+++++.gfeat'%(mem_copes[cope]),'cope1.feat','stats','zstat%s.nii.gz'%(stats[stat]))
+                infile = os.path.join(wd,'cope%s++++++.gfeat'%(mem_copes[cope]),'cope1.feat','stats','zstat%s.nii.gz'%(stats[stat]))
                 outfile = os.path.join(out,'%s.nii.gz'%(stat))
                 os.system('cp %s %s'%(infile, outfile))
 
