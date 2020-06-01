@@ -170,10 +170,11 @@ class fmriprep_preproc():
 
     def group_mask(self):
         
-        # masks = ['sgACC','rSMA','rACG'] 
+        #masks = ['sgACC','rSMA','rACG'] 
         # masks = ['rACC']
-        masks = ['A32sg','A32p','A24cd','A24rv','A14m','A11m','A13','A10m','A9m','A8m','A6m',]
-        
+        #masks = ['A32sg','A32p','A24cd','A24rv','A14m','A11m','A13','A10m','A9m','A8m','A6m',]
+        masks = ['rACC','sgACC']        
+
         for roi in masks:
             in_mask = os.path.join(group_masks,'%s_group_mask.nii.gz'%(roi))
 
@@ -207,19 +208,23 @@ class fmriprep_preproc():
 
         for task in tasks:
             # if 'memory' in task:
-            if task[task]['ses'] == 1 and self.subj.num in [105,106]:
+            if tasks[task]['ses'] == 1 and self.subj.num in [105,106]:
                 tr = 2.23
             else:
                 tr = 2
+            
+            if task == 'localizer_run-02' and self.subj.num == 107:
+                pass
+            else:
 
-            inbold = os.path.join(self.subj.func,'%s_ses-%s_task-%s_space-%s_desc-preproc_bold.nii.gz'%(self.subj.fsub,tasks[task]['ses'],task,self.space))
-            outbold = os.path.join(self.subj.func,'%s_ses-%s_task-%s_space-%s_desc-preproc_denoised_bold.nii.gz'%(self.subj.fsub,tasks[task]['ses'],task,self.space))
-            confounds = os.path.join(self.subj.model_dir,task,'confounds.txt')
+                inbold = os.path.join(self.subj.func,'%s_ses-%s_task-%s_space-%s_desc-preproc_bold.nii.gz'%(self.subj.fsub,tasks[task]['ses'],task,self.space))
+                outbold = os.path.join(self.subj.func,'%s_ses-%s_task-%s_space-%s_desc-preproc_denoised_bold.nii.gz'%(self.subj.fsub,tasks[task]['ses'],task,self.space))
+                confounds = os.path.join(self.subj.model_dir,task,'confounds.txt')
 
-            tmp = clean_img(nib.load(inbold), detrend=False, standardize=False, confounds=confounds,
+                tmp = clean_img(nib.load(inbold), detrend=False, standardize=False, confounds=confounds,
                             low_pass=None, high_pass=None, t_r=tr, ensure_finite=False, mask_img=None)
 
-            nib.save(tmp,outbold)
+                nib.save(tmp,outbold)
 
         # standard      = '/work/IRC/ls5/opt/apps/fsl-5.0.10/data/standard/MNI152_T1_1mm_brain'
         # standard_head = '/work/IRC/ls5/opt/apps/fsl-5.0.10/data/standard/MNI152_T1_1mm'
@@ -374,8 +379,8 @@ def copy_events_confounds():
             e = bids_events(sub).phase_events(task)
             e.to_csv(os.path.join(events, '%s_task-%s_events.tsv'%(subj.fsub,task)), sep='\t', index=False)
 
-def backup_betas()
-    from fg_config import *
+def backup_betas():
+    #from fg_config import *
     dest = os.path.join(SCRATCH,'fc-bids','derivatives','beta_backup')
     for sub in all_sub_args[1:]:
         subj = bids_meta(sub)

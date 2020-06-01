@@ -33,7 +33,7 @@ set fmri(sscleanup_yn) 0
 set fmri(outputdir) "/scratch/05426/ach3377/fc-bids/derivatives/model/SUBID/extinction/lss_betas/TRIAL/TRIAL"
 
 # TR(s)
-set fmri(tr) TR_length 
+set fmri(tr) TR_length
 
 # Total volumes
 set fmri(npts) 259
@@ -154,7 +154,7 @@ set fmri(randomisePermutations) 5000
 
 # Number of EVs
 set fmri(evs_orig) 3
-set fmri(evs_real) 6
+set fmri(evs_real) 3
 set fmri(evs_vox) 0
 
 # Number of contrasts
@@ -310,7 +310,7 @@ set fmri(convolve_phase1) 0
 set fmri(tempfilt_yn1) 0
 
 # Add temporal derivative (EV 1)
-set fmri(deriv_yn1) 1
+set fmri(deriv_yn1) 0
 
 # Custom EV file (EV 1)
 set fmri(custom1) "/scratch/05426/ach3377/fc-bids/derivatives/model/SUBID/extinction/lss_betas/TRIAL/beta.txt"
@@ -356,7 +356,7 @@ set fmri(convolve_phase2) 0
 set fmri(tempfilt_yn2) 0
 
 # Add temporal derivative (EV 2)
-set fmri(deriv_yn2) 1
+set fmri(deriv_yn2) 0
 
 # Custom EV file (EV 2)
 set fmri(custom2) "/scratch/05426/ach3377/fc-bids/derivatives/model/SUBID/extinction/lss_betas/TRIAL/no_interest_0.txt"
@@ -402,7 +402,7 @@ set fmri(convolve_phase3) 0
 set fmri(tempfilt_yn3) 0
 
 # Add temporal derivative (EV 3)
-set fmri(deriv_yn3) 1
+set fmri(deriv_yn3) 0
 
 # Custom EV file (EV 3)
 set fmri(custom3) "/scratch/05426/ach3377/fc-bids/derivatives/model/SUBID/extinction/lss_betas/TRIAL/no_interest_1.txt"
@@ -439,15 +439,6 @@ set fmri(con_real1.2) 0
 
 # Real contrast_real vector 1 element 3
 set fmri(con_real1.3) 0
-
-# Real contrast_real vector 1 element 4
-set fmri(con_real1.4) 0
-
-# Real contrast_real vector 1 element 5
-set fmri(con_real1.5) 0
-
-# Real contrast_real vector 1 element 6
-set fmri(con_real1.6) 0
 
 # Display images for contrast_orig 1
 set fmri(conpic_orig.1) 1
