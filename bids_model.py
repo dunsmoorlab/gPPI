@@ -436,7 +436,7 @@ def autofill_fsf(group=False,template='',ses=None,name=None,roi=None):
 def wrap_lss_jobs():
     for sub in all_sub_args:
         subj = bids_meta(sub)
-        os.system('launch -N 1 -n 12 -J lss_%s -s jobs/lss_betas/%s_job.txt -m achennings@utexas.edu -p normal -r 6:00:00 -A LewPea_MRI_Analysis'%(sub,subj.fsub))
+        os.system('launch -N 1 -n 24 -J lss_%s -s jobs/lss_betas/%s_job.txt -m achennings@utexas.edu -p normal -r 6:00:00 -A LewPea_MRI_Analysis'%(sub,subj.fsub))
 
     for i, job in enumerate(os.listdir('jobs/lss_betas')):
         if '.txt' in job:
