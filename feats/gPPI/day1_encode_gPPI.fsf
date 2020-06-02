@@ -158,8 +158,8 @@ set fmri(evs_real) 7
 set fmri(evs_vox) 0
 
 # Number of contrasts
-set fmri(ncon_orig) 3
-set fmri(ncon_real) 3
+set fmri(ncon_orig) 4
+set fmri(ncon_real) 4
 
 # Number of F-tests
 set fmri(nftests_orig) 0
@@ -276,10 +276,7 @@ set fmri(ncopeinputs) 0
 set feat_files(1) "/scratch/05426/ach3377/fc-bids/derivatives/model/SUBID/RUNID/SUBID_RUNID_gPPI.feat/filtered_func_data"
 
 # Add confound EVs text file
-set fmri(confoundevs) 1
-
-# Confound EVs text file for analysis 1
-set confoundev_files(1) "/scratch/05426/ach3377/fc-bids/derivatives/model/SUBID/RUNID/confounds.txt"
+set fmri(confoundevs) 0
 
 # EV 1 title
 set fmri(evtitle1) "seed"
@@ -605,7 +602,7 @@ set fmri(con_real2.7) 1.0
 set fmri(conpic_real.3) 1
 
 # Title for contrast_real 3
-set fmri(conname_real.3) "ppi_baseline_comp"
+set fmri(conname_real.3) "ppi_CSp_CSm"
 
 # Real contrast_real vector 3 element 1
 set fmri(con_real3.1) 0
@@ -627,6 +624,33 @@ set fmri(con_real3.6) 0
 
 # Real contrast_real vector 3 element 7
 set fmri(con_real3.7) -1.0
+
+# Display images for contrast_real 4
+set fmri(conpic_real.4) 1
+
+# Title for contrast_real 4
+set fmri(conname_real.4) "ppi_CSm_CSp"
+
+# Real contrast_real vector 4 element 1
+set fmri(con_real4.1) 0
+
+# Real contrast_real vector 4 element 2
+set fmri(con_real4.2) 0
+
+# Real contrast_real vector 4 element 3
+set fmri(con_real4.3) 0
+
+# Real contrast_real vector 4 element 4
+set fmri(con_real4.4) -1.0
+
+# Real contrast_real vector 4 element 5
+set fmri(con_real4.5) 0.0
+
+# Real contrast_real vector 4 element 6
+set fmri(con_real4.6) 0
+
+# Real contrast_real vector 4 element 7
+set fmri(con_real4.7) 1.0
 
 # Display images for contrast_orig 1
 set fmri(conpic_orig.1) 1
@@ -674,7 +698,7 @@ set fmri(con_orig2.5) 1.0
 set fmri(conpic_orig.3) 1
 
 # Title for contrast_orig 3
-set fmri(conname_orig.3) "ppi_baseline_comp"
+set fmri(conname_orig.3) "ppi_CSp_CSm"
 
 # Real contrast_orig vector 3 element 1
 set fmri(con_orig3.1) 0
@@ -691,6 +715,27 @@ set fmri(con_orig3.4) 0
 # Real contrast_orig vector 3 element 5
 set fmri(con_orig3.5) -1.0
 
+# Display images for contrast_orig 4
+set fmri(conpic_orig.4) 1
+
+# Title for contrast_orig 4
+set fmri(conname_orig.4) "ppi_CSm_CSp"
+
+# Real contrast_orig vector 4 element 1
+set fmri(con_orig4.1) 0
+
+# Real contrast_orig vector 4 element 2
+set fmri(con_orig4.2) 0
+
+# Real contrast_orig vector 4 element 3
+set fmri(con_orig4.3) -1.0
+
+# Real contrast_orig vector 4 element 4
+set fmri(con_orig4.4) 0.0
+
+# Real contrast_orig vector 4 element 5
+set fmri(con_orig4.5) 1.0
+
 # Contrast masking - use >0 instead of thresholding?
 set fmri(conmask_zerothresh_yn) 0
 
@@ -700,17 +745,35 @@ set fmri(conmask1_2) 0
 # Mask real contrast/F-test 1 with real contrast/F-test 3?
 set fmri(conmask1_3) 0
 
+# Mask real contrast/F-test 1 with real contrast/F-test 4?
+set fmri(conmask1_4) 0
+
 # Mask real contrast/F-test 2 with real contrast/F-test 1?
 set fmri(conmask2_1) 0
 
 # Mask real contrast/F-test 2 with real contrast/F-test 3?
 set fmri(conmask2_3) 0
 
+# Mask real contrast/F-test 2 with real contrast/F-test 4?
+set fmri(conmask2_4) 0
+
 # Mask real contrast/F-test 3 with real contrast/F-test 1?
 set fmri(conmask3_1) 0
 
 # Mask real contrast/F-test 3 with real contrast/F-test 2?
 set fmri(conmask3_2) 0
+
+# Mask real contrast/F-test 3 with real contrast/F-test 4?
+set fmri(conmask3_4) 0
+
+# Mask real contrast/F-test 4 with real contrast/F-test 1?
+set fmri(conmask4_1) 0
+
+# Mask real contrast/F-test 4 with real contrast/F-test 2?
+set fmri(conmask4_2) 0
+
+# Mask real contrast/F-test 4 with real contrast/F-test 3?
+set fmri(conmask4_3) 0
 
 # Do contrast masking at all?
 set fmri(conmask1_1) 0

@@ -33,7 +33,7 @@ set fmri(sscleanup_yn) 0
 set fmri(outputdir) "/scratch/05426/ach3377/fc-bids/derivatives/model/SUBID/memory_run-01/SUBID_memory_run-01_gPPI"
 
 # TR(s)
-set fmri(tr) 2.000000 
+set fmri(tr) 2.000000
 
 # Total volumes
 set fmri(npts) 310
@@ -109,7 +109,7 @@ set fmri(st_file) ""
 set fmri(bet_yn) 0
 
 # Spatial smoothing FWHM (mm)
-set fmri(smooth) 5
+set fmri(smooth) 0
 
 # Intensity normalization
 set fmri(norm_yn) 0
@@ -273,13 +273,10 @@ set fmri(totalVoxels) 100850750
 set fmri(ncopeinputs) 0
 
 # 4D AVW data or FEAT directory (1)
-set feat_files(1) "/scratch/05426/ach3377/fc-bids/derivatives/preproc/SUBID/func/SUBID_ses-2_task-memory_run-01_space-MNI152NLin2009cAsym_desc-preproc_bold"
+set feat_files(1) "/scratch/05426/ach3377/fc-bids/derivatives/preproc/SUBID/func/SUBID_ses-2_task-memory_run-01_space-MNI152NLin2009cAsym_desc-preproc_denoised_bold"
 
 # Add confound EVs text file
-set fmri(confoundevs) 1
-
-# Confound EVs text file for analysis 1
-set confoundev_files(1) "/scratch/05426/ach3377/fc-bids/derivatives/model/SUBID/memory_run-01/confounds.txt"
+set fmri(confoundevs) 0
 
 # EV 1 title
 set fmri(evtitle1) "CSp_baseline"

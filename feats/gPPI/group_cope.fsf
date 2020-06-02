@@ -179,7 +179,7 @@ set fmri(threshmask) ""
 # 1 : Uncorrected
 # 2 : Voxel
 # 3 : Cluster
-set fmri(thresh) 3
+set fmri(thresh) 0
 
 # P threshold
 set fmri(prob_thresh) 0.05
@@ -264,6 +264,10 @@ set fmri(regstandard_nonlinear_warpres) 10
 
 # High pass filter cutoff
 set fmri(paradigm_hp) 100
+
+# Total voxels
+set fmri(totalVoxels) 47848500
+
 
 # Number of lower-level copes feeding into higher-level analysis
 set fmri(ncopeinputs) 1
@@ -868,76 +872,76 @@ set fmri(groupmem.23) 1
 set fmri(groupmem.24) 1
 
 # Group membership for input 25
-set fmri(groupmem.25) 2
+set fmri(groupmem.25) 1
 
 # Group membership for input 26
-set fmri(groupmem.26) 2
+set fmri(groupmem.26) 1
 
 # Group membership for input 27
-set fmri(groupmem.27) 2
+set fmri(groupmem.27) 1
 
 # Group membership for input 28
-set fmri(groupmem.28) 2
+set fmri(groupmem.28) 1
 
 # Group membership for input 29
-set fmri(groupmem.29) 2
+set fmri(groupmem.29) 1
 
 # Group membership for input 30
-set fmri(groupmem.30) 2
+set fmri(groupmem.30) 1
 
 # Group membership for input 31
-set fmri(groupmem.31) 2
+set fmri(groupmem.31) 1
 
 # Group membership for input 32
-set fmri(groupmem.32) 2
+set fmri(groupmem.32) 1
 
 # Group membership for input 33
-set fmri(groupmem.33) 2
+set fmri(groupmem.33) 1
 
 # Group membership for input 34
-set fmri(groupmem.34) 2
+set fmri(groupmem.34) 1
 
 # Group membership for input 35
-set fmri(groupmem.35) 2
+set fmri(groupmem.35) 1
 
 # Group membership for input 36
-set fmri(groupmem.36) 2
+set fmri(groupmem.36) 1
 
 # Group membership for input 37
-set fmri(groupmem.37) 2
+set fmri(groupmem.37) 1
 
 # Group membership for input 38
-set fmri(groupmem.38) 2
+set fmri(groupmem.38) 1
 
 # Group membership for input 39
-set fmri(groupmem.39) 2
+set fmri(groupmem.39) 1
 
 # Group membership for input 40
-set fmri(groupmem.40) 2
+set fmri(groupmem.40) 1
 
 # Group membership for input 41
-set fmri(groupmem.41) 2
+set fmri(groupmem.41) 1
 
 # Group membership for input 42
-set fmri(groupmem.42) 2
+set fmri(groupmem.42) 1
 
 # Group membership for input 43
-set fmri(groupmem.43) 2
+set fmri(groupmem.43) 1
 
 # Group membership for input 44
-set fmri(groupmem.44) 2
+set fmri(groupmem.44) 1
 
 # Group membership for input 45
-set fmri(groupmem.45) 2
+set fmri(groupmem.45) 1
 
 # Group membership for input 46
-set fmri(groupmem.46) 2
+set fmri(groupmem.46) 1
 
 # Group membership for input 47
-set fmri(groupmem.47) 2
+set fmri(groupmem.47) 1
 
 # Group membership for input 48
-set fmri(groupmem.48) 2
+set fmri(groupmem.48) 1
 
 # Contrast & F-tests mode
 # real : control real EVs
