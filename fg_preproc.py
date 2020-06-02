@@ -221,8 +221,8 @@ class fmriprep_preproc():
                 outbold = os.path.join(self.subj.func,'%s_ses-%s_task-%s_space-%s_desc-preproc_denoised_bold.nii.gz'%(self.subj.fsub,tasks[task]['ses'],task,self.space))
                 confounds = os.path.join(self.subj.model_dir,task,'confounds.txt')
 
-                tmp = clean_img(nib.load(inbold), detrend=False, standardize=False, confounds=confounds,
-                            low_pass=None, high_pass=None, t_r=tr, ensure_finite=False, mask_img=None)
+                tmp = clean_img(nib.load(inbold), detrend=False, standardize=True, confounds=confounds,
+                            low_pass=None, high_pass=None, t_r=tr, ensure_finite=True, mask_img=None)
 
                 nib.save(tmp,outbold)
 
