@@ -188,8 +188,11 @@ memdf = memdf.set_index(['group','roi','encode_phase',mem]).sort_index()
 # else: mdf[mem] = mdf[mem].apply(lambda x: 'hit' if x in [1,2] else 'miss')
 # mdf = mdf.set_index(['group','roi','encode_phase',mem])
 
-mem_cscomp('healthy',memdf,['hpc','amyg'],phases=phases)
-mem_cscomp('ptsd',memdf,['hpc','amyg'],phases=phases)
+
+mem_cscomp('healthy',memdf,['rACC','sgACC'],phases=phases)
+mem_cscomp('ptsd',memdf,['rACC','sgACC'],phases=phases)
+# mem_cscomp('healthy',memdf,['hpc','amyg'],phases=phases)
+# mem_cscomp('ptsd',memdf,['hpc','amyg'],phases=phases)
 ###############hits vs. miss samephase with cs#####################
 # mem = 'high_confidence_accuracy'
 # cdf = c.df.groupby([mem,'trial_type','encode_phase','roi','subject']).mean()

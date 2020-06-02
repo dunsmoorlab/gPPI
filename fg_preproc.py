@@ -388,3 +388,12 @@ def backup_betas():
         outdir = os.path.join(dest,subj.fsub)
         mkdir(outdir)
         os.system('cp -r %s %s'%(indir, outdir))
+
+
+    source = os.path.join(SCRATCH,'fc-bids','derivatives','beta_backup')
+    for sub in all_sub_args:
+        subj = bids_meta(sub)
+        indir = os.path.join(source,subj.fsub,'lss_betas')
+        outdir = subj.preproc_dir
+        os.system('rm -r %s'%(subj.beta))
+        os.system('cp -r %s %s'%(indir,outdir))

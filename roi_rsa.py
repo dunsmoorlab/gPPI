@@ -781,3 +781,4 @@ def copy_out():
         sub_out = os.path.join(out,subj.fsub);mkdir(out)
         os.system('cp -R %s %s'%(subj.rsa,sub_out))
     q = glob('/scratch/05426/ach3377/rsa_results/sub-FC***/sl_er.p')
+    for i in q: os.system('rm %s'%(i))
