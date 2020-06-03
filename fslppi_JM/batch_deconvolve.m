@@ -3,7 +3,7 @@ day1 = {'baseline','acquisition','extinction'};
 day2 = {'memory_run-01','memory_run-02','memory_run-03'};
 phases = {'baseline','acquisition','extinction','memory_run-01','memory_run-02','memory_run-03'};
 %rois = {'sgACC','rACC','lh_hpc','rh_hpc','lh_amyg','rh_amyg'};
-rois = {'rh_hpc'}
+rois = {'rh_hpc','hc_tail','hc_body','hc_head','amyg_bla','amyg_cem'};
 
 for subi = 1:length(all_sub_args)
     fsub = sprintf('sub-FC%03d',all_sub_args{subi});
