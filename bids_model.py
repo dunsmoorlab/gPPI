@@ -105,7 +105,7 @@ class bids_events():
                                 run_COI.append(_c)
                     C = C[run_COI]
                     #C['constant'] = 1
-                    C['framewise_displacement'][0] = 0
+                    C['framewise_displacement'][0] = 0 #really I think I should actually set this value to be the mean of the column, so that in FSL it doesn't impact how the FD is demeaned? but the value is truly 0 here...
                     
                     phase = re.search('task-(.*)_desc',file)[1]
                     out = os.path.join(self.subj.model_dir,'%s'%(phase))
@@ -253,20 +253,22 @@ class gPPI():
             phases = [phases]
         
         #load the data
-        data = {phase: get_data(os.path.join(self.subj.model_dir,phase,'%s_%s_gPPI.feat'%(self.subj.fsub,phase),'filtered_func_data.nii.gz')) for phase in phases}
+        # data = {phase: get_data(os.path.join(self.subj.model_dir,phase,'%s_%s_gPPI.feat'%(self.subj.fsub,phase),'filtered_func_data.nii.gz')) for phase in phases}
+        data = {phase: get_data(os.path.join(self.subj.func,'%s_ses-%s_task-%s_space-MNI152NLin2009cAsym_desc-preproc_denoised_bold.nii.gz'%(self.subj.fsub,tasks[phase]['ses'],phase))) for phase in phases}
         # data = {phase: get_data(os.path.join(self.subj.func,file)) for phase in phases for file in os.listdir(self.subj.func) if phase in file}
 
         # mask the data and take mean timeseries
         data = {phase: self._apply_mask(mask=self.mask,target=data[phase]).mean(axis=1) for phase in data}
         
-        # clean the data 
-        data = {phase: clean(data[phase][:,np.newaxis], #need this here to be feature X sample after meaning
+        # DO NOT clean the data 
+        # 6/3 note - we are now using the denoised data, so this is unnecssary 
+        # data = {phase: clean(data[phase][:,np.newaxis], #need this here to be feature X sample after meaning
                         
-                        confounds=pd.read_csv(os.path.join(self.subj.model_dir,phase,'confounds.txt'),
-                                        sep='\t',header=None).values,
+        #                 confounds=pd.read_csv(os.path.join(self.subj.model_dir,phase,'confounds.txt'),
+        #                                 sep='\t',header=None).values,
                 
-                        t_r=2,detrend=False,standardize='zscore')
-                                                            for phase in data}
+        #                 t_r=2,detrend=False,standardize='zscore')
+        #                                                     for phase in data}
 
         return data
 

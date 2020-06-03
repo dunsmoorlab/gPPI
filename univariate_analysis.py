@@ -76,9 +76,20 @@ encode_df.beta = encode_df.beta.astype(float)
 encode_df.to_csv('univariate_gPPI_comp.csv',index=False)
 
 df = pd.read_csv('univariate_gPPI_comp.csv')
+df.roi = df.roi.apply(lambda x: 'vmPFC' if x == 'sgACC' else 'dACC')
+df.model = df.model.apply(lambda x: 'denoised before' if x == 'dn' else 'confounds in model')
+df.cope = df.cope.apply(lambda x: 'CS+' if x == 'csp' else 'CS-')
 df = df.drop(columns='phase')
-sns.barplot(data=df,x='roi',y='beta',hue='model')
-
-
 df = df.set_index(['cope','roi','model','subject'])
-df = (df.loc['csp'] - df.loc['csm'])
+
+
+pg.ttest(df.loc[('CS+','dACC','confounds in model'),'beta'],df.loc[('CS-','dACC','confounds in model'),'beta'],paired=True)
+pg.ttest(df.loc[('CS+','dACC','denoised before'),'beta'],df.loc[('CS-','dACC','denoised before'),'beta'],paired=True)
+
+pg.ttest(df.loc[('CS+','vmPFC','confounds in model'),'beta'],df.loc[('CS-','vmPFC','confounds in model'),'beta'],paired=True)
+pg.ttest(df.loc[('CS+','vmPFC','denoised before'),'beta'],df.loc[('CS-','vmPFC','denoised before'),'beta'],paired=True)
+
+
+sns.catplot(data=df.reset_index(),x='roi',y='beta',hue='cope',col='model',kind='bar',sharey=False)
+
+df = (df.loc['CS+'] - df.loc['CS-'])
