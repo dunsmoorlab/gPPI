@@ -217,9 +217,9 @@ class gPPI():
             self.mask_name = mask[:-5]
         else:
             self.mask_name = mask
-        self.mask = self.load_mask(mask)
-        self.data = self.load_clean_data(phases=phases)
-        self.extract_timecourse()
+        #self.mask = self.load_mask(mask)
+        #self.data = self.load_clean_data(phases=phases)
+        #self.extract_timecourse()
         # self.interact()
         self._autofill_fsf()
 
@@ -411,10 +411,9 @@ def autofill_fsf(group=False,template='',ses=None,name=None,roi=None):
                 with open(os.path.join(gPPI_codebase,'feats','%s.fsf'%(template))) as infile:
                     with open(outfeat, 'w') as outfile:
                         for line in infile:
-                            for scr, target in replacements.items():
+                            for src, target in replacements.items():
                                 line = line.replace(src, target)
                             outfile.write(line)
-
                 os.system('echo "feat %s" >> jobs/%s_job.txt'%(outfeat,name))
 
     else:

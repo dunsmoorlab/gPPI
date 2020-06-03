@@ -273,7 +273,7 @@ set fmri(totalVoxels) 47848500
 set fmri(ncopeinputs) 0
 
 # 4D AVW data or FEAT directory (1)
-set feat_files(1) "/scratch/05426/ach3377/fc-bids/derivatives/model/SUBID/RUNID/SUBID_RUNID_gPPI.feat/filtered_func_data"
+set feat_files(1) "/scratch/05426/ach3377/fc-bids/derivatives/preproc/SUBID/func/SUBID_ses-1_task-acquisition_space-MNI152NLin2009cAsym_desc-preproc_denoised_bold"
 
 # Add confound EVs text file
 set fmri(confoundevs) 0

@@ -1,0 +1,6 @@
+feat /scratch/05426/ach3377/group_gPPI/rh_hpc/rh_hpc_group_day1_gPPI.fsf
+feat /scratch/05426/ach3377/group_gPPI/hc_tail/hc_tail_group_day1_gPPI.fsf
+feat /scratch/05426/ach3377/group_gPPI/hc_body/hc_body_group_day1_gPPI.fsf
+feat /scratch/05426/ach3377/group_gPPI/hc_head/hc_head_group_day1_gPPI.fsf
+feat /scratch/05426/ach3377/group_gPPI/amyg_bla/amyg_bla_group_day1_gPPI.fsf
+feat /scratch/05426/ach3377/group_gPPI/amyg_cem/amyg_cem_group_day1_gPPI.fsf
