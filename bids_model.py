@@ -217,9 +217,9 @@ class gPPI():
             self.mask_name = mask[:-5]
         else:
             self.mask_name = mask
-        #self.mask = self.load_mask(mask)
-        #self.data = self.load_clean_data(phases=phases)
-        #self.extract_timecourse()
+        self.mask = self.load_mask(mask)
+        self.data = self.load_clean_data(phases=phases)
+        self.extract_timecourse()
         # self.interact()
         self._autofill_fsf()
 
@@ -467,6 +467,7 @@ def wrap_lss_jobs():
     for roi in ['rh_hpc']:
         # os.system('launch -N 1 -n 24 -J %s_lvl2 -s jobs/%s_mem_encode_lvl2_gPPI_job.txt -m achennings@utexas.edu -p normal -r 00:45:00 -A LewPea_MRI_Analysis'%(roi,roi))        
         os.system('launch -N 1 -n 14 -J %s_lvl3 -s jobs/%s_group_cope_job.txt -m achennings@utexas.edu -p normal -r 2:00:00 -A LewPea_MRI_Analysis -d 2897228'%(roi,roi))
+    os.system('launch -N 1 -n 18 -J day1_lvl3 -s jobs/group_day1_gPPI_job.txt -m achennings@utexas.edu -p normal -r 4:00:00 -A LewPea_MRI_Analysis'%(roi,roi))
 
     for phase in ['baseline','acquisition','extinction']:
         os.system('launch -N 1 -n 6 -J %s_lvl3 -s jobs/%s_group_gPPI_job.txt -m achennings@utexas.edu -p normal -r 3:00:00 -A LewPea_MRI_Analysis'%(phase,phase))
@@ -507,7 +508,8 @@ def prep_lvl2():
     for sub in all_sub_args:
         print(sub)
         subj = bids_meta(sub)
-        for phase in ['memory_run-01','memory_run-02','memory_run-03']:
+        # for phase in ['memory_run-01','memory_run-02','memory_run-03']:
+        for phase in ['baseline','acquisition','extinction']:
             regfolder = os.path.join(subj.model_dir,phase,'%s_%s_reg_gPPI.feat'%(subj.fsub,phase),'reg')
 
             for roi in ['rh_hpc','hc_tail','hc_body','hc_head','amyg_bla','amyg_cem']:

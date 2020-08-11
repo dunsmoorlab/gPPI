@@ -15,6 +15,9 @@ subjects = {'healthy':sub_args,
             'ptsd':p_sub_args,
             'all':all_sub_args}
 
+bn_rois = ['A32sg','A32p','A24cd','A24rv','A14m','A11m','A13','A10m','A9m','A8m','A6m']
+groups = ['healthy','ptsd']
+
 gpal = list((wes_palettes['Zissou'][0],wes_palettes['Royal1'][1]))
 cpal = ['darkorange','grey']
 cpoint = sns.color_palette(cpal,n_colors=2,desat=.75)
@@ -87,6 +90,25 @@ slices={'CS+':{
                
                'extinction':{'encoding':slice(128,144),
                             'retrieval':slice(272,288)}}}
+
+slice3={'CS+':{
+                 'baseline':{'encoding':slice(0,24),
+                             'retrieval':slice(144,168)},
+              
+              'acquisition':{'encoding':slice(24,48),
+                             'retrieval':slice(168,192)},
+               
+               'extinction':{'encoding':slice(48,72),
+                             'retrieval':slice(192,216)}},
+        'CS-':{
+                 'baseline':{'encoding':slice(72,96),
+                            'retrieval':slice(216,240)},
+              
+              'acquisition':{'encoding':slice(96,120),
+                            'retrieval':slice(240,264)},
+               
+               'extinction':{'encoding':slice(120,144),
+                            'retrieval':slice(264,288)}}}
 
 mem_slices = {'CS+':{
                  'baseline':slice(0,24),

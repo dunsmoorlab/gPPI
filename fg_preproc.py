@@ -362,22 +362,25 @@ def group_std_masks():
 
 def copy_events_confounds():
     from bids_model import bids_events
-    dest = os.path.join(SCRATCH,'preproc')
+    # dest = os.path.join(SCRATCH,'preproc')
+    dest = os.path.join(SCRATCH,'fc-behavior_bids')
+    mkdir(dest)
     for sub in all_sub_args:
         subj = bids_meta(sub)
         sub_dest = os.path.join(dest,subj.fsub)
         mkdir(sub_dest)
         events = os.path.join(sub_dest,'events')
-        confounds = os.path.join(sub_dest,'confounds')
+        # confounds = os.path.join(sub_dest,'confounds')
         mkdir(events)
-        mkdir(confounds)
+        # mkdir(confounds)
         for task in tasks:
-            c = os.path.join(subj.model_dir,task,'confounds.txt')
-            c_out = os.path.join(confounds,'%s_task-%s_confounds.txt'%(subj.fsub,task))
-            os.system('cp %s %s'%(c,c_out))
+            # c = os.path.join(subj.model_dir,task,'confounds.txt')
+            # c_out = os.path.join(confounds,'%s_task-%s_confounds.txt'%(subj.fsub,task))
+            # os.system('cp %s %s'%(c,c_out))
 
             e = bids_events(sub).phase_events(task)
             e.to_csv(os.path.join(events, '%s_task-%s_events.tsv'%(subj.fsub,task)), sep='\t', index=False)
+
 
 def backup_betas():
     #from fg_config import *

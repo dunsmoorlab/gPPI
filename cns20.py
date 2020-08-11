@@ -157,7 +157,7 @@ for i, sub in enumerate(p_sub_args):
     logreg.fit(_X,_y)
     coef[i] = logreg.coef_[0][0]
 
-
+######regular old memory analysis
 mem = 'high_confidence_accuracy'
 cm = c.df.groupby(['trial_type',mem,'encode_phase','roi','subject']).mean()
 pm = p.df.groupby(['trial_type',mem,'encode_phase','roi','subject']).mean()

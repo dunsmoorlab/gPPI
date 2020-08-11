@@ -51,7 +51,10 @@ def apply_mask(mask=None,target=None):
     return values
 
 def mask_and_extract():
-    ROIS = ['sgACC','rACC','lh_hpc','rh_hpc','lh_amyg','rh_amyg']
+    # ROIS = ['sgACC','rACC','lh_hpc','rh_hpc','lh_amyg','rh_amyg']
+    seeds = ['rh_hpc','hc_tail','hc_body','hc_head','amyg_bla','amyg_cem']
+    targets = ['rh_hpc','hc_tail','hc_body','hc_head','amyg_bla','amyg_cem','sgACC','rACC','A32sg','A32p','A24cd','A24rv','A14m','A11m','A13','A10m','A9m','A8m','A6m']
+    
     day2_copes = {'acq_csp_csm':6,
                   'ext_csp_csm':9,
                   'acq_ext':13,
@@ -59,31 +62,32 @@ def mask_and_extract():
     
     day1_copes = {'csp':1,
                   'csm':2,
-                  'csp_csm':3}
+                  'csp_csm':3,
+                  'csm_csp':4}
     
     mem_phases = ['memory_run-01','memory_run-02','memory_run-03']
     encode_phases = ['baseline','acquisition','extinction']
     all_phases = encode_phases+mem_phases
 
 
-    mem_df = pd.DataFrame(columns=['conn'], index=pd.MultiIndex.from_product([ROIS,day2_copes,ROIS,all_sub_args,mem_phases], names=['seed','cope','target','subject','phase']))
-    encode_df = pd.DataFrame(columns=['conn'], index=pd.MultiIndex.from_product([ROIS,day1_copes,ROIS,all_sub_args,encode_phases], names=['seed','cope','target','subject','phase']))
+    mem_df = pd.DataFrame(columns=['conn'], index=pd.MultiIndex.from_product([seeds,day2_copes,targets,all_sub_args,mem_phases], names=['seed','cope','target','subject','phase']))
+    encode_df = pd.DataFrame(columns=['conn'], index=pd.MultiIndex.from_product([seeds,day1_copes,targets,all_sub_args,encode_phases], names=['seed','cope','target','subject','phase']))
 
     for sub in all_sub_args:
         subj = bids_meta(sub)
         print(sub)
         
-        for target in ROIS:
-            print(target)        
+        for target in targets:
+            print(target)
             
             #load target mask here and extract for all seeds and phases
-            if 'h' in target:
+            if 'hc' in target or 'hpc' in target or 'amyg' in target:
                 in_mask = os.path.join(subj.masks,'%s.nii.gz'%(target))
             else:
                 in_mask = os.path.join(subj.masks,'%s_mask.nii.gz'%(target))
             mask_dat = get_data(in_mask)
 
-            for seed in ROIS:
+            for seed in seeds:
 
                 for phase in all_phases:
 
@@ -151,25 +155,25 @@ def group_gPPI_clean():
              '0_healthy_ptsd':8}
 
     # for roi in ['sgACC','rACC','lh_amyg','rh_amyg','lh_hpc','rh_hpc']:
-    for roi in ['rh_hpc']:
+    for roi in ['rh_hpc','hc_tail','hc_body','hc_head','amyg_bla','amyg_cem']:
         wd = os.path.join(SCRATCH,'group_gPPI',roi)
-        mem_od = os.path.join(SCRATCH,'group_gPPI_out',roi,'retrieval');mkdir(mem_od)
-        encode_od = os.path.join(SCRATCH,'group_gPPI_out',roi,'encoding');mkdir(encode_od)
+        mem_od = os.path.join(SCRATCH,'cleaned_gPPI',roi,'retrieval');mkdir(mem_od)
+        encode_od = os.path.join(SCRATCH,'cleaned_gPPI',roi,'encoding');mkdir(encode_od)
 
         for cope in mem_copes:
             out = os.path.join(mem_od,cope);mkdir(out)
             for stat in stats:
-                infile = os.path.join(wd,'cope%s++++++.gfeat'%(mem_copes[cope]),'cope1.feat','stats','zstat%s.nii.gz'%(stats[stat]))
+                infile = os.path.join(wd,'cope%s.gfeat'%(mem_copes[cope]),'cope1.feat','stats','zstat%s.nii.gz'%(stats[stat]))
                 outfile = os.path.join(out,'%s.nii.gz'%(stat))
                 os.system('cp %s %s'%(infile, outfile))
 
-        for phase in encode_phases:
-            for cope in encode_copes:
-                out = os.path.join(encode_od,phase,cope);mkdir(out)
-                for stat in stats:
-                    infile = os.path.join(wd,phase+'.gfeat','cope%s.feat'%(encode_copes[cope]),'stats','zstat%s.nii.gz'%(stats[stat]))
-                    outfile = os.path.join(out,'%s.nii.gz'%(stat))
-                    os.system('cp %s %s'%(infile, outfile))
+        # for phase in encode_phases:
+        #     for cope in encode_copes:
+        #         out = os.path.join(encode_od,phase,cope);mkdir(out)
+        #         for stat in stats:
+        #             infile = os.path.join(wd,phase+'.gfeat','cope%s.feat'%(encode_copes[cope]),'stats','zstat%s.nii.gz'%(stats[stat]))
+        #             outfile = os.path.join(out,'%s.nii.gz'%(stat))
+        #             os.system('cp %s %s'%(infile, outfile))
 
 
 def pconvert(p):
@@ -185,6 +189,73 @@ def pconvert(p):
         return ''
 
 
+def graph_gPPI_better():
+
+    from fg_config import lgroup
+    from pysurfer import bnsurf
+
+    import matplotlib.pyplot as plt
+    import pingouin as pg
+    import seaborn as sns
+    # sns.set_context('talk')
+    
+    df = pd.read_csv('extracted_mem_gPPI.csv')
+    df['group'] = df.subject.apply(lgroup)
+
+    vm = (df.target == 'sgACC')
+    d  = (df.target == 'rACC')
+    pfc = df[d | vm]
+    pfc = pfc[pfc.seed != 'rh_hpc']
+    pfc.target = pfc.target.apply(lambda x: 'vmPFC' if x == 'sgACC' else 'dACC')
+    for cope in pfc.cope.unique():
+        g = sns.catplot(data=pfc[pfc.cope==cope],x='target',y='conn',hue='seed',
+                col='group',kind='bar',palette='mako',hue_order=['amyg_cem','amyg_bla','hc_head','hc_body','hc_tail'],
+                sharey=False,height=10,aspect=1.2)
+        plt.subplots_adjust(top=0.9)
+        g.fig.suptitle(cope)
+        plt.savefig('plots/roi_conn/%s.png'%(cope),fmt='png')
+
+    # seeds = ['rh_hpc','hc_tail','hc_body','hc_head','amyg_bla','amyg_cem']
+    seeds = ['hc_tail','hc_body','hc_head','amyg_bla','amyg_cem']
+    targets = ['A32sg','A32p','A24cd','A24rv','A14m','A11m','A13','A10m','A9m','A8m','A6m']
+    # targets = ['rh_hpc','hc_tail','hc_body','hc_head','amyg_bla','amyg_cem','sgACC','rACC','A32sg','A32p','A24cd','A24rv','A14m','A11m','A13','A10m','A9m','A8m','A6m']
+
+    copes = ['ext_acq','ext_csp_csm','acq_csp_csm']
+    groups = ['healthy','ptsd']
+
+    df = df.set_index(['cope','group','seed','target','subject'])
+
+    stats = pd.DataFrame(columns=['t','p'],index=pd.MultiIndex.from_product([groups,seeds,copes,targets],names=['group','seed','cope','target']))
+    for seed in seeds:
+        for group in groups:
+            for cope in copes:
+                for target in targets:
+                    tres = pg.ttest(df.loc[(cope,group,seed,target),'conn'].values,0,tail='two-sided')
+                    stats.loc[(group,seed,cope,target)][['t','p']] = tres.loc['T-test'][['T','p-val']]
+            
+            # stats.loc[(group,seed,cope),'p'] = pg.multicomp(list(stats.loc[(group,seed,cope),'p'].values),method='fdr_bh')[1]
+
+    stats['p_mask'] = stats.p.apply(lambda x: 0 if x >.05 else 1)
+    stats['t_disp'] = stats.t * stats.p_mask
+
+    for group in groups:
+        for seed in seeds:
+            for cope in copes:
+                disp = stats.loc[group,seed,cope]
+                if disp.t_disp.min() == 0 and disp.t_disp.max() == 0:
+                    pass
+                else:
+                    if disp.t_disp.max() > 0:
+                        cmap = 'Reds'
+                        tail = 'greater'
+                    else:
+                        cmap = 'Blues_r'
+                        tail = 'less'
+                    bnsurf(disp,'t_disp',cmap,tail=tail,out='conn/%s_%s_%s'%(group,seed,cope))
+    #bnsurf(data,val,cmap,tail='greater',out=None):
+
+    stats = stats.reset_index()
+    stats.loc[np.where(stats.p < 0.05)[0]]
 
 def graph_gPPI():
     from fg_config import lgroup
@@ -193,7 +264,8 @@ def graph_gPPI():
     import pingouin as pg
     import seaborn as sns
 
-    ROIS = ['rACC','sgACC','lh_hpc','rh_hpc','lh_amyg','rh_amyg']
+    # ROIS = ['rACC','sgACC','lh_hpc','rh_hpc','lh_amyg','rh_amyg']
+    ROIS = ['rh_hpc']
     # COPES = ['acq_ext','ext_acq']
     COPES = ['ext_acq']
     groups = ['healthy','ptsd']
@@ -242,8 +314,10 @@ def graph_gPPI():
         #             cbar_ax=cbar[i],cbar_kws={'orientation':'horizontal'})
         # # ax[i].set_title(group + '_' + cope)
 
-        pfc_targ_t = t.loc[('rh_hpc', 'lh_hpc', 'rh_amyg', 'lh_amyg'),['rACC','sgACC']].T
-        pfc_targ_p = p.loc[('rh_hpc', 'lh_hpc', 'rh_amyg', 'lh_amyg'),['rACC','sgACC']].T
+        # pfc_targ_t = t.loc[('rh_hpc', 'lh_hpc', 'rh_amyg', 'lh_amyg'),['rACC','sgACC']].T
+        # pfc_targ_p = p.loc[('rh_hpc', 'lh_hpc', 'rh_amyg', 'lh_amyg'),['rACC','sgACC']].T
+        pfc_targ_t = t.loc[('rh_hpc'),['rACC','sgACC']].T
+        pfc_targ_p = p.loc[('rh_hpc'),['rACC','sgACC']].T
 
         sns.heatmap(pfc_targ_t,ax=ax1[i],annot=pfc_targ_p,square=True,
                     fmt='',cmap='PRGn',center=0,vmin=-3,vmax=3,
