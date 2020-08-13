@@ -4,7 +4,7 @@ from nilearn.image import get_data, new_img_like
 from roi_rsa import *
 from graphing_functions import *
 from pysurfer import bnsurf
-from scipy.stats import wilcoxon
+from scipy.stats import wilcoxon, pearsonr
 
 rois = ['A32sg','A32p','A24cd','A24rv','A14m','A11m','A13','A10m','A9m','A8m','A6m']
 
@@ -21,6 +21,9 @@ phases = {'baseline':24,'acquisition':24,'early_extinction':8,'extinction':16}
 subs = range(24)
 conds = ['CSp','CSm']
 
+c.df = c.df.dropna(subset=['response'])
+p.df = p.df.dropna(subset=['response'])
+
 cdf = c.df.groupby(['trial_type','encode_phase','roi','subject']).mean()
 pdf = p.df.groupby(['trial_type','encode_phase','roi','subject']).mean()
 mdf = pd.concat((cdf,pdf)).reset_index()
@@ -35,7 +38,7 @@ phase3 = ['baseline','acquisition','extinction']
 mdf = mdf.set_index(['group','roi','encode_phase','trial_type','subject']).sort_index()
 
 
-stats = pd.DataFrame(columns=['w','p','cles'],index=pd.MultiIndex.from_product([['healthy','ptsd'],phase3,rois],names=['group','encode_phase','roi']))
+stats = pd.DataFrame(columns=['w','p','cles'],index=pd.MultiIndex.from_product([['healthy','ptsd'],phase3,bn_rois],names=['group','encode_phase','roi']))
 
 for group in ['healthy','ptsd']:
     for phase in phase3:
@@ -45,10 +48,10 @@ for group in ['healthy','ptsd']:
             stats.loc[(group,phase,roi),'w']    = wres[0,0]
             stats.loc[(group,phase,roi),'p']    = wres[0,2]
             stats.loc[(group,phase,roi),'cles'] = wres[0,-1]
-        stats.loc[(group,phase),'p'] = pg.multicomp(list(stats.loc[(group,phase),'p'].values),method='fdr_bh')[1]
+        stats.loc[(group,phase,bn_rois),'p_corr'] = pg.multicomp(list(stats.loc[(group,phase,bn_rois),'p'].values),method='fdr_bh')[1]
 # stats.p = 1 - stats.ps
 # stats.p = stats.p.apply(lambda x: 0 if x < .95 else x)
-stats['p_mask'] = stats.p.apply(lambda x: 0 if x >.05 else 1)
+stats['p_mask'] = stats.p_corr.apply(lambda x: 0 if x >.05 or pd.isna(x) else 1)
 stats['cles_disp'] = stats.cles * stats.p_mask
 
 
@@ -64,6 +67,36 @@ for group in ['healthy','ptsd']:
             pass
         else:
             bnsurf(data=disp,val='cles_disp',min_val=.5,max_val=stats.cles_disp.max(),cmap=cmaps[phase],out='test/%s_%s'%(group,phase))
+
+##########################basic effect group differences
+cdf = c.df.groupby(['trial_type','encode_phase','roi','subject']).mean()
+pdf = p.df.groupby(['trial_type','encode_phase','roi','subject']).mean()
+mdf = pd.concat((cdf,pdf))
+mdf = (mdf.loc['CS+'] - mdf.loc['CS-']).reset_index()
+
+mdf = mdf.set_index('subject').drop([20,120]).reset_index()
+mdf['group'] = mdf.subject.apply(lgroup)
+mdf = mdf.set_index(['group','encode_phase','roi'])
+
+stats = pd.DataFrame(columns=['w','p','cles'],index=pd.MultiIndex.from_product([phase3,bn_rois],names=['encode_phase','roi']))
+for phase in phase3:
+    for roi in bn_rois:
+        wres = pg.mwu(mdf.loc[('healthy',phase,roi),'rsa'], mdf.loc[('ptsd',phase,roi),'rsa'], tail='two-sided')
+        stats.loc[(phase,roi),['w','p','cles']] = wres[['U-val','p-val','CLES']].values
+    stats.loc[(phase),'p_corr'] = pg.multicomp(list(stats.loc[(phase),'p'].values),method='fdr_bh')[1]
+stats.p = stats.p.apply(lambda x: x[0] if type(x) == list else x)
+stats.cles = stats.cles.apply(lambda x: x[0] if type(x) == list else x)
+
+stats['p_mask'] = stats.p.apply(lambda x: 0 if x >.05 else 1)
+stats['cles_disp'] = stats.cles * stats.p_mask
+
+for phase in phase3:
+    disp = stats.loc[phase].copy()
+    if disp.cles_disp.max() == 0: 
+        pass
+    else:
+        bnsurf(data=disp,val='cles_disp',min_val=.25,max_val=.75,mid_val=.5,cmap='RdBu',out='test/group_diff_%s'%(phase))
+
 
 #############memory effect
 mem = 'high_confidence_accuracy'
@@ -184,29 +217,65 @@ for group in ['healthy','ptsd']:
 
 '''CONNECTIVITY'''
 seeds = ['hc_tail','hc_body','hc_head','amyg_bla','amyg_cem']
+# seeds = ['rh_hc_tail','lh_hc_tail','rh_hc_body','lh_hc_body','rh_hc_head','lh_hc_head','rh_amyg_bla','lh_amyg_bla','rh_amyg_cem','lh_amyg_cem']
 targets = bn_rois
-copes = ['ext_acq','ext_csp_csm','acq_csp_csm']
+copes = {'ext_acq':     ['CS+E','CS+A'],
+         'ext_csp_csm': ['CS+E','CS-E'],
+         'acq_csp_csm': ['CS+A','CS-A']}
 
 
 df = pd.read_csv('extracted_mem_gPPI.csv'
+# df = pd.read_csv('extracted_hemi_mem_gPPI.csv'
     ).set_index('subject').drop([20,120]).reset_index()
+
 df['group'] = df.subject.apply(lgroup)
 df = df.set_index(['cope','group','seed','target','subject'])
 
-stats = pd.DataFrame(columns={'w':0.0,'p':0.0,'p_fdr':0.0,'p_mask':0.0,'cles_disp':0.0},
+stats = pd.DataFrame(columns={'w':0.0,'p':0.0,'p_fdr':0.0,'p_mask':0.0,'cles':0.0},
                      index=pd.MultiIndex.from_product([groups,seeds,copes,targets],
                      names=['group','seed','cope','target'])
                      ).sort_index()
 for group in groups:
     for seed in seeds:
         for cope in copes:
+            con1, con2 = copes[cope][0], copes[cope][1]
             for target in targets:
-                wres = wilcoxon(df.loc[(cope,group,seed,target),'conn'].values,correction=True)
-                stats.loc[(group,seed,cope,target),['w','p']] = wres[0], wres[1]
-            # stats.p = stats.p.astype(float)
+                wres = pg.wilcoxon(df.loc[(con1,group,seed,target),'conn'],df.loc[(con2,group,seed,target),'conn'])
+                stats.loc[(group,seed,cope,target),['w','p','cles']] = wres[['W-val','p-val','CLES']].values
+
+                #these lines for bilateral rois
+                # wres = wilcoxon(df.loc[(cope,group,seed,target),'conn'].values,correction=True)
+                # stats.loc[(group,seed,cope,target),['w','p']] = wres[0], wres[1]
+
             stats.loc[(group,seed,cope),'p_fdr'] = pg.multicomp(list(stats.loc[(group,seed,cope),'p'].values),method='fdr_bh')[1]
 
 stats.p_mask = stats.p_fdr.apply(lambda x: 0 if x >.05 else 1)
+
+# for group in phase3:
+#     disp = stats.loc[phase].copy()
+#     if disp.cles_disp.max() == 0: 
+#         pass
+#     else:
+#         bnsurf(data=disp,val='cles_disp',min_val=.25,max_val=.75,mid_val=.5,cmap='RdBu',out='test/group_diff_%s'%(phase))
+
+stats = pd.DataFrame(columns={'w':0.0,'p':0.0,'p_fdr':0.0,'p_mask':0.0,'cles':0.0},
+                     index=pd.MultiIndex.from_product([seeds,copes,targets],
+                     names=['seed','cope','target'])
+                     ).sort_index()
+for seed in seeds:
+    for cope in copes:
+        con1, con2 = copes[cope][0], copes[cope][1]
+        for target in targets:
+
+            H = df.loc[(con1,'healthy',seed,target),'conn'] - df.loc[(con2,'healthy',seed,target),'conn']
+            P = df.loc[(con1,'ptsd',seed,target),'conn'] - df.loc[(con2,'ptsd',seed,target),'conn']
+
+            wres = pg.mwu(H,P)
+            stats.loc[(seed,cope,target),['w','p','cles']] = wres[['U-val','p-val','CLES']].values
+        
+        stats.loc[(seed,cope),'p_fdr'] = pg.multicomp(list(stats.loc[(seed,cope),'p'].values),method='fdr_bh')[1]
+
+
 # stats['t_disp'] = stats.t * stats.p_mask
 
 # for group in groups:
@@ -228,11 +297,23 @@ stats.p_mask = stats.p_fdr.apply(lambda x: 0 if x >.05 else 1)
 # stats = stats.reset_index()
 # stats.loc[np.where(stats.p < 0.05)[0]]
 
+
+
 '''Relating connectivity to RSA'''
-conn = pd.read_csv('extracted_mem_gPPI.csv'
+# conn = pd.read_csv('extracted_mem_gPPI.csv'
+df = pd.read_csv('extracted_mem_gPPI.csv'
     ).set_index('subject').drop([20,120]).reset_index()
-conn['group'] = conn.subject.apply(lgroup)
+df['group'] = df.subject.apply(lgroup)
+df = df.set_index(['cope','group','seed','target','subject']).sort_index()
+
+conn = (df.loc['CS+E'] - df.loc['CS-E']).rename(columns={'conn':'ext_csp_csm'})
+conn['acq_csp_csm'] = (df.loc['CS+A'] - df.loc['CS-E'])
+conn['ext_acq'] = (df.loc['CS+E'] - df.loc['CS+A'])
+conn = conn.reset_index().melt(id_vars=['group','seed','target','subject'],
+                        value_vars=['ext_csp_csm', 'acq_csp_csm','ext_acq'],
+                        value_name='conn',var_name='cope')
 conn = conn.set_index(['group','seed','cope','target','subject']).sort_index()
+
 
 c = group_roi_rsa(group='control',ext_split=False,fs=True,hemi=False)
 p = group_roi_rsa(group='ptsd',ext_split=False,fs=True,hemi=False)
@@ -257,10 +338,63 @@ for group in groups:
         for cope in copes:
             for phase in phase3:
                 for target in bn_rois:
-                    rres = pg.corr(conn.loc[(group,seed,cope,target),'conn'], mdf.loc[(group,target,phase),'rsa'])
-                    stats.loc[(group,seed,cope,phase,target),['r','p']] = rres[['r','p-val']].values
+                    # rres = pg.corr(conn.loc[(group,seed,cope,target),'conn'], mdf.loc[(group,target,phase),'rsa'])
+                    # stats.loc[(group,seed,cope,phase,target),['r','p']] = rres[['r','p-val']].values
+
+                    rres = pearsonr(conn.loc[(group,seed,cope,target),'conn'], mdf.loc[(group,target,phase),'rsa'])
+                    stats.loc[(group,seed,cope,phase,target),['r','p']] = rres
+
                 stats.loc[(group,seed,cope,phase),'p_fdr'] = pg.multicomp(list(stats.loc[(group,seed,cope,phase),'p'].values),method='fdr_bh')[1]
 
 stats.p_mask = stats.p_fdr.apply(lambda x: 0 if x >.05 else 1)
 stats = stats.reset_index().set_index('rsa_phase').drop('baseline').reset_index().set_index(['group','seed','cope','target'])
 stats[stats.p < .05]
+
+
+
+
+
+within = pd.read_csv('within_phase2_similarity.csv').set_index(['condition','group','roi','phase','subject'])
+within = within[within.memory_phase == 'encoding']
+within = within.drop(columns='memory_phase')
+within = (within.loc['CS+'] - within.loc['CS-'])
+
+stats = stats = pd.DataFrame(columns={'r':0.0,'p':0.0,'p_fdr':0.0,'p_mask':0.0,'cles_disp':0.0},
+                     index=pd.MultiIndex.from_product([groups,phase2,rois],
+                     names=['group','phase','roi'])
+                     ).sort_index()
+
+for group in groups:
+    for phase in phase2:
+        for roi in rois:
+            rres = pearsonr(within.loc[(group,roi,phase),'rsa'], mdf.loc[(group,roi,phase),'rsa'])
+            stats.loc[(group,phase,roi),['r','p']] = rres
+        stats.loc[(group,phase,bn_rois),'p_fdr'] = pg.multicomp(list(stats.loc[(group,phase,bn_rois),'p'].values),method='fdr_bh')[1]
+stats.p_mask = stats.p_fdr.apply(lambda x: 0 if x >.05 or pd.isna(x) else 1)
+# stats = stats.reset_index().set_index('rsa_phase').drop('baseline').reset_index().set_index(['group','seed','cope','target'])
+stats[stats.p_mask == 1]
+
+
+
+
+
+elrsa = pd.read_csv('elrsa_labar.csv').set_index(['el','condition','group','roi','subject'])
+elrsa = elrsa[elrsa.memory_phase == 'encoding']
+elrsa = elrsa.drop(columns='memory_phase')
+elrsa = (elrsa.loc['early'] - elrsa.loc['late'])
+elrsa = (elrsa.loc['CS+'] - elrsa.loc['CS-'])
+
+stats = stats = pd.DataFrame(columns={'r':0.0,'p':0.0,'p_fdr':0.0,'p_mask':0.0,'cles_disp':0.0},
+                     index=pd.MultiIndex.from_product([groups,phase2,rois],
+                     names=['group','phase','roi'])
+                     ).sort_index()
+
+for group in groups:
+    for phase in phase2:
+        for roi in rois:
+            rres = pearsonr(elrsa.loc[(group,roi),'rsa'], mdf.loc[(group,roi,phase),'rsa'])
+            stats.loc[(group,phase,roi),['r','p']] = rres
+        stats.loc[(group,phase,bn_rois),'p_fdr'] = pg.multicomp(list(stats.loc[(group,phase,bn_rois),'p'].values),method='fdr_bh')[1]
+stats.p_mask = stats.p_fdr.apply(lambda x: 0 if x >.05 or pd.isna(x) else 1)
+# stats = stats.reset_index().set_index('rsa_phase').drop('baseline').reset_index().set_index(['group','seed','cope','target'])
+stats[stats.p_mask == 1]

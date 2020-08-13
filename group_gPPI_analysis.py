@@ -52,14 +52,22 @@ def apply_mask(mask=None,target=None):
 
 def mask_and_extract():
     # ROIS = ['sgACC','rACC','lh_hpc','rh_hpc','lh_amyg','rh_amyg']
-    seeds = ['rh_hpc','hc_tail','hc_body','hc_head','amyg_bla','amyg_cem']
-    targets = ['rh_hpc','hc_tail','hc_body','hc_head','amyg_bla','amyg_cem','sgACC','rACC','A32sg','A32p','A24cd','A24rv','A14m','A11m','A13','A10m','A9m','A8m','A6m']
+    seeds = ['hc_tail','hc_body','hc_head','amyg_bla','amyg_cem']
+    # targets = ['rh_hpc','hc_tail','hc_body','hc_head','amyg_bla','amyg_cem','sgACC','rACC','A32sg','A32p','A24cd','A24rv','A14m','A11m','A13','A10m','A9m','A8m','A6m']
+    # seeds = ['rh_hc_tail','lh_hc_tail','rh_hc_body','lh_hc_body','rh_hc_head','lh_hc_head','rh_amyg_bla','lh_amyg_bla','rh_amyg_cem','lh_amyg_cem']
+    targets = bn_rois
+
+    # day2_copes = {'acq_csp_csm':6,
+    #               'ext_csp_csm':9,
+    #               'acq_ext':13,
+    #               'ext_acq':14}
     
-    day2_copes = {'acq_csp_csm':6,
-                  'ext_csp_csm':9,
-                  'acq_ext':13,
-                  'ext_acq':14}
+    day2_copes = {'CS+A':4,
+                'CS-A':5,
+                'CS+E':7,
+                'CS-E':8}
     
+
     day1_copes = {'csp':1,
                   'csm':2,
                   'csp_csm':3,
@@ -89,7 +97,8 @@ def mask_and_extract():
 
             for seed in seeds:
 
-                for phase in all_phases:
+                # for phase in all_phases:
+                for phase in mem_phases:
 
                     seed_dir = os.path.join(subj.model_dir,phase,seed,'source.feat')
 

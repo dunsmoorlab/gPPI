@@ -5,7 +5,7 @@ from surfer import Brain
 import matplotlib
 matplotlib.use('TKAgg')
 
-def bnsurf(data=None,val=None,cmap=None,min_val=None,max_val=None,tail='greater',out=None):
+def bnsurf(data=None,val=None,cmap=None,min_val=None,max_val=None,mid_val=None,tail='greater',out=None):
 
     subjects_dir = '/Users/ACH/Documents/freesurfer/subjects'
     subject_id = 'fsaverage'
@@ -14,7 +14,7 @@ def bnsurf(data=None,val=None,cmap=None,min_val=None,max_val=None,tail='greater'
 
     brain = Brain(subject_id, hemi, surf, size=(1200, 1200), background='w', subjects_dir=subjects_dir,
                   interaction='terrain', cortex='low_contrast', units='mm', title=out)
-
+    
     aparc_file = os.path.join(subjects_dir,
                               subject_id, "label",
                               hemi + 'BN_pfc.annot')
@@ -64,7 +64,7 @@ def bnsurf(data=None,val=None,cmap=None,min_val=None,max_val=None,tail='greater'
         if min_val is None: min_val = data[val].astype(float).drop_duplicates().nsmallest(2)[1]
         if max_val is None: max_val = data[val].max()
     
-        brain.add_data(vtx_data, min=min_val, max=max_val, colormap=cmap, thresh=0.00001, alpha=1)
+        brain.add_data(vtx_data, min=min_val, max=max_val, mid=mid_val, colormap=cmap, thresh=0.00001, alpha=1)
     
     elif tail == 'less':
         brain.add_data(vtx_data, data[val].min(), 0, colormap=cmap, thresh=data[val].min(), alpha=1)
@@ -74,4 +74,4 @@ def bnsurf(data=None,val=None,cmap=None,min_val=None,max_val=None,tail='greater'
     brain.show_view({'azimuth':40,'elevation':100})
 
     if out is not None:
-        brain.save_image('brainnetome_maps/%s.png'%(out))
+        brain.save_image('brainnetome_maps/%s.png'%(out),antialiased=True)
