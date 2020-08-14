@@ -250,14 +250,21 @@ for group in groups:
             stats.loc[(group,seed,cope),'p_fdr'] = pg.multicomp(list(stats.loc[(group,seed,cope),'p'].values),method='fdr_bh')[1]
 
 stats.p_mask = stats.p_fdr.apply(lambda x: 0 if x >.05 else 1)
+stats['cles_disp'] = stats.cles * stats.p_mask
 
-# for group in phase3:
-#     disp = stats.loc[phase].copy()
-#     if disp.cles_disp.max() == 0: 
-#         pass
-#     else:
-#         bnsurf(data=disp,val='cles_disp',min_val=.25,max_val=.75,mid_val=.5,cmap='RdBu',out='test/group_diff_%s'%(phase))
+cmaps = {'acquisition':'Purples',
+         'extinction':'Greens'}
+for group in groups:
+    for seed in seeds:
+        for cope in copes:
+            disp = stats.loc[group,seed,cope].copy()
+            if disp.cles_disp.max() == 0: 
+                pass
+            else:
+                bnsurf(data=disp,val='cles_disp',min_val=.1,max_val=.5,cmap='Blues_r',out='final_ish/conn_%s_%s_%s'%(group,seed,cope))
 
+
+###########Group differences in connectivity############
 stats = pd.DataFrame(columns={'w':0.0,'p':0.0,'p_fdr':0.0,'p_mask':0.0,'cles':0.0},
                      index=pd.MultiIndex.from_product([seeds,copes,targets],
                      names=['seed','cope','target'])
@@ -274,7 +281,8 @@ for seed in seeds:
             stats.loc[(seed,cope,target),['w','p','cles']] = wres[['U-val','p-val','CLES']].values
         
         stats.loc[(seed,cope),'p_fdr'] = pg.multicomp(list(stats.loc[(seed,cope),'p'].values),method='fdr_bh')[1]
-
+stats.p_mask = stats.p_fdr.apply(lambda x: 0 if x >.05 else 1)
+stats['cles_disp'] = stats.cles * stats.p_mask
 
 # stats['t_disp'] = stats.t * stats.p_mask
 
@@ -348,9 +356,14 @@ for group in groups:
 
 stats.p_mask = stats.p_fdr.apply(lambda x: 0 if x >.05 else 1)
 stats = stats.reset_index().set_index('rsa_phase').drop('baseline').reset_index().set_index(['group','seed','cope','target'])
-stats[stats.p < .05]
+stats[stats.p_mask == 1]
 
 
+
+
+
+
+#within correlations
 
 
 
@@ -373,6 +386,22 @@ for group in groups:
 stats.p_mask = stats.p_fdr.apply(lambda x: 0 if x >.05 or pd.isna(x) else 1)
 # stats = stats.reset_index().set_index('rsa_phase').drop('baseline').reset_index().set_index(['group','seed','cope','target'])
 stats[stats.p_mask == 1]
+stats['r_disp'] = stats.r * stats.p_mask
+
+#this is just a quick fix bc it doesn't like being passed a negative value
+# stats.loc[('healthy','acquisition','hc_head'),'r'] *= -1
+
+cmaps = {'acquisition':'Purples',
+         'extinction':'Greens'}
+for group in groups:
+    for phase in phase2:
+        MAX = stats.loc[(slice('healthy','ptsd'),phase),'r_disp'].max()
+        disp = stats.loc[group,phase].copy()
+        if disp.r_disp.max() == 0: 
+            pass
+        else:
+            bnsurf(data=disp,val='r_disp',min_val=.4,max_val=MAX,cmap=cmaps[phase],out='correlations/within_phase_corr_%s_%s'%(group,phase))
+
 
 
 
@@ -393,6 +422,70 @@ for group in groups:
     for phase in phase2:
         for roi in rois:
             rres = pearsonr(elrsa.loc[(group,roi),'rsa'], mdf.loc[(group,roi,phase),'rsa'])
+            stats.loc[(group,phase,roi),['r','p']] = rres
+        stats.loc[(group,phase,bn_rois),'p_fdr'] = pg.multicomp(list(stats.loc[(group,phase,bn_rois),'p'].values),method='fdr_bh')[1]
+stats.p_mask = stats.p_fdr.apply(lambda x: 0 if x >.05 or pd.isna(x) else 1)
+# stats = stats.reset_index().set_index('rsa_phase').drop('baseline').reset_index().set_index(['group','seed','cope','target'])
+stats[stats.p_mask == 1]
+
+
+
+############Extinction to acquisition similarity############
+
+eta = pd.read_csv('ext_to_acq_within_phase.csv').set_index(['condition','group','roi','subject'])
+eta = eta[eta.memory_phase == 'retrieval']
+eta = eta.drop(columns='memory_phase')
+eta = (eta.loc['CS+'] - eta.loc['CS-'])
+# eta = eta.loc['CS+']
+
+
+stats = stats = pd.DataFrame(columns={'r':0.0,'p':0.0,'p_fdr':0.0,'p_mask':0.0,'cles_disp':0.0},
+                     index=pd.MultiIndex.from_product([groups,phase2,rois],
+                     names=['group','phase','roi'])
+                     ).sort_index()
+for group in groups:
+    for phase in phase2:
+        for roi in rois:
+            rres = pearsonr(eta.loc[(group,roi),'rsa'], mdf.loc[(group,roi,phase),'rsa'])
+            stats.loc[(group,phase,roi),['r','p']] = rres
+        stats.loc[(group,phase,bn_rois),'p_fdr'] = pg.multicomp(list(stats.loc[(group,phase,bn_rois),'p'].values),method='fdr_bh')[1]
+stats.p_mask = stats.p_fdr.apply(lambda x: 0 if x >.05 or pd.isna(x) else 1)
+# stats = stats.reset_index().set_index('rsa_phase').drop('baseline').reset_index().set_index(['group','seed','cope','target'])
+stats[stats.p_mask == 1]
+stats['r_disp'] = stats.r * stats.p_mask
+
+
+cmaps = {'acquisition':'Purples',
+         'extinction':'Greens'}
+for group in groups:
+    for phase in phase2:
+        MAX = stats.loc[(slice('healthy','ptsd'),phase),'r_disp'].max()
+        disp = stats.loc[group,phase].copy()
+        if disp.cles_disp.max() == 0: 
+            pass
+        else:
+            bnsurf(data=disp,val='r_disp',min_val=.5,max_val=1,cmap=cmaps[phase],out='correlations/Ext_Acq_corr_%s_%s'%(group,phase))
+
+
+
+
+
+
+within = pd.read_csv('within_phase2_similarity.csv').set_index(['condition','phase','group','roi','subject'])
+within = within[within.memory_phase == 'encoding']
+within = within.drop(columns='memory_phase')
+within = (within.loc['CS+'] - within.loc['CS-'])
+within = (within.loc['acquisition'] - within.loc['extinction'])
+
+stats = stats = pd.DataFrame(columns={'r':0.0,'p':0.0,'p_fdr':0.0,'p_mask':0.0,'cles_disp':0.0},
+                     index=pd.MultiIndex.from_product([groups,phase2,rois],
+                     names=['group','phase','roi'])
+                     ).sort_index()
+
+for group in groups:
+    for phase in phase2:
+        for roi in rois:
+            rres = pearsonr(within.loc[(group,roi),'rsa'], mdf.loc[(group,roi,phase),'rsa'])
             stats.loc[(group,phase,roi),['r','p']] = rres
         stats.loc[(group,phase,bn_rois),'p_fdr'] = pg.multicomp(list(stats.loc[(group,phase,bn_rois),'p'].values),method='fdr_bh')[1]
 stats.p_mask = stats.p_fdr.apply(lambda x: 0 if x >.05 or pd.isna(x) else 1)

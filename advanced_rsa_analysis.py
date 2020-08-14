@@ -116,7 +116,7 @@ sns.catplot(data=ae[ae.condition=='CS+'][ae.memory_phase=='retrieval'],x='roi',y
 
 
 
-#############difference of CS+E to CS+A########################
+#############WITHIN PHASE SIMILARITY########################
 phase2 = ['acquisition','extinction']
 c = group_roi_rsa(group='control',ext_split=False,fs=True,hemi=False)
 p = group_roi_rsa(group='ptsd',ext_split=False,fs=True,hemi=False)
@@ -150,7 +150,7 @@ for group in groups:
     for phase in phase2:
         for memory_phase in memcon:
             for roi in rois:
-                wres = pg.wilcoxon(df.loc[(group,phase,memory_phase,'CS+',roi),'rsa'], df.loc[(group,phase,memory_phase,'CS-',roi),'rsa'],tail='two-sided')
+                wres = pg.wilcoxon(df.loc[(group,phase,memory_phase,'CS+',roi),'rsa'], df.loc[(group,phase,memory_phase,'CS-',roi),'rsa'],tail='greater')
                 stats.loc[(group,phase,memory_phase,roi),['w','p','cles']] = wres[['W-val','p-val','CLES']].values
             stats.loc[(group,phase,memory_phase,bn_rois),'p_fdr'] = pg.multicomp(list(stats.loc[(group,phase,memory_phase,bn_rois),'p'].values),method='fdr_bh')[1]
 stats.p = stats.p.apply(lambda x: x[0] if type(x) == list else x)
@@ -161,18 +161,19 @@ stats['p_mask'] = stats.p_fdr.apply(lambda x: 0 if x >.05 or pd.isna(x) else 1)
 
 stats['cles_disp'] = stats.cles * stats.p_mask
 
-
+stats = stats.sort_index()
 cmaps = {'acquisition':'Purples',
          'extinction':'Greens'}
 for group in groups:
     # for con in cons:
     for phase in phase2:
+        MAX = stats.loc[(slice('healthy','ptsd'),phase),'cles_disp'].max()
         for memory_phase in memcon:
             disp = stats.loc[group,phase,memory_phase].copy()
             if disp.cles_disp.max() == 0: 
                 pass
             else:
-                bnsurf(data=disp,val='cles_disp',min_val=.5,max_val=1,cmap=cmaps[phase],out='within_phase/%s_%s_%s'%(group,phase,memory_phase))
+                bnsurf(data=disp,val='cles_disp',min_val=.5,max_val=MAX,cmap=cmaps[phase],out='within_phase/%s_%s_%s'%(group,phase,memory_phase))
 
 #difference between encoding and retreival
 
@@ -202,9 +203,10 @@ for memory_phase in memcon:
     for con in cons:
         for roi in rois:
             for sub in subs:                                                
-                cdf.loc[(memory_phase,con,roi,sub_args[sub]),'rsa'] = get_square(c.mats,roi,sub_args[sub],sub,split_slices,con,'early_extinction',memory_phase,con,'late_acquisition',memory_phase)
-                pdf.loc[(memory_phase,con,roi,p_sub_args[sub]),'rsa'] = get_square(p.mats,roi,p_sub_args[sub],sub,split_slices,con,'early_extinction',memory_phase,con,'late_acquisition',memory_phase)
+                cdf.loc[(memory_phase,con,roi,sub_args[sub]),'rsa'] = get_square(c.mats,roi,sub_args[sub],sub,slice3,con,'extinction',memory_phase,con,'acquisition',memory_phase)
+                pdf.loc[(memory_phase,con,roi,p_sub_args[sub]),'rsa'] = get_square(p.mats,roi,p_sub_args[sub],sub,slice3,con,'extinction',memory_phase,con,'acquisition',memory_phase)
 df = pd.concat((cdf,pdf)).reset_index()
+df = df.set_index('subject').drop([20,120]).reset_index()
 df['group'] = df.subject.apply(lgroup)
 df = df.set_index(['condition','memory_phase','group','roi','subject'])
 # diff = (df.loc['retrieval'] - df.loc['encoding'])
@@ -233,11 +235,12 @@ stats['cles_disp'] = stats.cles * stats.p_mask
 
 for group in groups:
     for memory_phase in memcon:
+        MAX = stats.loc[(slice('healthy','ptsd'),memory_phase),'cles_disp'].max()
         disp = stats.loc[group,memory_phase].copy()
         if disp.cles_disp.max() == 0: 
             pass
         else:
-            bnsurf(data=disp,val='cles_disp',min_val=.5,max_val=1,cmap='Oranges',out='replication/late_Ext_Acq_CS_comp_%s_%s'%(group,memory_phase))
+            bnsurf(data=disp,val='cles_disp',min_val=.5,max_val=MAX,cmap='Oranges',out='replication/Ext_Acq_CS_comp_%s_%s'%(group,memory_phase))
 
 
 ####################at retrieval, where are there differences in item level reinstatement between CS+E and CS+A#####################
