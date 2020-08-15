@@ -318,7 +318,7 @@ class group_roi_rsa():
         if self.ext_split:
             for cs in self.conditions:
                 con = '%s_trial'%(self.conditions[cs])
-                for i in range(1,9): 
+                for i in range(1,8): 
                     self.df.loc[ self.df[ self.df.encode_phase == 'extinction' ][ self.df[con] == i ].index,'encode_phase' ] = 'early_extinction'
         self.df.encode_phase = pd.Categorical(self.df.encode_phase,self.encoding_phases,ordered=True)
         self.df.roi = pd.Categorical(self.df.roi,self.rois,ordered=True)
@@ -576,7 +576,7 @@ class group_roi_rsa():
     def roi_logreg(self,acc='high_confidence_accuracy'):
         logreg = LogisticRegression(solver='lbfgs')
    
-        def boot_roi_logreg(bdf,n_boot=1000):
+        def boot_roi_logreg(bdf,n_boot=10000):
             bdf = bdf.set_index('subject')
             boot_res = np.zeros(n_boot)
             for i in range(n_boot):

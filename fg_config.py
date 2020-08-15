@@ -6,6 +6,13 @@ import numpy as np
 import seaborn as sns
 
 from wesanderson import wes_palettes
+from matplotlib import rcParams
+from wesanderson import wes_palettes
+from numpy.random import RandomState
+from sklearn.linear_model import LogisticRegression
+from matplotlib.ticker import MultipleLocator
+from scipy.special import expit
+from matplotlib.patches import Patch
 
 sub_args = [1,2,3,4,5,6,7,8,9,10,12,13,14,15,16,17,18,19,20,21,23,24,25,26]
 p_sub_args = [101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117,118, 120, 121, 122, 123, 124, 125]
@@ -14,13 +21,30 @@ all_sub_args = sub_args + p_sub_args
 subjects = {'healthy':sub_args,
             'ptsd':p_sub_args,
             'all':all_sub_args}
-
+groups = ['healthy','ptsd']
+memcon = ['encoding','retrieval']
+levels = ['item','set']
+mems = ['hit','miss']
+cons = ['CS+','CS-']
+# rois = ['mOFC','dACC','amyg','hpc','ins','hc_head','hc_body','hc_tail','rh_hc_head','rh_hc_body','rh_hc_tail','lh_hc_head','lh_hc_body','lh_hc_tail','amyg_bla','amyg_cem','rh_amyg_bla','rh_amyg_cem','lh_amyg_bla','lh_amyg_cem']
+rois = ['mOFC','dACC','amyg','hpc','ins','lh_amyg','rh_amyg','lh_hpc','rh_hpc','sgACC','rACC','rSMA','rACG','hc_head','hc_body','hc_tail','rh_hc_head','rh_hc_body','rh_hc_tail','lh_hc_head','lh_hc_body','lh_hc_tail','amyg_bla','amyg_cem','rh_amyg_bla','rh_amyg_cem','lh_amyg_bla','lh_amyg_cem']  
+phases = {'baseline':24,'acquisition':24,'early_extinction':8,'extinction':16}
+# phases = {'baseline':24,'acquisition':24,'extinction':24}
+subs = range(24)
+conds = ['CSp','CSm']
 bn_rois = ['A32sg','A32p','A24cd','A24rv','A14m','A11m','A13','A10m','A9m','A8m','A6m']
 groups = ['healthy','ptsd']
 
 gpal = list((wes_palettes['Zissou'][0],wes_palettes['Royal1'][1]))
 cpal = ['darkorange','grey']
 cpoint = sns.color_palette(cpal,n_colors=2,desat=.75)
+
+sns.set_style('ticks', {'axes.spines.right':False, 'axes.spines.top':False})
+# sns.set_style({'axes.facecolor':'.9','figure.facecolor':'.9'})
+rcParams['font.family'] = 'sans-serif'
+rcParams['font.sans-serif'] = 'Arial'
+# rcParams['savefig.dpi'] = 
+
 
 WORK = '/work/05426/ach3377/lonestar/'
 HOME = '/home1/05426/ach3377/'
@@ -109,6 +133,39 @@ slice3={'CS+':{
                
                'extinction':{'encoding':slice(120,144),
                             'retrieval':slice(264,288)}}}
+
+split_slices={'CS+':{
+                 'baseline':{'encoding':slice(0,24),
+                             'retrieval':slice(144,168)},
+              
+        'early_acquisition':{'encoding':slice(24,36),
+                            'retrieval':slice(168,180)},
+
+         'late_acquisition':{'encoding':slice(36,48),
+                            'retrieval':slice(180,192)},
+
+         'early_extinction':{'encoding':slice(48,60),
+                            'retrieval':slice(192,204)},
+               
+          'late_extinction':{'encoding':slice(60,72),
+                            'retrieval':slice(204,216)}},
+        
+        'CS-':{
+                 'baseline':{'encoding':slice(72,96),
+                            'retrieval':slice(216,240)},
+              
+        'early_acquisition':{'encoding':slice(96,108),
+                            'retrieval':slice(240,252)},
+
+         'late_acquisition':{'encoding':slice(108,120),
+                            'retrieval':slice(252,264)},
+
+         'early_extinction':{'encoding':slice(120,132),
+                            'retrieval':slice(264,276)},
+               
+          'late_extinction':{'encoding':slice(132,144),
+                            'retrieval':slice(276,288)}}}
+
 
 mem_slices = {'CS+':{
                  'baseline':slice(0,24),
