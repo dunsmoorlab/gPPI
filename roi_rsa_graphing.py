@@ -5,8 +5,8 @@ from fg_config import *
 # sns.set_style({'axes.facecolor':'.9','figure.facecolor':'.9'})
 sns.set_style({'axes.facecolor':'1','figure.facecolor':'1'})
 idx = pd.IndexSlice
-c = group_roi_rsa(group='control',ext_split=True,fs=True,hemi=False)
-p = group_roi_rsa(group='ptsd',ext_split=True,fs=True,hemi=False)
+c = group_roi_rsa(group='control',ext_split=False,fs=True,hemi=False)
+p = group_roi_rsa(group='ptsd',ext_split=False,fs=True,hemi=False)
 
 cdf = c.df.groupby(['trial_type','encode_phase','roi','subject']).mean()
 cdf = (cdf.loc['CS+'] - cdf.loc['CS-']).reset_index()

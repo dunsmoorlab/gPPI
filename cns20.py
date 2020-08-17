@@ -1,7 +1,7 @@
 from fg_config import *
 from roi_rsa import *
-c = group_roi_rsa(group='control',ext_split=True,fs=True,hemi=False)
-p = group_roi_rsa(group='ptsd',ext_split=True,fs=True,hemi=False)
+c = group_roi_rsa(group='control',ext_split=False,fs=True,hemi=False)
+p = group_roi_rsa(group='ptsd',ext_split=False,fs=True,hemi=False)
 
 groups = ['control','ptsd']
 memcon = ['encoding','retrieval']
@@ -23,7 +23,7 @@ pdf = p.df.groupby(['trial_type','encode_phase','roi','subject']).mean()
 ers_pvals = pd.DataFrame(index=pd.MultiIndex.from_product([groups,rois,phases,levels]))
 for roi in rois:
     for phase in phases:
-        ers_pvals.loc[('control',roi,phase,'item'),'W'] = pg.wilcoxon(cdf.loc[('CS+',phase,roi),'rsa'], cdf.loc[('CS-',phase,roi),'rsa'])['p-val'].values
+        ers_pvals.loc[('control',roi,phase,'item'),'W'] = pg.wilcoxon(cdf.loc[('CS+',phase,roi),'rsa'], cdf.loc[('CS-',phase,roi),'rsa'],tail=)['p-val'].values
         ers_pvals.loc[('ptsd',roi,phase,'item'),'W'] = pg.wilcoxon(pdf.loc[('CS+',phase,roi),'rsa'], pdf.loc[('CS-',phase,roi),'rsa'])['p-val'].values
 
 mdf = pd.concat((cdf,pdf))
@@ -320,13 +320,7 @@ pg.mixed_anova(data=adf,subject='subject',dv='rsa',within=['roi','US'],between=[
 
 
 ########false alarms#######
-def roi_rename(x):
-    if x == 'sgACC':
-        return 'vmPFC'
-    elif x == 'rACC':
-        return 'dACC'
-    else:
-        return x
+
 
 cf = pd.DataFrame(index=pd.MultiIndex.from_product([cons,rois,phases,sub_args],names=['condition','roi','encode_phase','subject']))
 pf = pd.DataFrame(index=pd.MultiIndex.from_product([cons,rois,phases,p_sub_args],names=['condition','roi','encode_phase','subject']))

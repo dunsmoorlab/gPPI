@@ -5,7 +5,7 @@ from matplotlib.ticker import MultipleLocator, ScalarFormatter
 
 sns.set_context('talk')
 sns.set_style('ticks', {'axes.spines.right':False, 'axes.spines.top':False})
-sns.set_style({'axes.facecolor':'.9','figure.facecolor':'.9'})
+sns.set_style({'axes.facecolor':'1','figure.facecolor':'1'})
 
 def change_width(ax, new_value):
     for patch in ax.patches:
@@ -73,7 +73,7 @@ def cscomp_simp(group,df,rois,phases=None):
     # plt.savefig('./plots/group_comp_%s.eps'%(split),format='eps')
     # plt.close()
 
-def cscomp(group,df,rois,n_boot=1000,phases=None):
+def cscomp(group,df,rois,statsdf,n_boot=10000,phases=None):
     df = df.loc[group]
     out = {}
     for val in ['ci','dist']: out[val] = {}
@@ -109,27 +109,34 @@ def cscomp(group,df,rois,n_boot=1000,phases=None):
     ci = ci.sort_values(by='encode_phase')
     dist = dist.set_index('roi').sort_index()
 
-    pvals = pd.DataFrame(columns=['p'],index=pd.MultiIndex.from_product([rois,phases],names = ['roi','encode_phase']))
-    for roi in rois:
-        for phase in phases:
-            pvals.loc[(roi,phase),'p'] = pg.ttest(df.loc[(roi,phase),'rsa'].values,0)['p-val'].values[0]
-    pvals['corrp'] = pg.multicomp(list(pvals.p.values),method='fdr_bh')[1]
-    pvals['sig'] = pvals.corrp.apply(pconvert)
+    pvals = statsdf.loc[group]
+    pvals['sig'] = pvals.p.apply(pconvert)
 
     ymax = dist.dist.max() + .05
     ymin = dist.dist.min() - .05
 
-    phase_pal = sns.color_palette(['black','darkmagenta','lightgreen','seagreen'],desat=.75)
-    fig, ax = plt.subplots(1,len(rois),sharey=True,figsize=(6.5,5))
+    # phase_pal = sns.color_palette(['black','darkmagenta','lightgreen','seagreen'],desat=.75)
+    fig, ax = plt.subplots(1,len(rois),sharey=False,figsize=(len(rois)*5,8))
     for i, roi in enumerate(rois):
         if len(rois) == 1: Ax = ax
         else: Ax = ax[i]
         dat = df.loc[roi].reset_index()
         
-    
+
+        pal_colors = ['darkgrey','darkmagenta','seagreen']
+        stable_pal = ['black','darkmagenta','seagreen']
+
+        # point_colors = ['white','white','white']
+        for pi, pval in enumerate(pvals.loc[roi,'sig'].values):
+            if pval == '': pal_colors[pi] = 'white'
+
+        phase_pal = sns.color_palette(pal_colors,desat=.75)
+
         #dist violins
         sns.violinplot(data=dist.loc[roi],x='encode_phase',y='dist',
-                        inner=None,ax=Ax,scale='count',palette=phase_pal)
+                        inner=None,ax=Ax,scale='count',palette=phase_pal,saturation=1)
+        
+        for viol in Ax.collections: viol.set_edgecolor('black')
         
         # sns.barplot(data=dat,x='encode_phase',y='rsa',hue='encode_phase',palette=phase_pal,ax=Ax,
                     # order=phases,seed=42,errcolor='black')
@@ -149,28 +156,40 @@ def cscomp(group,df,rois,n_boot=1000,phases=None):
         Y = ci.loc[roi,'point']
 
 
-        Ax.vlines(X,lower,upper,linewidth=3,color='white').set_capstyle('round')
-        Ax.scatter(X,Y,s=50,color='white')
-        Ax.hlines(0,Ax.get_xlim()[0],Ax.get_xlim()[1],color='grey',linestyle='--',linewidth=3)
-        Ax.set_xticklabels('',rotation=45)
-        Ax.set_title(group+'_'+roi)
+        Ax.vlines(X,lower,upper,linewidth=3,color='black').set_capstyle('round')
+        Ax.scatter(X,Y,s=50,color='black')
+        Ax.hlines(0,Ax.get_xlim()[0],Ax.get_xlim()[1],color='black',linestyle=':',linewidth=3)
+
+
+        Ax.set_xticklabels(['Baseline','Acquisition','Extinction'],rotation=45,ha='center',fontsize=20)
+        for labeli, t in enumerate(Ax.xaxis.get_ticklabels()): t.set_color(stable_pal[labeli])
+        Ax.set_xlabel('')
+
+
+        Ax.set_title(roi,fontsize=30)
         # Ax.legend_.remove()
 
-        # Ax.set_ylim(ymin,ymax)            
-        Ax.yaxis.set_major_locator(MultipleLocator(.1))
-        Ax.yaxis.set_minor_locator(MultipleLocator(.05))
+        Ax.set_ylim(ymin,ymax)            
+        # Ax.yaxis.set_major_locator(MultipleLocator(.1))
+        # Ax.yaxis.set_minor_locator(MultipleLocator(.05))
         
-        sns.despine(ax=Ax,trim=True)
 
-        for i, x in enumerate(X): Ax.annotate(pvals.loc[roi,'sig'].values[i], xy=(x-.05,Ax.get_ylim()[1]-.1))
+        # for j, x in enumerate(X): Ax.annotate(pvals.loc[roi,'sig'].values[j], xy=(x-.05,Ax.get_ylim()[1]-.1))
 
 
     if len(rois) > 1:
         ax[0].set_ylabel('∆ fisher z(r)')
         ax[1].set_ylabel('')
+        sns.despine(ax=ax[1],left=True)
+        # ax[1].set_ylim(ax[0].get_ylim()[0],ax[0].get_ylim()[1])
+        ax[1].set_yticks([])
+
+
     else:
         ax.set_ylabel('∆ fisher z(r)')
         ax.set_ylabel('')
+
+    plt.tight_layout()
 
 def split_level(df,group,rois=['rSMA','sgACC'],phases=None,split=None):
     if split == 'level':

@@ -218,15 +218,16 @@ for group in ['healthy','ptsd']:
 '''CONNECTIVITY'''
 seeds = ['hc_tail','hc_body','hc_head','amyg_bla','amyg_cem']
 # seeds = ['rh_hc_tail','lh_hc_tail','rh_hc_body','lh_hc_body','rh_hc_head','lh_hc_head','rh_amyg_bla','lh_amyg_bla','rh_amyg_cem','lh_amyg_cem']
-targets = bn_rois
+# targets = bn_rois
+targets = ['rACC','sgACC']
 copes = {'ext_acq':     ['CS+E','CS+A'],
          'ext_csp_csm': ['CS+E','CS-E'],
          'acq_csp_csm': ['CS+A','CS-A']}
 
 
-df = pd.read_csv('extracted_mem_gPPI.csv'
+df = pd.read_csv('extracted_mem_apriori_gPPI.csv')
 # df = pd.read_csv('extracted_hemi_mem_gPPI.csv'
-    ).set_index('subject').drop([20,120]).reset_index()
+    # ).set_index('subject').drop([20,120]).reset_index()
 
 df['group'] = df.subject.apply(lgroup)
 df = df.set_index(['cope','group','seed','target','subject'])
@@ -309,16 +310,20 @@ stats['cles_disp'] = stats.cles * stats.p_mask
 
 '''Relating connectivity to RSA'''
 # conn = pd.read_csv('extracted_mem_gPPI.csv'
-df = pd.read_csv('extracted_mem_gPPI.csv'
-    ).set_index('subject').drop([20,120]).reset_index()
+df = pd.read_csv('extracted_mem_apriori_gPPI.csv')
+    # ).set_index('subject').drop([20,120]).reset_index()
 df['group'] = df.subject.apply(lgroup)
 df = df.set_index(['cope','group','seed','target','subject']).sort_index()
 
 conn = (df.loc['CS+E'] - df.loc['CS-E']).rename(columns={'conn':'ext_csp_csm'})
 conn['acq_csp_csm'] = (df.loc['CS+A'] - df.loc['CS-E'])
 conn['ext_acq'] = (df.loc['CS+E'] - df.loc['CS+A'])
+conn['ext_bsl'] = (df.loc['CS+E'] - df.loc['CS+B'])
+conn['acq_bsl'] = (df.loc['CS+A'] - df.loc['CS+B'])
+
+
 conn = conn.reset_index().melt(id_vars=['group','seed','target','subject'],
-                        value_vars=['ext_csp_csm', 'acq_csp_csm','ext_acq'],
+                        value_vars=['ext_csp_csm', 'acq_csp_csm','ext_acq','ext_bsl','acq_bsl'],
                         value_name='conn',var_name='cope')
 conn = conn.set_index(['group','seed','cope','target','subject']).sort_index()
 
@@ -326,12 +331,14 @@ conn = conn.set_index(['group','seed','cope','target','subject']).sort_index()
 c = group_roi_rsa(group='control',ext_split=False,fs=True,hemi=False)
 p = group_roi_rsa(group='ptsd',ext_split=False,fs=True,hemi=False)
 
-cdf = c.df.groupby(['trial_type','encode_phase','roi','subject']).mean()
-pdf = p.df.groupby(['trial_type','encode_phase','roi','subject']).mean()
+cdf = c.df.dropna(subset=['response'])
+pdf = p.df.dropna(subset=['response'])
+cdf = cdf.groupby(['trial_type','encode_phase','roi','subject']).mean()
+pdf = pdf.groupby(['trial_type','encode_phase','roi','subject']).mean()
+
 mdf = pd.concat((cdf,pdf))
 mdf = (mdf.loc['CS+'] - mdf.loc['CS-']).reset_index()
 
-mdf = mdf.set_index('subject').drop([20,120]).reset_index()
 mdf = mdf.drop(columns=['low_confidence_accuracy','high_confidence_accuracy','CSp_trial','CSm_trial'])
 mdf['group'] = mdf.subject.apply(lgroup)
 
@@ -345,7 +352,7 @@ for group in groups:
     for seed in seeds:
         for cope in copes:
             for phase in phase3:
-                for target in bn_rois:
+                for target in targets:
                     # rres = pg.corr(conn.loc[(group,seed,cope,target),'conn'], mdf.loc[(group,target,phase),'rsa'])
                     # stats.loc[(group,seed,cope,phase,target),['r','p']] = rres[['r','p-val']].values
 

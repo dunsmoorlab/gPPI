@@ -55,17 +55,19 @@ def mask_and_extract():
     seeds = ['hc_tail','hc_body','hc_head','amyg_bla','amyg_cem']
     # targets = ['rh_hpc','hc_tail','hc_body','hc_head','amyg_bla','amyg_cem','sgACC','rACC','A32sg','A32p','A24cd','A24rv','A14m','A11m','A13','A10m','A9m','A8m','A6m']
     # seeds = ['rh_hc_tail','lh_hc_tail','rh_hc_body','lh_hc_body','rh_hc_head','lh_hc_head','rh_amyg_bla','lh_amyg_bla','rh_amyg_cem','lh_amyg_cem']
-    targets = bn_rois
+    targets = ['rACC','sgACC']
 
     # day2_copes = {'acq_csp_csm':6,
     #               'ext_csp_csm':9,
     #               'acq_ext':13,
     #               'ext_acq':14}
     
-    day2_copes = {'CS+A':4,
-                'CS-A':5,
-                'CS+E':7,
-                'CS-E':8}
+    day2_copes = {'CS+B':1,
+                  'CS-B':2,
+                  'CS+A':4,
+                  'CS-A':5,
+                  'CS+E':7,
+                  'CS-E':8}
     
 
     day1_copes = {'csp':1,
@@ -80,6 +82,9 @@ def mask_and_extract():
 
     mem_df = pd.DataFrame(columns=['conn'], index=pd.MultiIndex.from_product([seeds,day2_copes,targets,all_sub_args,mem_phases], names=['seed','cope','target','subject','phase']))
     encode_df = pd.DataFrame(columns=['conn'], index=pd.MultiIndex.from_product([seeds,day1_copes,targets,all_sub_args,encode_phases], names=['seed','cope','target','subject','phase']))
+
+    mem_df = mem_df.sort_index()
+    encode_df = encode_df.sort_index()
 
     for sub in all_sub_args:
         subj = bids_meta(sub)
@@ -110,7 +115,7 @@ def mask_and_extract():
                         df = encode_df
                     
                     for cope in copes:
-
+                        print(cope)
                         cope_data = get_data(os.path.join(seed_dir,'stats','cope%s.nii.gz'%(copes[cope])))
 
                         extracted = apply_mask(mask=mask_dat,target=cope_data)
@@ -120,7 +125,7 @@ def mask_and_extract():
     mem_df = mem_df.reset_index()
     mem_df.conn = mem_df.conn.astype(float)
     mem_df = mem_df.groupby(['seed','cope','target','subject']).mean().reset_index()
-    mem_df.to_csv('extracted_mem_gPPI.csv',index=False)
+    mem_df.to_csv('extracted_mem_apriori_gPPI.csv',index=False)
 
     encode_df = encode_df.reset_index()
     encode_df.conn = encode_df.conn.astype(float)

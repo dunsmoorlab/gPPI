@@ -121,10 +121,10 @@ phase2 = ['acquisition','extinction']
 c = group_roi_rsa(group='control',ext_split=False,fs=True,hemi=False)
 p = group_roi_rsa(group='ptsd',ext_split=False,fs=True,hemi=False)
 
-cdf = pd.DataFrame(index=pd.MultiIndex.from_product([phase2,memcon,cons,bn_rois,sub_args],names=['phase','memory_phase','condition','roi','subject']))
-pdf = pd.DataFrame(index=pd.MultiIndex.from_product([phase2,memcon,cons,bn_rois,p_sub_args],names=['phase','memory_phase','condition','roi','subject']))
+cdf = pd.DataFrame(index=pd.MultiIndex.from_product([phase3,memcon,cons,bn_rois,sub_args],names=['phase','memory_phase','condition','roi','subject']))
+pdf = pd.DataFrame(index=pd.MultiIndex.from_product([phase3,memcon,cons,bn_rois,p_sub_args],names=['phase','memory_phase','condition','roi','subject']))
 
-for phase in phase2:
+for phase in phase3:
     for memory_phase in memcon:
         for con in cons:
             for roi in rois:
@@ -142,12 +142,12 @@ df = df.set_index(['group','phase','memory_phase','condition','roi','subject'])
 
 contrasts = ['encoding','retrieval','ER']
 stats = pd.DataFrame(columns=['w','p','cles','p_fdr'],
-                     index=pd.MultiIndex.from_product([groups,phase2,memcon,bn_rois],
+                     index=pd.MultiIndex.from_product([groups,phase3,memcon,bn_rois],
                      names=['group','phase','memory_phase','roi']))
 
 for group in groups:
     # for con in cons:
-    for phase in phase2:
+    for phase in phase3:
         for memory_phase in memcon:
             for roi in rois:
                 wres = pg.wilcoxon(df.loc[(group,phase,memory_phase,'CS+',roi),'rsa'], df.loc[(group,phase,memory_phase,'CS-',roi),'rsa'],tail='greater')

@@ -43,8 +43,8 @@ sns.set_style('ticks', {'axes.spines.right':False, 'axes.spines.top':False})
 # sns.set_style({'axes.facecolor':'.9','figure.facecolor':'.9'})
 rcParams['font.family'] = 'sans-serif'
 rcParams['font.sans-serif'] = 'Arial'
-# rcParams['savefig.dpi'] = 
-
+rcParams['savefig.dpi'] = 300
+rcParams['axes.titlepad'] = 30
 
 WORK = '/work/05426/ach3377/lonestar/'
 HOME = '/home1/05426/ach3377/'
@@ -57,7 +57,13 @@ def mkdir(path,local=False):
 def lgroup(x):
     if x > 100: return 'ptsd'
     else: return 'healthy'
-
+def pfc_rename(x):
+    if x == 'sgACC':
+        return 'vmPFC'
+    elif x == 'rACC':
+        return 'dACC'
+    else:
+        return x
 #these are BIDS-app made
 bids_dir = os.path.join(SCRATCH,'fc-bids')
 deriv    = os.path.join(bids_dir, 'derivatives')
