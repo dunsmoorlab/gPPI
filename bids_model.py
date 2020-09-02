@@ -382,7 +382,7 @@ class gPPI():
 # for roi in ['rh_hpc','hc_tail','hc_body','hc_head','amyg_bla','amyg_cem']:
 #     autofill_fsf(group=False,template='gPPI/mem_encode_lvl2_gPPI',ses=2,name='mem_encode_lvl2_gPPI',roi=roi)
 
-def autofill_fsf(group=False,template='',ses=None,name=None,roi=None):
+def autofill_fsf(group=False,template='',ses=None,name=None,roi=None,run=None):
     if 'template' in template: outstr = re.search('template_(.*)',template)[1]
     elif roi is not None:
         outstr = roi+'_'+name
