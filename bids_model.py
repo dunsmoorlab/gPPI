@@ -388,6 +388,8 @@ def autofill_fsf(group=False,template='',ses=None,name=None,roi=None,run=None):
         outstr = roi+'_'+name
     else:
         outstr = name
+    if run is not None:
+        outstr = name
     if group:
         if roi is not None: replacements = {'ROI':roi}
         if ses == 'mem':
