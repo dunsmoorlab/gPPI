@@ -421,6 +421,7 @@ def autofill_fsf(group=False,template='',ses=None,name=None,roi=None,run=None):
             subj = bids_meta(sub)
             replacements = {'SUBID':subj.fsub}
             if roi is not None: replacements['ROI'] = roi
+            if run is not None: replacements['RUNID'] = run
             #need to handle the special cases where the TR is longer
             if ses == 1 and sub in [105,106]:
                 replacements['TR_length'] = '2.23'
