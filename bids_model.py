@@ -454,6 +454,9 @@ def wrap_lss_jobs():
     for job in ['acquisition','extinction','baseline']:
         os.system('launch -N 1 -n 12 -J %s -s jobs/%s_rsa_job.txt -m achennings@utexas.edu -p normal -r 12:00:00')
 
+    for job in [1,2,3]:
+        os.system('launch -N 1 -n 24 -J %s -s jobs/memory_run-0%s_rsa_job.txt -m achennings@utexas.edu -p normal -r 2:00:00 -A LewPea_MRI_Analysis'%(job,job))
+
     #submit a bunch of jobs at once
     for job in range(28):
         os.system('launch -N 1 -n 12 -J flss_%s -s jobs/final_lss_job_%s.txt -m achennings@utexas.edu -p normal -r 12:00:00 -A LewPea_MRI_Analysis'%(job,job))

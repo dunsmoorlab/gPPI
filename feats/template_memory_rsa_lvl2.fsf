@@ -30,7 +30,7 @@ set fmri(featwatcher_yn) 0
 set fmri(sscleanup_yn) 0
 
 # Output directory
-set fmri(outputdir) "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC001/feats/memory_rsa_lvl2"
+set fmri(outputdir) "/scratch/05426/ach3377/fc-bids/derivatives/model/SUBID/feats/memory_rsa_lvl2"
 
 # TR(s)
 set fmri(tr) 3
@@ -293,13 +293,13 @@ set fmri(copeinput.7) 1
 set fmri(copeinput.8) 1
 
 # 4D AVW data or FEAT directory (1)
-set feat_files(1) "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC001/memory_run-01/rsa_model.feat"
+set feat_files(1) "/scratch/05426/ach3377/fc-bids/derivatives/model/SUBID/memory_run-01/rsa_model.feat"
 
 # 4D AVW data or FEAT directory (2)
-set feat_files(2) "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC001/memory_run-02/rsa_model.feat"
+set feat_files(2) "/scratch/05426/ach3377/fc-bids/derivatives/model/SUBID/memory_run-02/rsa_model.feat"
 
 # 4D AVW data or FEAT directory (3)
-set feat_files(3) "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC001/memory_run-03/rsa_model.feat"
+set feat_files(3) "/scratch/05426/ach3377/fc-bids/derivatives/model/SUBID/memory_run-03/rsa_model.feat"
 
 # Add confound EVs text file
 set fmri(confoundevs) 0
