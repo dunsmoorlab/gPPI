@@ -51,7 +51,17 @@ class roi_rsa():
                           'acquisition':slice(96,120),                     
                            'extinction':slice(120,144)}
                            }
-
+        self.w_mem_slices = {'CS+':{
+                             'baseline':slice(0,24),
+                          'acquisition':slice(24,48),                     
+                           'extinction':slice(48,72)
+                                 'foil':slice(72,120)},
+                            'CS-':{
+                             'baseline':slice(120,144),
+                          'acquisition':slice(144,168),                     
+                           'extinction':slice(168,192),
+                                 'foil':slice(192,240)}
+                           }
         
         #hardcode rois for now
         #if self.fs: self.rois = ['mOFC','dACC','amyg_cem','amyg_bla','hc_head','hc_body','hc_tail'] 
@@ -270,6 +280,7 @@ class roi_rsa():
                 W_mem[phase] = {}
                 for con in self.conditions:
                     W_mem[phase][con] = self.apply_mask(roi,self.W_mem[phase][con])
+                    mem_data[self.w_mem_slices[con][phase]] = mem_data[self.w_mem_slices[con][phase]] * W_mem[phase][con]
 
             mem_mat = np.arctanh(np.corrcoef(mem_data))
             mem_mat[np.eye(mem_mat.shape[0],dtype=bool)] = 0
@@ -277,6 +288,9 @@ class roi_rsa():
 
         with open(os.path.join(self.subj.rsa,'mem_mats.p'),'wb') as file:
                     pickle.dump(self.mem_mats,file)
+
+        self.all_mem_labels.loc[mem_reorder].reset_index(
+            ).to_csv(os.path.join(self.subj.rsa,'reordered_mem_labels.csv'),index=False)
 
 class group_roi_rsa():
 
