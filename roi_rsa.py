@@ -269,7 +269,7 @@ class roi_rsa():
             for phase in self.mem_weight_phases:
                 W_mem[phase] = {}
                 for con in self.conditions:
-                    W_mem[phase][con] self.apply_mask(roi,self.W_mem[phase][con])
+                    W_mem[phase][con] = self.apply_mask(roi,self.W_mem[phase][con])
 
             mem_mat = np.arctanh(np.corrcoef(mem_data))
             mem_mat[np.eye(mem_mat.shape[0],dtype=bool)] = 0
