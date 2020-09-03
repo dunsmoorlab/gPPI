@@ -499,14 +499,30 @@ def clean_bad_lss():
         os.system('echo "feat %s/%s.fsf" >> jobs/bad_lss_job.txt'%(beta,trial))
 
 def wrangle_first_level_rsa():
+    mem_weights = { 1:'mem_baseline_CSp.nii.gz',
+                    2:'mem_baseline_CSm.nii.gz',
+                    3:'mem_acquisition_CSp.nii.gz',
+                    4:'mem_acquisition_CSm.nii.gz',
+                    5:'mem_extinction_CSp.nii.gz',
+                    6:'mem_extinction_CSm.nii.gz',
+                    7:'mem_foil_CSp.nii.gz',
+                    8:'mem_foil_CSm.nii.gz'}
+
     for sub in all_sub_args:
         subj = bids_meta(sub)
-        for phase in ['baseline','acquisition','extinction']:
-            csp_cope = os.path.join(subj.model_dir,phase,'rsa_model.feat','stats','cope1.nii.gz')
-            csm_cope = os.path.join(subj.model_dir,phase,'rsa_model.feat','stats','cope2.nii.gz')
+        print(sub)
+        # for phase in ['baseline','acquisition','extinction']:
+        #     csp_cope = os.path.join(subj.model_dir,phase,'rsa_model.feat','stats','cope1.nii.gz')
+        #     csm_cope = os.path.join(subj.model_dir,phase,'rsa_model.feat','stats','cope2.nii.gz')
 
-            os.system('cp %s %s'%(csp_cope,os.path.join(subj.weights,'%s_CSp.nii.gz'%(phase))))
-            os.system('cp %s %s'%(csm_cope,os.path.join(subj.weights,'%s_CSm.nii.gz'%(phase))))
+        #     os.system('cp %s %s'%(csp_cope,os.path.join(subj.weights,'%s_CSp.nii.gz'%(phase))))
+        #     os.system('cp %s %s'%(csm_cope,os.path.join(subj.weights,'%s_CSm.nii.gz'%(phase))))
+
+        for cope in mem_weights:
+            in_file = os.path.join(subj.model_dir,'feats','memory_rsa_lvl2.gfeat',f'cope{cope}.feat','stats','cope1.nii.gz')
+            out_file = os.path.join(subj.weights,mem_weights[cope])
+
+            os.system(f'cp {in_file} {out_file}')
 
 def prep_lvl2():
     import os

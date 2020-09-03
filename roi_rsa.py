@@ -29,6 +29,7 @@ class roi_rsa():
         self.hemi = hemi
         #set the phases
         self.encoding_phases = ['baseline','acquisition','extinction']
+        self.mem_weight_phases = ['baseline','acquisition','extinction','foil']
         self.mem_phases = ['memory_run-01','memory_run-02','memory_run-03']
         self.phases = self.encoding_phases + self.mem_phases
         
@@ -66,9 +67,9 @@ class roi_rsa():
         
         #data needs to be loaded WITHOUT mask to facilitate more intricate analyses
         self.load_data() 
-        self.compute_item_rsa()
-        self.compute_cross_rsa()
-        self.compute_mem_mats()
+        # self.compute_item_rsa()
+        # self.compute_cross_rsa()
+        # self.compute_mem_mats()
 
     def load_data(self):
             
@@ -78,6 +79,7 @@ class roi_rsa():
 
         #ls-u style beta weights
         self.W = OrderedDict()
+        self.W_mem = OrderedDict()
         
         #retrieva data & labels
         self.mem_data = OrderedDict()
@@ -115,6 +117,12 @@ class roi_rsa():
                 self.mem_labels[phase] = events
                 self.mem_data[phase] = beta_img
         
+        #load mem weights
+        for phase in self.mem_weight_phases:
+            self.W_mem[phase] = OrderedDict()
+            for con in self.conditions:
+                self.W_mem[phase][con] = get_data(os.path.join(self.subj.weights,f'mem_{phase}_{self.conditions[con]}.nii.gz'))
+
         #get 1 dataframe & image for encoding
         self.encoding_labels = pd.concat(self.encoding_labels.values(),sort=False)
         self.encoding_labels.reset_index(inplace=True,drop=True) #need this bc phase events are all numbered the same
@@ -251,13 +259,17 @@ class roi_rsa():
 
     def compute_mem_mats(self):
         self.mem_mats = {}
-        mem_phase4 = ['baseline','acquisition','extinction','foil']
-        self.all_mem_labels.encode_phase = pd.Categorical(self.all_mem_labels.encode_phase,mem_phase4,ordered=True)
+        self.all_mem_labels.encode_phase = pd.Categorical(self.all_mem_labels.encode_phase,self.mem_weight_phases,ordered=True)
         mem_reorder = list(self.all_mem_labels.sort_values(by=['trial_type','encode_phase']).index)
         for roi in self.rois:
             print(roi)
 
             mem_data = self.apply_mask(roi,self.all_mem_data)[mem_reorder]
+            W_mem = {}
+            for phase in self.mem_weight_phases:
+                W_mem[phase] = {}
+                for con in self.conditions:
+                    W_mem[phase][con] self.apply_mask(roi,self.W_mem[phase][con])
 
             mem_mat = np.arctanh(np.corrcoef(mem_data))
             mem_mat[np.eye(mem_mat.shape[0],dtype=bool)] = 0
