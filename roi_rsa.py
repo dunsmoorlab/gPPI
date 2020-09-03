@@ -808,3 +808,5 @@ def copy_out():
         os.system('cp -R %s %s'%(subj.rsa,sub_out))
     q = glob('/scratch/05426/ach3377/rsa_results/sub-FC***/sl_er.p')
     for i in q: os.system('rm %s'%(i))
+
+#scp -r ach3377@ls5.tacc.utexas.edu:"/scratch/05426/ach3377/rsa_results" "/mnt/c/Users/ACH/Desktop"

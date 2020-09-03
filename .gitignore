@@ -5,3 +5,4 @@ rsa_results/
 *.sublime-workspace
 *.sublime-project
 group_gPPI_out/
+backup*
