@@ -54,7 +54,7 @@ class roi_rsa():
         self.w_mem_slices = {'CS+':{
                              'baseline':slice(0,24),
                           'acquisition':slice(24,48),                     
-                           'extinction':slice(48,72)
+                           'extinction':slice(48,72),
                                  'foil':slice(72,120)},
                             'CS-':{
                              'baseline':slice(120,144),
@@ -79,7 +79,7 @@ class roi_rsa():
         self.load_data() 
         # self.compute_item_rsa()
         # self.compute_cross_rsa()
-        # self.compute_mem_mats()
+        self.compute_mem_mats()
 
     def load_data(self):
             
