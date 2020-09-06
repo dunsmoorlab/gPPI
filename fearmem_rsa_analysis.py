@@ -129,3 +129,10 @@ def sm_glm_events(sub):
             #and the foils
             mem_phase_dat.loc[('foil',con),['onset','duration','PM']].to_csv( os.path.join(mem_phase_dir, f'foil_{con}.txt'),
                         sep='\t', float_format='%.8e', index=False, header=False)
+
+def copy_sm_events(sub):
+    subj = bids_meta(sub)
+    for run in [1,2,3]:
+        in_folder = f'sm_events/{subj.fsub}/memory_run-0{run}'
+        out_folder = os.path.join(subj.model_dir,f'memory_run-0{run}','sm_events')
+        os.system(f'cp -r {in_folder} {out_folder}')

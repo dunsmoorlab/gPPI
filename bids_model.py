@@ -382,7 +382,7 @@ class gPPI():
 # for roi in ['rh_hpc','hc_tail','hc_body','hc_head','amyg_bla','amyg_cem']:
 #     autofill_fsf(group=False,template='gPPI/mem_encode_lvl2_gPPI',ses=2,name='mem_encode_lvl2_gPPI',roi=roi)
 
-def autofill_fsf(group=False,template='',ses=None,name=None,roi=None,run=None):
+def autofill_fsf(group=False,template='',ses=None,name=None,roi=None,run=None,subjects=all_sub_args):
     if 'template' in template: outstr = re.search('template_(.*)',template)[1]
     elif roi is not None:
         outstr = roi+'_'+name
@@ -419,7 +419,7 @@ def autofill_fsf(group=False,template='',ses=None,name=None,roi=None,run=None):
                 os.system('echo "feat %s" >> jobs/%s_job.txt'%(outfeat,name))
 
     else:
-        for sub in all_sub_args:
+        for sub in subjects:
             subj = bids_meta(sub)
             replacements = {'SUBID':subj.fsub}
             if roi is not None: replacements['ROI'] = roi
