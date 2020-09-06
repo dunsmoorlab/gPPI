@@ -17,6 +17,8 @@ from matplotlib.patches import Patch
 sub_args = [1,2,3,4,5,6,7,8,9,10,12,13,14,15,16,17,18,19,20,21,23,24,25,26]
 p_sub_args = [101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117,118, 120, 121, 122, 123, 124, 125]
 all_sub_args = sub_args + p_sub_args
+smt_sub_args = [2,3,4,5,6,7,8,9,10,12,13,14,15,16,17,18,19,20,21,101,102,103,104,105,106,107,108,109,110,111,112,113,114,116,117,118,120]
+xcl_sub_args = [2,3,4,5,6,7,8,9,10,12,13,14,15,16,17,19,21,101,102,103,104,105,106,107,108,109,110,111,112,113,114,116,117,118]
 
 subjects = {'healthy':sub_args,
             'ptsd':p_sub_args,
@@ -178,9 +180,7 @@ mem_slices = {'CS+':{
               
               'acquisition':slice(24,48),
 
-         'early_extinction':slice(48,56),
-               
-               'extinction':slice(56,72),
+                'extinction':slice(48,72),
 
                      'foil':slice(72,120)},
 
@@ -189,9 +189,7 @@ mem_slices = {'CS+':{
               
               'acquisition':slice(144,168),
 
-         'early_extinction':slice(168,176),
-               
-               'extinction':slice(176,192),
+               'extinction':slice(168,192),
 
                      'foil':slice(192,240)}}
 

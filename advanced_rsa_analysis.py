@@ -13,7 +13,7 @@ p = group_roi_rsa(group='ptsd',ext_split=False,fs=True,hemi=False)
 
 el = ['early','late']
 seeds = ['hc_tail', 'hc_body', 'hc_head', 'amyg_bla', 'amyg_cem']
-rois = bn_rois + seeds
+rois = bn_rois + seeds + ['rACC','sgACC']
 
 cae = pd.DataFrame(index=pd.MultiIndex.from_product([memcon,el,cons,rois,sub_args],names=['memory_phase','el','condition','roi','subject']))
 pae = pd.DataFrame(index=pd.MultiIndex.from_product([memcon,el,cons,rois,p_sub_args],names=['memory_phase','el','condition','roi','subject']))
@@ -29,11 +29,11 @@ ae = pd.concat((cae,pae)).reset_index()
 ae['group'] = ae.subject.apply(lgroup)
 
 
-ae = ae.set_index('subject').drop([20,120]).reset_index()
+# ae = ae.set_index('subject').drop([20,120]).reset_index()
         # ).set_index(['group','roi','memory_phase','subject']).sort_index()
 
-sns.catplot(data=ae[ae.condition=='CS+'][ae.memory_phase=='encoding'],x='roi',y='rsa',hue='el',row='group',kind='bar')
-sns.catplot(data=ae[ae.condition=='CS+'][ae.memory_phase=='retrieval'],x='roi',y='rsa',hue='el',row='group',kind='bar')
+sns.catplot(data=ae[ae.condition=='CS-'][ae.memory_phase=='encoding'],x='roi',y='rsa',hue='el',row='group',kind='bar')
+sns.catplot(data=ae[ae.condition=='CS-'][ae.memory_phase=='retrieval'],x='roi',y='rsa',hue='el',row='group',kind='bar')
 
 # sns.catplot(data=ae[ae.condition=='CS-'][ae.memory_phase=='encoding'],x='roi',y='rsa',hue='el',row='group',kind='bar')
 # sns.catplot(data=ae[ae.condition=='CS-'][ae.memory_phase=='retrieval'],x='roi',y='rsa',hue='el',row='group',kind='bar')
@@ -49,7 +49,7 @@ for group in groups:
             for roi in rois:
                 wres = pg.wilcoxon(ae.loc[(group,memory_phase,roi,con,'early'),'rsa'], ae.loc[(group,memory_phase,roi,con,'late'),'rsa'], tail='greater')
                 stats.loc[(group,memory_phase,con,roi),['w','p','cles']] = wres[['W-val','p-val','CLES']].values
-            stats.loc[(group,memory_phase,con),'p_fdr'] = pg.multicomp(list(stats.loc[(group,memory_phase,con),'p'].values),method='fdr_bh')[1]
+            stats.loc[(group,memory_phase,con,bn_rois),'p_fdr'] = pg.multicomp(list(stats.loc[(group,memory_phase,con,bn_rois),'p'].values),method='fdr_bh')[1]
 stats['p_mask'] = stats.p_fdr.apply(lambda x: 0 if x >.05 else 1)
 stats['cles_disp'] = stats.p_mask * stats.cles
 for group in groups:
