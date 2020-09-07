@@ -160,6 +160,7 @@ def zero_missing_ev(sub):
 
     subj = bids_meta(sub)
     lvl2 = os.path.join(subj.feat_dir,f'{subj.fsub}_source_memory_lvl2.fsf')
+    tmp_out = os.path.join(subj.feat_dir,'temp_source_memory_lvl2.fsf')
 
     sub_missing = missing[missing.subject == sub].copy()
     replacements = {}
@@ -177,9 +178,16 @@ def zero_missing_ev(sub):
         replacements[search_for] = replace_with
 
         # with open(os.path.join(gPPI_codebase,'feats','%s.fsf'%(template))) as infile: 
-    with open(template) as infile:
-        with open('feats/rep_test.fsf', 'w') as outfile:
+
+    with open(lvl2) as infile:
+        with open(tmp_out, 'w') as outfile:
             for line in infile:
                 for src, target in replacements.items():
                     line = line.replace(src, target)
                 outfile.write(line)
+
+    os.system(f'mv {tmp_out} {lvl2}')
+
+    for cope in range(1,21):
+        if sub_missing[sub_missing.cope == cope].shape[0] == 3:
+            os.system(f'echo "{sub} {cope}" >> sm_events/missing_evs_group_level.txt')

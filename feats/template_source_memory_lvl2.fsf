@@ -30,7 +30,7 @@ set fmri(featwatcher_yn) 0
 set fmri(sscleanup_yn) 0
 
 # Output directory
-set fmri(outputdir) "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC002/feats/source_memory_lvl2"
+set fmri(outputdir) "/scratch/05426/ach3377/fc-bids/derivatives/model/SUBID/feats/source_memory_lvl2"
 
 # TR(s)
 set fmri(tr) 3
@@ -269,184 +269,184 @@ set fmri(paradigm_hp) 100
 set fmri(ncopeinputs) 0
 
 # 4D AVW data or FEAT directory (1)
-set feat_files(1) "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC002/memory_run-01/source_memory.feat/stats/cope1.nii.gz"
+set feat_files(1) "/scratch/05426/ach3377/fc-bids/derivatives/model/SUBID/memory_run-01/source_memory.feat/stats/cope1.nii.gz"
 
 # 4D AVW data or FEAT directory (2)
-set feat_files(2) "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC002/memory_run-02/source_memory.feat/stats/cope1.nii.gz"
+set feat_files(2) "/scratch/05426/ach3377/fc-bids/derivatives/model/SUBID/memory_run-02/source_memory.feat/stats/cope1.nii.gz"
 
 # 4D AVW data or FEAT directory (3)
-set feat_files(3) "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC002/memory_run-03/source_memory.feat/stats/cope1.nii.gz"
+set feat_files(3) "/scratch/05426/ach3377/fc-bids/derivatives/model/SUBID/memory_run-03/source_memory.feat/stats/cope1.nii.gz"
 
 # 4D AVW data or FEAT directory (4)
-set feat_files(4) "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC002/memory_run-01/source_memory.feat/stats/cope2.nii.gz"
+set feat_files(4) "/scratch/05426/ach3377/fc-bids/derivatives/model/SUBID/memory_run-01/source_memory.feat/stats/cope2.nii.gz"
 
 # 4D AVW data or FEAT directory (5)
-set feat_files(5) "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC002/memory_run-02/source_memory.feat/stats/cope2.nii.gz"
+set feat_files(5) "/scratch/05426/ach3377/fc-bids/derivatives/model/SUBID/memory_run-02/source_memory.feat/stats/cope2.nii.gz"
 
 # 4D AVW data or FEAT directory (6)
-set feat_files(6) "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC002/memory_run-03/source_memory.feat/stats/cope2.nii.gz"
+set feat_files(6) "/scratch/05426/ach3377/fc-bids/derivatives/model/SUBID/memory_run-03/source_memory.feat/stats/cope2.nii.gz"
 
 # 4D AVW data or FEAT directory (7)
-set feat_files(7) "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC002/memory_run-01/source_memory.feat/stats/cope3.nii.gz"
+set feat_files(7) "/scratch/05426/ach3377/fc-bids/derivatives/model/SUBID/memory_run-01/source_memory.feat/stats/cope3.nii.gz"
 
 # 4D AVW data or FEAT directory (8)
-set feat_files(8) "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC002/memory_run-02/source_memory.feat/stats/cope3.nii.gz"
+set feat_files(8) "/scratch/05426/ach3377/fc-bids/derivatives/model/SUBID/memory_run-02/source_memory.feat/stats/cope3.nii.gz"
 
 # 4D AVW data or FEAT directory (9)
-set feat_files(9) "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC002/memory_run-03/source_memory.feat/stats/cope3.nii.gz"
+set feat_files(9) "/scratch/05426/ach3377/fc-bids/derivatives/model/SUBID/memory_run-03/source_memory.feat/stats/cope3.nii.gz"
 
 # 4D AVW data or FEAT directory (10)
-set feat_files(10) "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC002/memory_run-01/source_memory.feat/stats/cope4.nii.gz"
+set feat_files(10) "/scratch/05426/ach3377/fc-bids/derivatives/model/SUBID/memory_run-01/source_memory.feat/stats/cope4.nii.gz"
 
 # 4D AVW data or FEAT directory (11)
-set feat_files(11) "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC002/memory_run-02/source_memory.feat/stats/cope4.nii.gz"
+set feat_files(11) "/scratch/05426/ach3377/fc-bids/derivatives/model/SUBID/memory_run-02/source_memory.feat/stats/cope4.nii.gz"
 
 # 4D AVW data or FEAT directory (12)
-set feat_files(12) "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC002/memory_run-03/source_memory.feat/stats/cope4.nii.gz"
+set feat_files(12) "/scratch/05426/ach3377/fc-bids/derivatives/model/SUBID/memory_run-03/source_memory.feat/stats/cope4.nii.gz"
 
 # 4D AVW data or FEAT directory (13)
-set feat_files(13) "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC002/memory_run-01/source_memory.feat/stats/cope5.nii.gz"
+set feat_files(13) "/scratch/05426/ach3377/fc-bids/derivatives/model/SUBID/memory_run-01/source_memory.feat/stats/cope5.nii.gz"
 
 # 4D AVW data or FEAT directory (14)
-set feat_files(14) "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC002/memory_run-02/source_memory.feat/stats/cope5.nii.gz"
+set feat_files(14) "/scratch/05426/ach3377/fc-bids/derivatives/model/SUBID/memory_run-02/source_memory.feat/stats/cope5.nii.gz"
 
 # 4D AVW data or FEAT directory (15)
-set feat_files(15) "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC002/memory_run-03/source_memory.feat/stats/cope5.nii.gz"
+set feat_files(15) "/scratch/05426/ach3377/fc-bids/derivatives/model/SUBID/memory_run-03/source_memory.feat/stats/cope5.nii.gz"
 
 # 4D AVW data or FEAT directory (16)
-set feat_files(16) "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC002/memory_run-01/source_memory.feat/stats/cope6.nii.gz"
+set feat_files(16) "/scratch/05426/ach3377/fc-bids/derivatives/model/SUBID/memory_run-01/source_memory.feat/stats/cope6.nii.gz"
 
 # 4D AVW data or FEAT directory (17)
-set feat_files(17) "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC002/memory_run-02/source_memory.feat/stats/cope6.nii.gz"
+set feat_files(17) "/scratch/05426/ach3377/fc-bids/derivatives/model/SUBID/memory_run-02/source_memory.feat/stats/cope6.nii.gz"
 
 # 4D AVW data or FEAT directory (18)
-set feat_files(18) "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC002/memory_run-03/source_memory.feat/stats/cope6.nii.gz"
+set feat_files(18) "/scratch/05426/ach3377/fc-bids/derivatives/model/SUBID/memory_run-03/source_memory.feat/stats/cope6.nii.gz"
 
 # 4D AVW data or FEAT directory (19)
-set feat_files(19) "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC002/memory_run-01/source_memory.feat/stats/cope7.nii.gz"
+set feat_files(19) "/scratch/05426/ach3377/fc-bids/derivatives/model/SUBID/memory_run-01/source_memory.feat/stats/cope7.nii.gz"
 
 # 4D AVW data or FEAT directory (20)
-set feat_files(20) "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC002/memory_run-02/source_memory.feat/stats/cope7.nii.gz"
+set feat_files(20) "/scratch/05426/ach3377/fc-bids/derivatives/model/SUBID/memory_run-02/source_memory.feat/stats/cope7.nii.gz"
 
 # 4D AVW data or FEAT directory (21)
-set feat_files(21) "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC002/memory_run-03/source_memory.feat/stats/cope7.nii.gz"
+set feat_files(21) "/scratch/05426/ach3377/fc-bids/derivatives/model/SUBID/memory_run-03/source_memory.feat/stats/cope7.nii.gz"
 
 # 4D AVW data or FEAT directory (22)
-set feat_files(22) "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC002/memory_run-01/source_memory.feat/stats/cope8.nii.gz"
+set feat_files(22) "/scratch/05426/ach3377/fc-bids/derivatives/model/SUBID/memory_run-01/source_memory.feat/stats/cope8.nii.gz"
 
 # 4D AVW data or FEAT directory (23)
-set feat_files(23) "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC002/memory_run-02/source_memory.feat/stats/cope8.nii.gz"
+set feat_files(23) "/scratch/05426/ach3377/fc-bids/derivatives/model/SUBID/memory_run-02/source_memory.feat/stats/cope8.nii.gz"
 
 # 4D AVW data or FEAT directory (24)
-set feat_files(24) "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC002/memory_run-03/source_memory.feat/stats/cope8.nii.gz"
+set feat_files(24) "/scratch/05426/ach3377/fc-bids/derivatives/model/SUBID/memory_run-03/source_memory.feat/stats/cope8.nii.gz"
 
 # 4D AVW data or FEAT directory (25)
-set feat_files(25) "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC002/memory_run-01/source_memory.feat/stats/cope9.nii.gz"
+set feat_files(25) "/scratch/05426/ach3377/fc-bids/derivatives/model/SUBID/memory_run-01/source_memory.feat/stats/cope9.nii.gz"
 
 # 4D AVW data or FEAT directory (26)
-set feat_files(26) "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC002/memory_run-02/source_memory.feat/stats/cope9.nii.gz"
+set feat_files(26) "/scratch/05426/ach3377/fc-bids/derivatives/model/SUBID/memory_run-02/source_memory.feat/stats/cope9.nii.gz"
 
 # 4D AVW data or FEAT directory (27)
-set feat_files(27) "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC002/memory_run-03/source_memory.feat/stats/cope9.nii.gz"
+set feat_files(27) "/scratch/05426/ach3377/fc-bids/derivatives/model/SUBID/memory_run-03/source_memory.feat/stats/cope9.nii.gz"
 
 # 4D AVW data or FEAT directory (28)
-set feat_files(28) "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC002/memory_run-01/source_memory.feat/stats/cope10.nii.gz"
+set feat_files(28) "/scratch/05426/ach3377/fc-bids/derivatives/model/SUBID/memory_run-01/source_memory.feat/stats/cope10.nii.gz"
 
 # 4D AVW data or FEAT directory (29)
-set feat_files(29) "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC002/memory_run-02/source_memory.feat/stats/cope10.nii.gz"
+set feat_files(29) "/scratch/05426/ach3377/fc-bids/derivatives/model/SUBID/memory_run-02/source_memory.feat/stats/cope10.nii.gz"
 
 # 4D AVW data or FEAT directory (30)
-set feat_files(30) "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC002/memory_run-03/source_memory.feat/stats/cope10.nii.gz"
+set feat_files(30) "/scratch/05426/ach3377/fc-bids/derivatives/model/SUBID/memory_run-03/source_memory.feat/stats/cope10.nii.gz"
 
 # 4D AVW data or FEAT directory (31)
-set feat_files(31) "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC002/memory_run-01/source_memory.feat/stats/cope11.nii.gz"
+set feat_files(31) "/scratch/05426/ach3377/fc-bids/derivatives/model/SUBID/memory_run-01/source_memory.feat/stats/cope11.nii.gz"
 
 # 4D AVW data or FEAT directory (32)
-set feat_files(32) "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC002/memory_run-02/source_memory.feat/stats/cope11.nii.gz"
+set feat_files(32) "/scratch/05426/ach3377/fc-bids/derivatives/model/SUBID/memory_run-02/source_memory.feat/stats/cope11.nii.gz"
 
 # 4D AVW data or FEAT directory (33)
-set feat_files(33) "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC002/memory_run-03/source_memory.feat/stats/cope11.nii.gz"
+set feat_files(33) "/scratch/05426/ach3377/fc-bids/derivatives/model/SUBID/memory_run-03/source_memory.feat/stats/cope11.nii.gz"
 
 # 4D AVW data or FEAT directory (34)
-set feat_files(34) "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC002/memory_run-01/source_memory.feat/stats/cope12.nii.gz"
+set feat_files(34) "/scratch/05426/ach3377/fc-bids/derivatives/model/SUBID/memory_run-01/source_memory.feat/stats/cope12.nii.gz"
 
 # 4D AVW data or FEAT directory (35)
-set feat_files(35) "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC002/memory_run-02/source_memory.feat/stats/cope12.nii.gz"
+set feat_files(35) "/scratch/05426/ach3377/fc-bids/derivatives/model/SUBID/memory_run-02/source_memory.feat/stats/cope12.nii.gz"
 
 # 4D AVW data or FEAT directory (36)
-set feat_files(36) "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC002/memory_run-03/source_memory.feat/stats/cope12.nii.gz"
+set feat_files(36) "/scratch/05426/ach3377/fc-bids/derivatives/model/SUBID/memory_run-03/source_memory.feat/stats/cope12.nii.gz"
 
 # 4D AVW data or FEAT directory (37)
-set feat_files(37) "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC002/memory_run-01/source_memory.feat/stats/cope13.nii.gz"
+set feat_files(37) "/scratch/05426/ach3377/fc-bids/derivatives/model/SUBID/memory_run-01/source_memory.feat/stats/cope13.nii.gz"
 
 # 4D AVW data or FEAT directory (38)
-set feat_files(38) "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC002/memory_run-02/source_memory.feat/stats/cope13.nii.gz"
+set feat_files(38) "/scratch/05426/ach3377/fc-bids/derivatives/model/SUBID/memory_run-02/source_memory.feat/stats/cope13.nii.gz"
 
 # 4D AVW data or FEAT directory (39)
-set feat_files(39) "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC002/memory_run-03/source_memory.feat/stats/cope13.nii.gz"
+set feat_files(39) "/scratch/05426/ach3377/fc-bids/derivatives/model/SUBID/memory_run-03/source_memory.feat/stats/cope13.nii.gz"
 
 # 4D AVW data or FEAT directory (40)
-set feat_files(40) "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC002/memory_run-01/source_memory.feat/stats/cope14.nii.gz"
+set feat_files(40) "/scratch/05426/ach3377/fc-bids/derivatives/model/SUBID/memory_run-01/source_memory.feat/stats/cope14.nii.gz"
 
 # 4D AVW data or FEAT directory (41)
-set feat_files(41) "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC002/memory_run-02/source_memory.feat/stats/cope14.nii.gz"
+set feat_files(41) "/scratch/05426/ach3377/fc-bids/derivatives/model/SUBID/memory_run-02/source_memory.feat/stats/cope14.nii.gz"
 
 # 4D AVW data or FEAT directory (42)
-set feat_files(42) "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC002/memory_run-03/source_memory.feat/stats/cope14.nii.gz"
+set feat_files(42) "/scratch/05426/ach3377/fc-bids/derivatives/model/SUBID/memory_run-03/source_memory.feat/stats/cope14.nii.gz"
 
 # 4D AVW data or FEAT directory (43)
-set feat_files(43) "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC002/memory_run-01/source_memory.feat/stats/cope15.nii.gz"
+set feat_files(43) "/scratch/05426/ach3377/fc-bids/derivatives/model/SUBID/memory_run-01/source_memory.feat/stats/cope15.nii.gz"
 
 # 4D AVW data or FEAT directory (44)
-set feat_files(44) "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC002/memory_run-02/source_memory.feat/stats/cope15.nii.gz"
+set feat_files(44) "/scratch/05426/ach3377/fc-bids/derivatives/model/SUBID/memory_run-02/source_memory.feat/stats/cope15.nii.gz"
 
 # 4D AVW data or FEAT directory (45)
-set feat_files(45) "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC002/memory_run-03/source_memory.feat/stats/cope15.nii.gz"
+set feat_files(45) "/scratch/05426/ach3377/fc-bids/derivatives/model/SUBID/memory_run-03/source_memory.feat/stats/cope15.nii.gz"
 
 # 4D AVW data or FEAT directory (46)
-set feat_files(46) "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC002/memory_run-01/source_memory.feat/stats/cope16.nii.gz"
+set feat_files(46) "/scratch/05426/ach3377/fc-bids/derivatives/model/SUBID/memory_run-01/source_memory.feat/stats/cope16.nii.gz"
 
 # 4D AVW data or FEAT directory (47)
-set feat_files(47) "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC002/memory_run-02/source_memory.feat/stats/cope16.nii.gz"
+set feat_files(47) "/scratch/05426/ach3377/fc-bids/derivatives/model/SUBID/memory_run-02/source_memory.feat/stats/cope16.nii.gz"
 
 # 4D AVW data or FEAT directory (48)
-set feat_files(48) "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC002/memory_run-03/source_memory.feat/stats/cope16.nii.gz"
+set feat_files(48) "/scratch/05426/ach3377/fc-bids/derivatives/model/SUBID/memory_run-03/source_memory.feat/stats/cope16.nii.gz"
 
 # 4D AVW data or FEAT directory (49)
-set feat_files(49) "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC002/memory_run-01/source_memory.feat/stats/cope17.nii.gz"
+set feat_files(49) "/scratch/05426/ach3377/fc-bids/derivatives/model/SUBID/memory_run-01/source_memory.feat/stats/cope17.nii.gz"
 
 # 4D AVW data or FEAT directory (50)
-set feat_files(50) "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC002/memory_run-02/source_memory.feat/stats/cope17.nii.gz"
+set feat_files(50) "/scratch/05426/ach3377/fc-bids/derivatives/model/SUBID/memory_run-02/source_memory.feat/stats/cope17.nii.gz"
 
 # 4D AVW data or FEAT directory (51)
-set feat_files(51) "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC002/memory_run-03/source_memory.feat/stats/cope17.nii.gz"
+set feat_files(51) "/scratch/05426/ach3377/fc-bids/derivatives/model/SUBID/memory_run-03/source_memory.feat/stats/cope17.nii.gz"
 
 # 4D AVW data or FEAT directory (52)
-set feat_files(52) "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC002/memory_run-01/source_memory.feat/stats/cope18.nii.gz"
+set feat_files(52) "/scratch/05426/ach3377/fc-bids/derivatives/model/SUBID/memory_run-01/source_memory.feat/stats/cope18.nii.gz"
 
 # 4D AVW data or FEAT directory (53)
-set feat_files(53) "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC002/memory_run-02/source_memory.feat/stats/cope18.nii.gz"
+set feat_files(53) "/scratch/05426/ach3377/fc-bids/derivatives/model/SUBID/memory_run-02/source_memory.feat/stats/cope18.nii.gz"
 
 # 4D AVW data or FEAT directory (54)
-set feat_files(54) "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC002/memory_run-03/source_memory.feat/stats/cope18.nii.gz"
+set feat_files(54) "/scratch/05426/ach3377/fc-bids/derivatives/model/SUBID/memory_run-03/source_memory.feat/stats/cope18.nii.gz"
 
 # 4D AVW data or FEAT directory (55)
-set feat_files(55) "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC002/memory_run-01/source_memory.feat/stats/cope19.nii.gz"
+set feat_files(55) "/scratch/05426/ach3377/fc-bids/derivatives/model/SUBID/memory_run-01/source_memory.feat/stats/cope19.nii.gz"
 
 # 4D AVW data or FEAT directory (56)
-set feat_files(56) "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC002/memory_run-02/source_memory.feat/stats/cope19.nii.gz"
+set feat_files(56) "/scratch/05426/ach3377/fc-bids/derivatives/model/SUBID/memory_run-02/source_memory.feat/stats/cope19.nii.gz"
 
 # 4D AVW data or FEAT directory (57)
-set feat_files(57) "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC002/memory_run-03/source_memory.feat/stats/cope19.nii.gz"
+set feat_files(57) "/scratch/05426/ach3377/fc-bids/derivatives/model/SUBID/memory_run-03/source_memory.feat/stats/cope19.nii.gz"
 
 # 4D AVW data or FEAT directory (58)
-set feat_files(58) "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC002/memory_run-01/source_memory.feat/stats/cope20.nii.gz"
+set feat_files(58) "/scratch/05426/ach3377/fc-bids/derivatives/model/SUBID/memory_run-01/source_memory.feat/stats/cope20.nii.gz"
 
 # 4D AVW data or FEAT directory (59)
-set feat_files(59) "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC002/memory_run-02/source_memory.feat/stats/cope20.nii.gz"
+set feat_files(59) "/scratch/05426/ach3377/fc-bids/derivatives/model/SUBID/memory_run-02/source_memory.feat/stats/cope20.nii.gz"
 
 # 4D AVW data or FEAT directory (60)
-set feat_files(60) "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC002/memory_run-03/source_memory.feat/stats/cope20.nii.gz"
+set feat_files(60) "/scratch/05426/ach3377/fc-bids/derivatives/model/SUBID/memory_run-03/source_memory.feat/stats/cope20.nii.gz"
 
 # Add confound EVs text file
 set fmri(confoundevs) 0
