@@ -136,3 +136,50 @@ def copy_sm_events(sub):
         in_folder = f'sm_events/{subj.fsub}/memory_run-0{run}'
         out_folder = os.path.join(subj.model_dir,f'memory_run-0{run}','sm_events')
         os.system(f'cp -r {in_folder} {out_folder}')
+
+ref = pd.DataFrame({'memory_phase':  np.tile(memory_phases,18),
+                    'encoding_phase':np.repeat(encoding_phases,18),
+                    'condition':     np.repeat(np.tile(consp,3),9),
+                    'source_memory' :np.tile(np.repeat(encoding_phases,3),6)}
+                    ).reset_index().rename(columns={'index':'input'})
+ref.input += 1
+ref = ref.set_index(['memory_phase','encoding_phase','condition','source_memory'])
+
+encode_num = {'baseline':1,'acquisition':7,'extinction':13}
+con_num = {'CSp':0,'CSm':3}
+resp_num = {'baseline':0,'acquisition':1,'extinction':2}
+missing = pd.read_csv('sm_events/missing_evs.txt',sep='\t',header=None
+                    ).rename(columns={0:'subject',1:'memory_phase',2:'encoding_phase',3:'condition',4:'source_memory'})
+missing.source_memory = missing.source_memory.apply(lambda x: x[:-1])
+missing['cope'] = 0
+for i in missing.index:missing.loc[i,'cope'] = encode_num[missing.loc[i,'encoding_phase']] + con_num[missing.loc[i,'condition']] + resp_num[missing.loc[i,'source_memory']]
+
+
+def zero_missing_ev(sub):
+    template = 'feats/template_source_memory_lvl2.fsf'
+
+    subj = bids_meta(sub)
+    lvl2 = os.path.join(subj.feat_dir,f'{subj.fsub}_source_memory_lvl2.fsf')
+
+    sub_missing = missing[missing.subject == sub].copy()
+    replacements = {}
+    for b in sub_missing.index:
+        _input = ref.loc[(sub_missing.loc[b,'memory_phase'],
+                        sub_missing.loc[b,'encoding_phase'],
+                        sub_missing.loc[b,'condition'],
+                        sub_missing.loc[b,'source_memory']),
+                        'input']
+        _cope = sub_missing.loc[b,'cope']
+
+        search_for = f'set fmri(evg{_input}.{_cope}) 1.0'
+        replace_with = f'set fmri(evg{_input}.{_cope}) 0'
+
+        replacements[search_for] = replace_with
+
+        # with open(os.path.join(gPPI_codebase,'feats','%s.fsf'%(template))) as infile: 
+    with open(template) as infile:
+        with open('feats/rep_test.fsf', 'w') as outfile:
+            for line in infile:
+                for src, target in replacements.items():
+                    line = line.replace(src, target)
+                outfile.write(line)
