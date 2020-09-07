@@ -1,0 +1,81 @@
+ Starting at Mon Sep  7 13:13:10 CDT 2020
+ WORKING DIR: /opt/tacc_mounts/home1/05426/ach3377/gPPI/
+ JOB ID:      3040396
+ JOB NAME:    sm_lvl2
+ NODES:       nid00416
+ N NODES:     1
+ N TASKS:     12
+Launcher: Setup complete.
+
+------------- SUMMARY ---------------
+   Number of hosts:    1
+   Working directory:  /opt/tacc_mounts/home1/05426/ach3377/gPPI
+   Processes per host: 12
+   Total processes:    12
+   Total jobs:         34
+   Scheduling method:  dynamic
+
+-------------------------------------
+Launcher: Starting parallel tasks...
+using /tmp/launcher.3040396.hostlist.qkaESowZ to get hosts
+starting job on nid00416
+Launcher: Task 0 running job 1 on nid00416 (feat /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC002/feats/sub-FC002_source_memory_lvl2.fsf)
+Launcher: Task 5 running job 2 on nid00416 (feat /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC003/feats/sub-FC003_source_memory_lvl2.fsf)
+Launcher: Task 1 running job 3 on nid00416 (feat /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC004/feats/sub-FC004_source_memory_lvl2.fsf)
+To view the FEAT progress and final report, point your web browser at /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC002/feats/source_memory_lvl2.gfeat/report_log.html
+To view the FEAT progress and final report, point your web browser at /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC003/feats/source_memory_lvl2.gfeat/report_log.html
+Launcher: Task 11 running job 4 on nid00416 (feat /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC005/feats/sub-FC005_source_memory_lvl2.fsf)
+To view the FEAT progress and final report, point your web browser at /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC004/feats/source_memory_lvl2.gfeat/report_log.html
+Launcher: Task 3 running job 5 on nid00416 (feat /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC006/feats/sub-FC006_source_memory_lvl2.fsf)
+To view the FEAT progress and final report, point your web browser at /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC005/feats/source_memory_lvl2.gfeat/report_log.html
+Launcher: Task 4 running job 6 on nid00416 (feat /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC007/feats/sub-FC007_source_memory_lvl2.fsf)
+To view the FEAT progress and final report, point your web browser at /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC006/feats/source_memory_lvl2.gfeat/report_log.html
+Launcher: Task 8 running job 7 on nid00416 (feat /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC008/feats/sub-FC008_source_memory_lvl2.fsf)
+To view the FEAT progress and final report, point your web browser at /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC007/feats/source_memory_lvl2.gfeat/report_log.html
+Launcher: Task 2 running job 8 on nid00416 (feat /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC009/feats/sub-FC009_source_memory_lvl2.fsf)
+Launcher: Task 7 running job 10 on nid00416 (feat /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC012/feats/sub-FC012_source_memory_lvl2.fsf)
+Launcher: Task 10 running job 9 on nid00416 (feat /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC010/feats/sub-FC010_source_memory_lvl2.fsf)
+To view the FEAT progress and final report, point your web browser at /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC008/feats/source_memory_lvl2.gfeat/report_log.html
+Launcher: Task 6 running job 11 on nid00416 (feat /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC013/feats/sub-FC013_source_memory_lvl2.fsf)
+To view the FEAT progress and final report, point your web browser at /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC010/feats/source_memory_lvl2.gfeat/report_log.html
+To view the FEAT progress and final report, point your web browser at /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC009/feats/source_memory_lvl2.gfeat/report_log.html
+To view the FEAT progress and final report, point your web browser at /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC012/feats/source_memory_lvl2.gfeat/report_log.html
+Launcher: Task 9 running job 12 on nid00416 (feat /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC014/feats/sub-FC014_source_memory_lvl2.fsf)
+To view the FEAT progress and final report, point your web browser at /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC013/feats/source_memory_lvl2.gfeat/report_log.html
+To view the FEAT progress and final report, point your web browser at /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC014/feats/source_memory_lvl2.gfeat/report_log.html
+Launcher: Job 4 completed in 3554 seconds.
+Launcher: Task 11 running job 13 on nid00416 (feat /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC015/feats/sub-FC015_source_memory_lvl2.fsf)
+To view the FEAT progress and final report, point your web browser at /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC015/feats/source_memory_lvl2.gfeat/report_log.html
+Launcher: Job 1 completed in 3616 seconds.
+Launcher: Task 0 running job 14 on nid00416 (feat /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC016/feats/sub-FC016_source_memory_lvl2.fsf)
+To view the FEAT progress and final report, point your web browser at /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC016/feats/source_memory_lvl2.gfeat/report_log.html
+Launcher: Job 2 completed in 3779 seconds.
+Launcher: Task 5 running job 15 on nid00416 (feat /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC017/feats/sub-FC017_source_memory_lvl2.fsf)
+Launcher: Job 8 completed in 3767 seconds.
+Launcher: Task 2 running job 16 on nid00416 (feat /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC019/feats/sub-FC019_source_memory_lvl2.fsf)
+Launcher: Job 5 completed in 3776 seconds.
+Launcher: Task 3 running job 17 on nid00416 (feat /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC021/feats/sub-FC021_source_memory_lvl2.fsf)
+To view the FEAT progress and final report, point your web browser at /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC017/feats/source_memory_lvl2.gfeat/report_log.html
+To view the FEAT progress and final report, point your web browser at /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC019/feats/source_memory_lvl2.gfeat/report_log.html
+To view the FEAT progress and final report, point your web browser at /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC021/feats/source_memory_lvl2.gfeat/report_log.html
+Launcher: Job 9 completed in 3781 seconds.
+Launcher: Task 10 running job 18 on nid00416 (feat /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC101/feats/sub-FC101_source_memory_lvl2.fsf)
+Launcher: Job 7 completed in 3785 seconds.
+Launcher: Task 8 running job 19 on nid00416 (feat /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC102/feats/sub-FC102_source_memory_lvl2.fsf)
+Launcher: Job 10 completed in 3786 seconds.
+Launcher: Task 7 running job 20 on nid00416 (feat /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC103/feats/sub-FC103_source_memory_lvl2.fsf)
+To view the FEAT progress and final report, point your web browser at /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC101/feats/source_memory_lvl2.gfeat/report_log.html
+To view the FEAT progress and final report, point your web browser at /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC102/feats/source_memory_lvl2.gfeat/report_log.html
+Launcher: Job 11 completed in 3788 seconds.
+Launcher: Task 6 running job 21 on nid00416 (feat /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC104/feats/sub-FC104_source_memory_lvl2.fsf)
+To view the FEAT progress and final report, point your web browser at /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC103/feats/source_memory_lvl2.gfeat/report_log.html
+Launcher: Job 12 completed in 3786 seconds.
+Launcher: Task 9 running job 22 on nid00416 (feat /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC105/feats/sub-FC105_source_memory_lvl2.fsf)
+Launcher: Job 6 completed in 3798 seconds.
+Launcher: Task 4 running job 23 on nid00416 (feat /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC106/feats/sub-FC106_source_memory_lvl2.fsf)
+To view the FEAT progress and final report, point your web browser at /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC104/feats/source_memory_lvl2.gfeat/report_log.html
+To view the FEAT progress and final report, point your web browser at /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC105/feats/source_memory_lvl2.gfeat/report_log.html
+To view the FEAT progress and final report, point your web browser at /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC106/feats/source_memory_lvl2.gfeat/report_log.html
+Launcher: Job 3 completed in 4037 seconds.
+Launcher: Task 1 running job 24 on nid00416 (feat /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC107/feats/sub-FC107_source_memory_lvl2.fsf)
+To view the FEAT progress and final report, point your web browser at /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC107/feats/source_memory_lvl2.gfeat/report_log.html
