@@ -30,7 +30,7 @@ set fmri(featwatcher_yn) 0
 set fmri(sscleanup_yn) 0
 
 # Output directory
-set fmri(outputdir) "/scratch/05426/ach3377/source_memory_group_glm/COPEID"
+set fmri(outputdir) "/scratch/05426/ach3377/source_memory_group_glm/cope22"
 
 # TR(s)
 set fmri(tr) 3
@@ -356,106 +356,106 @@ set fmri(copeinput.28) 1
 set fmri(copeinput.29) 1
 
 # 4D AVW data or FEAT directory (1)
-set feat_files(1) "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC002/feats/source_memory_lvl2.gfeat/cope1.feat/COPEID.nii.gz"
+set feat_files(1) "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC002/feats/source_memory_lvl2.gfeat/cope1.feat/cope22.nii.gz"
 
 # 4D AVW data or FEAT directory (2)
-set feat_files(2) "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC003/feats/source_memory_lvl2.gfeat/cope1.feat/COPEID.nii.gz"
+set feat_files(2) "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC003/feats/source_memory_lvl2.gfeat/cope1.feat/cope22.nii.gz"
 
 # 4D AVW data or FEAT directory (3)
-set feat_files(3) "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC004/feats/source_memory_lvl2.gfeat/cope1.feat/COPEID.nii.gz"
+set feat_files(3) "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC004/feats/source_memory_lvl2.gfeat/cope1.feat/cope22.nii.gz"
 
 # 4D AVW data or FEAT directory (4)
-set feat_files(4) "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC005/feats/source_memory_lvl2.gfeat/cope1.feat/COPEID.nii.gz"
+set feat_files(4) "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC005/feats/source_memory_lvl2.gfeat/cope1.feat/cope22.nii.gz"
 
 # 4D AVW data or FEAT directory (5)
-set feat_files(5) "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC006/feats/source_memory_lvl2.gfeat/cope1.feat/COPEID.nii.gz"
+set feat_files(5) "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC006/feats/source_memory_lvl2.gfeat/cope1.feat/cope22.nii.gz"
 
 # 4D AVW data or FEAT directory (6)
-set feat_files(6) "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC007/feats/source_memory_lvl2.gfeat/cope1.feat/COPEID.nii.gz"
+set feat_files(6) "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC007/feats/source_memory_lvl2.gfeat/cope1.feat/cope22.nii.gz"
 
 # 4D AVW data or FEAT directory (7)
-set feat_files(7) "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC008/feats/source_memory_lvl2.gfeat/cope1.feat/COPEID.nii.gz"
+set feat_files(7) "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC008/feats/source_memory_lvl2.gfeat/cope1.feat/cope22.nii.gz"
 
 # 4D AVW data or FEAT directory (8)
-set feat_files(8) "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC009/feats/source_memory_lvl2.gfeat/cope1.feat/COPEID.nii.gz"
+set feat_files(8) "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC009/feats/source_memory_lvl2.gfeat/cope1.feat/cope22.nii.gz"
 
 # 4D AVW data or FEAT directory (9)
-set feat_files(9) "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC010/feats/source_memory_lvl2.gfeat/cope1.feat/COPEID.nii.gz"
+set feat_files(9) "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC010/feats/source_memory_lvl2.gfeat/cope1.feat/cope22.nii.gz"
 
 # 4D AVW data or FEAT directory (10)
-set feat_files(10) "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC012/feats/source_memory_lvl2.gfeat/cope1.feat/COPEID.nii.gz"
+set feat_files(10) "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC012/feats/source_memory_lvl2.gfeat/cope1.feat/cope22.nii.gz"
 
 # 4D AVW data or FEAT directory (11)
-set feat_files(11) "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC013/feats/source_memory_lvl2.gfeat/cope1.feat/COPEID.nii.gz"
+set feat_files(11) "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC013/feats/source_memory_lvl2.gfeat/cope1.feat/cope22.nii.gz"
 
 # 4D AVW data or FEAT directory (12)
-set feat_files(12) "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC014/feats/source_memory_lvl2.gfeat/cope1.feat/COPEID.nii.gz"
+set feat_files(12) "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC014/feats/source_memory_lvl2.gfeat/cope1.feat/cope22.nii.gz"
 
 # 4D AVW data or FEAT directory (13)
-set feat_files(13) "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC015/feats/source_memory_lvl2.gfeat/cope1.feat/COPEID.nii.gz"
+set feat_files(13) "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC015/feats/source_memory_lvl2.gfeat/cope1.feat/cope22.nii.gz"
 
 # 4D AVW data or FEAT directory (14)
-set feat_files(14) "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC016/feats/source_memory_lvl2.gfeat/cope1.feat/COPEID.nii.gz"
+set feat_files(14) "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC016/feats/source_memory_lvl2.gfeat/cope1.feat/cope22.nii.gz"
 
 # 4D AVW data or FEAT directory (15)
-set feat_files(15) "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC017/feats/source_memory_lvl2.gfeat/cope1.feat/COPEID.nii.gz"
+set feat_files(15) "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC017/feats/source_memory_lvl2.gfeat/cope1.feat/cope22.nii.gz"
 
 # 4D AVW data or FEAT directory (16)
-set feat_files(16) "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC019/feats/source_memory_lvl2.gfeat/cope1.feat/COPEID.nii.gz"
+set feat_files(16) "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC019/feats/source_memory_lvl2.gfeat/cope1.feat/cope22.nii.gz"
 
 # 4D AVW data or FEAT directory (17)
-set feat_files(17) "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC021/feats/source_memory_lvl2.gfeat/cope1.feat/COPEID.nii.gz"
+set feat_files(17) "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC021/feats/source_memory_lvl2.gfeat/cope1.feat/cope22.nii.gz"
 
 # 4D AVW data or FEAT directory (18)
-set feat_files(18) "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC101/feats/source_memory_lvl2.gfeat/cope1.feat/COPEID.nii.gz"
+set feat_files(18) "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC101/feats/source_memory_lvl2.gfeat/cope1.feat/cope22.nii.gz"
 
 # 4D AVW data or FEAT directory (19)
-set feat_files(19) "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC102/feats/source_memory_lvl2.gfeat/cope1.feat/COPEID.nii.gz"
+set feat_files(19) "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC102/feats/source_memory_lvl2.gfeat/cope1.feat/cope22.nii.gz"
 
 # 4D AVW data or FEAT directory (20)
-set feat_files(20) "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC103/feats/source_memory_lvl2.gfeat/cope1.feat/COPEID.nii.gz"
+set feat_files(20) "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC103/feats/source_memory_lvl2.gfeat/cope1.feat/cope22.nii.gz"
 
 # 4D AVW data or FEAT directory (21)
-set feat_files(21) "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC104/feats/source_memory_lvl2.gfeat/cope1.feat/COPEID.nii.gz"
+set feat_files(21) "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC104/feats/source_memory_lvl2.gfeat/cope1.feat/cope22.nii.gz"
 
 # 4D AVW data or FEAT directory (22)
-set feat_files(22) "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC105/feats/source_memory_lvl2.gfeat/cope1.feat/COPEID.nii.gz"
+set feat_files(22) "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC105/feats/source_memory_lvl2.gfeat/cope1.feat/cope22.nii.gz"
 
 # 4D AVW data or FEAT directory (23)
-set feat_files(23) "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC106/feats/source_memory_lvl2.gfeat/cope1.feat/COPEID.nii.gz"
+set feat_files(23) "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC106/feats/source_memory_lvl2.gfeat/cope1.feat/cope22.nii.gz"
 
 # 4D AVW data or FEAT directory (24)
-set feat_files(24) "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC107/feats/source_memory_lvl2.gfeat/cope1.feat/COPEID.nii.gz"
+set feat_files(24) "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC107/feats/source_memory_lvl2.gfeat/cope1.feat/cope22.nii.gz"
 
 # 4D AVW data or FEAT directory (25)
-set feat_files(25) "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC108/feats/source_memory_lvl2.gfeat/cope1.feat/COPEID.nii.gz"
+set feat_files(25) "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC108/feats/source_memory_lvl2.gfeat/cope1.feat/cope22.nii.gz"
 
 # 4D AVW data or FEAT directory (26)
-set feat_files(26) "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC109/feats/source_memory_lvl2.gfeat/cope1.feat/COPEID.nii.gz"
+set feat_files(26) "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC109/feats/source_memory_lvl2.gfeat/cope1.feat/cope22.nii.gz"
 
 # 4D AVW data or FEAT directory (27)
-set feat_files(27) "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC110/feats/source_memory_lvl2.gfeat/cope1.feat/COPEID.nii.gz"
+set feat_files(27) "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC110/feats/source_memory_lvl2.gfeat/cope1.feat/cope22.nii.gz"
 
 # 4D AVW data or FEAT directory (28)
-set feat_files(28) "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC111/feats/source_memory_lvl2.gfeat/cope1.feat/COPEID.nii.gz"
+set feat_files(28) "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC111/feats/source_memory_lvl2.gfeat/cope1.feat/cope22.nii.gz"
 
 # 4D AVW data or FEAT directory (29)
-set feat_files(29) "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC112/feats/source_memory_lvl2.gfeat/cope1.feat/COPEID.nii.gz"
+set feat_files(29) "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC112/feats/source_memory_lvl2.gfeat/cope1.feat/cope22.nii.gz"
 
 # 4D AVW data or FEAT directory (30)
-set feat_files(30) "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC113/feats/source_memory_lvl2.gfeat/cope1.feat/COPEID.nii.gz"
+set feat_files(30) "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC113/feats/source_memory_lvl2.gfeat/cope1.feat/cope22.nii.gz"
 
 # 4D AVW data or FEAT directory (31)
-set feat_files(31) "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC114/feats/source_memory_lvl2.gfeat/cope1.feat/COPEID.nii.gz"
+set feat_files(31) "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC114/feats/source_memory_lvl2.gfeat/cope1.feat/cope22.nii.gz"
 
 # 4D AVW data or FEAT directory (32)
-set feat_files(32) "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC116/feats/source_memory_lvl2.gfeat/cope1.feat/COPEID.nii.gz"
+set feat_files(32) "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC116/feats/source_memory_lvl2.gfeat/cope1.feat/cope22.nii.gz"
 
 # 4D AVW data or FEAT directory (33)
-set feat_files(33) "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC117/feats/source_memory_lvl2.gfeat/cope1.feat/COPEID.nii.gz"
+set feat_files(33) "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC117/feats/source_memory_lvl2.gfeat/cope1.feat/cope22.nii.gz"
 
 # 4D AVW data or FEAT directory (34)
-set feat_files(34) "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC118/feats/source_memory_lvl2.gfeat/cope1.feat/COPEID.nii.gz"
+set feat_files(34) "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC118/feats/source_memory_lvl2.gfeat/cope1.feat/cope22.nii.gz"
 
 # Add confound EVs text file
 set fmri(confoundevs) 0
@@ -588,7 +588,7 @@ set fmri(evg28.1) 1.0
 set fmri(evg29.1) 1.0
 
 # Higher-level EV value for EV 1 and input 30
-set fmri(evg30.1) 1.0
+set fmri(evg30.1) 0
 
 # Higher-level EV value for EV 1 and input 31
 set fmri(evg31.1) 1.0
@@ -597,7 +597,7 @@ set fmri(evg31.1) 1.0
 set fmri(evg32.1) 1.0
 
 # Higher-level EV value for EV 1 and input 33
-set fmri(evg33.1) 1.0
+set fmri(evg33.1) 0
 
 # Higher-level EV value for EV 1 and input 34
 set fmri(evg34.1) 1.0

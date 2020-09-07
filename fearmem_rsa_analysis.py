@@ -191,3 +191,49 @@ def zero_missing_ev(sub):
     for cope in range(1,21):
         if sub_missing[sub_missing.cope == cope].shape[0] == 3:
             os.system(f'echo "{sub} {cope}" >> sm_events/missing_evs_group_level.txt')
+
+
+def build_lvl3_fsf():
+
+    cope_dep = {21:[1,2],
+                22:[1,2,3],
+                23:[2,5],
+                24:[7,8,9],
+                25:[14,15],
+                26:[13,14,15],
+                27:[14,17],
+                28:[2,8,14],
+                29:[1,8,15]}
+
+    template = 'feats/template_source_memory_lvl3.fsf'
+    out_dir = 'sm_events/group_fsfs'
+
+    missing = pd.read_csv('sm_events/missing_evs_group_level.txt',sep=' ',header=None
+                    ).rename(columns={0:'subject',1:'cope'})
+    missing['input'] = missing.subject.apply(lambda x: xcl_sub_args.index(x))
+
+    for cope in range(1,30):
+        #need this for every cope
+        replacements = {'COPEID':f'cope{cope}'}
+
+        if cope <= 20:#technically we don't need it for the foils, but this is the range of single copes
+        
+            sub_missing = missing[missing.cope == cope].copy().input.unique()
+        
+        else:#otherwise we use the entered dependencies to see who needs to Zero'd
+            sub_missing = pd.concat([missing[missing.cope == c].copy() for c in cope_dep[cope]]).input.unique()
+
+        if sub_missing.shape[0] != 0:
+
+            for i in sub_missing: replacements[f'set fmri(evg{i}.1) 1.0'] = f'set fmri(evg{i}.1) 0'
+
+        out_feat = out_dir+f'/group_cope{cope}.fsf'
+
+        with open(template) as infile:
+            with open(out_feat, 'w') as outfile:
+                for line in infile:
+                    for src, target in replacements.items():
+                        line = line.replace(src, target)
+                    outfile.write(line)
+
+        os.system(f'echo feat {gPPI_codebase}{out_feat} >> jobs/source_memory_lvl3_job.txt')
