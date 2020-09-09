@@ -1,0 +1,124 @@
+ Starting at Mon Sep  7 18:27:18 CDT 2020
+ WORKING DIR: /opt/tacc_mounts/home1/05426/ach3377/gPPI/
+ JOB ID:      3040871
+ JOB NAME:    sm_lvl3
+ NODES:       nid00[490-492]
+ N NODES:     3
+ N TASKS:     10
+Launcher: Setup complete.
+
+------------- SUMMARY ---------------
+   Number of hosts:    3
+   Working directory:  /opt/tacc_mounts/home1/05426/ach3377/gPPI
+   Processes per host: 3
+   Total processes:    9
+   Total jobs:         29
+   Scheduling method:  dynamic
+
+-------------------------------------
+Launcher: Starting parallel tasks...
+using /tmp/launcher.3040871.hostlist.GaF9ZcHP to get hosts
+starting job on nid00490
+starting job on nid00491
+starting job on nid00492
+Launcher: Task 7 running job 1 on nid00492 (feat /home1/05426/ach3377/gPPI/sm_events/group_fsfs/group_cope1.fsf )
+To view the FEAT progress and final report, point your web browser at /scratch/05426/ach3377/source_memory_group_glm/cope1.gfeat/report_log.html
+Launcher: Task 8 running job 2 on nid00492 (feat /home1/05426/ach3377/gPPI/sm_events/group_fsfs/group_cope2.fsf )
+To view the FEAT progress and final report, point your web browser at /scratch/05426/ach3377/source_memory_group_glm/cope2.gfeat/report_log.html
+Launcher: Task 4 running job 3 on nid00491 (feat /home1/05426/ach3377/gPPI/sm_events/group_fsfs/group_cope3.fsf )
+To view the FEAT progress and final report, point your web browser at /scratch/05426/ach3377/source_memory_group_glm/cope3.gfeat/report_log.html
+Launcher: Task 1 running job 4 on nid00490 (feat /home1/05426/ach3377/gPPI/sm_events/group_fsfs/group_cope4.fsf )
+Launcher: Task 0 running job 5 on nid00490 (feat /home1/05426/ach3377/gPPI/sm_events/group_fsfs/group_cope5.fsf )
+To view the FEAT progress and final report, point your web browser at /scratch/05426/ach3377/source_memory_group_glm/cope4.gfeat/report_log.html
+To view the FEAT progress and final report, point your web browser at /scratch/05426/ach3377/source_memory_group_glm/cope5.gfeat/report_log.html
+Launcher: Task 2 running job 6 on nid00490 (feat /home1/05426/ach3377/gPPI/sm_events/group_fsfs/group_cope6.fsf )
+To view the FEAT progress and final report, point your web browser at /scratch/05426/ach3377/source_memory_group_glm/cope6.gfeat/report_log.html
+Launcher: Task 5 running job 7 on nid00491 (feat /home1/05426/ach3377/gPPI/sm_events/group_fsfs/group_cope7.fsf )
+To view the FEAT progress and final report, point your web browser at /scratch/05426/ach3377/source_memory_group_glm/cope7.gfeat/report_log.html
+Launcher: Task 6 running job 8 on nid00492 (feat /home1/05426/ach3377/gPPI/sm_events/group_fsfs/group_cope8.fsf )
+Launcher: Task 3 running job 9 on nid00491 (feat /home1/05426/ach3377/gPPI/sm_events/group_fsfs/group_cope9.fsf )
+To view the FEAT progress and final report, point your web browser at /scratch/05426/ach3377/source_memory_group_glm/cope8.gfeat/report_log.html
+To view the FEAT progress and final report, point your web browser at /scratch/05426/ach3377/source_memory_group_glm/cope9.gfeat/report_log.html
+Launcher: Job 3 completed in 535 seconds.
+Launcher: Task 4 running job 10 on nid00491 (feat /home1/05426/ach3377/gPPI/sm_events/group_fsfs/group_cope10.fsf )
+Launcher: Job 7 completed in 528 seconds.
+Launcher: Task 5 running job 11 on nid00491 (feat /home1/05426/ach3377/gPPI/sm_events/group_fsfs/group_cope11.fsf )
+To view the FEAT progress and final report, point your web browser at /scratch/05426/ach3377/source_memory_group_glm/cope10.gfeat/report_log.html
+To view the FEAT progress and final report, point your web browser at /scratch/05426/ach3377/source_memory_group_glm/cope11.gfeat/report_log.html
+Launcher: Job 5 completed in 534 seconds.
+Launcher: Task 0 running job 12 on nid00490 (feat /home1/05426/ach3377/gPPI/sm_events/group_fsfs/group_cope12.fsf )
+To view the FEAT progress and final report, point your web browser at /scratch/05426/ach3377/source_memory_group_glm/cope12.gfeat/report_log.html
+Launcher: Job 4 completed in 538 seconds.
+Launcher: Task 1 running job 13 on nid00490 (feat /home1/05426/ach3377/gPPI/sm_events/group_fsfs/group_cope13.fsf )
+Launcher: Job 6 completed in 535 seconds.
+Launcher: Task 2 running job 14 on nid00490 (feat /home1/05426/ach3377/gPPI/sm_events/group_fsfs/group_cope14.fsf )
+To view the FEAT progress and final report, point your web browser at /scratch/05426/ach3377/source_memory_group_glm/cope13.gfeat/report_log.html
+Launcher: Job 9 completed in 529 seconds.
+Launcher: Task 3 running job 15 on nid00491 (feat /home1/05426/ach3377/gPPI/sm_events/group_fsfs/group_cope15.fsf )
+To view the FEAT progress and final report, point your web browser at /scratch/05426/ach3377/source_memory_group_glm/cope14.gfeat/report_log.html
+Launcher: Job 1 completed in 547 seconds.
+Launcher: Task 7 running job 16 on nid00492 (feat /home1/05426/ach3377/gPPI/sm_events/group_fsfs/group_cope16.fsf )
+Launcher: Job 2 completed in 542 seconds.
+Launcher: Task 8 running job 17 on nid00492 (feat /home1/05426/ach3377/gPPI/sm_events/group_fsfs/group_cope17.fsf )
+To view the FEAT progress and final report, point your web browser at /scratch/05426/ach3377/source_memory_group_glm/cope15.gfeat/report_log.html
+To view the FEAT progress and final report, point your web browser at /scratch/05426/ach3377/source_memory_group_glm/cope16.gfeat/report_log.html
+To view the FEAT progress and final report, point your web browser at /scratch/05426/ach3377/source_memory_group_glm/cope17.gfeat/report_log.html
+Launcher: Job 8 completed in 533 seconds.
+Launcher: Task 6 running job 18 on nid00492 (feat /home1/05426/ach3377/gPPI/sm_events/group_fsfs/group_cope18.fsf )
+To view the FEAT progress and final report, point your web browser at /scratch/05426/ach3377/source_memory_group_glm/cope18.gfeat/report_log.html
+Launcher: Job 10 completed in 531 seconds.
+Launcher: Task 4 running job 19 on nid00491 (feat /home1/05426/ach3377/gPPI/sm_events/group_fsfs/group_cope19.fsf )
+To view the FEAT progress and final report, point your web browser at /scratch/05426/ach3377/source_memory_group_glm/cope19.gfeat/report_log.html
+Launcher: Job 11 completed in 532 seconds.
+Launcher: Task 5 running job 20 on nid00491 (feat /home1/05426/ach3377/gPPI/sm_events/group_fsfs/group_cope20.fsf )
+To view the FEAT progress and final report, point your web browser at /scratch/05426/ach3377/source_memory_group_glm/cope20.gfeat/report_log.html
+Launcher: Job 15 completed in 529 seconds.
+Launcher: Task 3 running job 21 on nid00491 (feat /home1/05426/ach3377/gPPI/sm_events/group_fsfs/group_cope21.fsf )
+To view the FEAT progress and final report, point your web browser at /scratch/05426/ach3377/source_memory_group_glm/cope21.gfeat/report_log.html
+Launcher: Job 17 completed in 531 seconds.
+Launcher: Task 8 running job 22 on nid00492 (feat /home1/05426/ach3377/gPPI/sm_events/group_fsfs/group_cope22.fsf )
+To view the FEAT progress and final report, point your web browser at /scratch/05426/ach3377/source_memory_group_glm/cope22.gfeat/report_log.html
+Launcher: Job 13 completed in 534 seconds.
+Launcher: Task 1 running job 23 on nid00490 (feat /home1/05426/ach3377/gPPI/sm_events/group_fsfs/group_cope23.fsf )
+Launcher: Job 12 completed in 537 seconds.
+Launcher: Task 0 running job 24 on nid00490 (feat /home1/05426/ach3377/gPPI/sm_events/group_fsfs/group_cope24.fsf )
+Launcher: Job 16 completed in 533 seconds.
+Launcher: Task 7 running job 25 on nid00492 (feat /home1/05426/ach3377/gPPI/sm_events/group_fsfs/group_cope25.fsf )
+Launcher: Job 14 completed in 534 seconds.
+Launcher: Task 2 running job 26 on nid00490 (feat /home1/05426/ach3377/gPPI/sm_events/group_fsfs/group_cope26.fsf )
+To view the FEAT progress and final report, point your web browser at /scratch/05426/ach3377/source_memory_group_glm/cope23.gfeat/report_log.html
+To view the FEAT progress and final report, point your web browser at /scratch/05426/ach3377/source_memory_group_glm/cope24.gfeat/report_log.html
+To view the FEAT progress and final report, point your web browser at /scratch/05426/ach3377/source_memory_group_glm/cope25.gfeat/report_log.html
+To view the FEAT progress and final report, point your web browser at /scratch/05426/ach3377/source_memory_group_glm/cope26.gfeat/report_log.html
+Launcher: Job 18 completed in 532 seconds.
+Launcher: Task 6 running job 27 on nid00492 (feat /home1/05426/ach3377/gPPI/sm_events/group_fsfs/group_cope27.fsf )
+To view the FEAT progress and final report, point your web browser at /scratch/05426/ach3377/source_memory_group_glm/cope27.gfeat/report_log.html
+Launcher: Job 22 completed in 525 seconds.
+Launcher: Task 8 running job 28 on nid00492 (feat /home1/05426/ach3377/gPPI/sm_events/group_fsfs/group_cope28.fsf )
+To view the FEAT progress and final report, point your web browser at /scratch/05426/ach3377/source_memory_group_glm/cope28.gfeat/report_log.html
+Launcher: Job 19 completed in 533 seconds.
+Launcher: Task 4 running job 29 on nid00491 (feat /home1/05426/ach3377/gPPI/sm_events/group_fsfs/group_cope29.fsf )
+Launcher: Job 20 completed in 531 seconds.
+Launcher: Task 5 done. Exiting.
+To view the FEAT progress and final report, point your web browser at /scratch/05426/ach3377/source_memory_group_glm/cope29.gfeat/report_log.html
+Launcher: Job 21 completed in 531 seconds.
+Launcher: Task 3 done. Exiting.
+Launcher: Job 25 completed in 529 seconds.
+Launcher: Task 7 done. Exiting.
+Launcher: Job 27 completed in 530 seconds.
+Launcher: Task 6 done. Exiting.
+Launcher: Job 26 completed in 536 seconds.
+Launcher: Task 2 done. Exiting.
+Launcher: Job 24 completed in 536 seconds.
+Launcher: Task 0 done. Exiting.
+Launcher: Job 23 completed in 537 seconds.
+Launcher: Task 1 done. Exiting.
+Launcher: Job 29 completed in 508 seconds.
+Launcher: Task 4 done. Exiting.
+Launcher: Job 28 completed in 510 seconds.
+Launcher: Task 8 done. Exiting.
+Launcher: Done. Job exited without errors
+ 
+ Job complete at Mon Sep  7 19:02:36 CDT 2020
+ 
+Job duration: 00:35:18 (2118 s)
