@@ -206,25 +206,39 @@ def build_lvl3_fsf():
                 26:[13,14,15],
                 27:[14,17],
                 28:[2,8,14],
-                29:[1,8,15]}
+                29:[1,8,15],
+                30:[1,2,14,15]}
 
     template = 'feats/template_source_memory_lvl3.fsf'
     out_dir = 'sm_events/group_fsfs'
+    out_inputs = 'sm_events/group_inputs'
 
     missing = pd.read_csv('sm_events/missing_evs_group_level.txt',sep=' ',header=None
                     ).rename(columns={0:'subject',1:'cope'})
     missing['input'] = missing.subject.apply(lambda x: xcl_sub_args.index(x))
 
-    for cope in range(1,30):
+    for cope in range(1,31):
         #need this for every cope
         replacements = {'COPEID':f'cope{cope}'}
 
         if cope <= 20:#technically we don't need it for the foils, but this is the range of single copes
         
-            sub_missing = missing[missing.cope == cope].copy().input.unique()
-        
+            # sub_missing = missing[missing.cope == cope].copy().input.unique()
+            sub_missing = missing[missing.cope == cope].copy().subject.unique()
+
         else:#otherwise we use the entered dependencies to see who needs to Zero'd
-            sub_missing = pd.concat([missing[missing.cope == c].copy() for c in cope_dep[cope]]).input.unique()
+            sub_missing = pd.concat([missing[missing.cope == c].copy() for c in cope_dep[cope]]).subject.unique()
+
+        for sub in xcl_sub_args:
+            subj = bids_meta(sub)
+            if sub in sub_missing:
+                pass
+            else:
+                os.system(f'echo {subj.model_dir}/all_memory_runs/source_memory.feat/stats/cope{cope}.nii.gz >> sm_events/group_inputs/cope{cope}_inputs.txt')
+
+
+
+
 
         if sub_missing.shape[0] != 0:
 
