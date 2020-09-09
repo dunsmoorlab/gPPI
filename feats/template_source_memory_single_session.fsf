@@ -30,7 +30,7 @@ set fmri(featwatcher_yn) 0
 set fmri(sscleanup_yn) 0
 
 # Output directory
-set fmri(outputdir) "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC002/all_memory_runs/source_memory"
+set fmri(outputdir) "/scratch/05426/ach3377/fc-bids/derivatives/model/SUBID/RUNID/source_memory"
 
 # TR(s)
 set fmri(tr) 2.000000 
@@ -273,13 +273,13 @@ set fmri(totalVoxels) 100850750
 set fmri(ncopeinputs) 0
 
 # 4D AVW data or FEAT directory (1)
-set feat_files(1) "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC002/all_memory_runs/all_memory_runs.nii.gz"
+set feat_files(1) "/scratch/05426/ach3377/fc-bids/derivatives/preproc/SUBID/func/SUBID_ses-2_task-RUNID_space-MNI152NLin2009cAsym_desc-preproc_bold"
 
 # Add confound EVs text file
 set fmri(confoundevs) 1
 
 # Confound EVs text file for analysis 1
-set confoundev_files(1) "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC002/all_memory_runs/confounds.txt"
+set confoundev_files(1) "/scratch/05426/ach3377/fc-bids/derivatives/model/SUBID/RUNID/confounds.txt"
 
 # EV 1 title
 set fmri(evtitle1) "CSpB_B"
@@ -313,7 +313,7 @@ set fmri(tempfilt_yn1) 0
 set fmri(deriv_yn1) 0
 
 # Custom EV file (EV 1)
-set fmri(custom1) "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC002/all_memory_runs/sm_events/baseline_CSp_baseline.txt"
+set fmri(custom1) "/scratch/05426/ach3377/fc-bids/derivatives/model/SUBID/RUNID/sm_events/baseline_CSp_baseline.txt"
 
 # Orthogonalise EV 1 wrt EV 0
 set fmri(ortho1.0) 0
@@ -410,7 +410,7 @@ set fmri(tempfilt_yn2) 0
 set fmri(deriv_yn2) 0
 
 # Custom EV file (EV 2)
-set fmri(custom2) "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC002/all_memory_runs/sm_events/baseline_CSp_acquisition.txt"
+set fmri(custom2) "/scratch/05426/ach3377/fc-bids/derivatives/model/SUBID/RUNID/sm_events/baseline_CSp_acquisition.txt"
 
 # Orthogonalise EV 2 wrt EV 0
 set fmri(ortho2.0) 0
@@ -507,7 +507,7 @@ set fmri(tempfilt_yn3) 0
 set fmri(deriv_yn3) 0
 
 # Custom EV file (EV 3)
-set fmri(custom3) "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC002/all_memory_runs/sm_events/baseline_CSp_extinction.txt"
+set fmri(custom3) "/scratch/05426/ach3377/fc-bids/derivatives/model/SUBID/RUNID/sm_events/baseline_CSp_extinction.txt"
 
 # Orthogonalise EV 3 wrt EV 0
 set fmri(ortho3.0) 0
@@ -604,7 +604,7 @@ set fmri(tempfilt_yn4) 0
 set fmri(deriv_yn4) 0
 
 # Custom EV file (EV 4)
-set fmri(custom4) "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC002/all_memory_runs/sm_events/baseline_CSm_baseline.txt"
+set fmri(custom4) "/scratch/05426/ach3377/fc-bids/derivatives/model/SUBID/RUNID/sm_events/baseline_CSm_baseline.txt"
 
 # Orthogonalise EV 4 wrt EV 0
 set fmri(ortho4.0) 0
@@ -701,7 +701,7 @@ set fmri(tempfilt_yn5) 0
 set fmri(deriv_yn5) 0
 
 # Custom EV file (EV 5)
-set fmri(custom5) "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC002/all_memory_runs/sm_events/baseline_CSm_acquisition.txt"
+set fmri(custom5) "/scratch/05426/ach3377/fc-bids/derivatives/model/SUBID/RUNID/sm_events/baseline_CSm_acquisition.txt"
 
 # Orthogonalise EV 5 wrt EV 0
 set fmri(ortho5.0) 0
@@ -798,7 +798,7 @@ set fmri(tempfilt_yn6) 0
 set fmri(deriv_yn6) 0
 
 # Custom EV file (EV 6)
-set fmri(custom6) "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC002/all_memory_runs/sm_events/baseline_CSm_extinction.txt"
+set fmri(custom6) "/scratch/05426/ach3377/fc-bids/derivatives/model/SUBID/RUNID/sm_events/baseline_CSm_extinction.txt"
 
 # Orthogonalise EV 6 wrt EV 0
 set fmri(ortho6.0) 0
@@ -895,7 +895,7 @@ set fmri(tempfilt_yn7) 0
 set fmri(deriv_yn7) 0
 
 # Custom EV file (EV 7)
-set fmri(custom7) "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC002/all_memory_runs/sm_events/acquisition_CSp_baseline.txt"
+set fmri(custom7) "/scratch/05426/ach3377/fc-bids/derivatives/model/SUBID/RUNID/sm_events/acquisition_CSp_baseline.txt"
 
 # Orthogonalise EV 7 wrt EV 0
 set fmri(ortho7.0) 0
@@ -992,7 +992,7 @@ set fmri(tempfilt_yn8) 0
 set fmri(deriv_yn8) 0
 
 # Custom EV file (EV 8)
-set fmri(custom8) "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC002/all_memory_runs/sm_events/acquisition_CSp_acquisition.txt"
+set fmri(custom8) "/scratch/05426/ach3377/fc-bids/derivatives/model/SUBID/RUNID/sm_events/acquisition_CSp_acquisition.txt"
 
 # Orthogonalise EV 8 wrt EV 0
 set fmri(ortho8.0) 0
@@ -1089,7 +1089,7 @@ set fmri(tempfilt_yn9) 0
 set fmri(deriv_yn9) 0
 
 # Custom EV file (EV 9)
-set fmri(custom9) "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC002/all_memory_runs/sm_events/acquisition_CSp_extinction.txt"
+set fmri(custom9) "/scratch/05426/ach3377/fc-bids/derivatives/model/SUBID/RUNID/sm_events/acquisition_CSp_extinction.txt"
 
 # Orthogonalise EV 9 wrt EV 0
 set fmri(ortho9.0) 0
@@ -1186,7 +1186,7 @@ set fmri(tempfilt_yn10) 0
 set fmri(deriv_yn10) 0
 
 # Custom EV file (EV 10)
-set fmri(custom10) "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC002/all_memory_runs/sm_events/acquisition_CSm_baseline.txt"
+set fmri(custom10) "/scratch/05426/ach3377/fc-bids/derivatives/model/SUBID/RUNID/sm_events/acquisition_CSm_baseline.txt"
 
 # Orthogonalise EV 10 wrt EV 0
 set fmri(ortho10.0) 0
@@ -1283,7 +1283,7 @@ set fmri(tempfilt_yn11) 0
 set fmri(deriv_yn11) 0
 
 # Custom EV file (EV 11)
-set fmri(custom11) "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC002/all_memory_runs/sm_events/acquisition_CSm_acquisition.txt"
+set fmri(custom11) "/scratch/05426/ach3377/fc-bids/derivatives/model/SUBID/RUNID/sm_events/acquisition_CSm_acquisition.txt"
 
 # Orthogonalise EV 11 wrt EV 0
 set fmri(ortho11.0) 0
@@ -1380,7 +1380,7 @@ set fmri(tempfilt_yn12) 0
 set fmri(deriv_yn12) 0
 
 # Custom EV file (EV 12)
-set fmri(custom12) "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC002/all_memory_runs/sm_events/acquisition_CSm_extinction.txt"
+set fmri(custom12) "/scratch/05426/ach3377/fc-bids/derivatives/model/SUBID/RUNID/sm_events/acquisition_CSm_extinction.txt"
 
 # Orthogonalise EV 12 wrt EV 0
 set fmri(ortho12.0) 0
@@ -1477,7 +1477,7 @@ set fmri(tempfilt_yn13) 0
 set fmri(deriv_yn13) 0
 
 # Custom EV file (EV 13)
-set fmri(custom13) "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC002/all_memory_runs/sm_events/extinction_CSp_baseline.txt"
+set fmri(custom13) "/scratch/05426/ach3377/fc-bids/derivatives/model/SUBID/RUNID/sm_events/extinction_CSp_baseline.txt"
 
 # Orthogonalise EV 13 wrt EV 0
 set fmri(ortho13.0) 0
@@ -1574,7 +1574,7 @@ set fmri(tempfilt_yn14) 0
 set fmri(deriv_yn14) 0
 
 # Custom EV file (EV 14)
-set fmri(custom14) "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC002/all_memory_runs/sm_events/extinction_CSp_acquisition.txt"
+set fmri(custom14) "/scratch/05426/ach3377/fc-bids/derivatives/model/SUBID/RUNID/sm_events/extinction_CSp_acquisition.txt"
 
 # Orthogonalise EV 14 wrt EV 0
 set fmri(ortho14.0) 0
@@ -1671,7 +1671,7 @@ set fmri(tempfilt_yn15) 0
 set fmri(deriv_yn15) 0
 
 # Custom EV file (EV 15)
-set fmri(custom15) "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC002/all_memory_runs/sm_events/extinction_CSp_extinction.txt"
+set fmri(custom15) "/scratch/05426/ach3377/fc-bids/derivatives/model/SUBID/RUNID/sm_events/extinction_CSp_extinction.txt"
 
 # Orthogonalise EV 15 wrt EV 0
 set fmri(ortho15.0) 0
@@ -1768,7 +1768,7 @@ set fmri(tempfilt_yn16) 0
 set fmri(deriv_yn16) 0
 
 # Custom EV file (EV 16)
-set fmri(custom16) "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC002/all_memory_runs/sm_events/extinction_CSm_baseline.txt"
+set fmri(custom16) "/scratch/05426/ach3377/fc-bids/derivatives/model/SUBID/RUNID/sm_events/extinction_CSm_baseline.txt"
 
 # Orthogonalise EV 16 wrt EV 0
 set fmri(ortho16.0) 0
@@ -1865,7 +1865,7 @@ set fmri(tempfilt_yn17) 0
 set fmri(deriv_yn17) 0
 
 # Custom EV file (EV 17)
-set fmri(custom17) "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC002/all_memory_runs/sm_events/extinction_CSm_acquisition.txt"
+set fmri(custom17) "/scratch/05426/ach3377/fc-bids/derivatives/model/SUBID/RUNID/sm_events/extinction_CSm_acquisition.txt"
 
 # Orthogonalise EV 17 wrt EV 0
 set fmri(ortho17.0) 0
@@ -1962,7 +1962,7 @@ set fmri(tempfilt_yn18) 0
 set fmri(deriv_yn18) 0
 
 # Custom EV file (EV 18)
-set fmri(custom18) "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC002/all_memory_runs/sm_events/extinction_CSm_extinction.txt"
+set fmri(custom18) "/scratch/05426/ach3377/fc-bids/derivatives/model/SUBID/RUNID/sm_events/extinction_CSm_extinction.txt"
 
 # Orthogonalise EV 18 wrt EV 0
 set fmri(ortho18.0) 0
@@ -2059,7 +2059,7 @@ set fmri(tempfilt_yn19) 0
 set fmri(deriv_yn19) 0
 
 # Custom EV file (EV 19)
-set fmri(custom19) "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC002/all_memory_runs/sm_events/foil_CSp.txt"
+set fmri(custom19) "/scratch/05426/ach3377/fc-bids/derivatives/model/SUBID/RUNID/sm_events/foil_CSp.txt"
 
 # Orthogonalise EV 19 wrt EV 0
 set fmri(ortho19.0) 0
@@ -2156,7 +2156,7 @@ set fmri(tempfilt_yn20) 0
 set fmri(deriv_yn20) 0
 
 # Custom EV file (EV 20)
-set fmri(custom20) "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC002/all_memory_runs/sm_events/foil_CSm.txt"
+set fmri(custom20) "/scratch/05426/ach3377/fc-bids/derivatives/model/SUBID/RUNID/sm_events/foil_CSm.txt"
 
 # Orthogonalise EV 20 wrt EV 0
 set fmri(ortho20.0) 0

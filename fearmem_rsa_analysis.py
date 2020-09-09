@@ -174,9 +174,12 @@ def zero_missing_ev(sub):
 
         search_for = f'set fmri(evg{_input}.{_cope}) 1.0'
         replace_with = f'set fmri(evg{_input}.{_cope}) 0'
-
+        
+        grp_search_for = f'set fmri(groupmem.{_input}) 1'
+        grp_replace_with = f'set fmri(groupmem.{_input}) 2'
+        
         replacements[search_for] = replace_with
-
+        replacements[grp_search_for] = grp_replace_with
         # with open(os.path.join(gPPI_codebase,'feats','%s.fsf'%(template))) as infile: 
 
     with open(lvl2) as infile:
@@ -237,3 +240,72 @@ def build_lvl3_fsf():
                     outfile.write(line)
 
         os.system(f'echo feat {gPPI_codebase}{out_feat} >> jobs/source_memory_lvl3_job.txt')
+
+from nilearn.image import concat_imgs
+from os.path import join
+import nibabel as nib
+
+def cat_mem_runs(sub):
+
+    subj = bids_meta(sub)
+    out_dir = join(subj.model_dir,'all_memory_runs');mkdir(out_dir)
+    sm_out = out_dir+'/sm_events';mkdir(sm_out) 
+
+    #concatenate the epi data
+    mem_data = [nib.load(join(subj.func,f'{subj.fsub}_ses-2_task-memory_run-0{run}_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz')) for run in [1,2,3]]
+
+    mem_data = concat_imgs(mem_data)
+    nib.save(mem_data,join(out_dir,'all_memory_runs.nii.gz'))
+
+    #concatenate the confounds
+    confounds = [pd.read_csv(join(subj.model_dir,f'memory_run-0{run}','confounds.txt'),sep='\t',header=None) for run in [1,2,3]] 
+    confounds = pd.concat(confounds).reset_index(drop=True)
+    #make run regressor
+    confounds[16] = np.repeat([1.0,2.0,3.0], 310)
+    #run onsets
+    confounds = pd.concat((confounds, pd.DataFrame(np.kron(np.eye(3), np.ones((310,1)))) ), axis=1)
+    
+    confounds.to_csv(join(out_dir,'confounds.txt'),
+              sep='\t',float_format='%.8e', index=False, header=False)
+    
+    #concatenate the regressors
+    for con in consp:
+        for encode in encoding_phases:
+            for response in encoding_phases:
+                events = []
+                for i, run in enumerate([1,2,3]):
+                    
+                    evs = pd.read_csv(f'{subj.model_dir}/memory_run-0{run}/sm_events/{encode}_{con}_{response}.txt', sep='\t', header=None)
+                    if evs.sum(axis=1)[0] == 0: 
+                        pass
+                    else:
+                        #correct for start time
+                        evs[0] += i*620
+                        events.append(evs)
+
+                #if regressor is still empty
+                if not events:
+                    out_events = pd.DataFrame({'onset':0.0,'duration':0.0,'PM':0.0},index=[0])
+                    os.system(f'echo {sub}\t{encode}\t{con}\t{response} >> sm_events/missing_evs_concat.txt')
+
+                else:
+                    out_events = pd.concat(events).reset_index(drop=True)
+
+                out_events.to_csv( f'{sm_out}/{encode}_{con}_{response}.txt',
+                        sep='\t', float_format='%.8e', index=False, header=False)
+
+        #and the foils
+        events = []
+        for i, run in enumerate([1,2,3]):
+    
+            evs = pd.read_csv(f'{subj.model_dir}/memory_run-0{run}/sm_events/foil_{con}.txt', sep='\t', header=None)
+            if evs.sum(axis=1)[0] == 0: 
+                pass
+            else:
+                #correct for start time
+                evs[0] += i*620
+                events.append(evs)
+        out_events = pd.concat(events).reset_index(drop=True)
+        out_events.to_csv( f'{sm_out}/foil_{con}.txt',
+                sep='\t', float_format='%.8e', index=False, header=False)
+
