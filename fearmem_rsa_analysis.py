@@ -38,24 +38,33 @@ for roi in rois:
                 if sub in xcl_sub_args:
                     subj = bids_meta(sub)
                     mem_dat = pd.read_csv(f'rsa_results/{subj.fsub}/reordered_mem_labels.csv')
-                    baseline_correct = mem_dat[mem_dat.trial_type == con][mem_dat.encode_phase == 'extinction'][mem_dat.source_memory == 'extinction'].index
-                    baseline_acquisition = mem_dat[mem_dat.trial_type == con][mem_dat.encode_phase == 'extinction'][mem_dat.source_memory == 'acquisition'].index
                     acquisition_correct = mem_dat[mem_dat.trial_type == con][mem_dat.encode_phase == 'acquisition'][mem_dat.source_memory == 'acquisition'].index
+                    baseline_correct = mem_dat[mem_dat.trial_type == con][mem_dat.encode_phase == 'baseline'][mem_dat.source_memory == 'baseline'].index
+                    baseline_acquisition = mem_dat[mem_dat.trial_type == con][mem_dat.encode_phase == 'baseline'][mem_dat.source_memory == 'acquisition'].index
                     
 
-                    b_correct_acq_correct = gmats[group][sub][roi][baseline_correct][:,acquisition_correct].mean()
+                    b_acq_b_correct = gmats[group][sub][roi][baseline_correct][:,acquisition_correct].mean()
                     b_acq_acq_correct = gmats[group][sub][roi][baseline_acquisition][:,acquisition_correct].mean()
 
-                    df.loc[('baseline',con,roi,sub),'rsa'] = b_correct_acq_correct
+                    df.loc[('baseline',con,roi,sub),'rsa'] = b_acq_b_correct
                     df.loc[('acquisition',con,roi,sub),'rsa'] = b_acq_acq_correct
 
 df = df.reset_index()
 # df['group'] = df.subject.apply(lgroup)
-sns.barplot(data=df[df.roi=='rACC'],x='condition',y='rsa',hue='response_phase')#,kind='bar',col='group')
-sns.swarmplot(data=df[df.roi=='rACC'],x='condition',y='rsa',hue='response_phase',dodge=True,color='black')#,kind='bar',col='group')
-
+spal = list((wes_palettes['Darjeeling1'][-1],wes_palettes['Darjeeling1'][0],wes_palettes['Darjeeling1'][1],))
+fig, ax = plt.subplots(figsize=(8,6))
+sns.barplot(data=df[df.roi=='sgACC'],x='condition',y='rsa',hue='response_phase',palette=[spal[0],spal[1]],ax=ax)#,kind='bar',col='group')
+ax.set_ylabel('Similarity to acquisition "correct"')
+# sns.swarmplot(data=df[df.roi=='rACC'],x='condition',y='rsa',hue='response_phase',dodge=True,color='black')#,kind='bar',col='group')
 sns.catplot(data=df,x='condition',y='rsa',hue='response_phase',col='roi',kind='bar')
                     # square = get_square(gmats[group], roi, sub, s, mem_slices, con, 'baseline')
+for roi in ['rACC','sgACC','hc_tail','hc_body','hc_head','amyg_bla','amyg_cem']:
+    print(roi)
+    print(pg.wilcoxon(df.rsa[df.response_phase == 'baseline'][df.condition == 'CS+'][df.roi==roi],
+                        df.rsa[df.response_phase == 'acquisition'][df.condition == 'CS+'][df.roi==roi]))
+    print('\n')
+
+
 
 #baseline to acq similarity regardless of source memory
 df = pd.DataFrame({'rsa':0.0},index=pd.MultiIndex.from_product([cons,rois,all_sub_args],names=['condition','roi','subject']))
@@ -196,7 +205,7 @@ def zero_missing_ev(sub):
             os.system(f'echo "{sub} {cope}" >> sm_events/missing_evs_group_level.txt')
 
 
-def build_lvl3_fsf():
+def group_level_missing_inputs():
 
     cope_dep = {21:[1,2],
                 22:[1,2,3],
@@ -229,23 +238,36 @@ def build_lvl3_fsf():
         else:#otherwise we use the entered dependencies to see who needs to Zero'd
             sub_missing = pd.concat([missing[missing.cope == c].copy() for c in cope_dep[cope]]).subject.unique()
 
+        nsub = 34
         for sub in xcl_sub_args:
             subj = bids_meta(sub)
             if sub in sub_missing:
-                pass
+                nsub = nsub -1
             else:
-                os.system(f'echo {subj.model_dir}/all_memory_runs/source_memory.feat/stats/cope{cope}.nii.gz >> sm_events/group_inputs/cope{cope}_inputs.txt')
+                os.system(f'echo /scratch/05426/ach3377/fc-bids/derivatives/model/{subj.fsub}/all_memory_runs/source_memory.feat/stats/cope{cope}.nii.gz >> sm_events/group_inputs/cope{cope}_inputs.txt')
+                pass
+        if nsub != 34: print(f'cope{cope}\t{nsub}')
 
+def group_level_autofill_fsf():
 
+    for cope in range(1,31):
 
+        inputs = pd.read_csv(f'sm_events/group_inputs/cope{cope}_inputs.txt',header=None)
+        template = f'sm_events/group_fsfs/template_cope{cope}.fsf'
+        out_feat = f'sm_events/group_fsfs/cope{cope}.fsf'
 
+        #get all the replacements ready        
+        replacements = {'source_memory_group_glm/COPEID':f'source_memory_group_glm/cope{cope}'}
 
-        if sub_missing.shape[0] != 0:
+        for _j, _input in enumerate(inputs[0]):
 
-            for i in sub_missing: replacements[f'set fmri(evg{i}.1) 1.0'] = f'set fmri(evg{i}.1) 0'
+            sub_num = '{:03d}'.format(xcl_sub_args[_j])
+            search_for   = f'set feat_files({int(_j + 1)}) "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC{sub_num}/feats/source_memory_lvl2.gfeat/cope1.feat/stats/COPEID.nii.gz"'
+            replace_with = f'set feat_files({int(_j + 1)}) "{_input}"'
 
-        out_feat = out_dir+f'/group_cope{cope}.fsf'
+            replacements[search_for] = replace_with
 
+        #fill out template
         with open(template) as infile:
             with open(out_feat, 'w') as outfile:
                 for line in infile:
