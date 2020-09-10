@@ -244,7 +244,7 @@ def group_level_missing_inputs():
             if sub in sub_missing:
                 nsub = nsub -1
             else:
-                os.system(f'echo /scratch/05426/ach3377/fc-bids/derivatives/model/{subj.fsub}/all_memory_runs/source_memory.feat/stats/cope{cope}.nii.gz >> sm_events/group_inputs/cope{cope}_inputs.txt')
+                os.system(f'echo /scratch/05426/ach3377/fc-bids/derivatives/model/{subj.fsub}/all_memory_runs/source_memory.feat/reg_standard/stats/cope{cope}.nii.gz >> sm_events/group_inputs/cope{cope}_inputs.txt')
                 pass
         if nsub != 34: print(f'cope{cope}\t{nsub}')
 
