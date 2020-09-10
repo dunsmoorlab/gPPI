@@ -253,6 +253,7 @@ def group_level_autofill_fsf():
     for cope in range(1,31):
 
         inputs = pd.read_csv(f'sm_events/group_inputs/cope{cope}_inputs.txt',header=None)
+        inputs[0] = inputs[0].apply(lambda x: x[:-1])
         template = f'sm_events/group_fsfs/template_cope{cope}.fsf'
         out_feat = f'sm_events/group_fsfs/cope{cope}.fsf'
 
