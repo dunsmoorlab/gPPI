@@ -1,4 +1,6 @@
-3dLME -prefix SM -jobs 24                                   \
+module load gsl
+module load afni
+3dLME -prefix /scratch/05426/ach3377/SM_LME -jobs 24                                   \
           -model  "Encode*Condition*Response"   \
           -ranEff '~1+Sess|Subj' \
           -SS_type 3                                                       \
