@@ -1,0 +1,5 @@
+3dLME -prefix SM -jobs 24                                   \
+          -model  "Encode*Condition*Response"   \
+          -ranEff '~1+Sess|Subj' \
+          -SS_type 3                                                       \
+          -dataTable @sm_events/afni_dataTable.txt

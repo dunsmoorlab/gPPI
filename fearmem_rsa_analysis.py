@@ -101,7 +101,31 @@ encoding_phases = ['baseline','acquisition','extinction']
 memory_phases = ['memory_run-01','memory_run-02','memory_run-03']
 consp = ['CSp','CSm']
 
-def sm_glm_events(sub):
+pe_map = {'baseline':{'CSp':{'baseline':1,
+                          'acquisition':2,
+                          'extinction':3},
+                   'CSm':{'baseline':4,
+                          'acquisition':5,
+                          'extinction':6}
+                          },
+        'acquisition':{'CSp':{'baseline':7,
+                          'acquisition':8,
+                          'extinction':9},
+                   'CSm':{'baseline':10,
+                          'acquisition':11,
+                          'extinction':12}
+                          },
+        'extinction':{'CSp':{'baseline':13,
+                          'acquisition':14,
+                          'extinction':15},
+                   'CSm':{'baseline':16,
+                          'acquisition':17,
+                          'extinction':18}
+                          }
+        }
+data_table = pd.DataFrame(columns=['Subj','Sess','Encode','Condition','Response','InputFile'])
+# def sm_glm_events(sub):
+for sub in xcl_sub_args:
     subj = bids_meta(sub)
     events = pd.read_csv(f'sm_events/{subj.fsub}/sm_events.csv').set_index('phase').sort_index()
     events.trial_type = events.trial_type.apply(lambda x: 'CSp' if x == 'CS+' else 'CSm')
@@ -127,18 +151,25 @@ def sm_glm_events(sub):
                     smdat = dat[dat.source_memory == sm_resp].copy()
 
                     if smdat.shape[0] == 0: 
-                        out_events = pd.DataFrame({'onset':0.0,'duration':0.0,'PM':0.0},index=[0])
-                        os.system(f'echo {sub}\t{mem_phase}\t{encode_phase}\t{con}\t{sm_resp} >> sm_events/missing_evs.txt')
+                        # out_events = pd.DataFrame({'onset':0.0,'duration':0.0,'PM':0.0},index=[0])
+                        # os.system(f'echo {sub}\t{mem_phase}\t{encode_phase}\t{con}\t{sm_resp} >> sm_events/missing_evs.txt')
+                        pass
                     else:                   
-                        out_events = smdat[['onset','duration','PM']].copy()
-                    
-                    out_events.to_csv( os.path.join(mem_phase_dir, f'{encode_phase}_{con}_{sm_resp}.txt'),
-                        sep='\t', float_format='%.8e', index=False, header=False)
+                        # out_events = smdat[['onset','duration','PM']].copy()
+                        data_table = data_table.append({'Subj':sub,
+                                                        'Sess':mem_phase,
+                                                        'Encode':encode_phase,
+                                                        'Condition':con,
+                                                        'Response':sm_resp,
+                                                        'InputFile':f'/scratch/05426/ach3377/fc-bids/derivatives/model/{subj.fsub}/{mem_phase}/source_memory.feat/reg_standard/stats/cope{pe_map[encode_phase][con][sm_resp]}.nii.gz'},
+                                                        ignore_index=True)
+                    # out_events.to_csv( os.path.join(mem_phase_dir, f'{encode_phase}_{con}_{sm_resp}.txt'),
+                    #     sep='\t', float_format='%.8e', index=False, header=False)
 
             #and the foils
             mem_phase_dat.loc[('foil',con),['onset','duration','PM']].to_csv( os.path.join(mem_phase_dir, f'foil_{con}.txt'),
                         sep='\t', float_format='%.8e', index=False, header=False)
-
+#data_table.to_csv('sm_events/afni_dataTable.txt',index=False,sep='\t')
 def copy_sm_events(sub):
     subj = bids_meta(sub)
     for run in [1,2,3]:
@@ -346,3 +377,51 @@ def cat_mem_runs(sub):
         out_events.to_csv( f'{sm_out}/foil_{con}.txt',
                 sep='\t', float_format='%.8e', index=False, header=False)
 
+def copy_out_lvl3()
+    
+    dest = '/scratch/05426/ach3377/source_memory_group_glm/zmaps'
+    mkdir(dest)
+
+    for cope in range(1,31):
+
+        in_map = f'/scratch/05426/ach3377/source_memory_group_glm/cope{cope}.gfeat/cope1.feat/stats/zstat1.nii.gz'
+        out_map = f'{dest}/cope{cope}_zmap.nii.gz'
+
+        os.system(f'cp {in_map} {out_map}')
+
+def cluster_stats():
+
+    base_dir = '/scratch/05426/ach3377/source_memory_group_glm'
+    out_dir = f'{base_dir}/cluster_stats';mkdir(out_dir)
+    
+    for c in range(1,31):
+        cope_dir = f'{base_dir}/cope{c}.gfeat'
+        out_cope_dir = f'{out_dir}/cope{c}';mkdir(out_cope_dir)
+
+        in_zmap = f'{cope_dir}/cope1.feat/stats/zstat1.nii.gz'
+        zmap = f'{cope_dir}/cope1.feat/thresh_zmap.nii.gz'
+        mask = f'{cope_dir}/cope1.feat/mask.nii.gz'
+        cope = f'{cope_dir}/cope1.feat/stats/cope1.nii.gz'
+
+        stats = pd.read_csv(f'{cope_dir}/cope1.feat/stats/smoothness',header=None)
+        smooth = np.float(stats[0][0].split()[1])
+        volume = np.int(stats[0][1].split()[1])
+
+        mask_cmd = f'fslmaths {in_zmap} -mas {mask} {zmap}'
+
+        cluster_cmd = f'cluster -i {zmap} \
+                        -t 2.575 \
+                        --othresh={out_cope_dir}/thresh_zmap \
+                        -o cluster_mask_zmap \
+                        --connectivity=26 \
+                        --mm \
+                        --olmax={out_cope_dir}/lmax_zmap_std.txt \
+                        --scalarname=Z \
+                        -p 0.05 \
+                        -d {smooth} \
+                        --volume={volume} \
+                        -c {cope} \
+                        > {out_cope_dir}/cluster_table.txt'
+
+        for cmd in [mask_cmd,cluster_cmd]:
+            os.system(cmd)
