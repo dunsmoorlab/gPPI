@@ -1,0 +1,8 @@
+module load gsl
+module load afni
+3dLME -prefix /scratch/05426/ach3377/SM_T -jobs 24 \
+          -model  "Encode*Condition*Response" \
+          -ranEff '~1+Sess|Subj' \
+          -SS_type 3 \
+          -num_glt 12 \
+          -dataTable @sm_events/afni_dataTable.txt

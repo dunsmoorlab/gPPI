@@ -425,3 +425,10 @@ def cluster_stats():
 
         for cmd in [mask_cmd,cluster_cmd]:
             os.system(cmd)
+
+def switch_to_lvl2_in_afni(x):
+    in_str = x.split('/')[-1]
+    sub  = x.split('/')[7]
+    cope = in_str[4:in_str.find('.nii.gz')]
+
+    return f'/scratch/05426/ach3377/fc-bids/derivatives/model/{sub}/all_memory_runs/source_memory.feat/reg_standard/stats/cope{cope}.nii.gz'
