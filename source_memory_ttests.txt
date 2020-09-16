@@ -5,4 +5,5 @@ module load afni
           -ranEff '~1+Sess|Subj' \
           -SS_type 3 \
           -num_glt 12 \
+          -gltLabel 1 'CSpB_B vs. CSpB_A' -gltCode 1 ''
           -dataTable @sm_events/afni_dataTable.txt

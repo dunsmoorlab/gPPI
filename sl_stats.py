@@ -22,7 +22,7 @@ masker = nm(mask_img=std_2009_brain_mask_3mm)
 masker.fit()
 
 mats = {}
-mem_
+# mem_
 for phase in phases: mats[phase] = np.zeros((len(all_sub_args),69880))
 
 for s, sub in enumerate(all_sub_args):
@@ -38,10 +38,10 @@ for s, sub in enumerate(all_sub_args):
     df = pd.read_csv(os.path.join(subj.rsa,'fs_mask_roi_ER.csv'))
     df = df[df.roi == 'mOFC']
     df = df.drop(columns=['roi','rsa'])
-    for cs in conditions:
-        con = '%s_trial'%(conditions[cs])
-        for i in range(1,9): 
-            df.loc[ df[ df.encode_phase == 'extinction' ][ df[con] == i ].index,'encode_phase' ] = 'early_extinction'
+    # for cs in conditions:
+    #     con = '%s_trial'%(conditions[cs])
+    #     for i in range(1,9): 
+    #         df.loc[ df[ df.encode_phase == 'extinction' ][ df[con] == i ].index,'encode_phase' ] = 'early_extinction'
 
     for phase in phases:
         csp = mat[df[df.encode_phase == phase][df.trial_type == 'CS+'].index,:].mean(axis=0)

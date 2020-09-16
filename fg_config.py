@@ -43,6 +43,7 @@ cpoint = sns.color_palette(cpal,n_colors=2,desat=.75)
 
 sns.set_style('ticks', {'axes.spines.right':False, 'axes.spines.top':False})
 # sns.set_style({'axes.facecolor':'.9','figure.facecolor':'.9'})
+sns.set_context('notebook',font_scale=1.4)
 rcParams['font.family'] = 'sans-serif'
 rcParams['font.sans-serif'] = 'Arial'
 rcParams['savefig.dpi'] = 300
