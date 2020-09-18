@@ -1,595 +1,595 @@
-Subj Sess Encode Condition Response InputFile
-2 memory_run-01 baseline CSp acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC002/all_memory_runs/source_memory.feat/reg_standard/stats/cope2.nii.gz
-2 memory_run-01 baseline CSp extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC002/all_memory_runs/source_memory.feat/reg_standard/stats/cope3.nii.gz
-2 memory_run-01 acquisition CSp baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC002/all_memory_runs/source_memory.feat/reg_standard/stats/cope7.nii.gz
-2 memory_run-01 acquisition CSp acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC002/all_memory_runs/source_memory.feat/reg_standard/stats/cope8.nii.gz
-2 memory_run-01 acquisition CSp extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC002/all_memory_runs/source_memory.feat/reg_standard/stats/cope9.nii.gz
-2 memory_run-01 extinction CSp baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC002/all_memory_runs/source_memory.feat/reg_standard/stats/cope13.nii.gz
-2 memory_run-01 extinction CSp acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC002/all_memory_runs/source_memory.feat/reg_standard/stats/cope14.nii.gz
-2 memory_run-01 extinction CSp extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC002/all_memory_runs/source_memory.feat/reg_standard/stats/cope15.nii.gz
-2 memory_run-01 baseline CSm baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC002/all_memory_runs/source_memory.feat/reg_standard/stats/cope4.nii.gz
-2 memory_run-01 baseline CSm acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC002/all_memory_runs/source_memory.feat/reg_standard/stats/cope5.nii.gz
-2 memory_run-01 baseline CSm extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC002/all_memory_runs/source_memory.feat/reg_standard/stats/cope6.nii.gz
-2 memory_run-01 acquisition CSm baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC002/all_memory_runs/source_memory.feat/reg_standard/stats/cope10.nii.gz
-2 memory_run-01 acquisition CSm acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC002/all_memory_runs/source_memory.feat/reg_standard/stats/cope11.nii.gz
-2 memory_run-01 extinction CSm baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC002/all_memory_runs/source_memory.feat/reg_standard/stats/cope16.nii.gz
-2 memory_run-01 extinction CSm acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC002/all_memory_runs/source_memory.feat/reg_standard/stats/cope17.nii.gz
-2 memory_run-01 extinction CSm extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC002/all_memory_runs/source_memory.feat/reg_standard/stats/cope18.nii.gz
-2 memory_run-02 baseline CSp baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC002/all_memory_runs/source_memory.feat/reg_standard/stats/cope1.nii.gz
-2 memory_run-02 acquisition CSm extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC002/all_memory_runs/source_memory.feat/reg_standard/stats/cope12.nii.gz
-3 memory_run-01 baseline CSp baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC003/all_memory_runs/source_memory.feat/reg_standard/stats/cope1.nii.gz
-3 memory_run-01 baseline CSp acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC003/all_memory_runs/source_memory.feat/reg_standard/stats/cope2.nii.gz
-3 memory_run-01 baseline CSp extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC003/all_memory_runs/source_memory.feat/reg_standard/stats/cope3.nii.gz
-3 memory_run-01 acquisition CSp baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC003/all_memory_runs/source_memory.feat/reg_standard/stats/cope7.nii.gz
-3 memory_run-01 acquisition CSp acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC003/all_memory_runs/source_memory.feat/reg_standard/stats/cope8.nii.gz
-3 memory_run-01 acquisition CSp extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC003/all_memory_runs/source_memory.feat/reg_standard/stats/cope9.nii.gz
-3 memory_run-01 extinction CSp baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC003/all_memory_runs/source_memory.feat/reg_standard/stats/cope13.nii.gz
-3 memory_run-01 extinction CSp acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC003/all_memory_runs/source_memory.feat/reg_standard/stats/cope14.nii.gz
-3 memory_run-01 extinction CSp extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC003/all_memory_runs/source_memory.feat/reg_standard/stats/cope15.nii.gz
-3 memory_run-01 baseline CSm baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC003/all_memory_runs/source_memory.feat/reg_standard/stats/cope4.nii.gz
-3 memory_run-01 baseline CSm acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC003/all_memory_runs/source_memory.feat/reg_standard/stats/cope5.nii.gz
-3 memory_run-01 acquisition CSm baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC003/all_memory_runs/source_memory.feat/reg_standard/stats/cope10.nii.gz
-3 memory_run-01 acquisition CSm acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC003/all_memory_runs/source_memory.feat/reg_standard/stats/cope11.nii.gz
-3 memory_run-01 acquisition CSm extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC003/all_memory_runs/source_memory.feat/reg_standard/stats/cope12.nii.gz
-3 memory_run-01 extinction CSm baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC003/all_memory_runs/source_memory.feat/reg_standard/stats/cope16.nii.gz
-3 memory_run-01 extinction CSm acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC003/all_memory_runs/source_memory.feat/reg_standard/stats/cope17.nii.gz
-3 memory_run-01 extinction CSm extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC003/all_memory_runs/source_memory.feat/reg_standard/stats/cope18.nii.gz
-3 memory_run-02 baseline CSm extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC003/all_memory_runs/source_memory.feat/reg_standard/stats/cope6.nii.gz
-4 memory_run-01 baseline CSp baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC004/all_memory_runs/source_memory.feat/reg_standard/stats/cope1.nii.gz
-4 memory_run-01 baseline CSp acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC004/all_memory_runs/source_memory.feat/reg_standard/stats/cope2.nii.gz
-4 memory_run-01 baseline CSp extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC004/all_memory_runs/source_memory.feat/reg_standard/stats/cope3.nii.gz
-4 memory_run-01 acquisition CSp baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC004/all_memory_runs/source_memory.feat/reg_standard/stats/cope7.nii.gz
-4 memory_run-01 acquisition CSp acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC004/all_memory_runs/source_memory.feat/reg_standard/stats/cope8.nii.gz
-4 memory_run-01 acquisition CSp extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC004/all_memory_runs/source_memory.feat/reg_standard/stats/cope9.nii.gz
-4 memory_run-01 extinction CSp baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC004/all_memory_runs/source_memory.feat/reg_standard/stats/cope13.nii.gz
-4 memory_run-01 extinction CSp acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC004/all_memory_runs/source_memory.feat/reg_standard/stats/cope14.nii.gz
-4 memory_run-01 extinction CSp extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC004/all_memory_runs/source_memory.feat/reg_standard/stats/cope15.nii.gz
-4 memory_run-01 baseline CSm baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC004/all_memory_runs/source_memory.feat/reg_standard/stats/cope4.nii.gz
-4 memory_run-01 baseline CSm acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC004/all_memory_runs/source_memory.feat/reg_standard/stats/cope5.nii.gz
-4 memory_run-01 baseline CSm extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC004/all_memory_runs/source_memory.feat/reg_standard/stats/cope6.nii.gz
-4 memory_run-01 acquisition CSm baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC004/all_memory_runs/source_memory.feat/reg_standard/stats/cope10.nii.gz
-4 memory_run-01 acquisition CSm acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC004/all_memory_runs/source_memory.feat/reg_standard/stats/cope11.nii.gz
-4 memory_run-01 acquisition CSm extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC004/all_memory_runs/source_memory.feat/reg_standard/stats/cope12.nii.gz
-4 memory_run-01 extinction CSm baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC004/all_memory_runs/source_memory.feat/reg_standard/stats/cope16.nii.gz
-4 memory_run-01 extinction CSm acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC004/all_memory_runs/source_memory.feat/reg_standard/stats/cope17.nii.gz
-4 memory_run-01 extinction CSm extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC004/all_memory_runs/source_memory.feat/reg_standard/stats/cope18.nii.gz
-5 memory_run-01 baseline CSp acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC005/all_memory_runs/source_memory.feat/reg_standard/stats/cope2.nii.gz
-5 memory_run-01 acquisition CSp acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC005/all_memory_runs/source_memory.feat/reg_standard/stats/cope8.nii.gz
-5 memory_run-01 extinction CSp baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC005/all_memory_runs/source_memory.feat/reg_standard/stats/cope13.nii.gz
-5 memory_run-01 extinction CSp acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC005/all_memory_runs/source_memory.feat/reg_standard/stats/cope14.nii.gz
-5 memory_run-01 extinction CSp extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC005/all_memory_runs/source_memory.feat/reg_standard/stats/cope15.nii.gz
-5 memory_run-01 baseline CSm baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC005/all_memory_runs/source_memory.feat/reg_standard/stats/cope4.nii.gz
-5 memory_run-01 baseline CSm acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC005/all_memory_runs/source_memory.feat/reg_standard/stats/cope5.nii.gz
-5 memory_run-01 baseline CSm extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC005/all_memory_runs/source_memory.feat/reg_standard/stats/cope6.nii.gz
-5 memory_run-01 acquisition CSm acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC005/all_memory_runs/source_memory.feat/reg_standard/stats/cope11.nii.gz
-5 memory_run-01 acquisition CSm extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC005/all_memory_runs/source_memory.feat/reg_standard/stats/cope12.nii.gz
-5 memory_run-01 extinction CSm baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC005/all_memory_runs/source_memory.feat/reg_standard/stats/cope16.nii.gz
-5 memory_run-01 extinction CSm acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC005/all_memory_runs/source_memory.feat/reg_standard/stats/cope17.nii.gz
-5 memory_run-01 extinction CSm extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC005/all_memory_runs/source_memory.feat/reg_standard/stats/cope18.nii.gz
-5 memory_run-02 baseline CSp extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC005/all_memory_runs/source_memory.feat/reg_standard/stats/cope3.nii.gz
-5 memory_run-02 acquisition CSp baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC005/all_memory_runs/source_memory.feat/reg_standard/stats/cope7.nii.gz
-5 memory_run-02 acquisition CSp extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC005/all_memory_runs/source_memory.feat/reg_standard/stats/cope9.nii.gz
-5 memory_run-02 acquisition CSm baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC005/all_memory_runs/source_memory.feat/reg_standard/stats/cope10.nii.gz
-5 memory_run-03 baseline CSp baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC005/all_memory_runs/source_memory.feat/reg_standard/stats/cope1.nii.gz
-6 memory_run-01 baseline CSp baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC006/all_memory_runs/source_memory.feat/reg_standard/stats/cope1.nii.gz
-6 memory_run-01 baseline CSp acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC006/all_memory_runs/source_memory.feat/reg_standard/stats/cope2.nii.gz
-6 memory_run-01 baseline CSp extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC006/all_memory_runs/source_memory.feat/reg_standard/stats/cope3.nii.gz
-6 memory_run-01 acquisition CSp baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC006/all_memory_runs/source_memory.feat/reg_standard/stats/cope7.nii.gz
-6 memory_run-01 acquisition CSp acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC006/all_memory_runs/source_memory.feat/reg_standard/stats/cope8.nii.gz
-6 memory_run-01 extinction CSp baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC006/all_memory_runs/source_memory.feat/reg_standard/stats/cope13.nii.gz
-6 memory_run-01 extinction CSp acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC006/all_memory_runs/source_memory.feat/reg_standard/stats/cope14.nii.gz
-6 memory_run-01 extinction CSp extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC006/all_memory_runs/source_memory.feat/reg_standard/stats/cope15.nii.gz
-6 memory_run-01 baseline CSm baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC006/all_memory_runs/source_memory.feat/reg_standard/stats/cope4.nii.gz
-6 memory_run-01 baseline CSm acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC006/all_memory_runs/source_memory.feat/reg_standard/stats/cope5.nii.gz
-6 memory_run-01 baseline CSm extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC006/all_memory_runs/source_memory.feat/reg_standard/stats/cope6.nii.gz
-6 memory_run-01 acquisition CSm baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC006/all_memory_runs/source_memory.feat/reg_standard/stats/cope10.nii.gz
-6 memory_run-01 acquisition CSm extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC006/all_memory_runs/source_memory.feat/reg_standard/stats/cope12.nii.gz
-6 memory_run-01 extinction CSm baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC006/all_memory_runs/source_memory.feat/reg_standard/stats/cope16.nii.gz
-6 memory_run-01 extinction CSm extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC006/all_memory_runs/source_memory.feat/reg_standard/stats/cope18.nii.gz
-6 memory_run-02 acquisition CSp extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC006/all_memory_runs/source_memory.feat/reg_standard/stats/cope9.nii.gz
-6 memory_run-02 extinction CSm acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC006/all_memory_runs/source_memory.feat/reg_standard/stats/cope17.nii.gz
-6 memory_run-03 acquisition CSm acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC006/all_memory_runs/source_memory.feat/reg_standard/stats/cope11.nii.gz
-7 memory_run-01 baseline CSp baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC007/all_memory_runs/source_memory.feat/reg_standard/stats/cope1.nii.gz
-7 memory_run-01 baseline CSp acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC007/all_memory_runs/source_memory.feat/reg_standard/stats/cope2.nii.gz
-7 memory_run-01 baseline CSp extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC007/all_memory_runs/source_memory.feat/reg_standard/stats/cope3.nii.gz
-7 memory_run-01 acquisition CSp acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC007/all_memory_runs/source_memory.feat/reg_standard/stats/cope8.nii.gz
-7 memory_run-01 acquisition CSp extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC007/all_memory_runs/source_memory.feat/reg_standard/stats/cope9.nii.gz
-7 memory_run-01 extinction CSp baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC007/all_memory_runs/source_memory.feat/reg_standard/stats/cope13.nii.gz
-7 memory_run-01 extinction CSp acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC007/all_memory_runs/source_memory.feat/reg_standard/stats/cope14.nii.gz
-7 memory_run-01 extinction CSp extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC007/all_memory_runs/source_memory.feat/reg_standard/stats/cope15.nii.gz
-7 memory_run-01 baseline CSm acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC007/all_memory_runs/source_memory.feat/reg_standard/stats/cope5.nii.gz
-7 memory_run-01 baseline CSm extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC007/all_memory_runs/source_memory.feat/reg_standard/stats/cope6.nii.gz
-7 memory_run-01 acquisition CSm baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC007/all_memory_runs/source_memory.feat/reg_standard/stats/cope10.nii.gz
-7 memory_run-01 acquisition CSm acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC007/all_memory_runs/source_memory.feat/reg_standard/stats/cope11.nii.gz
-7 memory_run-01 acquisition CSm extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC007/all_memory_runs/source_memory.feat/reg_standard/stats/cope12.nii.gz
-7 memory_run-01 extinction CSm baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC007/all_memory_runs/source_memory.feat/reg_standard/stats/cope16.nii.gz
-7 memory_run-01 extinction CSm acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC007/all_memory_runs/source_memory.feat/reg_standard/stats/cope17.nii.gz
-7 memory_run-01 extinction CSm extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC007/all_memory_runs/source_memory.feat/reg_standard/stats/cope18.nii.gz
-7 memory_run-02 acquisition CSp baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC007/all_memory_runs/source_memory.feat/reg_standard/stats/cope7.nii.gz
-7 memory_run-02 baseline CSm baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC007/all_memory_runs/source_memory.feat/reg_standard/stats/cope4.nii.gz
-8 memory_run-01 baseline CSp baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC008/all_memory_runs/source_memory.feat/reg_standard/stats/cope1.nii.gz
-8 memory_run-01 baseline CSp acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC008/all_memory_runs/source_memory.feat/reg_standard/stats/cope2.nii.gz
-8 memory_run-01 baseline CSp extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC008/all_memory_runs/source_memory.feat/reg_standard/stats/cope3.nii.gz
-8 memory_run-01 acquisition CSp baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC008/all_memory_runs/source_memory.feat/reg_standard/stats/cope7.nii.gz
-8 memory_run-01 acquisition CSp acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC008/all_memory_runs/source_memory.feat/reg_standard/stats/cope8.nii.gz
-8 memory_run-01 extinction CSp baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC008/all_memory_runs/source_memory.feat/reg_standard/stats/cope13.nii.gz
-8 memory_run-01 extinction CSp acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC008/all_memory_runs/source_memory.feat/reg_standard/stats/cope14.nii.gz
-8 memory_run-01 extinction CSp extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC008/all_memory_runs/source_memory.feat/reg_standard/stats/cope15.nii.gz
-8 memory_run-01 baseline CSm baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC008/all_memory_runs/source_memory.feat/reg_standard/stats/cope4.nii.gz
-8 memory_run-01 baseline CSm acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC008/all_memory_runs/source_memory.feat/reg_standard/stats/cope5.nii.gz
-8 memory_run-01 baseline CSm extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC008/all_memory_runs/source_memory.feat/reg_standard/stats/cope6.nii.gz
-8 memory_run-01 acquisition CSm baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC008/all_memory_runs/source_memory.feat/reg_standard/stats/cope10.nii.gz
-8 memory_run-01 acquisition CSm acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC008/all_memory_runs/source_memory.feat/reg_standard/stats/cope11.nii.gz
-8 memory_run-01 acquisition CSm extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC008/all_memory_runs/source_memory.feat/reg_standard/stats/cope12.nii.gz
-8 memory_run-01 extinction CSm baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC008/all_memory_runs/source_memory.feat/reg_standard/stats/cope16.nii.gz
-8 memory_run-01 extinction CSm acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC008/all_memory_runs/source_memory.feat/reg_standard/stats/cope17.nii.gz
-8 memory_run-01 extinction CSm extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC008/all_memory_runs/source_memory.feat/reg_standard/stats/cope18.nii.gz
-8 memory_run-02 acquisition CSp extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC008/all_memory_runs/source_memory.feat/reg_standard/stats/cope9.nii.gz
-9 memory_run-01 baseline CSp baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC009/all_memory_runs/source_memory.feat/reg_standard/stats/cope1.nii.gz
-9 memory_run-01 baseline CSp acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC009/all_memory_runs/source_memory.feat/reg_standard/stats/cope2.nii.gz
-9 memory_run-01 baseline CSp extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC009/all_memory_runs/source_memory.feat/reg_standard/stats/cope3.nii.gz
-9 memory_run-01 acquisition CSp baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC009/all_memory_runs/source_memory.feat/reg_standard/stats/cope7.nii.gz
-9 memory_run-01 acquisition CSp acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC009/all_memory_runs/source_memory.feat/reg_standard/stats/cope8.nii.gz
-9 memory_run-01 acquisition CSp extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC009/all_memory_runs/source_memory.feat/reg_standard/stats/cope9.nii.gz
-9 memory_run-01 extinction CSp baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC009/all_memory_runs/source_memory.feat/reg_standard/stats/cope13.nii.gz
-9 memory_run-01 extinction CSp acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC009/all_memory_runs/source_memory.feat/reg_standard/stats/cope14.nii.gz
-9 memory_run-01 extinction CSp extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC009/all_memory_runs/source_memory.feat/reg_standard/stats/cope15.nii.gz
-9 memory_run-01 baseline CSm acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC009/all_memory_runs/source_memory.feat/reg_standard/stats/cope5.nii.gz
-9 memory_run-01 baseline CSm extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC009/all_memory_runs/source_memory.feat/reg_standard/stats/cope6.nii.gz
-9 memory_run-01 acquisition CSm acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC009/all_memory_runs/source_memory.feat/reg_standard/stats/cope11.nii.gz
-9 memory_run-01 acquisition CSm extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC009/all_memory_runs/source_memory.feat/reg_standard/stats/cope12.nii.gz
-9 memory_run-01 extinction CSm baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC009/all_memory_runs/source_memory.feat/reg_standard/stats/cope16.nii.gz
-9 memory_run-01 extinction CSm acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC009/all_memory_runs/source_memory.feat/reg_standard/stats/cope17.nii.gz
-9 memory_run-01 extinction CSm extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC009/all_memory_runs/source_memory.feat/reg_standard/stats/cope18.nii.gz
-9 memory_run-02 baseline CSm baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC009/all_memory_runs/source_memory.feat/reg_standard/stats/cope4.nii.gz
-9 memory_run-03 acquisition CSm baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC009/all_memory_runs/source_memory.feat/reg_standard/stats/cope10.nii.gz
-10 memory_run-01 baseline CSp baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC010/all_memory_runs/source_memory.feat/reg_standard/stats/cope1.nii.gz
-10 memory_run-01 baseline CSp acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC010/all_memory_runs/source_memory.feat/reg_standard/stats/cope2.nii.gz
-10 memory_run-01 baseline CSp extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC010/all_memory_runs/source_memory.feat/reg_standard/stats/cope3.nii.gz
-10 memory_run-01 acquisition CSp acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC010/all_memory_runs/source_memory.feat/reg_standard/stats/cope8.nii.gz
-10 memory_run-01 acquisition CSp extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC010/all_memory_runs/source_memory.feat/reg_standard/stats/cope9.nii.gz
-10 memory_run-01 extinction CSp acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC010/all_memory_runs/source_memory.feat/reg_standard/stats/cope14.nii.gz
-10 memory_run-01 extinction CSp extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC010/all_memory_runs/source_memory.feat/reg_standard/stats/cope15.nii.gz
-10 memory_run-01 baseline CSm baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC010/all_memory_runs/source_memory.feat/reg_standard/stats/cope4.nii.gz
-10 memory_run-01 baseline CSm acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC010/all_memory_runs/source_memory.feat/reg_standard/stats/cope5.nii.gz
-10 memory_run-01 baseline CSm extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC010/all_memory_runs/source_memory.feat/reg_standard/stats/cope6.nii.gz
-10 memory_run-01 acquisition CSm baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC010/all_memory_runs/source_memory.feat/reg_standard/stats/cope10.nii.gz
-10 memory_run-01 acquisition CSm extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC010/all_memory_runs/source_memory.feat/reg_standard/stats/cope12.nii.gz
-10 memory_run-01 extinction CSm baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC010/all_memory_runs/source_memory.feat/reg_standard/stats/cope16.nii.gz
-10 memory_run-01 extinction CSm acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC010/all_memory_runs/source_memory.feat/reg_standard/stats/cope17.nii.gz
-10 memory_run-01 extinction CSm extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC010/all_memory_runs/source_memory.feat/reg_standard/stats/cope18.nii.gz
-10 memory_run-02 acquisition CSm acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC010/all_memory_runs/source_memory.feat/reg_standard/stats/cope11.nii.gz
-12 memory_run-01 baseline CSp baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC012/all_memory_runs/source_memory.feat/reg_standard/stats/cope1.nii.gz
-12 memory_run-01 baseline CSp acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC012/all_memory_runs/source_memory.feat/reg_standard/stats/cope2.nii.gz
-12 memory_run-01 baseline CSp extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC012/all_memory_runs/source_memory.feat/reg_standard/stats/cope3.nii.gz
-12 memory_run-01 acquisition CSp baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC012/all_memory_runs/source_memory.feat/reg_standard/stats/cope7.nii.gz
-12 memory_run-01 acquisition CSp acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC012/all_memory_runs/source_memory.feat/reg_standard/stats/cope8.nii.gz
-12 memory_run-01 acquisition CSp extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC012/all_memory_runs/source_memory.feat/reg_standard/stats/cope9.nii.gz
-12 memory_run-01 extinction CSp baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC012/all_memory_runs/source_memory.feat/reg_standard/stats/cope13.nii.gz
-12 memory_run-01 extinction CSp acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC012/all_memory_runs/source_memory.feat/reg_standard/stats/cope14.nii.gz
-12 memory_run-01 extinction CSp extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC012/all_memory_runs/source_memory.feat/reg_standard/stats/cope15.nii.gz
-12 memory_run-01 baseline CSm baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC012/all_memory_runs/source_memory.feat/reg_standard/stats/cope4.nii.gz
-12 memory_run-01 baseline CSm acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC012/all_memory_runs/source_memory.feat/reg_standard/stats/cope5.nii.gz
-12 memory_run-01 baseline CSm extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC012/all_memory_runs/source_memory.feat/reg_standard/stats/cope6.nii.gz
-12 memory_run-01 acquisition CSm baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC012/all_memory_runs/source_memory.feat/reg_standard/stats/cope10.nii.gz
-12 memory_run-01 acquisition CSm acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC012/all_memory_runs/source_memory.feat/reg_standard/stats/cope11.nii.gz
-12 memory_run-01 acquisition CSm extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC012/all_memory_runs/source_memory.feat/reg_standard/stats/cope12.nii.gz
-12 memory_run-01 extinction CSm baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC012/all_memory_runs/source_memory.feat/reg_standard/stats/cope16.nii.gz
-12 memory_run-01 extinction CSm acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC012/all_memory_runs/source_memory.feat/reg_standard/stats/cope17.nii.gz
-12 memory_run-01 extinction CSm extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC012/all_memory_runs/source_memory.feat/reg_standard/stats/cope18.nii.gz
-13 memory_run-01 baseline CSp baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC013/all_memory_runs/source_memory.feat/reg_standard/stats/cope1.nii.gz
-13 memory_run-01 baseline CSp acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC013/all_memory_runs/source_memory.feat/reg_standard/stats/cope2.nii.gz
-13 memory_run-01 baseline CSp extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC013/all_memory_runs/source_memory.feat/reg_standard/stats/cope3.nii.gz
-13 memory_run-01 acquisition CSp baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC013/all_memory_runs/source_memory.feat/reg_standard/stats/cope7.nii.gz
-13 memory_run-01 acquisition CSp acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC013/all_memory_runs/source_memory.feat/reg_standard/stats/cope8.nii.gz
-13 memory_run-01 acquisition CSp extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC013/all_memory_runs/source_memory.feat/reg_standard/stats/cope9.nii.gz
-13 memory_run-01 extinction CSp baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC013/all_memory_runs/source_memory.feat/reg_standard/stats/cope13.nii.gz
-13 memory_run-01 extinction CSp acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC013/all_memory_runs/source_memory.feat/reg_standard/stats/cope14.nii.gz
-13 memory_run-01 extinction CSp extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC013/all_memory_runs/source_memory.feat/reg_standard/stats/cope15.nii.gz
-13 memory_run-01 baseline CSm baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC013/all_memory_runs/source_memory.feat/reg_standard/stats/cope4.nii.gz
-13 memory_run-01 baseline CSm extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC013/all_memory_runs/source_memory.feat/reg_standard/stats/cope6.nii.gz
-13 memory_run-01 acquisition CSm baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC013/all_memory_runs/source_memory.feat/reg_standard/stats/cope10.nii.gz
-13 memory_run-01 acquisition CSm acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC013/all_memory_runs/source_memory.feat/reg_standard/stats/cope11.nii.gz
-13 memory_run-01 acquisition CSm extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC013/all_memory_runs/source_memory.feat/reg_standard/stats/cope12.nii.gz
-13 memory_run-01 extinction CSm acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC013/all_memory_runs/source_memory.feat/reg_standard/stats/cope17.nii.gz
-13 memory_run-01 extinction CSm extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC013/all_memory_runs/source_memory.feat/reg_standard/stats/cope18.nii.gz
-13 memory_run-02 baseline CSm acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC013/all_memory_runs/source_memory.feat/reg_standard/stats/cope5.nii.gz
-13 memory_run-02 extinction CSm baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC013/all_memory_runs/source_memory.feat/reg_standard/stats/cope16.nii.gz
-14 memory_run-01 baseline CSp baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC014/all_memory_runs/source_memory.feat/reg_standard/stats/cope1.nii.gz
-14 memory_run-01 baseline CSp acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC014/all_memory_runs/source_memory.feat/reg_standard/stats/cope2.nii.gz
-14 memory_run-01 baseline CSp extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC014/all_memory_runs/source_memory.feat/reg_standard/stats/cope3.nii.gz
-14 memory_run-01 acquisition CSp acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC014/all_memory_runs/source_memory.feat/reg_standard/stats/cope8.nii.gz
-14 memory_run-01 acquisition CSp extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC014/all_memory_runs/source_memory.feat/reg_standard/stats/cope9.nii.gz
-14 memory_run-01 extinction CSp baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC014/all_memory_runs/source_memory.feat/reg_standard/stats/cope13.nii.gz
-14 memory_run-01 extinction CSp acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC014/all_memory_runs/source_memory.feat/reg_standard/stats/cope14.nii.gz
-14 memory_run-01 extinction CSp extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC014/all_memory_runs/source_memory.feat/reg_standard/stats/cope15.nii.gz
-14 memory_run-01 baseline CSm baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC014/all_memory_runs/source_memory.feat/reg_standard/stats/cope4.nii.gz
-14 memory_run-01 baseline CSm acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC014/all_memory_runs/source_memory.feat/reg_standard/stats/cope5.nii.gz
-14 memory_run-01 baseline CSm extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC014/all_memory_runs/source_memory.feat/reg_standard/stats/cope6.nii.gz
-14 memory_run-01 acquisition CSm baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC014/all_memory_runs/source_memory.feat/reg_standard/stats/cope10.nii.gz
-14 memory_run-01 acquisition CSm extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC014/all_memory_runs/source_memory.feat/reg_standard/stats/cope12.nii.gz
-14 memory_run-01 extinction CSm baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC014/all_memory_runs/source_memory.feat/reg_standard/stats/cope16.nii.gz
-14 memory_run-01 extinction CSm acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC014/all_memory_runs/source_memory.feat/reg_standard/stats/cope17.nii.gz
-14 memory_run-01 extinction CSm extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC014/all_memory_runs/source_memory.feat/reg_standard/stats/cope18.nii.gz
-14 memory_run-02 acquisition CSp baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC014/all_memory_runs/source_memory.feat/reg_standard/stats/cope7.nii.gz
-14 memory_run-02 acquisition CSm acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC014/all_memory_runs/source_memory.feat/reg_standard/stats/cope11.nii.gz
-15 memory_run-01 baseline CSp baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC015/all_memory_runs/source_memory.feat/reg_standard/stats/cope1.nii.gz
-15 memory_run-01 baseline CSp acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC015/all_memory_runs/source_memory.feat/reg_standard/stats/cope2.nii.gz
-15 memory_run-01 acquisition CSp acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC015/all_memory_runs/source_memory.feat/reg_standard/stats/cope8.nii.gz
-15 memory_run-01 extinction CSp acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC015/all_memory_runs/source_memory.feat/reg_standard/stats/cope14.nii.gz
-15 memory_run-01 extinction CSp extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC015/all_memory_runs/source_memory.feat/reg_standard/stats/cope15.nii.gz
-15 memory_run-01 baseline CSm acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC015/all_memory_runs/source_memory.feat/reg_standard/stats/cope5.nii.gz
-15 memory_run-01 baseline CSm extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC015/all_memory_runs/source_memory.feat/reg_standard/stats/cope6.nii.gz
-15 memory_run-01 acquisition CSm acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC015/all_memory_runs/source_memory.feat/reg_standard/stats/cope11.nii.gz
-15 memory_run-01 acquisition CSm extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC015/all_memory_runs/source_memory.feat/reg_standard/stats/cope12.nii.gz
-15 memory_run-01 extinction CSm baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC015/all_memory_runs/source_memory.feat/reg_standard/stats/cope16.nii.gz
-15 memory_run-01 extinction CSm acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC015/all_memory_runs/source_memory.feat/reg_standard/stats/cope17.nii.gz
-15 memory_run-01 extinction CSm extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC015/all_memory_runs/source_memory.feat/reg_standard/stats/cope18.nii.gz
-15 memory_run-02 baseline CSp extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC015/all_memory_runs/source_memory.feat/reg_standard/stats/cope3.nii.gz
-15 memory_run-02 acquisition CSp baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC015/all_memory_runs/source_memory.feat/reg_standard/stats/cope7.nii.gz
-15 memory_run-02 baseline CSm baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC015/all_memory_runs/source_memory.feat/reg_standard/stats/cope4.nii.gz
-15 memory_run-02 acquisition CSm baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC015/all_memory_runs/source_memory.feat/reg_standard/stats/cope10.nii.gz
-15 memory_run-03 acquisition CSp extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC015/all_memory_runs/source_memory.feat/reg_standard/stats/cope9.nii.gz
-16 memory_run-01 baseline CSp baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC016/all_memory_runs/source_memory.feat/reg_standard/stats/cope1.nii.gz
-16 memory_run-01 baseline CSp acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC016/all_memory_runs/source_memory.feat/reg_standard/stats/cope2.nii.gz
-16 memory_run-01 baseline CSp extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC016/all_memory_runs/source_memory.feat/reg_standard/stats/cope3.nii.gz
-16 memory_run-01 acquisition CSp baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC016/all_memory_runs/source_memory.feat/reg_standard/stats/cope7.nii.gz
-16 memory_run-01 acquisition CSp acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC016/all_memory_runs/source_memory.feat/reg_standard/stats/cope8.nii.gz
-16 memory_run-01 acquisition CSp extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC016/all_memory_runs/source_memory.feat/reg_standard/stats/cope9.nii.gz
-16 memory_run-01 extinction CSp baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC016/all_memory_runs/source_memory.feat/reg_standard/stats/cope13.nii.gz
-16 memory_run-01 extinction CSp acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC016/all_memory_runs/source_memory.feat/reg_standard/stats/cope14.nii.gz
-16 memory_run-01 extinction CSp extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC016/all_memory_runs/source_memory.feat/reg_standard/stats/cope15.nii.gz
-16 memory_run-01 baseline CSm baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC016/all_memory_runs/source_memory.feat/reg_standard/stats/cope4.nii.gz
-16 memory_run-01 baseline CSm acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC016/all_memory_runs/source_memory.feat/reg_standard/stats/cope5.nii.gz
-16 memory_run-01 baseline CSm extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC016/all_memory_runs/source_memory.feat/reg_standard/stats/cope6.nii.gz
-16 memory_run-01 acquisition CSm baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC016/all_memory_runs/source_memory.feat/reg_standard/stats/cope10.nii.gz
-16 memory_run-01 acquisition CSm acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC016/all_memory_runs/source_memory.feat/reg_standard/stats/cope11.nii.gz
-16 memory_run-01 acquisition CSm extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC016/all_memory_runs/source_memory.feat/reg_standard/stats/cope12.nii.gz
-16 memory_run-01 extinction CSm baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC016/all_memory_runs/source_memory.feat/reg_standard/stats/cope16.nii.gz
-16 memory_run-01 extinction CSm acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC016/all_memory_runs/source_memory.feat/reg_standard/stats/cope17.nii.gz
-16 memory_run-01 extinction CSm extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC016/all_memory_runs/source_memory.feat/reg_standard/stats/cope18.nii.gz
-17 memory_run-01 baseline CSp acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC017/all_memory_runs/source_memory.feat/reg_standard/stats/cope2.nii.gz
-17 memory_run-01 acquisition CSp baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC017/all_memory_runs/source_memory.feat/reg_standard/stats/cope7.nii.gz
-17 memory_run-01 acquisition CSp acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC017/all_memory_runs/source_memory.feat/reg_standard/stats/cope8.nii.gz
-17 memory_run-01 extinction CSp acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC017/all_memory_runs/source_memory.feat/reg_standard/stats/cope14.nii.gz
-17 memory_run-01 extinction CSp extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC017/all_memory_runs/source_memory.feat/reg_standard/stats/cope15.nii.gz
-17 memory_run-01 baseline CSm baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC017/all_memory_runs/source_memory.feat/reg_standard/stats/cope4.nii.gz
-17 memory_run-01 baseline CSm acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC017/all_memory_runs/source_memory.feat/reg_standard/stats/cope5.nii.gz
-17 memory_run-01 baseline CSm extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC017/all_memory_runs/source_memory.feat/reg_standard/stats/cope6.nii.gz
-17 memory_run-01 acquisition CSm baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC017/all_memory_runs/source_memory.feat/reg_standard/stats/cope10.nii.gz
-17 memory_run-01 acquisition CSm acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC017/all_memory_runs/source_memory.feat/reg_standard/stats/cope11.nii.gz
-17 memory_run-01 acquisition CSm extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC017/all_memory_runs/source_memory.feat/reg_standard/stats/cope12.nii.gz
-17 memory_run-01 extinction CSm baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC017/all_memory_runs/source_memory.feat/reg_standard/stats/cope16.nii.gz
-17 memory_run-01 extinction CSm acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC017/all_memory_runs/source_memory.feat/reg_standard/stats/cope17.nii.gz
-17 memory_run-01 extinction CSm extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC017/all_memory_runs/source_memory.feat/reg_standard/stats/cope18.nii.gz
-17 memory_run-02 baseline CSp baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC017/all_memory_runs/source_memory.feat/reg_standard/stats/cope1.nii.gz
-17 memory_run-02 baseline CSp extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC017/all_memory_runs/source_memory.feat/reg_standard/stats/cope3.nii.gz
-17 memory_run-02 extinction CSp baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC017/all_memory_runs/source_memory.feat/reg_standard/stats/cope13.nii.gz
-17 memory_run-03 acquisition CSp extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC017/all_memory_runs/source_memory.feat/reg_standard/stats/cope9.nii.gz
-19 memory_run-01 baseline CSp baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC019/all_memory_runs/source_memory.feat/reg_standard/stats/cope1.nii.gz
-19 memory_run-01 baseline CSp extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC019/all_memory_runs/source_memory.feat/reg_standard/stats/cope3.nii.gz
-19 memory_run-01 acquisition CSp baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC019/all_memory_runs/source_memory.feat/reg_standard/stats/cope7.nii.gz
-19 memory_run-01 acquisition CSp acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC019/all_memory_runs/source_memory.feat/reg_standard/stats/cope8.nii.gz
-19 memory_run-01 acquisition CSp extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC019/all_memory_runs/source_memory.feat/reg_standard/stats/cope9.nii.gz
-19 memory_run-01 extinction CSp baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC019/all_memory_runs/source_memory.feat/reg_standard/stats/cope13.nii.gz
-19 memory_run-01 extinction CSp acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC019/all_memory_runs/source_memory.feat/reg_standard/stats/cope14.nii.gz
-19 memory_run-01 extinction CSp extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC019/all_memory_runs/source_memory.feat/reg_standard/stats/cope15.nii.gz
-19 memory_run-01 baseline CSm baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC019/all_memory_runs/source_memory.feat/reg_standard/stats/cope4.nii.gz
-19 memory_run-01 baseline CSm acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC019/all_memory_runs/source_memory.feat/reg_standard/stats/cope5.nii.gz
-19 memory_run-01 baseline CSm extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC019/all_memory_runs/source_memory.feat/reg_standard/stats/cope6.nii.gz
-19 memory_run-01 acquisition CSm baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC019/all_memory_runs/source_memory.feat/reg_standard/stats/cope10.nii.gz
-19 memory_run-01 acquisition CSm acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC019/all_memory_runs/source_memory.feat/reg_standard/stats/cope11.nii.gz
-19 memory_run-01 acquisition CSm extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC019/all_memory_runs/source_memory.feat/reg_standard/stats/cope12.nii.gz
-19 memory_run-01 extinction CSm baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC019/all_memory_runs/source_memory.feat/reg_standard/stats/cope16.nii.gz
-19 memory_run-01 extinction CSm acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC019/all_memory_runs/source_memory.feat/reg_standard/stats/cope17.nii.gz
-19 memory_run-01 extinction CSm extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC019/all_memory_runs/source_memory.feat/reg_standard/stats/cope18.nii.gz
-19 memory_run-02 baseline CSp acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC019/all_memory_runs/source_memory.feat/reg_standard/stats/cope2.nii.gz
-21 memory_run-01 baseline CSp baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC021/all_memory_runs/source_memory.feat/reg_standard/stats/cope1.nii.gz
-21 memory_run-01 baseline CSp acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC021/all_memory_runs/source_memory.feat/reg_standard/stats/cope2.nii.gz
-21 memory_run-01 baseline CSp extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC021/all_memory_runs/source_memory.feat/reg_standard/stats/cope3.nii.gz
-21 memory_run-01 acquisition CSp baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC021/all_memory_runs/source_memory.feat/reg_standard/stats/cope7.nii.gz
-21 memory_run-01 acquisition CSp acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC021/all_memory_runs/source_memory.feat/reg_standard/stats/cope8.nii.gz
-21 memory_run-01 acquisition CSp extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC021/all_memory_runs/source_memory.feat/reg_standard/stats/cope9.nii.gz
-21 memory_run-01 extinction CSp baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC021/all_memory_runs/source_memory.feat/reg_standard/stats/cope13.nii.gz
-21 memory_run-01 extinction CSp acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC021/all_memory_runs/source_memory.feat/reg_standard/stats/cope14.nii.gz
-21 memory_run-01 extinction CSp extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC021/all_memory_runs/source_memory.feat/reg_standard/stats/cope15.nii.gz
-21 memory_run-01 baseline CSm baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC021/all_memory_runs/source_memory.feat/reg_standard/stats/cope4.nii.gz
-21 memory_run-01 baseline CSm acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC021/all_memory_runs/source_memory.feat/reg_standard/stats/cope5.nii.gz
-21 memory_run-01 baseline CSm extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC021/all_memory_runs/source_memory.feat/reg_standard/stats/cope6.nii.gz
-21 memory_run-01 acquisition CSm baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC021/all_memory_runs/source_memory.feat/reg_standard/stats/cope10.nii.gz
-21 memory_run-01 acquisition CSm acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC021/all_memory_runs/source_memory.feat/reg_standard/stats/cope11.nii.gz
-21 memory_run-01 acquisition CSm extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC021/all_memory_runs/source_memory.feat/reg_standard/stats/cope12.nii.gz
-21 memory_run-01 extinction CSm baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC021/all_memory_runs/source_memory.feat/reg_standard/stats/cope16.nii.gz
-21 memory_run-01 extinction CSm acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC021/all_memory_runs/source_memory.feat/reg_standard/stats/cope17.nii.gz
-21 memory_run-01 extinction CSm extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC021/all_memory_runs/source_memory.feat/reg_standard/stats/cope18.nii.gz
-101 memory_run-01 baseline CSp baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC101/all_memory_runs/source_memory.feat/reg_standard/stats/cope1.nii.gz
-101 memory_run-01 baseline CSp acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC101/all_memory_runs/source_memory.feat/reg_standard/stats/cope2.nii.gz
-101 memory_run-01 baseline CSp extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC101/all_memory_runs/source_memory.feat/reg_standard/stats/cope3.nii.gz
-101 memory_run-01 acquisition CSp baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC101/all_memory_runs/source_memory.feat/reg_standard/stats/cope7.nii.gz
-101 memory_run-01 acquisition CSp acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC101/all_memory_runs/source_memory.feat/reg_standard/stats/cope8.nii.gz
-101 memory_run-01 acquisition CSp extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC101/all_memory_runs/source_memory.feat/reg_standard/stats/cope9.nii.gz
-101 memory_run-01 extinction CSp baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC101/all_memory_runs/source_memory.feat/reg_standard/stats/cope13.nii.gz
-101 memory_run-01 extinction CSp acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC101/all_memory_runs/source_memory.feat/reg_standard/stats/cope14.nii.gz
-101 memory_run-01 baseline CSm baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC101/all_memory_runs/source_memory.feat/reg_standard/stats/cope4.nii.gz
-101 memory_run-01 baseline CSm acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC101/all_memory_runs/source_memory.feat/reg_standard/stats/cope5.nii.gz
-101 memory_run-01 baseline CSm extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC101/all_memory_runs/source_memory.feat/reg_standard/stats/cope6.nii.gz
-101 memory_run-01 acquisition CSm acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC101/all_memory_runs/source_memory.feat/reg_standard/stats/cope11.nii.gz
-101 memory_run-01 acquisition CSm extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC101/all_memory_runs/source_memory.feat/reg_standard/stats/cope12.nii.gz
-101 memory_run-01 extinction CSm baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC101/all_memory_runs/source_memory.feat/reg_standard/stats/cope16.nii.gz
-101 memory_run-01 extinction CSm extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC101/all_memory_runs/source_memory.feat/reg_standard/stats/cope18.nii.gz
-101 memory_run-02 extinction CSp extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC101/all_memory_runs/source_memory.feat/reg_standard/stats/cope15.nii.gz
-101 memory_run-02 acquisition CSm baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC101/all_memory_runs/source_memory.feat/reg_standard/stats/cope10.nii.gz
-101 memory_run-02 extinction CSm acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC101/all_memory_runs/source_memory.feat/reg_standard/stats/cope17.nii.gz
-102 memory_run-01 baseline CSp baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC102/all_memory_runs/source_memory.feat/reg_standard/stats/cope1.nii.gz
-102 memory_run-01 baseline CSp extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC102/all_memory_runs/source_memory.feat/reg_standard/stats/cope3.nii.gz
-102 memory_run-01 acquisition CSp acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC102/all_memory_runs/source_memory.feat/reg_standard/stats/cope8.nii.gz
-102 memory_run-01 acquisition CSp extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC102/all_memory_runs/source_memory.feat/reg_standard/stats/cope9.nii.gz
-102 memory_run-01 extinction CSp baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC102/all_memory_runs/source_memory.feat/reg_standard/stats/cope13.nii.gz
-102 memory_run-01 extinction CSp acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC102/all_memory_runs/source_memory.feat/reg_standard/stats/cope14.nii.gz
-102 memory_run-01 extinction CSp extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC102/all_memory_runs/source_memory.feat/reg_standard/stats/cope15.nii.gz
-102 memory_run-01 baseline CSm acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC102/all_memory_runs/source_memory.feat/reg_standard/stats/cope5.nii.gz
-102 memory_run-01 baseline CSm extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC102/all_memory_runs/source_memory.feat/reg_standard/stats/cope6.nii.gz
-102 memory_run-01 acquisition CSm baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC102/all_memory_runs/source_memory.feat/reg_standard/stats/cope10.nii.gz
-102 memory_run-01 acquisition CSm acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC102/all_memory_runs/source_memory.feat/reg_standard/stats/cope11.nii.gz
-102 memory_run-01 acquisition CSm extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC102/all_memory_runs/source_memory.feat/reg_standard/stats/cope12.nii.gz
-102 memory_run-01 extinction CSm baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC102/all_memory_runs/source_memory.feat/reg_standard/stats/cope16.nii.gz
-102 memory_run-01 extinction CSm acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC102/all_memory_runs/source_memory.feat/reg_standard/stats/cope17.nii.gz
-102 memory_run-01 extinction CSm extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC102/all_memory_runs/source_memory.feat/reg_standard/stats/cope18.nii.gz
-102 memory_run-02 baseline CSp acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC102/all_memory_runs/source_memory.feat/reg_standard/stats/cope2.nii.gz
-102 memory_run-02 acquisition CSp baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC102/all_memory_runs/source_memory.feat/reg_standard/stats/cope7.nii.gz
-102 memory_run-02 baseline CSm baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC102/all_memory_runs/source_memory.feat/reg_standard/stats/cope4.nii.gz
-103 memory_run-01 baseline CSp baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC103/all_memory_runs/source_memory.feat/reg_standard/stats/cope1.nii.gz
-103 memory_run-01 baseline CSp acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC103/all_memory_runs/source_memory.feat/reg_standard/stats/cope2.nii.gz
-103 memory_run-01 baseline CSp extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC103/all_memory_runs/source_memory.feat/reg_standard/stats/cope3.nii.gz
-103 memory_run-01 acquisition CSp baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC103/all_memory_runs/source_memory.feat/reg_standard/stats/cope7.nii.gz
-103 memory_run-01 acquisition CSp acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC103/all_memory_runs/source_memory.feat/reg_standard/stats/cope8.nii.gz
-103 memory_run-01 acquisition CSp extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC103/all_memory_runs/source_memory.feat/reg_standard/stats/cope9.nii.gz
-103 memory_run-01 extinction CSp baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC103/all_memory_runs/source_memory.feat/reg_standard/stats/cope13.nii.gz
-103 memory_run-01 extinction CSp acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC103/all_memory_runs/source_memory.feat/reg_standard/stats/cope14.nii.gz
-103 memory_run-01 extinction CSp extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC103/all_memory_runs/source_memory.feat/reg_standard/stats/cope15.nii.gz
-103 memory_run-01 baseline CSm baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC103/all_memory_runs/source_memory.feat/reg_standard/stats/cope4.nii.gz
-103 memory_run-01 baseline CSm acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC103/all_memory_runs/source_memory.feat/reg_standard/stats/cope5.nii.gz
-103 memory_run-01 baseline CSm extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC103/all_memory_runs/source_memory.feat/reg_standard/stats/cope6.nii.gz
-103 memory_run-01 acquisition CSm baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC103/all_memory_runs/source_memory.feat/reg_standard/stats/cope10.nii.gz
-103 memory_run-01 acquisition CSm acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC103/all_memory_runs/source_memory.feat/reg_standard/stats/cope11.nii.gz
-103 memory_run-01 acquisition CSm extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC103/all_memory_runs/source_memory.feat/reg_standard/stats/cope12.nii.gz
-103 memory_run-01 extinction CSm baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC103/all_memory_runs/source_memory.feat/reg_standard/stats/cope16.nii.gz
-103 memory_run-01 extinction CSm acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC103/all_memory_runs/source_memory.feat/reg_standard/stats/cope17.nii.gz
-103 memory_run-01 extinction CSm extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC103/all_memory_runs/source_memory.feat/reg_standard/stats/cope18.nii.gz
-104 memory_run-01 baseline CSp baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC104/all_memory_runs/source_memory.feat/reg_standard/stats/cope1.nii.gz
-104 memory_run-01 baseline CSp acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC104/all_memory_runs/source_memory.feat/reg_standard/stats/cope2.nii.gz
-104 memory_run-01 acquisition CSp baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC104/all_memory_runs/source_memory.feat/reg_standard/stats/cope7.nii.gz
-104 memory_run-01 acquisition CSp acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC104/all_memory_runs/source_memory.feat/reg_standard/stats/cope8.nii.gz
-104 memory_run-01 acquisition CSp extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC104/all_memory_runs/source_memory.feat/reg_standard/stats/cope9.nii.gz
-104 memory_run-01 extinction CSp baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC104/all_memory_runs/source_memory.feat/reg_standard/stats/cope13.nii.gz
-104 memory_run-01 extinction CSp acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC104/all_memory_runs/source_memory.feat/reg_standard/stats/cope14.nii.gz
-104 memory_run-01 baseline CSm baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC104/all_memory_runs/source_memory.feat/reg_standard/stats/cope4.nii.gz
-104 memory_run-01 baseline CSm acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC104/all_memory_runs/source_memory.feat/reg_standard/stats/cope5.nii.gz
-104 memory_run-01 baseline CSm extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC104/all_memory_runs/source_memory.feat/reg_standard/stats/cope6.nii.gz
-104 memory_run-01 acquisition CSm baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC104/all_memory_runs/source_memory.feat/reg_standard/stats/cope10.nii.gz
-104 memory_run-01 acquisition CSm acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC104/all_memory_runs/source_memory.feat/reg_standard/stats/cope11.nii.gz
-104 memory_run-01 acquisition CSm extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC104/all_memory_runs/source_memory.feat/reg_standard/stats/cope12.nii.gz
-104 memory_run-01 extinction CSm baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC104/all_memory_runs/source_memory.feat/reg_standard/stats/cope16.nii.gz
-104 memory_run-01 extinction CSm acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC104/all_memory_runs/source_memory.feat/reg_standard/stats/cope17.nii.gz
-104 memory_run-01 extinction CSm extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC104/all_memory_runs/source_memory.feat/reg_standard/stats/cope18.nii.gz
-104 memory_run-02 baseline CSp extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC104/all_memory_runs/source_memory.feat/reg_standard/stats/cope3.nii.gz
-104 memory_run-02 extinction CSp extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC104/all_memory_runs/source_memory.feat/reg_standard/stats/cope15.nii.gz
-105 memory_run-01 baseline CSp baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC105/all_memory_runs/source_memory.feat/reg_standard/stats/cope1.nii.gz
-105 memory_run-01 baseline CSp acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC105/all_memory_runs/source_memory.feat/reg_standard/stats/cope2.nii.gz
-105 memory_run-01 baseline CSp extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC105/all_memory_runs/source_memory.feat/reg_standard/stats/cope3.nii.gz
-105 memory_run-01 acquisition CSp baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC105/all_memory_runs/source_memory.feat/reg_standard/stats/cope7.nii.gz
-105 memory_run-01 acquisition CSp acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC105/all_memory_runs/source_memory.feat/reg_standard/stats/cope8.nii.gz
-105 memory_run-01 extinction CSp baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC105/all_memory_runs/source_memory.feat/reg_standard/stats/cope13.nii.gz
-105 memory_run-01 extinction CSp acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC105/all_memory_runs/source_memory.feat/reg_standard/stats/cope14.nii.gz
-105 memory_run-01 extinction CSp extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC105/all_memory_runs/source_memory.feat/reg_standard/stats/cope15.nii.gz
-105 memory_run-01 baseline CSm baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC105/all_memory_runs/source_memory.feat/reg_standard/stats/cope4.nii.gz
-105 memory_run-01 baseline CSm acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC105/all_memory_runs/source_memory.feat/reg_standard/stats/cope5.nii.gz
-105 memory_run-01 baseline CSm extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC105/all_memory_runs/source_memory.feat/reg_standard/stats/cope6.nii.gz
-105 memory_run-01 acquisition CSm baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC105/all_memory_runs/source_memory.feat/reg_standard/stats/cope10.nii.gz
-105 memory_run-01 acquisition CSm acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC105/all_memory_runs/source_memory.feat/reg_standard/stats/cope11.nii.gz
-105 memory_run-01 acquisition CSm extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC105/all_memory_runs/source_memory.feat/reg_standard/stats/cope12.nii.gz
-105 memory_run-01 extinction CSm baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC105/all_memory_runs/source_memory.feat/reg_standard/stats/cope16.nii.gz
-105 memory_run-01 extinction CSm acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC105/all_memory_runs/source_memory.feat/reg_standard/stats/cope17.nii.gz
-105 memory_run-01 extinction CSm extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC105/all_memory_runs/source_memory.feat/reg_standard/stats/cope18.nii.gz
-105 memory_run-02 acquisition CSp extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC105/all_memory_runs/source_memory.feat/reg_standard/stats/cope9.nii.gz
-106 memory_run-01 baseline CSp baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC106/all_memory_runs/source_memory.feat/reg_standard/stats/cope1.nii.gz
-106 memory_run-01 baseline CSp acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC106/all_memory_runs/source_memory.feat/reg_standard/stats/cope2.nii.gz
-106 memory_run-01 baseline CSp extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC106/all_memory_runs/source_memory.feat/reg_standard/stats/cope3.nii.gz
-106 memory_run-01 acquisition CSp baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC106/all_memory_runs/source_memory.feat/reg_standard/stats/cope7.nii.gz
-106 memory_run-01 acquisition CSp acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC106/all_memory_runs/source_memory.feat/reg_standard/stats/cope8.nii.gz
-106 memory_run-01 extinction CSp baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC106/all_memory_runs/source_memory.feat/reg_standard/stats/cope13.nii.gz
-106 memory_run-01 extinction CSp acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC106/all_memory_runs/source_memory.feat/reg_standard/stats/cope14.nii.gz
-106 memory_run-01 extinction CSp extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC106/all_memory_runs/source_memory.feat/reg_standard/stats/cope15.nii.gz
-106 memory_run-01 baseline CSm baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC106/all_memory_runs/source_memory.feat/reg_standard/stats/cope4.nii.gz
-106 memory_run-01 baseline CSm acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC106/all_memory_runs/source_memory.feat/reg_standard/stats/cope5.nii.gz
-106 memory_run-01 baseline CSm extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC106/all_memory_runs/source_memory.feat/reg_standard/stats/cope6.nii.gz
-106 memory_run-01 acquisition CSm baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC106/all_memory_runs/source_memory.feat/reg_standard/stats/cope10.nii.gz
-106 memory_run-01 acquisition CSm acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC106/all_memory_runs/source_memory.feat/reg_standard/stats/cope11.nii.gz
-106 memory_run-01 acquisition CSm extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC106/all_memory_runs/source_memory.feat/reg_standard/stats/cope12.nii.gz
-106 memory_run-01 extinction CSm baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC106/all_memory_runs/source_memory.feat/reg_standard/stats/cope16.nii.gz
-106 memory_run-01 extinction CSm acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC106/all_memory_runs/source_memory.feat/reg_standard/stats/cope17.nii.gz
-106 memory_run-01 extinction CSm extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC106/all_memory_runs/source_memory.feat/reg_standard/stats/cope18.nii.gz
-107 memory_run-01 baseline CSp baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC107/all_memory_runs/source_memory.feat/reg_standard/stats/cope1.nii.gz
-107 memory_run-01 baseline CSp acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC107/all_memory_runs/source_memory.feat/reg_standard/stats/cope2.nii.gz
-107 memory_run-01 baseline CSp extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC107/all_memory_runs/source_memory.feat/reg_standard/stats/cope3.nii.gz
-107 memory_run-01 acquisition CSp baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC107/all_memory_runs/source_memory.feat/reg_standard/stats/cope7.nii.gz
-107 memory_run-01 acquisition CSp acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC107/all_memory_runs/source_memory.feat/reg_standard/stats/cope8.nii.gz
-107 memory_run-01 acquisition CSp extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC107/all_memory_runs/source_memory.feat/reg_standard/stats/cope9.nii.gz
-107 memory_run-01 extinction CSp baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC107/all_memory_runs/source_memory.feat/reg_standard/stats/cope13.nii.gz
-107 memory_run-01 extinction CSp acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC107/all_memory_runs/source_memory.feat/reg_standard/stats/cope14.nii.gz
-107 memory_run-01 baseline CSm baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC107/all_memory_runs/source_memory.feat/reg_standard/stats/cope4.nii.gz
-107 memory_run-01 baseline CSm acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC107/all_memory_runs/source_memory.feat/reg_standard/stats/cope5.nii.gz
-107 memory_run-01 baseline CSm extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC107/all_memory_runs/source_memory.feat/reg_standard/stats/cope6.nii.gz
-107 memory_run-01 acquisition CSm baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC107/all_memory_runs/source_memory.feat/reg_standard/stats/cope10.nii.gz
-107 memory_run-01 acquisition CSm acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC107/all_memory_runs/source_memory.feat/reg_standard/stats/cope11.nii.gz
-107 memory_run-01 extinction CSm baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC107/all_memory_runs/source_memory.feat/reg_standard/stats/cope16.nii.gz
-107 memory_run-01 extinction CSm acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC107/all_memory_runs/source_memory.feat/reg_standard/stats/cope17.nii.gz
-107 memory_run-01 extinction CSm extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC107/all_memory_runs/source_memory.feat/reg_standard/stats/cope18.nii.gz
-107 memory_run-02 extinction CSp extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC107/all_memory_runs/source_memory.feat/reg_standard/stats/cope15.nii.gz
-107 memory_run-02 acquisition CSm extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC107/all_memory_runs/source_memory.feat/reg_standard/stats/cope12.nii.gz
-108 memory_run-01 baseline CSp baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC108/all_memory_runs/source_memory.feat/reg_standard/stats/cope1.nii.gz
-108 memory_run-01 baseline CSp acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC108/all_memory_runs/source_memory.feat/reg_standard/stats/cope2.nii.gz
-108 memory_run-01 baseline CSp extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC108/all_memory_runs/source_memory.feat/reg_standard/stats/cope3.nii.gz
-108 memory_run-01 acquisition CSp baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC108/all_memory_runs/source_memory.feat/reg_standard/stats/cope7.nii.gz
-108 memory_run-01 acquisition CSp acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC108/all_memory_runs/source_memory.feat/reg_standard/stats/cope8.nii.gz
-108 memory_run-01 acquisition CSp extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC108/all_memory_runs/source_memory.feat/reg_standard/stats/cope9.nii.gz
-108 memory_run-01 extinction CSp baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC108/all_memory_runs/source_memory.feat/reg_standard/stats/cope13.nii.gz
-108 memory_run-01 extinction CSp acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC108/all_memory_runs/source_memory.feat/reg_standard/stats/cope14.nii.gz
-108 memory_run-01 extinction CSp extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC108/all_memory_runs/source_memory.feat/reg_standard/stats/cope15.nii.gz
-108 memory_run-01 baseline CSm baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC108/all_memory_runs/source_memory.feat/reg_standard/stats/cope4.nii.gz
-108 memory_run-01 baseline CSm acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC108/all_memory_runs/source_memory.feat/reg_standard/stats/cope5.nii.gz
-108 memory_run-01 baseline CSm extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC108/all_memory_runs/source_memory.feat/reg_standard/stats/cope6.nii.gz
-108 memory_run-01 acquisition CSm baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC108/all_memory_runs/source_memory.feat/reg_standard/stats/cope10.nii.gz
-108 memory_run-01 acquisition CSm acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC108/all_memory_runs/source_memory.feat/reg_standard/stats/cope11.nii.gz
-108 memory_run-01 acquisition CSm extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC108/all_memory_runs/source_memory.feat/reg_standard/stats/cope12.nii.gz
-108 memory_run-01 extinction CSm acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC108/all_memory_runs/source_memory.feat/reg_standard/stats/cope17.nii.gz
-108 memory_run-01 extinction CSm extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC108/all_memory_runs/source_memory.feat/reg_standard/stats/cope18.nii.gz
-108 memory_run-02 extinction CSm baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC108/all_memory_runs/source_memory.feat/reg_standard/stats/cope16.nii.gz
-109 memory_run-01 baseline CSp acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC109/all_memory_runs/source_memory.feat/reg_standard/stats/cope2.nii.gz
-109 memory_run-01 baseline CSp extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC109/all_memory_runs/source_memory.feat/reg_standard/stats/cope3.nii.gz
-109 memory_run-01 acquisition CSp baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC109/all_memory_runs/source_memory.feat/reg_standard/stats/cope7.nii.gz
-109 memory_run-01 acquisition CSp acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC109/all_memory_runs/source_memory.feat/reg_standard/stats/cope8.nii.gz
-109 memory_run-01 acquisition CSp extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC109/all_memory_runs/source_memory.feat/reg_standard/stats/cope9.nii.gz
-109 memory_run-01 extinction CSp acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC109/all_memory_runs/source_memory.feat/reg_standard/stats/cope14.nii.gz
-109 memory_run-01 extinction CSp extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC109/all_memory_runs/source_memory.feat/reg_standard/stats/cope15.nii.gz
-109 memory_run-01 baseline CSm baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC109/all_memory_runs/source_memory.feat/reg_standard/stats/cope4.nii.gz
-109 memory_run-01 baseline CSm acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC109/all_memory_runs/source_memory.feat/reg_standard/stats/cope5.nii.gz
-109 memory_run-01 baseline CSm extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC109/all_memory_runs/source_memory.feat/reg_standard/stats/cope6.nii.gz
-109 memory_run-01 acquisition CSm acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC109/all_memory_runs/source_memory.feat/reg_standard/stats/cope11.nii.gz
-109 memory_run-01 acquisition CSm extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC109/all_memory_runs/source_memory.feat/reg_standard/stats/cope12.nii.gz
-109 memory_run-01 extinction CSm baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC109/all_memory_runs/source_memory.feat/reg_standard/stats/cope16.nii.gz
-109 memory_run-01 extinction CSm acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC109/all_memory_runs/source_memory.feat/reg_standard/stats/cope17.nii.gz
-109 memory_run-01 extinction CSm extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC109/all_memory_runs/source_memory.feat/reg_standard/stats/cope18.nii.gz
-109 memory_run-02 baseline CSp baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC109/all_memory_runs/source_memory.feat/reg_standard/stats/cope1.nii.gz
-110 memory_run-01 baseline CSp baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC110/all_memory_runs/source_memory.feat/reg_standard/stats/cope1.nii.gz
-110 memory_run-01 baseline CSp acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC110/all_memory_runs/source_memory.feat/reg_standard/stats/cope2.nii.gz
-110 memory_run-01 baseline CSp extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC110/all_memory_runs/source_memory.feat/reg_standard/stats/cope3.nii.gz
-110 memory_run-01 acquisition CSp baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC110/all_memory_runs/source_memory.feat/reg_standard/stats/cope7.nii.gz
-110 memory_run-01 acquisition CSp acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC110/all_memory_runs/source_memory.feat/reg_standard/stats/cope8.nii.gz
-110 memory_run-01 acquisition CSp extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC110/all_memory_runs/source_memory.feat/reg_standard/stats/cope9.nii.gz
-110 memory_run-01 extinction CSp baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC110/all_memory_runs/source_memory.feat/reg_standard/stats/cope13.nii.gz
-110 memory_run-01 extinction CSp acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC110/all_memory_runs/source_memory.feat/reg_standard/stats/cope14.nii.gz
-110 memory_run-01 extinction CSp extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC110/all_memory_runs/source_memory.feat/reg_standard/stats/cope15.nii.gz
-110 memory_run-01 baseline CSm baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC110/all_memory_runs/source_memory.feat/reg_standard/stats/cope4.nii.gz
-110 memory_run-01 baseline CSm acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC110/all_memory_runs/source_memory.feat/reg_standard/stats/cope5.nii.gz
-110 memory_run-01 baseline CSm extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC110/all_memory_runs/source_memory.feat/reg_standard/stats/cope6.nii.gz
-110 memory_run-01 acquisition CSm acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC110/all_memory_runs/source_memory.feat/reg_standard/stats/cope11.nii.gz
-110 memory_run-01 acquisition CSm extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC110/all_memory_runs/source_memory.feat/reg_standard/stats/cope12.nii.gz
-110 memory_run-01 extinction CSm baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC110/all_memory_runs/source_memory.feat/reg_standard/stats/cope16.nii.gz
-110 memory_run-01 extinction CSm extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC110/all_memory_runs/source_memory.feat/reg_standard/stats/cope18.nii.gz
-110 memory_run-02 acquisition CSm baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC110/all_memory_runs/source_memory.feat/reg_standard/stats/cope10.nii.gz
-110 memory_run-02 extinction CSm acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC110/all_memory_runs/source_memory.feat/reg_standard/stats/cope17.nii.gz
-111 memory_run-01 baseline CSp baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC111/all_memory_runs/source_memory.feat/reg_standard/stats/cope1.nii.gz
-111 memory_run-01 baseline CSp acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC111/all_memory_runs/source_memory.feat/reg_standard/stats/cope2.nii.gz
-111 memory_run-01 acquisition CSp baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC111/all_memory_runs/source_memory.feat/reg_standard/stats/cope7.nii.gz
-111 memory_run-01 acquisition CSp acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC111/all_memory_runs/source_memory.feat/reg_standard/stats/cope8.nii.gz
-111 memory_run-01 acquisition CSp extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC111/all_memory_runs/source_memory.feat/reg_standard/stats/cope9.nii.gz
-111 memory_run-01 extinction CSp baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC111/all_memory_runs/source_memory.feat/reg_standard/stats/cope13.nii.gz
-111 memory_run-01 extinction CSp acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC111/all_memory_runs/source_memory.feat/reg_standard/stats/cope14.nii.gz
-111 memory_run-01 baseline CSm baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC111/all_memory_runs/source_memory.feat/reg_standard/stats/cope4.nii.gz
-111 memory_run-01 baseline CSm extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC111/all_memory_runs/source_memory.feat/reg_standard/stats/cope6.nii.gz
-111 memory_run-01 acquisition CSm baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC111/all_memory_runs/source_memory.feat/reg_standard/stats/cope10.nii.gz
-111 memory_run-01 acquisition CSm acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC111/all_memory_runs/source_memory.feat/reg_standard/stats/cope11.nii.gz
-111 memory_run-01 acquisition CSm extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC111/all_memory_runs/source_memory.feat/reg_standard/stats/cope12.nii.gz
-111 memory_run-01 extinction CSm baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC111/all_memory_runs/source_memory.feat/reg_standard/stats/cope16.nii.gz
-111 memory_run-01 extinction CSm acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC111/all_memory_runs/source_memory.feat/reg_standard/stats/cope17.nii.gz
-111 memory_run-01 extinction CSm extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC111/all_memory_runs/source_memory.feat/reg_standard/stats/cope18.nii.gz
-111 memory_run-03 baseline CSp extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC111/all_memory_runs/source_memory.feat/reg_standard/stats/cope3.nii.gz
-112 memory_run-01 baseline CSp acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC112/all_memory_runs/source_memory.feat/reg_standard/stats/cope2.nii.gz
-112 memory_run-01 baseline CSp extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC112/all_memory_runs/source_memory.feat/reg_standard/stats/cope3.nii.gz
-112 memory_run-01 acquisition CSp baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC112/all_memory_runs/source_memory.feat/reg_standard/stats/cope7.nii.gz
-112 memory_run-01 acquisition CSp acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC112/all_memory_runs/source_memory.feat/reg_standard/stats/cope8.nii.gz
-112 memory_run-01 acquisition CSp extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC112/all_memory_runs/source_memory.feat/reg_standard/stats/cope9.nii.gz
-112 memory_run-01 extinction CSp acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC112/all_memory_runs/source_memory.feat/reg_standard/stats/cope14.nii.gz
-112 memory_run-01 extinction CSp extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC112/all_memory_runs/source_memory.feat/reg_standard/stats/cope15.nii.gz
-112 memory_run-01 baseline CSm baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC112/all_memory_runs/source_memory.feat/reg_standard/stats/cope4.nii.gz
-112 memory_run-01 baseline CSm acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC112/all_memory_runs/source_memory.feat/reg_standard/stats/cope5.nii.gz
-112 memory_run-01 baseline CSm extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC112/all_memory_runs/source_memory.feat/reg_standard/stats/cope6.nii.gz
-112 memory_run-01 acquisition CSm baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC112/all_memory_runs/source_memory.feat/reg_standard/stats/cope10.nii.gz
-112 memory_run-01 acquisition CSm extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC112/all_memory_runs/source_memory.feat/reg_standard/stats/cope12.nii.gz
-112 memory_run-01 extinction CSm baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC112/all_memory_runs/source_memory.feat/reg_standard/stats/cope16.nii.gz
-112 memory_run-01 extinction CSm acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC112/all_memory_runs/source_memory.feat/reg_standard/stats/cope17.nii.gz
-112 memory_run-01 extinction CSm extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC112/all_memory_runs/source_memory.feat/reg_standard/stats/cope18.nii.gz
-112 memory_run-02 extinction CSp baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC112/all_memory_runs/source_memory.feat/reg_standard/stats/cope13.nii.gz
-112 memory_run-02 acquisition CSm acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC112/all_memory_runs/source_memory.feat/reg_standard/stats/cope11.nii.gz
-112 memory_run-03 baseline CSp baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC112/all_memory_runs/source_memory.feat/reg_standard/stats/cope1.nii.gz
-113 memory_run-01 baseline CSp baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC113/all_memory_runs/source_memory.feat/reg_standard/stats/cope1.nii.gz
-113 memory_run-01 baseline CSp acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC113/all_memory_runs/source_memory.feat/reg_standard/stats/cope2.nii.gz
-113 memory_run-01 baseline CSp extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC113/all_memory_runs/source_memory.feat/reg_standard/stats/cope3.nii.gz
-113 memory_run-01 acquisition CSp baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC113/all_memory_runs/source_memory.feat/reg_standard/stats/cope7.nii.gz
-113 memory_run-01 acquisition CSp acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC113/all_memory_runs/source_memory.feat/reg_standard/stats/cope8.nii.gz
-113 memory_run-01 acquisition CSp extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC113/all_memory_runs/source_memory.feat/reg_standard/stats/cope9.nii.gz
-113 memory_run-01 extinction CSp baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC113/all_memory_runs/source_memory.feat/reg_standard/stats/cope13.nii.gz
-113 memory_run-01 extinction CSp acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC113/all_memory_runs/source_memory.feat/reg_standard/stats/cope14.nii.gz
-113 memory_run-01 extinction CSp extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC113/all_memory_runs/source_memory.feat/reg_standard/stats/cope15.nii.gz
-113 memory_run-01 baseline CSm baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC113/all_memory_runs/source_memory.feat/reg_standard/stats/cope4.nii.gz
-113 memory_run-01 baseline CSm acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC113/all_memory_runs/source_memory.feat/reg_standard/stats/cope5.nii.gz
-113 memory_run-01 baseline CSm extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC113/all_memory_runs/source_memory.feat/reg_standard/stats/cope6.nii.gz
-113 memory_run-01 acquisition CSm baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC113/all_memory_runs/source_memory.feat/reg_standard/stats/cope10.nii.gz
-113 memory_run-01 acquisition CSm acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC113/all_memory_runs/source_memory.feat/reg_standard/stats/cope11.nii.gz
-113 memory_run-01 acquisition CSm extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC113/all_memory_runs/source_memory.feat/reg_standard/stats/cope12.nii.gz
-113 memory_run-01 extinction CSm baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC113/all_memory_runs/source_memory.feat/reg_standard/stats/cope16.nii.gz
-113 memory_run-01 extinction CSm acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC113/all_memory_runs/source_memory.feat/reg_standard/stats/cope17.nii.gz
-113 memory_run-01 extinction CSm extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC113/all_memory_runs/source_memory.feat/reg_standard/stats/cope18.nii.gz
-114 memory_run-01 baseline CSp acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC114/all_memory_runs/source_memory.feat/reg_standard/stats/cope2.nii.gz
-114 memory_run-01 baseline CSp extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC114/all_memory_runs/source_memory.feat/reg_standard/stats/cope3.nii.gz
-114 memory_run-01 acquisition CSp acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC114/all_memory_runs/source_memory.feat/reg_standard/stats/cope8.nii.gz
-114 memory_run-01 extinction CSp acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC114/all_memory_runs/source_memory.feat/reg_standard/stats/cope14.nii.gz
-114 memory_run-01 extinction CSp extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC114/all_memory_runs/source_memory.feat/reg_standard/stats/cope15.nii.gz
-114 memory_run-01 baseline CSm acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC114/all_memory_runs/source_memory.feat/reg_standard/stats/cope5.nii.gz
-114 memory_run-01 baseline CSm extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC114/all_memory_runs/source_memory.feat/reg_standard/stats/cope6.nii.gz
-114 memory_run-01 acquisition CSm baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC114/all_memory_runs/source_memory.feat/reg_standard/stats/cope10.nii.gz
-114 memory_run-01 acquisition CSm acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC114/all_memory_runs/source_memory.feat/reg_standard/stats/cope11.nii.gz
-114 memory_run-01 acquisition CSm extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC114/all_memory_runs/source_memory.feat/reg_standard/stats/cope12.nii.gz
-114 memory_run-01 extinction CSm baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC114/all_memory_runs/source_memory.feat/reg_standard/stats/cope16.nii.gz
-114 memory_run-01 extinction CSm acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC114/all_memory_runs/source_memory.feat/reg_standard/stats/cope17.nii.gz
-114 memory_run-01 extinction CSm extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC114/all_memory_runs/source_memory.feat/reg_standard/stats/cope18.nii.gz
-114 memory_run-02 baseline CSm baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC114/all_memory_runs/source_memory.feat/reg_standard/stats/cope4.nii.gz
-116 memory_run-01 baseline CSp baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC116/all_memory_runs/source_memory.feat/reg_standard/stats/cope1.nii.gz
-116 memory_run-01 baseline CSp acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC116/all_memory_runs/source_memory.feat/reg_standard/stats/cope2.nii.gz
-116 memory_run-01 baseline CSp extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC116/all_memory_runs/source_memory.feat/reg_standard/stats/cope3.nii.gz
-116 memory_run-01 acquisition CSp acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC116/all_memory_runs/source_memory.feat/reg_standard/stats/cope8.nii.gz
-116 memory_run-01 acquisition CSp extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC116/all_memory_runs/source_memory.feat/reg_standard/stats/cope9.nii.gz
-116 memory_run-01 extinction CSp baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC116/all_memory_runs/source_memory.feat/reg_standard/stats/cope13.nii.gz
-116 memory_run-01 extinction CSp acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC116/all_memory_runs/source_memory.feat/reg_standard/stats/cope14.nii.gz
-116 memory_run-01 baseline CSm baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC116/all_memory_runs/source_memory.feat/reg_standard/stats/cope4.nii.gz
-116 memory_run-01 baseline CSm acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC116/all_memory_runs/source_memory.feat/reg_standard/stats/cope5.nii.gz
-116 memory_run-01 acquisition CSm baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC116/all_memory_runs/source_memory.feat/reg_standard/stats/cope10.nii.gz
-116 memory_run-01 acquisition CSm acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC116/all_memory_runs/source_memory.feat/reg_standard/stats/cope11.nii.gz
-116 memory_run-01 acquisition CSm extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC116/all_memory_runs/source_memory.feat/reg_standard/stats/cope12.nii.gz
-116 memory_run-01 extinction CSm baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC116/all_memory_runs/source_memory.feat/reg_standard/stats/cope16.nii.gz
-116 memory_run-01 extinction CSm acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC116/all_memory_runs/source_memory.feat/reg_standard/stats/cope17.nii.gz
-116 memory_run-01 extinction CSm extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC116/all_memory_runs/source_memory.feat/reg_standard/stats/cope18.nii.gz
-116 memory_run-02 acquisition CSp baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC116/all_memory_runs/source_memory.feat/reg_standard/stats/cope7.nii.gz
-116 memory_run-02 extinction CSp extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC116/all_memory_runs/source_memory.feat/reg_standard/stats/cope15.nii.gz
-116 memory_run-02 baseline CSm extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC116/all_memory_runs/source_memory.feat/reg_standard/stats/cope6.nii.gz
-117 memory_run-01 baseline CSp baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC117/all_memory_runs/source_memory.feat/reg_standard/stats/cope1.nii.gz
-117 memory_run-01 baseline CSp acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC117/all_memory_runs/source_memory.feat/reg_standard/stats/cope2.nii.gz
-117 memory_run-01 acquisition CSp baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC117/all_memory_runs/source_memory.feat/reg_standard/stats/cope7.nii.gz
-117 memory_run-01 acquisition CSp acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC117/all_memory_runs/source_memory.feat/reg_standard/stats/cope8.nii.gz
-117 memory_run-01 acquisition CSp extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC117/all_memory_runs/source_memory.feat/reg_standard/stats/cope9.nii.gz
-117 memory_run-01 extinction CSp acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC117/all_memory_runs/source_memory.feat/reg_standard/stats/cope14.nii.gz
-117 memory_run-01 extinction CSp extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC117/all_memory_runs/source_memory.feat/reg_standard/stats/cope15.nii.gz
-117 memory_run-01 baseline CSm baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC117/all_memory_runs/source_memory.feat/reg_standard/stats/cope4.nii.gz
-117 memory_run-01 baseline CSm acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC117/all_memory_runs/source_memory.feat/reg_standard/stats/cope5.nii.gz
-117 memory_run-01 acquisition CSm acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC117/all_memory_runs/source_memory.feat/reg_standard/stats/cope11.nii.gz
-117 memory_run-01 acquisition CSm extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC117/all_memory_runs/source_memory.feat/reg_standard/stats/cope12.nii.gz
-117 memory_run-01 extinction CSm baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC117/all_memory_runs/source_memory.feat/reg_standard/stats/cope16.nii.gz
-117 memory_run-01 extinction CSm acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC117/all_memory_runs/source_memory.feat/reg_standard/stats/cope17.nii.gz
-117 memory_run-01 extinction CSm extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC117/all_memory_runs/source_memory.feat/reg_standard/stats/cope18.nii.gz
-117 memory_run-02 baseline CSp extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC117/all_memory_runs/source_memory.feat/reg_standard/stats/cope3.nii.gz
-117 memory_run-02 extinction CSp baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC117/all_memory_runs/source_memory.feat/reg_standard/stats/cope13.nii.gz
-117 memory_run-02 baseline CSm extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC117/all_memory_runs/source_memory.feat/reg_standard/stats/cope6.nii.gz
-117 memory_run-02 acquisition CSm baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC117/all_memory_runs/source_memory.feat/reg_standard/stats/cope10.nii.gz
-118 memory_run-01 baseline CSp acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC118/all_memory_runs/source_memory.feat/reg_standard/stats/cope2.nii.gz
-118 memory_run-01 baseline CSp extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC118/all_memory_runs/source_memory.feat/reg_standard/stats/cope3.nii.gz
-118 memory_run-01 acquisition CSp acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC118/all_memory_runs/source_memory.feat/reg_standard/stats/cope8.nii.gz
-118 memory_run-01 acquisition CSp extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC118/all_memory_runs/source_memory.feat/reg_standard/stats/cope9.nii.gz
-118 memory_run-01 extinction CSp acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC118/all_memory_runs/source_memory.feat/reg_standard/stats/cope14.nii.gz
-118 memory_run-01 extinction CSp extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC118/all_memory_runs/source_memory.feat/reg_standard/stats/cope15.nii.gz
-118 memory_run-01 baseline CSm acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC118/all_memory_runs/source_memory.feat/reg_standard/stats/cope5.nii.gz
-118 memory_run-01 baseline CSm extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC118/all_memory_runs/source_memory.feat/reg_standard/stats/cope6.nii.gz
-118 memory_run-01 acquisition CSm acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC118/all_memory_runs/source_memory.feat/reg_standard/stats/cope11.nii.gz
-118 memory_run-01 acquisition CSm extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC118/all_memory_runs/source_memory.feat/reg_standard/stats/cope12.nii.gz
-118 memory_run-01 extinction CSm acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC118/all_memory_runs/source_memory.feat/reg_standard/stats/cope17.nii.gz
-118 memory_run-01 extinction CSm extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC118/all_memory_runs/source_memory.feat/reg_standard/stats/cope18.nii.gz
+Subj Encode Condition Response InputFile
+2 baseline CSp acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC002/all_memory_runs/source_memory.feat/reg_standard/stats/cope2.nii.gz
+2 baseline CSp extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC002/all_memory_runs/source_memory.feat/reg_standard/stats/cope3.nii.gz
+2 acquisition CSp baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC002/all_memory_runs/source_memory.feat/reg_standard/stats/cope7.nii.gz
+2 acquisition CSp acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC002/all_memory_runs/source_memory.feat/reg_standard/stats/cope8.nii.gz
+2 acquisition CSp extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC002/all_memory_runs/source_memory.feat/reg_standard/stats/cope9.nii.gz
+2 extinction CSp baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC002/all_memory_runs/source_memory.feat/reg_standard/stats/cope13.nii.gz
+2 extinction CSp acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC002/all_memory_runs/source_memory.feat/reg_standard/stats/cope14.nii.gz
+2 extinction CSp extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC002/all_memory_runs/source_memory.feat/reg_standard/stats/cope15.nii.gz
+2 baseline CSm baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC002/all_memory_runs/source_memory.feat/reg_standard/stats/cope4.nii.gz
+2 baseline CSm acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC002/all_memory_runs/source_memory.feat/reg_standard/stats/cope5.nii.gz
+2 baseline CSm extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC002/all_memory_runs/source_memory.feat/reg_standard/stats/cope6.nii.gz
+2 acquisition CSm baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC002/all_memory_runs/source_memory.feat/reg_standard/stats/cope10.nii.gz
+2 acquisition CSm acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC002/all_memory_runs/source_memory.feat/reg_standard/stats/cope11.nii.gz
+2 extinction CSm baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC002/all_memory_runs/source_memory.feat/reg_standard/stats/cope16.nii.gz
+2 extinction CSm acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC002/all_memory_runs/source_memory.feat/reg_standard/stats/cope17.nii.gz
+2 extinction CSm extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC002/all_memory_runs/source_memory.feat/reg_standard/stats/cope18.nii.gz
+2 baseline CSp baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC002/all_memory_runs/source_memory.feat/reg_standard/stats/cope1.nii.gz
+2 acquisition CSm extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC002/all_memory_runs/source_memory.feat/reg_standard/stats/cope12.nii.gz
+3 baseline CSp baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC003/all_memory_runs/source_memory.feat/reg_standard/stats/cope1.nii.gz
+3 baseline CSp acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC003/all_memory_runs/source_memory.feat/reg_standard/stats/cope2.nii.gz
+3 baseline CSp extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC003/all_memory_runs/source_memory.feat/reg_standard/stats/cope3.nii.gz
+3 acquisition CSp baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC003/all_memory_runs/source_memory.feat/reg_standard/stats/cope7.nii.gz
+3 acquisition CSp acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC003/all_memory_runs/source_memory.feat/reg_standard/stats/cope8.nii.gz
+3 acquisition CSp extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC003/all_memory_runs/source_memory.feat/reg_standard/stats/cope9.nii.gz
+3 extinction CSp baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC003/all_memory_runs/source_memory.feat/reg_standard/stats/cope13.nii.gz
+3 extinction CSp acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC003/all_memory_runs/source_memory.feat/reg_standard/stats/cope14.nii.gz
+3 extinction CSp extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC003/all_memory_runs/source_memory.feat/reg_standard/stats/cope15.nii.gz
+3 baseline CSm baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC003/all_memory_runs/source_memory.feat/reg_standard/stats/cope4.nii.gz
+3 baseline CSm acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC003/all_memory_runs/source_memory.feat/reg_standard/stats/cope5.nii.gz
+3 acquisition CSm baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC003/all_memory_runs/source_memory.feat/reg_standard/stats/cope10.nii.gz
+3 acquisition CSm acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC003/all_memory_runs/source_memory.feat/reg_standard/stats/cope11.nii.gz
+3 acquisition CSm extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC003/all_memory_runs/source_memory.feat/reg_standard/stats/cope12.nii.gz
+3 extinction CSm baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC003/all_memory_runs/source_memory.feat/reg_standard/stats/cope16.nii.gz
+3 extinction CSm acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC003/all_memory_runs/source_memory.feat/reg_standard/stats/cope17.nii.gz
+3 extinction CSm extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC003/all_memory_runs/source_memory.feat/reg_standard/stats/cope18.nii.gz
+3 baseline CSm extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC003/all_memory_runs/source_memory.feat/reg_standard/stats/cope6.nii.gz
+4 baseline CSp baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC004/all_memory_runs/source_memory.feat/reg_standard/stats/cope1.nii.gz
+4 baseline CSp acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC004/all_memory_runs/source_memory.feat/reg_standard/stats/cope2.nii.gz
+4 baseline CSp extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC004/all_memory_runs/source_memory.feat/reg_standard/stats/cope3.nii.gz
+4 acquisition CSp baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC004/all_memory_runs/source_memory.feat/reg_standard/stats/cope7.nii.gz
+4 acquisition CSp acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC004/all_memory_runs/source_memory.feat/reg_standard/stats/cope8.nii.gz
+4 acquisition CSp extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC004/all_memory_runs/source_memory.feat/reg_standard/stats/cope9.nii.gz
+4 extinction CSp baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC004/all_memory_runs/source_memory.feat/reg_standard/stats/cope13.nii.gz
+4 extinction CSp acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC004/all_memory_runs/source_memory.feat/reg_standard/stats/cope14.nii.gz
+4 extinction CSp extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC004/all_memory_runs/source_memory.feat/reg_standard/stats/cope15.nii.gz
+4 baseline CSm baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC004/all_memory_runs/source_memory.feat/reg_standard/stats/cope4.nii.gz
+4 baseline CSm acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC004/all_memory_runs/source_memory.feat/reg_standard/stats/cope5.nii.gz
+4 baseline CSm extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC004/all_memory_runs/source_memory.feat/reg_standard/stats/cope6.nii.gz
+4 acquisition CSm baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC004/all_memory_runs/source_memory.feat/reg_standard/stats/cope10.nii.gz
+4 acquisition CSm acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC004/all_memory_runs/source_memory.feat/reg_standard/stats/cope11.nii.gz
+4 acquisition CSm extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC004/all_memory_runs/source_memory.feat/reg_standard/stats/cope12.nii.gz
+4 extinction CSm baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC004/all_memory_runs/source_memory.feat/reg_standard/stats/cope16.nii.gz
+4 extinction CSm acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC004/all_memory_runs/source_memory.feat/reg_standard/stats/cope17.nii.gz
+4 extinction CSm extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC004/all_memory_runs/source_memory.feat/reg_standard/stats/cope18.nii.gz
+5 baseline CSp acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC005/all_memory_runs/source_memory.feat/reg_standard/stats/cope2.nii.gz
+5 acquisition CSp acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC005/all_memory_runs/source_memory.feat/reg_standard/stats/cope8.nii.gz
+5 extinction CSp baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC005/all_memory_runs/source_memory.feat/reg_standard/stats/cope13.nii.gz
+5 extinction CSp acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC005/all_memory_runs/source_memory.feat/reg_standard/stats/cope14.nii.gz
+5 extinction CSp extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC005/all_memory_runs/source_memory.feat/reg_standard/stats/cope15.nii.gz
+5 baseline CSm baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC005/all_memory_runs/source_memory.feat/reg_standard/stats/cope4.nii.gz
+5 baseline CSm acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC005/all_memory_runs/source_memory.feat/reg_standard/stats/cope5.nii.gz
+5 baseline CSm extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC005/all_memory_runs/source_memory.feat/reg_standard/stats/cope6.nii.gz
+5 acquisition CSm acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC005/all_memory_runs/source_memory.feat/reg_standard/stats/cope11.nii.gz
+5 acquisition CSm extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC005/all_memory_runs/source_memory.feat/reg_standard/stats/cope12.nii.gz
+5 extinction CSm baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC005/all_memory_runs/source_memory.feat/reg_standard/stats/cope16.nii.gz
+5 extinction CSm acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC005/all_memory_runs/source_memory.feat/reg_standard/stats/cope17.nii.gz
+5 extinction CSm extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC005/all_memory_runs/source_memory.feat/reg_standard/stats/cope18.nii.gz
+5 baseline CSp extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC005/all_memory_runs/source_memory.feat/reg_standard/stats/cope3.nii.gz
+5 acquisition CSp baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC005/all_memory_runs/source_memory.feat/reg_standard/stats/cope7.nii.gz
+5 acquisition CSp extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC005/all_memory_runs/source_memory.feat/reg_standard/stats/cope9.nii.gz
+5 acquisition CSm baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC005/all_memory_runs/source_memory.feat/reg_standard/stats/cope10.nii.gz
+5 baseline CSp baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC005/all_memory_runs/source_memory.feat/reg_standard/stats/cope1.nii.gz
+6 baseline CSp baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC006/all_memory_runs/source_memory.feat/reg_standard/stats/cope1.nii.gz
+6 baseline CSp acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC006/all_memory_runs/source_memory.feat/reg_standard/stats/cope2.nii.gz
+6 baseline CSp extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC006/all_memory_runs/source_memory.feat/reg_standard/stats/cope3.nii.gz
+6 acquisition CSp baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC006/all_memory_runs/source_memory.feat/reg_standard/stats/cope7.nii.gz
+6 acquisition CSp acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC006/all_memory_runs/source_memory.feat/reg_standard/stats/cope8.nii.gz
+6 extinction CSp baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC006/all_memory_runs/source_memory.feat/reg_standard/stats/cope13.nii.gz
+6 extinction CSp acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC006/all_memory_runs/source_memory.feat/reg_standard/stats/cope14.nii.gz
+6 extinction CSp extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC006/all_memory_runs/source_memory.feat/reg_standard/stats/cope15.nii.gz
+6 baseline CSm baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC006/all_memory_runs/source_memory.feat/reg_standard/stats/cope4.nii.gz
+6 baseline CSm acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC006/all_memory_runs/source_memory.feat/reg_standard/stats/cope5.nii.gz
+6 baseline CSm extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC006/all_memory_runs/source_memory.feat/reg_standard/stats/cope6.nii.gz
+6 acquisition CSm baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC006/all_memory_runs/source_memory.feat/reg_standard/stats/cope10.nii.gz
+6 acquisition CSm extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC006/all_memory_runs/source_memory.feat/reg_standard/stats/cope12.nii.gz
+6 extinction CSm baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC006/all_memory_runs/source_memory.feat/reg_standard/stats/cope16.nii.gz
+6 extinction CSm extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC006/all_memory_runs/source_memory.feat/reg_standard/stats/cope18.nii.gz
+6 acquisition CSp extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC006/all_memory_runs/source_memory.feat/reg_standard/stats/cope9.nii.gz
+6 extinction CSm acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC006/all_memory_runs/source_memory.feat/reg_standard/stats/cope17.nii.gz
+6 acquisition CSm acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC006/all_memory_runs/source_memory.feat/reg_standard/stats/cope11.nii.gz
+7 baseline CSp baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC007/all_memory_runs/source_memory.feat/reg_standard/stats/cope1.nii.gz
+7 baseline CSp acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC007/all_memory_runs/source_memory.feat/reg_standard/stats/cope2.nii.gz
+7 baseline CSp extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC007/all_memory_runs/source_memory.feat/reg_standard/stats/cope3.nii.gz
+7 acquisition CSp acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC007/all_memory_runs/source_memory.feat/reg_standard/stats/cope8.nii.gz
+7 acquisition CSp extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC007/all_memory_runs/source_memory.feat/reg_standard/stats/cope9.nii.gz
+7 extinction CSp baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC007/all_memory_runs/source_memory.feat/reg_standard/stats/cope13.nii.gz
+7 extinction CSp acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC007/all_memory_runs/source_memory.feat/reg_standard/stats/cope14.nii.gz
+7 extinction CSp extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC007/all_memory_runs/source_memory.feat/reg_standard/stats/cope15.nii.gz
+7 baseline CSm acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC007/all_memory_runs/source_memory.feat/reg_standard/stats/cope5.nii.gz
+7 baseline CSm extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC007/all_memory_runs/source_memory.feat/reg_standard/stats/cope6.nii.gz
+7 acquisition CSm baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC007/all_memory_runs/source_memory.feat/reg_standard/stats/cope10.nii.gz
+7 acquisition CSm acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC007/all_memory_runs/source_memory.feat/reg_standard/stats/cope11.nii.gz
+7 acquisition CSm extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC007/all_memory_runs/source_memory.feat/reg_standard/stats/cope12.nii.gz
+7 extinction CSm baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC007/all_memory_runs/source_memory.feat/reg_standard/stats/cope16.nii.gz
+7 extinction CSm acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC007/all_memory_runs/source_memory.feat/reg_standard/stats/cope17.nii.gz
+7 extinction CSm extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC007/all_memory_runs/source_memory.feat/reg_standard/stats/cope18.nii.gz
+7 acquisition CSp baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC007/all_memory_runs/source_memory.feat/reg_standard/stats/cope7.nii.gz
+7 baseline CSm baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC007/all_memory_runs/source_memory.feat/reg_standard/stats/cope4.nii.gz
+8 baseline CSp baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC008/all_memory_runs/source_memory.feat/reg_standard/stats/cope1.nii.gz
+8 baseline CSp acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC008/all_memory_runs/source_memory.feat/reg_standard/stats/cope2.nii.gz
+8 baseline CSp extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC008/all_memory_runs/source_memory.feat/reg_standard/stats/cope3.nii.gz
+8 acquisition CSp baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC008/all_memory_runs/source_memory.feat/reg_standard/stats/cope7.nii.gz
+8 acquisition CSp acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC008/all_memory_runs/source_memory.feat/reg_standard/stats/cope8.nii.gz
+8 extinction CSp baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC008/all_memory_runs/source_memory.feat/reg_standard/stats/cope13.nii.gz
+8 extinction CSp acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC008/all_memory_runs/source_memory.feat/reg_standard/stats/cope14.nii.gz
+8 extinction CSp extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC008/all_memory_runs/source_memory.feat/reg_standard/stats/cope15.nii.gz
+8 baseline CSm baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC008/all_memory_runs/source_memory.feat/reg_standard/stats/cope4.nii.gz
+8 baseline CSm acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC008/all_memory_runs/source_memory.feat/reg_standard/stats/cope5.nii.gz
+8 baseline CSm extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC008/all_memory_runs/source_memory.feat/reg_standard/stats/cope6.nii.gz
+8 acquisition CSm baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC008/all_memory_runs/source_memory.feat/reg_standard/stats/cope10.nii.gz
+8 acquisition CSm acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC008/all_memory_runs/source_memory.feat/reg_standard/stats/cope11.nii.gz
+8 acquisition CSm extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC008/all_memory_runs/source_memory.feat/reg_standard/stats/cope12.nii.gz
+8 extinction CSm baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC008/all_memory_runs/source_memory.feat/reg_standard/stats/cope16.nii.gz
+8 extinction CSm acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC008/all_memory_runs/source_memory.feat/reg_standard/stats/cope17.nii.gz
+8 extinction CSm extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC008/all_memory_runs/source_memory.feat/reg_standard/stats/cope18.nii.gz
+8 acquisition CSp extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC008/all_memory_runs/source_memory.feat/reg_standard/stats/cope9.nii.gz
+9 baseline CSp baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC009/all_memory_runs/source_memory.feat/reg_standard/stats/cope1.nii.gz
+9 baseline CSp acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC009/all_memory_runs/source_memory.feat/reg_standard/stats/cope2.nii.gz
+9 baseline CSp extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC009/all_memory_runs/source_memory.feat/reg_standard/stats/cope3.nii.gz
+9 acquisition CSp baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC009/all_memory_runs/source_memory.feat/reg_standard/stats/cope7.nii.gz
+9 acquisition CSp acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC009/all_memory_runs/source_memory.feat/reg_standard/stats/cope8.nii.gz
+9 acquisition CSp extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC009/all_memory_runs/source_memory.feat/reg_standard/stats/cope9.nii.gz
+9 extinction CSp baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC009/all_memory_runs/source_memory.feat/reg_standard/stats/cope13.nii.gz
+9 extinction CSp acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC009/all_memory_runs/source_memory.feat/reg_standard/stats/cope14.nii.gz
+9 extinction CSp extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC009/all_memory_runs/source_memory.feat/reg_standard/stats/cope15.nii.gz
+9 baseline CSm acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC009/all_memory_runs/source_memory.feat/reg_standard/stats/cope5.nii.gz
+9 baseline CSm extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC009/all_memory_runs/source_memory.feat/reg_standard/stats/cope6.nii.gz
+9 acquisition CSm acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC009/all_memory_runs/source_memory.feat/reg_standard/stats/cope11.nii.gz
+9 acquisition CSm extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC009/all_memory_runs/source_memory.feat/reg_standard/stats/cope12.nii.gz
+9 extinction CSm baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC009/all_memory_runs/source_memory.feat/reg_standard/stats/cope16.nii.gz
+9 extinction CSm acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC009/all_memory_runs/source_memory.feat/reg_standard/stats/cope17.nii.gz
+9 extinction CSm extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC009/all_memory_runs/source_memory.feat/reg_standard/stats/cope18.nii.gz
+9 baseline CSm baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC009/all_memory_runs/source_memory.feat/reg_standard/stats/cope4.nii.gz
+9 acquisition CSm baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC009/all_memory_runs/source_memory.feat/reg_standard/stats/cope10.nii.gz
+10 baseline CSp baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC010/all_memory_runs/source_memory.feat/reg_standard/stats/cope1.nii.gz
+10 baseline CSp acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC010/all_memory_runs/source_memory.feat/reg_standard/stats/cope2.nii.gz
+10 baseline CSp extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC010/all_memory_runs/source_memory.feat/reg_standard/stats/cope3.nii.gz
+10 acquisition CSp acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC010/all_memory_runs/source_memory.feat/reg_standard/stats/cope8.nii.gz
+10 acquisition CSp extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC010/all_memory_runs/source_memory.feat/reg_standard/stats/cope9.nii.gz
+10 extinction CSp acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC010/all_memory_runs/source_memory.feat/reg_standard/stats/cope14.nii.gz
+10 extinction CSp extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC010/all_memory_runs/source_memory.feat/reg_standard/stats/cope15.nii.gz
+10 baseline CSm baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC010/all_memory_runs/source_memory.feat/reg_standard/stats/cope4.nii.gz
+10 baseline CSm acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC010/all_memory_runs/source_memory.feat/reg_standard/stats/cope5.nii.gz
+10 baseline CSm extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC010/all_memory_runs/source_memory.feat/reg_standard/stats/cope6.nii.gz
+10 acquisition CSm baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC010/all_memory_runs/source_memory.feat/reg_standard/stats/cope10.nii.gz
+10 acquisition CSm extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC010/all_memory_runs/source_memory.feat/reg_standard/stats/cope12.nii.gz
+10 extinction CSm baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC010/all_memory_runs/source_memory.feat/reg_standard/stats/cope16.nii.gz
+10 extinction CSm acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC010/all_memory_runs/source_memory.feat/reg_standard/stats/cope17.nii.gz
+10 extinction CSm extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC010/all_memory_runs/source_memory.feat/reg_standard/stats/cope18.nii.gz
+10 acquisition CSm acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC010/all_memory_runs/source_memory.feat/reg_standard/stats/cope11.nii.gz
+12 baseline CSp baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC012/all_memory_runs/source_memory.feat/reg_standard/stats/cope1.nii.gz
+12 baseline CSp acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC012/all_memory_runs/source_memory.feat/reg_standard/stats/cope2.nii.gz
+12 baseline CSp extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC012/all_memory_runs/source_memory.feat/reg_standard/stats/cope3.nii.gz
+12 acquisition CSp baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC012/all_memory_runs/source_memory.feat/reg_standard/stats/cope7.nii.gz
+12 acquisition CSp acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC012/all_memory_runs/source_memory.feat/reg_standard/stats/cope8.nii.gz
+12 acquisition CSp extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC012/all_memory_runs/source_memory.feat/reg_standard/stats/cope9.nii.gz
+12 extinction CSp baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC012/all_memory_runs/source_memory.feat/reg_standard/stats/cope13.nii.gz
+12 extinction CSp acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC012/all_memory_runs/source_memory.feat/reg_standard/stats/cope14.nii.gz
+12 extinction CSp extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC012/all_memory_runs/source_memory.feat/reg_standard/stats/cope15.nii.gz
+12 baseline CSm baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC012/all_memory_runs/source_memory.feat/reg_standard/stats/cope4.nii.gz
+12 baseline CSm acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC012/all_memory_runs/source_memory.feat/reg_standard/stats/cope5.nii.gz
+12 baseline CSm extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC012/all_memory_runs/source_memory.feat/reg_standard/stats/cope6.nii.gz
+12 acquisition CSm baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC012/all_memory_runs/source_memory.feat/reg_standard/stats/cope10.nii.gz
+12 acquisition CSm acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC012/all_memory_runs/source_memory.feat/reg_standard/stats/cope11.nii.gz
+12 acquisition CSm extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC012/all_memory_runs/source_memory.feat/reg_standard/stats/cope12.nii.gz
+12 extinction CSm baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC012/all_memory_runs/source_memory.feat/reg_standard/stats/cope16.nii.gz
+12 extinction CSm acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC012/all_memory_runs/source_memory.feat/reg_standard/stats/cope17.nii.gz
+12 extinction CSm extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC012/all_memory_runs/source_memory.feat/reg_standard/stats/cope18.nii.gz
+13 baseline CSp baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC013/all_memory_runs/source_memory.feat/reg_standard/stats/cope1.nii.gz
+13 baseline CSp acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC013/all_memory_runs/source_memory.feat/reg_standard/stats/cope2.nii.gz
+13 baseline CSp extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC013/all_memory_runs/source_memory.feat/reg_standard/stats/cope3.nii.gz
+13 acquisition CSp baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC013/all_memory_runs/source_memory.feat/reg_standard/stats/cope7.nii.gz
+13 acquisition CSp acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC013/all_memory_runs/source_memory.feat/reg_standard/stats/cope8.nii.gz
+13 acquisition CSp extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC013/all_memory_runs/source_memory.feat/reg_standard/stats/cope9.nii.gz
+13 extinction CSp baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC013/all_memory_runs/source_memory.feat/reg_standard/stats/cope13.nii.gz
+13 extinction CSp acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC013/all_memory_runs/source_memory.feat/reg_standard/stats/cope14.nii.gz
+13 extinction CSp extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC013/all_memory_runs/source_memory.feat/reg_standard/stats/cope15.nii.gz
+13 baseline CSm baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC013/all_memory_runs/source_memory.feat/reg_standard/stats/cope4.nii.gz
+13 baseline CSm extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC013/all_memory_runs/source_memory.feat/reg_standard/stats/cope6.nii.gz
+13 acquisition CSm baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC013/all_memory_runs/source_memory.feat/reg_standard/stats/cope10.nii.gz
+13 acquisition CSm acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC013/all_memory_runs/source_memory.feat/reg_standard/stats/cope11.nii.gz
+13 acquisition CSm extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC013/all_memory_runs/source_memory.feat/reg_standard/stats/cope12.nii.gz
+13 extinction CSm acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC013/all_memory_runs/source_memory.feat/reg_standard/stats/cope17.nii.gz
+13 extinction CSm extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC013/all_memory_runs/source_memory.feat/reg_standard/stats/cope18.nii.gz
+13 baseline CSm acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC013/all_memory_runs/source_memory.feat/reg_standard/stats/cope5.nii.gz
+13 extinction CSm baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC013/all_memory_runs/source_memory.feat/reg_standard/stats/cope16.nii.gz
+14 baseline CSp baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC014/all_memory_runs/source_memory.feat/reg_standard/stats/cope1.nii.gz
+14 baseline CSp acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC014/all_memory_runs/source_memory.feat/reg_standard/stats/cope2.nii.gz
+14 baseline CSp extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC014/all_memory_runs/source_memory.feat/reg_standard/stats/cope3.nii.gz
+14 acquisition CSp acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC014/all_memory_runs/source_memory.feat/reg_standard/stats/cope8.nii.gz
+14 acquisition CSp extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC014/all_memory_runs/source_memory.feat/reg_standard/stats/cope9.nii.gz
+14 extinction CSp baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC014/all_memory_runs/source_memory.feat/reg_standard/stats/cope13.nii.gz
+14 extinction CSp acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC014/all_memory_runs/source_memory.feat/reg_standard/stats/cope14.nii.gz
+14 extinction CSp extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC014/all_memory_runs/source_memory.feat/reg_standard/stats/cope15.nii.gz
+14 baseline CSm baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC014/all_memory_runs/source_memory.feat/reg_standard/stats/cope4.nii.gz
+14 baseline CSm acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC014/all_memory_runs/source_memory.feat/reg_standard/stats/cope5.nii.gz
+14 baseline CSm extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC014/all_memory_runs/source_memory.feat/reg_standard/stats/cope6.nii.gz
+14 acquisition CSm baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC014/all_memory_runs/source_memory.feat/reg_standard/stats/cope10.nii.gz
+14 acquisition CSm extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC014/all_memory_runs/source_memory.feat/reg_standard/stats/cope12.nii.gz
+14 extinction CSm baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC014/all_memory_runs/source_memory.feat/reg_standard/stats/cope16.nii.gz
+14 extinction CSm acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC014/all_memory_runs/source_memory.feat/reg_standard/stats/cope17.nii.gz
+14 extinction CSm extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC014/all_memory_runs/source_memory.feat/reg_standard/stats/cope18.nii.gz
+14 acquisition CSp baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC014/all_memory_runs/source_memory.feat/reg_standard/stats/cope7.nii.gz
+14 acquisition CSm acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC014/all_memory_runs/source_memory.feat/reg_standard/stats/cope11.nii.gz
+15 baseline CSp baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC015/all_memory_runs/source_memory.feat/reg_standard/stats/cope1.nii.gz
+15 baseline CSp acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC015/all_memory_runs/source_memory.feat/reg_standard/stats/cope2.nii.gz
+15 acquisition CSp acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC015/all_memory_runs/source_memory.feat/reg_standard/stats/cope8.nii.gz
+15 extinction CSp acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC015/all_memory_runs/source_memory.feat/reg_standard/stats/cope14.nii.gz
+15 extinction CSp extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC015/all_memory_runs/source_memory.feat/reg_standard/stats/cope15.nii.gz
+15 baseline CSm acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC015/all_memory_runs/source_memory.feat/reg_standard/stats/cope5.nii.gz
+15 baseline CSm extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC015/all_memory_runs/source_memory.feat/reg_standard/stats/cope6.nii.gz
+15 acquisition CSm acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC015/all_memory_runs/source_memory.feat/reg_standard/stats/cope11.nii.gz
+15 acquisition CSm extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC015/all_memory_runs/source_memory.feat/reg_standard/stats/cope12.nii.gz
+15 extinction CSm baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC015/all_memory_runs/source_memory.feat/reg_standard/stats/cope16.nii.gz
+15 extinction CSm acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC015/all_memory_runs/source_memory.feat/reg_standard/stats/cope17.nii.gz
+15 extinction CSm extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC015/all_memory_runs/source_memory.feat/reg_standard/stats/cope18.nii.gz
+15 baseline CSp extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC015/all_memory_runs/source_memory.feat/reg_standard/stats/cope3.nii.gz
+15 acquisition CSp baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC015/all_memory_runs/source_memory.feat/reg_standard/stats/cope7.nii.gz
+15 baseline CSm baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC015/all_memory_runs/source_memory.feat/reg_standard/stats/cope4.nii.gz
+15 acquisition CSm baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC015/all_memory_runs/source_memory.feat/reg_standard/stats/cope10.nii.gz
+15 acquisition CSp extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC015/all_memory_runs/source_memory.feat/reg_standard/stats/cope9.nii.gz
+16 baseline CSp baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC016/all_memory_runs/source_memory.feat/reg_standard/stats/cope1.nii.gz
+16 baseline CSp acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC016/all_memory_runs/source_memory.feat/reg_standard/stats/cope2.nii.gz
+16 baseline CSp extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC016/all_memory_runs/source_memory.feat/reg_standard/stats/cope3.nii.gz
+16 acquisition CSp baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC016/all_memory_runs/source_memory.feat/reg_standard/stats/cope7.nii.gz
+16 acquisition CSp acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC016/all_memory_runs/source_memory.feat/reg_standard/stats/cope8.nii.gz
+16 acquisition CSp extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC016/all_memory_runs/source_memory.feat/reg_standard/stats/cope9.nii.gz
+16 extinction CSp baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC016/all_memory_runs/source_memory.feat/reg_standard/stats/cope13.nii.gz
+16 extinction CSp acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC016/all_memory_runs/source_memory.feat/reg_standard/stats/cope14.nii.gz
+16 extinction CSp extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC016/all_memory_runs/source_memory.feat/reg_standard/stats/cope15.nii.gz
+16 baseline CSm baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC016/all_memory_runs/source_memory.feat/reg_standard/stats/cope4.nii.gz
+16 baseline CSm acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC016/all_memory_runs/source_memory.feat/reg_standard/stats/cope5.nii.gz
+16 baseline CSm extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC016/all_memory_runs/source_memory.feat/reg_standard/stats/cope6.nii.gz
+16 acquisition CSm baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC016/all_memory_runs/source_memory.feat/reg_standard/stats/cope10.nii.gz
+16 acquisition CSm acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC016/all_memory_runs/source_memory.feat/reg_standard/stats/cope11.nii.gz
+16 acquisition CSm extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC016/all_memory_runs/source_memory.feat/reg_standard/stats/cope12.nii.gz
+16 extinction CSm baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC016/all_memory_runs/source_memory.feat/reg_standard/stats/cope16.nii.gz
+16 extinction CSm acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC016/all_memory_runs/source_memory.feat/reg_standard/stats/cope17.nii.gz
+16 extinction CSm extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC016/all_memory_runs/source_memory.feat/reg_standard/stats/cope18.nii.gz
+17 baseline CSp acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC017/all_memory_runs/source_memory.feat/reg_standard/stats/cope2.nii.gz
+17 acquisition CSp baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC017/all_memory_runs/source_memory.feat/reg_standard/stats/cope7.nii.gz
+17 acquisition CSp acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC017/all_memory_runs/source_memory.feat/reg_standard/stats/cope8.nii.gz
+17 extinction CSp acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC017/all_memory_runs/source_memory.feat/reg_standard/stats/cope14.nii.gz
+17 extinction CSp extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC017/all_memory_runs/source_memory.feat/reg_standard/stats/cope15.nii.gz
+17 baseline CSm baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC017/all_memory_runs/source_memory.feat/reg_standard/stats/cope4.nii.gz
+17 baseline CSm acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC017/all_memory_runs/source_memory.feat/reg_standard/stats/cope5.nii.gz
+17 baseline CSm extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC017/all_memory_runs/source_memory.feat/reg_standard/stats/cope6.nii.gz
+17 acquisition CSm baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC017/all_memory_runs/source_memory.feat/reg_standard/stats/cope10.nii.gz
+17 acquisition CSm acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC017/all_memory_runs/source_memory.feat/reg_standard/stats/cope11.nii.gz
+17 acquisition CSm extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC017/all_memory_runs/source_memory.feat/reg_standard/stats/cope12.nii.gz
+17 extinction CSm baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC017/all_memory_runs/source_memory.feat/reg_standard/stats/cope16.nii.gz
+17 extinction CSm acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC017/all_memory_runs/source_memory.feat/reg_standard/stats/cope17.nii.gz
+17 extinction CSm extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC017/all_memory_runs/source_memory.feat/reg_standard/stats/cope18.nii.gz
+17 baseline CSp baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC017/all_memory_runs/source_memory.feat/reg_standard/stats/cope1.nii.gz
+17 baseline CSp extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC017/all_memory_runs/source_memory.feat/reg_standard/stats/cope3.nii.gz
+17 extinction CSp baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC017/all_memory_runs/source_memory.feat/reg_standard/stats/cope13.nii.gz
+17 acquisition CSp extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC017/all_memory_runs/source_memory.feat/reg_standard/stats/cope9.nii.gz
+19 baseline CSp baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC019/all_memory_runs/source_memory.feat/reg_standard/stats/cope1.nii.gz
+19 baseline CSp extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC019/all_memory_runs/source_memory.feat/reg_standard/stats/cope3.nii.gz
+19 acquisition CSp baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC019/all_memory_runs/source_memory.feat/reg_standard/stats/cope7.nii.gz
+19 acquisition CSp acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC019/all_memory_runs/source_memory.feat/reg_standard/stats/cope8.nii.gz
+19 acquisition CSp extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC019/all_memory_runs/source_memory.feat/reg_standard/stats/cope9.nii.gz
+19 extinction CSp baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC019/all_memory_runs/source_memory.feat/reg_standard/stats/cope13.nii.gz
+19 extinction CSp acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC019/all_memory_runs/source_memory.feat/reg_standard/stats/cope14.nii.gz
+19 extinction CSp extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC019/all_memory_runs/source_memory.feat/reg_standard/stats/cope15.nii.gz
+19 baseline CSm baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC019/all_memory_runs/source_memory.feat/reg_standard/stats/cope4.nii.gz
+19 baseline CSm acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC019/all_memory_runs/source_memory.feat/reg_standard/stats/cope5.nii.gz
+19 baseline CSm extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC019/all_memory_runs/source_memory.feat/reg_standard/stats/cope6.nii.gz
+19 acquisition CSm baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC019/all_memory_runs/source_memory.feat/reg_standard/stats/cope10.nii.gz
+19 acquisition CSm acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC019/all_memory_runs/source_memory.feat/reg_standard/stats/cope11.nii.gz
+19 acquisition CSm extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC019/all_memory_runs/source_memory.feat/reg_standard/stats/cope12.nii.gz
+19 extinction CSm baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC019/all_memory_runs/source_memory.feat/reg_standard/stats/cope16.nii.gz
+19 extinction CSm acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC019/all_memory_runs/source_memory.feat/reg_standard/stats/cope17.nii.gz
+19 extinction CSm extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC019/all_memory_runs/source_memory.feat/reg_standard/stats/cope18.nii.gz
+19 baseline CSp acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC019/all_memory_runs/source_memory.feat/reg_standard/stats/cope2.nii.gz
+21 baseline CSp baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC021/all_memory_runs/source_memory.feat/reg_standard/stats/cope1.nii.gz
+21 baseline CSp acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC021/all_memory_runs/source_memory.feat/reg_standard/stats/cope2.nii.gz
+21 baseline CSp extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC021/all_memory_runs/source_memory.feat/reg_standard/stats/cope3.nii.gz
+21 acquisition CSp baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC021/all_memory_runs/source_memory.feat/reg_standard/stats/cope7.nii.gz
+21 acquisition CSp acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC021/all_memory_runs/source_memory.feat/reg_standard/stats/cope8.nii.gz
+21 acquisition CSp extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC021/all_memory_runs/source_memory.feat/reg_standard/stats/cope9.nii.gz
+21 extinction CSp baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC021/all_memory_runs/source_memory.feat/reg_standard/stats/cope13.nii.gz
+21 extinction CSp acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC021/all_memory_runs/source_memory.feat/reg_standard/stats/cope14.nii.gz
+21 extinction CSp extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC021/all_memory_runs/source_memory.feat/reg_standard/stats/cope15.nii.gz
+21 baseline CSm baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC021/all_memory_runs/source_memory.feat/reg_standard/stats/cope4.nii.gz
+21 baseline CSm acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC021/all_memory_runs/source_memory.feat/reg_standard/stats/cope5.nii.gz
+21 baseline CSm extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC021/all_memory_runs/source_memory.feat/reg_standard/stats/cope6.nii.gz
+21 acquisition CSm baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC021/all_memory_runs/source_memory.feat/reg_standard/stats/cope10.nii.gz
+21 acquisition CSm acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC021/all_memory_runs/source_memory.feat/reg_standard/stats/cope11.nii.gz
+21 acquisition CSm extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC021/all_memory_runs/source_memory.feat/reg_standard/stats/cope12.nii.gz
+21 extinction CSm baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC021/all_memory_runs/source_memory.feat/reg_standard/stats/cope16.nii.gz
+21 extinction CSm acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC021/all_memory_runs/source_memory.feat/reg_standard/stats/cope17.nii.gz
+21 extinction CSm extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC021/all_memory_runs/source_memory.feat/reg_standard/stats/cope18.nii.gz
+101 baseline CSp baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC101/all_memory_runs/source_memory.feat/reg_standard/stats/cope1.nii.gz
+101 baseline CSp acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC101/all_memory_runs/source_memory.feat/reg_standard/stats/cope2.nii.gz
+101 baseline CSp extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC101/all_memory_runs/source_memory.feat/reg_standard/stats/cope3.nii.gz
+101 acquisition CSp baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC101/all_memory_runs/source_memory.feat/reg_standard/stats/cope7.nii.gz
+101 acquisition CSp acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC101/all_memory_runs/source_memory.feat/reg_standard/stats/cope8.nii.gz
+101 acquisition CSp extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC101/all_memory_runs/source_memory.feat/reg_standard/stats/cope9.nii.gz
+101 extinction CSp baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC101/all_memory_runs/source_memory.feat/reg_standard/stats/cope13.nii.gz
+101 extinction CSp acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC101/all_memory_runs/source_memory.feat/reg_standard/stats/cope14.nii.gz
+101 baseline CSm baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC101/all_memory_runs/source_memory.feat/reg_standard/stats/cope4.nii.gz
+101 baseline CSm acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC101/all_memory_runs/source_memory.feat/reg_standard/stats/cope5.nii.gz
+101 baseline CSm extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC101/all_memory_runs/source_memory.feat/reg_standard/stats/cope6.nii.gz
+101 acquisition CSm acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC101/all_memory_runs/source_memory.feat/reg_standard/stats/cope11.nii.gz
+101 acquisition CSm extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC101/all_memory_runs/source_memory.feat/reg_standard/stats/cope12.nii.gz
+101 extinction CSm baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC101/all_memory_runs/source_memory.feat/reg_standard/stats/cope16.nii.gz
+101 extinction CSm extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC101/all_memory_runs/source_memory.feat/reg_standard/stats/cope18.nii.gz
+101 extinction CSp extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC101/all_memory_runs/source_memory.feat/reg_standard/stats/cope15.nii.gz
+101 acquisition CSm baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC101/all_memory_runs/source_memory.feat/reg_standard/stats/cope10.nii.gz
+101 extinction CSm acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC101/all_memory_runs/source_memory.feat/reg_standard/stats/cope17.nii.gz
+102 baseline CSp baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC102/all_memory_runs/source_memory.feat/reg_standard/stats/cope1.nii.gz
+102 baseline CSp extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC102/all_memory_runs/source_memory.feat/reg_standard/stats/cope3.nii.gz
+102 acquisition CSp acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC102/all_memory_runs/source_memory.feat/reg_standard/stats/cope8.nii.gz
+102 acquisition CSp extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC102/all_memory_runs/source_memory.feat/reg_standard/stats/cope9.nii.gz
+102 extinction CSp baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC102/all_memory_runs/source_memory.feat/reg_standard/stats/cope13.nii.gz
+102 extinction CSp acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC102/all_memory_runs/source_memory.feat/reg_standard/stats/cope14.nii.gz
+102 extinction CSp extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC102/all_memory_runs/source_memory.feat/reg_standard/stats/cope15.nii.gz
+102 baseline CSm acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC102/all_memory_runs/source_memory.feat/reg_standard/stats/cope5.nii.gz
+102 baseline CSm extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC102/all_memory_runs/source_memory.feat/reg_standard/stats/cope6.nii.gz
+102 acquisition CSm baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC102/all_memory_runs/source_memory.feat/reg_standard/stats/cope10.nii.gz
+102 acquisition CSm acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC102/all_memory_runs/source_memory.feat/reg_standard/stats/cope11.nii.gz
+102 acquisition CSm extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC102/all_memory_runs/source_memory.feat/reg_standard/stats/cope12.nii.gz
+102 extinction CSm baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC102/all_memory_runs/source_memory.feat/reg_standard/stats/cope16.nii.gz
+102 extinction CSm acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC102/all_memory_runs/source_memory.feat/reg_standard/stats/cope17.nii.gz
+102 extinction CSm extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC102/all_memory_runs/source_memory.feat/reg_standard/stats/cope18.nii.gz
+102 baseline CSp acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC102/all_memory_runs/source_memory.feat/reg_standard/stats/cope2.nii.gz
+102 acquisition CSp baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC102/all_memory_runs/source_memory.feat/reg_standard/stats/cope7.nii.gz
+102 baseline CSm baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC102/all_memory_runs/source_memory.feat/reg_standard/stats/cope4.nii.gz
+103 baseline CSp baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC103/all_memory_runs/source_memory.feat/reg_standard/stats/cope1.nii.gz
+103 baseline CSp acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC103/all_memory_runs/source_memory.feat/reg_standard/stats/cope2.nii.gz
+103 baseline CSp extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC103/all_memory_runs/source_memory.feat/reg_standard/stats/cope3.nii.gz
+103 acquisition CSp baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC103/all_memory_runs/source_memory.feat/reg_standard/stats/cope7.nii.gz
+103 acquisition CSp acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC103/all_memory_runs/source_memory.feat/reg_standard/stats/cope8.nii.gz
+103 acquisition CSp extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC103/all_memory_runs/source_memory.feat/reg_standard/stats/cope9.nii.gz
+103 extinction CSp baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC103/all_memory_runs/source_memory.feat/reg_standard/stats/cope13.nii.gz
+103 extinction CSp acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC103/all_memory_runs/source_memory.feat/reg_standard/stats/cope14.nii.gz
+103 extinction CSp extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC103/all_memory_runs/source_memory.feat/reg_standard/stats/cope15.nii.gz
+103 baseline CSm baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC103/all_memory_runs/source_memory.feat/reg_standard/stats/cope4.nii.gz
+103 baseline CSm acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC103/all_memory_runs/source_memory.feat/reg_standard/stats/cope5.nii.gz
+103 baseline CSm extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC103/all_memory_runs/source_memory.feat/reg_standard/stats/cope6.nii.gz
+103 acquisition CSm baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC103/all_memory_runs/source_memory.feat/reg_standard/stats/cope10.nii.gz
+103 acquisition CSm acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC103/all_memory_runs/source_memory.feat/reg_standard/stats/cope11.nii.gz
+103 acquisition CSm extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC103/all_memory_runs/source_memory.feat/reg_standard/stats/cope12.nii.gz
+103 extinction CSm baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC103/all_memory_runs/source_memory.feat/reg_standard/stats/cope16.nii.gz
+103 extinction CSm acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC103/all_memory_runs/source_memory.feat/reg_standard/stats/cope17.nii.gz
+103 extinction CSm extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC103/all_memory_runs/source_memory.feat/reg_standard/stats/cope18.nii.gz
+104 baseline CSp baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC104/all_memory_runs/source_memory.feat/reg_standard/stats/cope1.nii.gz
+104 baseline CSp acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC104/all_memory_runs/source_memory.feat/reg_standard/stats/cope2.nii.gz
+104 acquisition CSp baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC104/all_memory_runs/source_memory.feat/reg_standard/stats/cope7.nii.gz
+104 acquisition CSp acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC104/all_memory_runs/source_memory.feat/reg_standard/stats/cope8.nii.gz
+104 acquisition CSp extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC104/all_memory_runs/source_memory.feat/reg_standard/stats/cope9.nii.gz
+104 extinction CSp baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC104/all_memory_runs/source_memory.feat/reg_standard/stats/cope13.nii.gz
+104 extinction CSp acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC104/all_memory_runs/source_memory.feat/reg_standard/stats/cope14.nii.gz
+104 baseline CSm baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC104/all_memory_runs/source_memory.feat/reg_standard/stats/cope4.nii.gz
+104 baseline CSm acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC104/all_memory_runs/source_memory.feat/reg_standard/stats/cope5.nii.gz
+104 baseline CSm extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC104/all_memory_runs/source_memory.feat/reg_standard/stats/cope6.nii.gz
+104 acquisition CSm baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC104/all_memory_runs/source_memory.feat/reg_standard/stats/cope10.nii.gz
+104 acquisition CSm acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC104/all_memory_runs/source_memory.feat/reg_standard/stats/cope11.nii.gz
+104 acquisition CSm extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC104/all_memory_runs/source_memory.feat/reg_standard/stats/cope12.nii.gz
+104 extinction CSm baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC104/all_memory_runs/source_memory.feat/reg_standard/stats/cope16.nii.gz
+104 extinction CSm acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC104/all_memory_runs/source_memory.feat/reg_standard/stats/cope17.nii.gz
+104 extinction CSm extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC104/all_memory_runs/source_memory.feat/reg_standard/stats/cope18.nii.gz
+104 baseline CSp extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC104/all_memory_runs/source_memory.feat/reg_standard/stats/cope3.nii.gz
+104 extinction CSp extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC104/all_memory_runs/source_memory.feat/reg_standard/stats/cope15.nii.gz
+105 baseline CSp baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC105/all_memory_runs/source_memory.feat/reg_standard/stats/cope1.nii.gz
+105 baseline CSp acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC105/all_memory_runs/source_memory.feat/reg_standard/stats/cope2.nii.gz
+105 baseline CSp extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC105/all_memory_runs/source_memory.feat/reg_standard/stats/cope3.nii.gz
+105 acquisition CSp baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC105/all_memory_runs/source_memory.feat/reg_standard/stats/cope7.nii.gz
+105 acquisition CSp acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC105/all_memory_runs/source_memory.feat/reg_standard/stats/cope8.nii.gz
+105 extinction CSp baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC105/all_memory_runs/source_memory.feat/reg_standard/stats/cope13.nii.gz
+105 extinction CSp acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC105/all_memory_runs/source_memory.feat/reg_standard/stats/cope14.nii.gz
+105 extinction CSp extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC105/all_memory_runs/source_memory.feat/reg_standard/stats/cope15.nii.gz
+105 baseline CSm baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC105/all_memory_runs/source_memory.feat/reg_standard/stats/cope4.nii.gz
+105 baseline CSm acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC105/all_memory_runs/source_memory.feat/reg_standard/stats/cope5.nii.gz
+105 baseline CSm extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC105/all_memory_runs/source_memory.feat/reg_standard/stats/cope6.nii.gz
+105 acquisition CSm baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC105/all_memory_runs/source_memory.feat/reg_standard/stats/cope10.nii.gz
+105 acquisition CSm acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC105/all_memory_runs/source_memory.feat/reg_standard/stats/cope11.nii.gz
+105 acquisition CSm extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC105/all_memory_runs/source_memory.feat/reg_standard/stats/cope12.nii.gz
+105 extinction CSm baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC105/all_memory_runs/source_memory.feat/reg_standard/stats/cope16.nii.gz
+105 extinction CSm acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC105/all_memory_runs/source_memory.feat/reg_standard/stats/cope17.nii.gz
+105 extinction CSm extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC105/all_memory_runs/source_memory.feat/reg_standard/stats/cope18.nii.gz
+105 acquisition CSp extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC105/all_memory_runs/source_memory.feat/reg_standard/stats/cope9.nii.gz
+106 baseline CSp baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC106/all_memory_runs/source_memory.feat/reg_standard/stats/cope1.nii.gz
+106 baseline CSp acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC106/all_memory_runs/source_memory.feat/reg_standard/stats/cope2.nii.gz
+106 baseline CSp extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC106/all_memory_runs/source_memory.feat/reg_standard/stats/cope3.nii.gz
+106 acquisition CSp baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC106/all_memory_runs/source_memory.feat/reg_standard/stats/cope7.nii.gz
+106 acquisition CSp acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC106/all_memory_runs/source_memory.feat/reg_standard/stats/cope8.nii.gz
+106 extinction CSp baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC106/all_memory_runs/source_memory.feat/reg_standard/stats/cope13.nii.gz
+106 extinction CSp acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC106/all_memory_runs/source_memory.feat/reg_standard/stats/cope14.nii.gz
+106 extinction CSp extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC106/all_memory_runs/source_memory.feat/reg_standard/stats/cope15.nii.gz
+106 baseline CSm baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC106/all_memory_runs/source_memory.feat/reg_standard/stats/cope4.nii.gz
+106 baseline CSm acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC106/all_memory_runs/source_memory.feat/reg_standard/stats/cope5.nii.gz
+106 baseline CSm extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC106/all_memory_runs/source_memory.feat/reg_standard/stats/cope6.nii.gz
+106 acquisition CSm baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC106/all_memory_runs/source_memory.feat/reg_standard/stats/cope10.nii.gz
+106 acquisition CSm acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC106/all_memory_runs/source_memory.feat/reg_standard/stats/cope11.nii.gz
+106 acquisition CSm extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC106/all_memory_runs/source_memory.feat/reg_standard/stats/cope12.nii.gz
+106 extinction CSm baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC106/all_memory_runs/source_memory.feat/reg_standard/stats/cope16.nii.gz
+106 extinction CSm acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC106/all_memory_runs/source_memory.feat/reg_standard/stats/cope17.nii.gz
+106 extinction CSm extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC106/all_memory_runs/source_memory.feat/reg_standard/stats/cope18.nii.gz
+107 baseline CSp baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC107/all_memory_runs/source_memory.feat/reg_standard/stats/cope1.nii.gz
+107 baseline CSp acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC107/all_memory_runs/source_memory.feat/reg_standard/stats/cope2.nii.gz
+107 baseline CSp extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC107/all_memory_runs/source_memory.feat/reg_standard/stats/cope3.nii.gz
+107 acquisition CSp baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC107/all_memory_runs/source_memory.feat/reg_standard/stats/cope7.nii.gz
+107 acquisition CSp acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC107/all_memory_runs/source_memory.feat/reg_standard/stats/cope8.nii.gz
+107 acquisition CSp extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC107/all_memory_runs/source_memory.feat/reg_standard/stats/cope9.nii.gz
+107 extinction CSp baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC107/all_memory_runs/source_memory.feat/reg_standard/stats/cope13.nii.gz
+107 extinction CSp acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC107/all_memory_runs/source_memory.feat/reg_standard/stats/cope14.nii.gz
+107 baseline CSm baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC107/all_memory_runs/source_memory.feat/reg_standard/stats/cope4.nii.gz
+107 baseline CSm acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC107/all_memory_runs/source_memory.feat/reg_standard/stats/cope5.nii.gz
+107 baseline CSm extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC107/all_memory_runs/source_memory.feat/reg_standard/stats/cope6.nii.gz
+107 acquisition CSm baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC107/all_memory_runs/source_memory.feat/reg_standard/stats/cope10.nii.gz
+107 acquisition CSm acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC107/all_memory_runs/source_memory.feat/reg_standard/stats/cope11.nii.gz
+107 extinction CSm baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC107/all_memory_runs/source_memory.feat/reg_standard/stats/cope16.nii.gz
+107 extinction CSm acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC107/all_memory_runs/source_memory.feat/reg_standard/stats/cope17.nii.gz
+107 extinction CSm extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC107/all_memory_runs/source_memory.feat/reg_standard/stats/cope18.nii.gz
+107 extinction CSp extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC107/all_memory_runs/source_memory.feat/reg_standard/stats/cope15.nii.gz
+107 acquisition CSm extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC107/all_memory_runs/source_memory.feat/reg_standard/stats/cope12.nii.gz
+108 baseline CSp baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC108/all_memory_runs/source_memory.feat/reg_standard/stats/cope1.nii.gz
+108 baseline CSp acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC108/all_memory_runs/source_memory.feat/reg_standard/stats/cope2.nii.gz
+108 baseline CSp extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC108/all_memory_runs/source_memory.feat/reg_standard/stats/cope3.nii.gz
+108 acquisition CSp baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC108/all_memory_runs/source_memory.feat/reg_standard/stats/cope7.nii.gz
+108 acquisition CSp acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC108/all_memory_runs/source_memory.feat/reg_standard/stats/cope8.nii.gz
+108 acquisition CSp extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC108/all_memory_runs/source_memory.feat/reg_standard/stats/cope9.nii.gz
+108 extinction CSp baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC108/all_memory_runs/source_memory.feat/reg_standard/stats/cope13.nii.gz
+108 extinction CSp acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC108/all_memory_runs/source_memory.feat/reg_standard/stats/cope14.nii.gz
+108 extinction CSp extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC108/all_memory_runs/source_memory.feat/reg_standard/stats/cope15.nii.gz
+108 baseline CSm baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC108/all_memory_runs/source_memory.feat/reg_standard/stats/cope4.nii.gz
+108 baseline CSm acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC108/all_memory_runs/source_memory.feat/reg_standard/stats/cope5.nii.gz
+108 baseline CSm extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC108/all_memory_runs/source_memory.feat/reg_standard/stats/cope6.nii.gz
+108 acquisition CSm baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC108/all_memory_runs/source_memory.feat/reg_standard/stats/cope10.nii.gz
+108 acquisition CSm acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC108/all_memory_runs/source_memory.feat/reg_standard/stats/cope11.nii.gz
+108 acquisition CSm extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC108/all_memory_runs/source_memory.feat/reg_standard/stats/cope12.nii.gz
+108 extinction CSm acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC108/all_memory_runs/source_memory.feat/reg_standard/stats/cope17.nii.gz
+108 extinction CSm extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC108/all_memory_runs/source_memory.feat/reg_standard/stats/cope18.nii.gz
+108 extinction CSm baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC108/all_memory_runs/source_memory.feat/reg_standard/stats/cope16.nii.gz
+109 baseline CSp acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC109/all_memory_runs/source_memory.feat/reg_standard/stats/cope2.nii.gz
+109 baseline CSp extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC109/all_memory_runs/source_memory.feat/reg_standard/stats/cope3.nii.gz
+109 acquisition CSp baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC109/all_memory_runs/source_memory.feat/reg_standard/stats/cope7.nii.gz
+109 acquisition CSp acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC109/all_memory_runs/source_memory.feat/reg_standard/stats/cope8.nii.gz
+109 acquisition CSp extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC109/all_memory_runs/source_memory.feat/reg_standard/stats/cope9.nii.gz
+109 extinction CSp acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC109/all_memory_runs/source_memory.feat/reg_standard/stats/cope14.nii.gz
+109 extinction CSp extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC109/all_memory_runs/source_memory.feat/reg_standard/stats/cope15.nii.gz
+109 baseline CSm baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC109/all_memory_runs/source_memory.feat/reg_standard/stats/cope4.nii.gz
+109 baseline CSm acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC109/all_memory_runs/source_memory.feat/reg_standard/stats/cope5.nii.gz
+109 baseline CSm extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC109/all_memory_runs/source_memory.feat/reg_standard/stats/cope6.nii.gz
+109 acquisition CSm acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC109/all_memory_runs/source_memory.feat/reg_standard/stats/cope11.nii.gz
+109 acquisition CSm extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC109/all_memory_runs/source_memory.feat/reg_standard/stats/cope12.nii.gz
+109 extinction CSm baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC109/all_memory_runs/source_memory.feat/reg_standard/stats/cope16.nii.gz
+109 extinction CSm acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC109/all_memory_runs/source_memory.feat/reg_standard/stats/cope17.nii.gz
+109 extinction CSm extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC109/all_memory_runs/source_memory.feat/reg_standard/stats/cope18.nii.gz
+109 baseline CSp baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC109/all_memory_runs/source_memory.feat/reg_standard/stats/cope1.nii.gz
+110 baseline CSp baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC110/all_memory_runs/source_memory.feat/reg_standard/stats/cope1.nii.gz
+110 baseline CSp acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC110/all_memory_runs/source_memory.feat/reg_standard/stats/cope2.nii.gz
+110 baseline CSp extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC110/all_memory_runs/source_memory.feat/reg_standard/stats/cope3.nii.gz
+110 acquisition CSp baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC110/all_memory_runs/source_memory.feat/reg_standard/stats/cope7.nii.gz
+110 acquisition CSp acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC110/all_memory_runs/source_memory.feat/reg_standard/stats/cope8.nii.gz
+110 acquisition CSp extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC110/all_memory_runs/source_memory.feat/reg_standard/stats/cope9.nii.gz
+110 extinction CSp baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC110/all_memory_runs/source_memory.feat/reg_standard/stats/cope13.nii.gz
+110 extinction CSp acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC110/all_memory_runs/source_memory.feat/reg_standard/stats/cope14.nii.gz
+110 extinction CSp extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC110/all_memory_runs/source_memory.feat/reg_standard/stats/cope15.nii.gz
+110 baseline CSm baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC110/all_memory_runs/source_memory.feat/reg_standard/stats/cope4.nii.gz
+110 baseline CSm acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC110/all_memory_runs/source_memory.feat/reg_standard/stats/cope5.nii.gz
+110 baseline CSm extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC110/all_memory_runs/source_memory.feat/reg_standard/stats/cope6.nii.gz
+110 acquisition CSm acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC110/all_memory_runs/source_memory.feat/reg_standard/stats/cope11.nii.gz
+110 acquisition CSm extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC110/all_memory_runs/source_memory.feat/reg_standard/stats/cope12.nii.gz
+110 extinction CSm baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC110/all_memory_runs/source_memory.feat/reg_standard/stats/cope16.nii.gz
+110 extinction CSm extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC110/all_memory_runs/source_memory.feat/reg_standard/stats/cope18.nii.gz
+110 acquisition CSm baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC110/all_memory_runs/source_memory.feat/reg_standard/stats/cope10.nii.gz
+110 extinction CSm acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC110/all_memory_runs/source_memory.feat/reg_standard/stats/cope17.nii.gz
+111 baseline CSp baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC111/all_memory_runs/source_memory.feat/reg_standard/stats/cope1.nii.gz
+111 baseline CSp acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC111/all_memory_runs/source_memory.feat/reg_standard/stats/cope2.nii.gz
+111 acquisition CSp baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC111/all_memory_runs/source_memory.feat/reg_standard/stats/cope7.nii.gz
+111 acquisition CSp acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC111/all_memory_runs/source_memory.feat/reg_standard/stats/cope8.nii.gz
+111 acquisition CSp extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC111/all_memory_runs/source_memory.feat/reg_standard/stats/cope9.nii.gz
+111 extinction CSp baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC111/all_memory_runs/source_memory.feat/reg_standard/stats/cope13.nii.gz
+111 extinction CSp acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC111/all_memory_runs/source_memory.feat/reg_standard/stats/cope14.nii.gz
+111 baseline CSm baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC111/all_memory_runs/source_memory.feat/reg_standard/stats/cope4.nii.gz
+111 baseline CSm extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC111/all_memory_runs/source_memory.feat/reg_standard/stats/cope6.nii.gz
+111 acquisition CSm baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC111/all_memory_runs/source_memory.feat/reg_standard/stats/cope10.nii.gz
+111 acquisition CSm acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC111/all_memory_runs/source_memory.feat/reg_standard/stats/cope11.nii.gz
+111 acquisition CSm extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC111/all_memory_runs/source_memory.feat/reg_standard/stats/cope12.nii.gz
+111 extinction CSm baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC111/all_memory_runs/source_memory.feat/reg_standard/stats/cope16.nii.gz
+111 extinction CSm acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC111/all_memory_runs/source_memory.feat/reg_standard/stats/cope17.nii.gz
+111 extinction CSm extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC111/all_memory_runs/source_memory.feat/reg_standard/stats/cope18.nii.gz
+111 baseline CSp extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC111/all_memory_runs/source_memory.feat/reg_standard/stats/cope3.nii.gz
+112 baseline CSp acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC112/all_memory_runs/source_memory.feat/reg_standard/stats/cope2.nii.gz
+112 baseline CSp extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC112/all_memory_runs/source_memory.feat/reg_standard/stats/cope3.nii.gz
+112 acquisition CSp baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC112/all_memory_runs/source_memory.feat/reg_standard/stats/cope7.nii.gz
+112 acquisition CSp acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC112/all_memory_runs/source_memory.feat/reg_standard/stats/cope8.nii.gz
+112 acquisition CSp extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC112/all_memory_runs/source_memory.feat/reg_standard/stats/cope9.nii.gz
+112 extinction CSp acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC112/all_memory_runs/source_memory.feat/reg_standard/stats/cope14.nii.gz
+112 extinction CSp extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC112/all_memory_runs/source_memory.feat/reg_standard/stats/cope15.nii.gz
+112 baseline CSm baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC112/all_memory_runs/source_memory.feat/reg_standard/stats/cope4.nii.gz
+112 baseline CSm acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC112/all_memory_runs/source_memory.feat/reg_standard/stats/cope5.nii.gz
+112 baseline CSm extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC112/all_memory_runs/source_memory.feat/reg_standard/stats/cope6.nii.gz
+112 acquisition CSm baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC112/all_memory_runs/source_memory.feat/reg_standard/stats/cope10.nii.gz
+112 acquisition CSm extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC112/all_memory_runs/source_memory.feat/reg_standard/stats/cope12.nii.gz
+112 extinction CSm baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC112/all_memory_runs/source_memory.feat/reg_standard/stats/cope16.nii.gz
+112 extinction CSm acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC112/all_memory_runs/source_memory.feat/reg_standard/stats/cope17.nii.gz
+112 extinction CSm extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC112/all_memory_runs/source_memory.feat/reg_standard/stats/cope18.nii.gz
+112 extinction CSp baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC112/all_memory_runs/source_memory.feat/reg_standard/stats/cope13.nii.gz
+112 acquisition CSm acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC112/all_memory_runs/source_memory.feat/reg_standard/stats/cope11.nii.gz
+112 baseline CSp baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC112/all_memory_runs/source_memory.feat/reg_standard/stats/cope1.nii.gz
+113 baseline CSp baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC113/all_memory_runs/source_memory.feat/reg_standard/stats/cope1.nii.gz
+113 baseline CSp acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC113/all_memory_runs/source_memory.feat/reg_standard/stats/cope2.nii.gz
+113 baseline CSp extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC113/all_memory_runs/source_memory.feat/reg_standard/stats/cope3.nii.gz
+113 acquisition CSp baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC113/all_memory_runs/source_memory.feat/reg_standard/stats/cope7.nii.gz
+113 acquisition CSp acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC113/all_memory_runs/source_memory.feat/reg_standard/stats/cope8.nii.gz
+113 acquisition CSp extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC113/all_memory_runs/source_memory.feat/reg_standard/stats/cope9.nii.gz
+113 extinction CSp baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC113/all_memory_runs/source_memory.feat/reg_standard/stats/cope13.nii.gz
+113 extinction CSp acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC113/all_memory_runs/source_memory.feat/reg_standard/stats/cope14.nii.gz
+113 extinction CSp extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC113/all_memory_runs/source_memory.feat/reg_standard/stats/cope15.nii.gz
+113 baseline CSm baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC113/all_memory_runs/source_memory.feat/reg_standard/stats/cope4.nii.gz
+113 baseline CSm acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC113/all_memory_runs/source_memory.feat/reg_standard/stats/cope5.nii.gz
+113 baseline CSm extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC113/all_memory_runs/source_memory.feat/reg_standard/stats/cope6.nii.gz
+113 acquisition CSm baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC113/all_memory_runs/source_memory.feat/reg_standard/stats/cope10.nii.gz
+113 acquisition CSm acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC113/all_memory_runs/source_memory.feat/reg_standard/stats/cope11.nii.gz
+113 acquisition CSm extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC113/all_memory_runs/source_memory.feat/reg_standard/stats/cope12.nii.gz
+113 extinction CSm baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC113/all_memory_runs/source_memory.feat/reg_standard/stats/cope16.nii.gz
+113 extinction CSm acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC113/all_memory_runs/source_memory.feat/reg_standard/stats/cope17.nii.gz
+113 extinction CSm extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC113/all_memory_runs/source_memory.feat/reg_standard/stats/cope18.nii.gz
+114 baseline CSp acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC114/all_memory_runs/source_memory.feat/reg_standard/stats/cope2.nii.gz
+114 baseline CSp extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC114/all_memory_runs/source_memory.feat/reg_standard/stats/cope3.nii.gz
+114 acquisition CSp acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC114/all_memory_runs/source_memory.feat/reg_standard/stats/cope8.nii.gz
+114 extinction CSp acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC114/all_memory_runs/source_memory.feat/reg_standard/stats/cope14.nii.gz
+114 extinction CSp extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC114/all_memory_runs/source_memory.feat/reg_standard/stats/cope15.nii.gz
+114 baseline CSm acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC114/all_memory_runs/source_memory.feat/reg_standard/stats/cope5.nii.gz
+114 baseline CSm extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC114/all_memory_runs/source_memory.feat/reg_standard/stats/cope6.nii.gz
+114 acquisition CSm baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC114/all_memory_runs/source_memory.feat/reg_standard/stats/cope10.nii.gz
+114 acquisition CSm acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC114/all_memory_runs/source_memory.feat/reg_standard/stats/cope11.nii.gz
+114 acquisition CSm extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC114/all_memory_runs/source_memory.feat/reg_standard/stats/cope12.nii.gz
+114 extinction CSm baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC114/all_memory_runs/source_memory.feat/reg_standard/stats/cope16.nii.gz
+114 extinction CSm acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC114/all_memory_runs/source_memory.feat/reg_standard/stats/cope17.nii.gz
+114 extinction CSm extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC114/all_memory_runs/source_memory.feat/reg_standard/stats/cope18.nii.gz
+114 baseline CSm baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC114/all_memory_runs/source_memory.feat/reg_standard/stats/cope4.nii.gz
+116 baseline CSp baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC116/all_memory_runs/source_memory.feat/reg_standard/stats/cope1.nii.gz
+116 baseline CSp acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC116/all_memory_runs/source_memory.feat/reg_standard/stats/cope2.nii.gz
+116 baseline CSp extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC116/all_memory_runs/source_memory.feat/reg_standard/stats/cope3.nii.gz
+116 acquisition CSp acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC116/all_memory_runs/source_memory.feat/reg_standard/stats/cope8.nii.gz
+116 acquisition CSp extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC116/all_memory_runs/source_memory.feat/reg_standard/stats/cope9.nii.gz
+116 extinction CSp baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC116/all_memory_runs/source_memory.feat/reg_standard/stats/cope13.nii.gz
+116 extinction CSp acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC116/all_memory_runs/source_memory.feat/reg_standard/stats/cope14.nii.gz
+116 baseline CSm baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC116/all_memory_runs/source_memory.feat/reg_standard/stats/cope4.nii.gz
+116 baseline CSm acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC116/all_memory_runs/source_memory.feat/reg_standard/stats/cope5.nii.gz
+116 acquisition CSm baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC116/all_memory_runs/source_memory.feat/reg_standard/stats/cope10.nii.gz
+116 acquisition CSm acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC116/all_memory_runs/source_memory.feat/reg_standard/stats/cope11.nii.gz
+116 acquisition CSm extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC116/all_memory_runs/source_memory.feat/reg_standard/stats/cope12.nii.gz
+116 extinction CSm baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC116/all_memory_runs/source_memory.feat/reg_standard/stats/cope16.nii.gz
+116 extinction CSm acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC116/all_memory_runs/source_memory.feat/reg_standard/stats/cope17.nii.gz
+116 extinction CSm extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC116/all_memory_runs/source_memory.feat/reg_standard/stats/cope18.nii.gz
+116 acquisition CSp baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC116/all_memory_runs/source_memory.feat/reg_standard/stats/cope7.nii.gz
+116 extinction CSp extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC116/all_memory_runs/source_memory.feat/reg_standard/stats/cope15.nii.gz
+116 baseline CSm extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC116/all_memory_runs/source_memory.feat/reg_standard/stats/cope6.nii.gz
+117 baseline CSp baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC117/all_memory_runs/source_memory.feat/reg_standard/stats/cope1.nii.gz
+117 baseline CSp acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC117/all_memory_runs/source_memory.feat/reg_standard/stats/cope2.nii.gz
+117 acquisition CSp baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC117/all_memory_runs/source_memory.feat/reg_standard/stats/cope7.nii.gz
+117 acquisition CSp acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC117/all_memory_runs/source_memory.feat/reg_standard/stats/cope8.nii.gz
+117 acquisition CSp extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC117/all_memory_runs/source_memory.feat/reg_standard/stats/cope9.nii.gz
+117 extinction CSp acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC117/all_memory_runs/source_memory.feat/reg_standard/stats/cope14.nii.gz
+117 extinction CSp extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC117/all_memory_runs/source_memory.feat/reg_standard/stats/cope15.nii.gz
+117 baseline CSm baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC117/all_memory_runs/source_memory.feat/reg_standard/stats/cope4.nii.gz
+117 baseline CSm acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC117/all_memory_runs/source_memory.feat/reg_standard/stats/cope5.nii.gz
+117 acquisition CSm acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC117/all_memory_runs/source_memory.feat/reg_standard/stats/cope11.nii.gz
+117 acquisition CSm extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC117/all_memory_runs/source_memory.feat/reg_standard/stats/cope12.nii.gz
+117 extinction CSm baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC117/all_memory_runs/source_memory.feat/reg_standard/stats/cope16.nii.gz
+117 extinction CSm acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC117/all_memory_runs/source_memory.feat/reg_standard/stats/cope17.nii.gz
+117 extinction CSm extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC117/all_memory_runs/source_memory.feat/reg_standard/stats/cope18.nii.gz
+117 baseline CSp extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC117/all_memory_runs/source_memory.feat/reg_standard/stats/cope3.nii.gz
+117 extinction CSp baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC117/all_memory_runs/source_memory.feat/reg_standard/stats/cope13.nii.gz
+117 baseline CSm extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC117/all_memory_runs/source_memory.feat/reg_standard/stats/cope6.nii.gz
+117 acquisition CSm baseline /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC117/all_memory_runs/source_memory.feat/reg_standard/stats/cope10.nii.gz
+118 baseline CSp acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC118/all_memory_runs/source_memory.feat/reg_standard/stats/cope2.nii.gz
+118 baseline CSp extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC118/all_memory_runs/source_memory.feat/reg_standard/stats/cope3.nii.gz
+118 acquisition CSp acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC118/all_memory_runs/source_memory.feat/reg_standard/stats/cope8.nii.gz
+118 acquisition CSp extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC118/all_memory_runs/source_memory.feat/reg_standard/stats/cope9.nii.gz
+118 extinction CSp acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC118/all_memory_runs/source_memory.feat/reg_standard/stats/cope14.nii.gz
+118 extinction CSp extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC118/all_memory_runs/source_memory.feat/reg_standard/stats/cope15.nii.gz
+118 baseline CSm acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC118/all_memory_runs/source_memory.feat/reg_standard/stats/cope5.nii.gz
+118 baseline CSm extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC118/all_memory_runs/source_memory.feat/reg_standard/stats/cope6.nii.gz
+118 acquisition CSm acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC118/all_memory_runs/source_memory.feat/reg_standard/stats/cope11.nii.gz
+118 acquisition CSm extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC118/all_memory_runs/source_memory.feat/reg_standard/stats/cope12.nii.gz
+118 extinction CSm acquisition /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC118/all_memory_runs/source_memory.feat/reg_standard/stats/cope17.nii.gz
+118 extinction CSm extinction /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC118/all_memory_runs/source_memory.feat/reg_standard/stats/cope18.nii.gz

@@ -1,0 +1,3 @@
+module load tacc-singularity
+singularity build /scratch/05426/ach3377/bids-apps/neuro.simg docker://neurodebian
+

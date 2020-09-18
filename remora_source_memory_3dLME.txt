@@ -1,5 +1,7 @@
-module load cray_mpich Rstats gsl afni 
-3dLME -prefix /scratch/05426/ach3377/SM_LME -jobs 64                   \
+module load gsl
+module load afni
+module load remora
+remora 3dLME -prefix /scratch/05426/ach3377/SM_LME -jobs 24                   \
           -model  "Encode*Condition*Response"   \
           -ranEff '~1+Sess|Subj' \
           -SS_type 3                                                       \
