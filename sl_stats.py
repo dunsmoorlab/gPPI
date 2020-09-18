@@ -191,7 +191,6 @@ def afni_3dttest(con1=[],con2=[],tail='',mats={},masker=None,std=nib.load(std_20
                                -AminusB \
                                -paired \
                                -Clustsim 48 \
-                               -OKsmallmask \
                                -mask {std_2009_brain_mask_3mm} \
                                -prefix {out_dir}/clustsim_{name}_ttest'
     script = f'{out_dir}/ttest_script.txt'
