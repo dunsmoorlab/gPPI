@@ -400,7 +400,9 @@ def afni_fwhmx(sub):
         feat_dir = f'{subj.model_dir}/memory_run-0{run}/source_memory.feat'
         resid = f'{feat_dir}/stats/res4d.nii.gz'
         resid_std = f'{feat_dir}/reg_standard/stats/res4d.nii.gz'
-
+        
+        os.chdir(feat_dir)
+        
         reg_cmd = f'flirt -ref {feat_dir}/reg/standard \
                           -in {resid} \
                           -out {resid_std} \
@@ -408,16 +410,16 @@ def afni_fwhmx(sub):
                           -init {feat_dir}/reg/example_func2standard.mat \
                           -interp trilinear \
                           -datatype float'
-
+        
         est_noise = f'3dFWHMx -mask {std_2009_brain_mask} \
                               -input {resid_std} \
-                              -acf >> /home1/05426/ach3377/gPPI/sm_events/noise_estimates.txt'
+                              -acf >> noise_estimates.txt'
 
-    for cmd in [reg_cmd, est_noise]:
-        os.system(cmd)
-for sub in xcl_sub_args:
-    os.system(f"echo singularity run --cleanenv $SCRATCH/bids-apps/neurosft.simg python $HOME/gPPI/wrap_glm_utils.py -s {sub} >> jobs/afni_fwhm_job.txt")
-os.system('launch -N 12 -n 48 -J smooth -s jobs/afni_fwhm_job.txt -m achennings@utexas.edu -p normal -r 2:00:00 -A LewPea_MRI_Analysis')
+        for cmd in [reg_cmd, est_noise]:
+            os.system(cmd)
+# for sub in xcl_sub_args:
+#     os.system(f"echo singularity run --cleanenv $SCRATCH/bids-apps/neurosft.simg python $HOME/gPPI/wrap_glm_utils.py -s {sub} >> jobs/afni_fwhm_job.txt")
+# os.system('launch -N 12 -n 48 -J smooth -s jobs/afni_fwhm_job.txt -m achennings@utexas.edu -p normal -r 2:00:00 -A LewPea_MRI_Analysis')
 
 def afni_cluster():
     f"3dClusterize \
