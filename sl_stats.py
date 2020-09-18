@@ -11,6 +11,7 @@ from nilearn.input_data import NiftiMasker
 from nilearn.image import new_img_like
 from collections import OrderedDict
 from scipy.stats import ttest_1samp, ttest_ind, wilcoxon
+sl_dir = os.path.join(SCRATCH,'searchlight')
 
 
 conditions = {'CS+': 'CSp',
@@ -173,14 +174,47 @@ def afni_3dttest(con1=[],con2=[],tail='',mats={},masker=None,std=nib.load(std_20
         file1 = f'{out_dir}/{sub}_{name1}.nii.gz'
         file2 = f'{out_dir}/{sub}_{name1}.nii.gz'
 
-        nib.save(new_img_like(std,masker.inverse_transform(data1[sub]).get_fdata(),copy_header=True), file1)
-        nib.save(new_img_like(std,masker.inverse_transform(data2[sub]).get_fdata(),copy_header=True), file2)
+        # nib.save(new_img_like(std,masker.inverse_transform(data1[sub]).get_fdata(),copy_header=True), file1)
+        # nib.save(new_img_like(std,masker.inverse_transform(data2[sub]).get_fdata(),copy_header=True), file2)
 
         setA += f'{file1} '
         setB += f'{file1} '
+    n_cors = 'export OMP_NUM_THREADS=48'
+    ttest_cmd = f'3dttest++ -setA {setA} \
+                            -setB {setB} \
+                            -AminusB \
+                            -paired \
+                            -prefix {out_dir}/{name}_ttest'
+    
+    clustsim_cmd = f'3dttest++ -setA {setA} \
+                               -setB {setB} \
+                               -AminusB \
+                               -paired \
+                               -Clustsim 48 \
+                               -OKsmallmask \
+                               -mask {std_2009_brain_mask_3mm} \
+                               -prefix {out_dir}/clustsim_{name}_ttest'
+    script = f'{out_dir}/ttest_script.txt'
+    os.system(f'rm {script}')
 
-    cmd = f'3dttest++ -setA {setA} -setB {setB} -paired -prefix {out_dir}/{name}_ttest'
-    os.system(cmd)
+    for cmd in [n_cors, ttest_cmd, clustsim_cmd]:
+        os.system(f"echo {cmd} >> {script}")
+
+    jobfile = f'/home1/05426/ach3377/gPPI/jobs/{name}_sl_ers_job.txt'
+    os.system(f'rm {jobfile}')
+
+    os.system(f'echo singularity run --cleanenv \
+                    /scratch/05426/ach3377/bids-apps/neurosft.simg \
+                    bash -x {script} >> {jobfile}')
+    
+    os.system(f'launch -N 1 \
+                       -n 1 \
+                       -J 3dttest++ \
+                       -s {jobfile} \
+                       -m achennings@utexas.edu \
+                       -p normal \
+                       -r 5:00:00 \
+                       -A LewPea_MRI_Analysis')
 
 with open(f'{sl_dir}/sm_ers_data.p','rb') as file:
     mats = pickle.load(file)

@@ -280,7 +280,7 @@ def cat_mem_runs(sub):
         out_events.to_csv( f'{sm_out}/foil_{con}.txt',
                 sep='\t', float_format='%.8e', index=False, header=False)
 
-def copy_out_lvl3()
+def copy_out_lvl3():
     
     dest = '/scratch/05426/ach3377/source_memory_group_glm/zmaps'
     mkdir(dest)
@@ -415,7 +415,9 @@ def afni_fwhmx(sub):
 
     for cmd in [reg_cmd, est_noise]:
         os.system(cmd)
-
+# for sub in xcl_sub_args:
+#     os.system(f"echo singularity run --cleanenv $SCRATCH/bids-apps/neurosft.simg python $HOME/gPPI/wrap_glm_utils.py -s {sub} >> jobs/afni_fwhm_job.txt")
+#     launch -N 12 -n 48 -J smooth -s jobs/afni_fwhm_job.txt -m achennings@utexas.edu -p normal -r 2:00:00 -A LewPea_MRI_Analysis
 
 def afni_cluster():
     f"3dClusterize \
