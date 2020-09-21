@@ -434,12 +434,12 @@ def collect_fwhm():
     est.tofile('sm_events/3dLME_mean_smooth.txt',sep=' ', format='%s')
 
 def clustsim(file='sm_events/3dLME_mean_smooth.txt'):
-est = np.loadtxt(file)
-cmd = f'3dClustSim -OKsmallmask \
-                   -mask {std_2009_brain_mask} \
-                   -acf {est[0]} {est[1]} {est[2]} \
-                   >> test_clustsim_output.txt' 
-os.system(cmd)
+    est = np.loadtxt(file)
+    cmd = f'3dClustSim -OKsmallmask \
+                       -mask {std_2009_brain_mask} \
+                       -acf {est[0]} {est[1]} {est[2]} \
+                       >> test_clustsim_output.txt' 
+    os.system(cmd)
 
 def afni_cluster():
     f"3dClusterize \

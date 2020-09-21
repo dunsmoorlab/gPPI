@@ -8,4 +8,5 @@ parser.add_argument('-s','--subj',default=None,type=int)
 args = parser.parse_args()
 
 os.system('export OMP_NUM_THREADS=48')
-afni_fwhmx(args.subj)
+# afni_fwhmx(args.subj)
+clustsim()
