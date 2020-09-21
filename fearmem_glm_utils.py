@@ -419,7 +419,27 @@ def afni_fwhmx(sub):
             os.system(cmd)
 # for sub in xcl_sub_args:
 #     os.system(f"echo singularity run --cleanenv $SCRATCH/bids-apps/neurosft.simg python $HOME/gPPI/wrap_glm_utils.py -s {sub} >> jobs/afni_fwhm_job.txt")
-# os.system('launch -N 12 -n 48 -J smooth -s jobs/afni_fwhm_job.txt -m achennings@utexas.edu -p normal -r 2:00:00 -A LewPea_MRI_Analysis')
+# os.system('launch -N 48 -n 48 -J smooth -s jobs/afni_fwhm_job.txt -m achennings@utexas.edu -p normal -r 2:00:00 -A LewPea_MRI_Analysis')
+
+def collect_fwhm():
+    _df = {}
+    for sub in xcl_sub_args:
+        subj = bids_meta(sub)
+        _df[sub] = {}
+        for run in [1,2,3]:
+            _df[sub][run] = pd.read_csv(f'{subj.model_dir}/memory_run-0{run}/source_memory.feat/noise_estimates.txt',sep=' '
+                            ).loc[0].dropna().values
+    df = pd.DataFrame.from_dict(_df).unstack().reset_index()
+    est = df[0].values.mean(axis=0)
+    est.tofile('sm_events/3dLME_mean_smooth.txt',sep=' ', format='%s')
+
+def clustsim(file='sm_events/3dLME_mean_smooth.txt'):
+est = np.loadtxt(file)
+cmd = f'3dClustSim -OKsmallmask \
+                   -mask {std_2009_brain_mask} \
+                   -acf {est[0]} {est[1]} {est[2]} \
+                   >> test_clustsim_output.txt' 
+os.system(cmd)
 
 def afni_cluster():
     f"3dClusterize \

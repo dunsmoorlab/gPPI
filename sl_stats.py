@@ -185,18 +185,18 @@ def afni_3dttest(con1=[],con2=[],tail='',mats={},masker=None,std=nib.load(std_20
                             -AminusB \
                             -paired \
                             -prefix {out_dir}/{name}_ttest'
-    
+    cd_cmd = f'cd {out_dir}'
     clustsim_cmd = f'3dttest++ -setA {setA} \
                                -setB {setB} \
                                -AminusB \
                                -paired \
                                -Clustsim 48 \
                                -mask {std_2009_brain_mask_3mm} \
-                               -prefix {out_dir}/clustsim_{name}_ttest'
+                               -prefix clustsim_{name}_ttest'
     script = f'{out_dir}/ttest_script.txt'
     os.system(f'rm {script}')
 
-    for cmd in [n_cors, ttest_cmd, clustsim_cmd]:
+    for cmd in [n_cors, ttest_cmd, cd_cmd, clustsim_cmd]:
         os.system(f"echo {cmd} >> {script}")
 
     jobfile = f'/home1/05426/ach3377/gPPI/jobs/{name}_sl_ers_job.txt'
