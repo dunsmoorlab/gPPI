@@ -1,0 +1,1 @@
+singularity run --cleanenv /scratch/05426/ach3377/bids-apps/neurosft.simg bash -x /scratch/05426/ach3377/searchlight/CSpB_B__CSpB_A/ttest_script.txt
