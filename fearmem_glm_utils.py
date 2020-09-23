@@ -543,6 +543,7 @@ def extract_clusters(folder):
                 nib.save(out_mask,f'{out_dir}/cluster_{clust}_mask.nii.gz')
 
 def extract_pe(effects=['Response','Condition','Condition_Response'],):
+    from nilearn.image import get_data
     #create output df
 
     phases = ['baseline','acquisition','extinction']
