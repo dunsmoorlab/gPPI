@@ -172,13 +172,13 @@ def afni_3dttest(con1=[],con2=[],tail='',mats={},masker=None,std=nib.load(std_20
 
     for s, sub in enumerate(_subs):
         file1 = f'{out_dir}/{sub}_{name1}.nii.gz'
-        file2 = f'{out_dir}/{sub}_{name1}.nii.gz'
+        file2 = f'{out_dir}/{sub}_{name2}.nii.gz'
 
-        # nib.save(new_img_like(std,masker.inverse_transform(data1[sub]).get_fdata(),copy_header=True), file1)
-        # nib.save(new_img_like(std,masker.inverse_transform(data2[sub]).get_fdata(),copy_header=True), file2)
+        nib.save(new_img_like(std,masker.inverse_transform(data1[sub]).get_fdata(),copy_header=True), file1)
+        nib.save(new_img_like(std,masker.inverse_transform(data2[sub]).get_fdata(),copy_header=True), file2)
 
         setA += f'{file1} '
-        setB += f'{file1} '
+        setB += f'{file2} '
     n_cors = 'export OMP_NUM_THREADS=48'
     ttest_cmd = f'3dttest++ -setA {setA} \
                             -setB {setB} \
@@ -212,7 +212,7 @@ def afni_3dttest(con1=[],con2=[],tail='',mats={},masker=None,std=nib.load(std_20
                        -s {jobfile} \
                        -m achennings@utexas.edu \
                        -p normal \
-                       -r 5:00:00 \
+                       -r 0:20:00 \
                        -A LewPea_MRI_Analysis')
 
 with open(f'{sl_dir}/sm_ers_data.p','rb') as file:
@@ -227,11 +227,27 @@ afni_3dttest(con1=['baseline','CS-','acquisition'],
              con2=['baseline','CS+','acquisition'],
              tail='greater',mats=mats,masker=masker)
 
+#takes in relative paths, does NOT generalize to other projects
+def ers_cluster(contrast=None,thr=0,nvox=0,mask='../standard/MNI152NLin2009cAsym_T1_3mm_brain_mask.nii.gz'):
+        here = os.getcwd()
+        folder = contrast
+        name = contrast.split('/')[-1]
+        os.chdir(folder)
 
-ers_contrasts(con1=['baseline','CS+','baseline'],
-             con2=['baseline','CS+','acquisition'],
-             tail='greater',mats=mats,masker=masker)
+        cmd = f"3dClusterize -inset clustsim_{name}_ttest+orig \
+                   -ithr 1 \
+                   -idat 0 \
+                   -mask {mask} \
+                   -NN 3 \
+                   -1sided RIGHT_TAIL p={thr} \
+                   -clust_nvox {nvox} \
+                   -pref_map ClusterMap.nii.gz \
+                   -pref_dat ClusterEffEst.nii.gz"
 
-ers_contrasts(con1=['baseline','CS-','acquisition'],
-             con2=['baseline','CS+','acquisition'],
-             tail='greater',mats=mats,masker=masker)
+        os.system(cmd)
+        os.chdir(here)
+
+ers_cluster(contrast=f'{HOME}/Desktop/CSpB_B__CSpB_A',thr=0.01,nvox=256)
+ers_cluster(contrast=f'{HOME}/Desktop/CSmB_A__CSpB_A',thr=0.01,nvox=260)
+
+

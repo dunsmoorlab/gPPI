@@ -13,6 +13,7 @@ from sklearn.linear_model import LogisticRegression
 from matplotlib.ticker import MultipleLocator
 from scipy.special import expit
 from matplotlib.patches import Patch
+from nibabel.brikhead import parse_AFNI_header
 
 sub_args = [1,2,3,4,5,6,7,8,9,10,12,13,14,15,16,17,18,19,20,21,23,24,25,26]
 p_sub_args = [101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117,118, 120, 121, 122, 123, 124, 125]
@@ -50,7 +51,7 @@ rcParams['savefig.dpi'] = 300
 rcParams['axes.titlepad'] = 30
 
 WORK = '/work/05426/ach3377/lonestar/'
-HOME = '/home1/05426/ach3377/'
+HOME = os.path.expanduser('~')
 SCRATCH = '/scratch/05426/ach3377/'
 gPPI_codebase = HOME + 'gPPI/'
 

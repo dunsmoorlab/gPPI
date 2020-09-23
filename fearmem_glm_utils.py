@@ -1,5 +1,14 @@
 from fg_config import *
 
+def apply_mask(mask=None,target=None):
+
+    coor = np.where(mask == 1)
+    values = target[coor]
+    if values.ndim > 1:
+        values = np.transpose(values) #swap axes to get feature X sample
+    return values
+
+
 '''GLM UTILS'''
 # encoding_phases = ['baseline','acquisition','extinction']
 # memory_phases = ['memory_run-01','memory_run-02','memory_run-03']
@@ -435,21 +444,117 @@ def collect_fwhm():
 
 def clustsim(file='sm_events/3dLME_mean_smooth.txt'):
     est = np.loadtxt(file)
-    cmd = f'3dClustSim -OKsmallmask \
-                       -mask {std_2009_brain_mask} \
+    cmd1 = 'export OMP_NUM_THREADS=48'
+    cmd2 = f'3dClustSim -OKsmallmask \
+                       -mask $SCRATCH/standard/gm_1mm_thr.nii.gz \
                        -acf {est[0]} {est[1]} {est[2]} \
-                       >> test_clustsim_output.txt' 
-    os.system(cmd)
+                       >> sm_events/lme_clustsim_output.txt' 
+    
+    script = 'sm_events/clustsim_script.txt'
+    os.system(f'rm {script}')
 
-def afni_cluster():
-    f"3dClusterize \
-      -inset SM_LME+tlrc \
-      -mask ../standard/MNI152NLin2009cAsym_T1_1mm_brain_mask.nii.gz \
-      -ithr 0 \
-      -1sided RIGHT_TAIL {RE[effect]['thr']} \
-      -NN 3 \
-      -pref_map {RE[effect]['name']}_cluster_map.nii.gz \
-      > {RE[effect]['name']}_cluster.txt"
+    for cmd in [cmd1,cmd2]:
+        os.system(f"echo {cmd} >> {script}")
 
-    f"3dClustSim \
-      -mask ../standard/MNI152NLin2009cAsym_T1_1mm_brain_mask.nii.gz "
+    jobfile = f'/home1/05426/ach3377/gPPI/jobs/clustsim_job.txt'
+    os.system(f'rm {jobfile}')
+
+    os.system(f'echo singularity run --cleanenv \
+                    /scratch/05426/ach3377/bids-apps/neurosft.simg \
+                    bash -x {script} >> {jobfile}')
+    
+    os.system(f'launch -N 1 \
+                       -n 1 \
+                       -J clustsim \
+                       -s {jobfile} \
+                       -m achennings@utexas.edu \
+                       -p normal \
+                       -r 5:00:00 \
+                       -A LewPea_MRI_Analysis')
+
+def lme_clusterize():
+    os.chdir('../../Desktop/3dLME_results')
+    header = parse_AFNI_header('SM_LME+tlrc.head')
+    names = header['BRICK_LABS'].replace(':','_'
+                                ).replace('  F',''
+                                ).split('~')
+    print(header['BRICK_LABS'])
+    for i, name in enumerate(names):
+        if 'Intercept' in name:
+            pass
+        else:
+            cmap = f'{name}_cluster_map.nii.gz';os.system(f'rm {cmap}')
+            ctxt = f'{name}_cluster.txt';os.system(f'rm {ctxt}')
+            where = f'{name}_where.txt';os.system(f'rm {where}')
+
+            cmd = f"3dClusterize \
+                      -inset SM_LME+tlrc \
+                      -ithr {i} \
+                      -mask ../standard/gm_1mm_thr.nii.gz \
+                      -1sided RIGHT_TAIL p=0.005 \
+                      -clust_nvox 402.8 \
+                      -NN 3 \
+                      -pref_map {cmap} \
+                      > {ctxt}"
+            os.system(cmd)
+            
+
+            if os.path.exists(cmap):
+                w_cmd = f"whereami -coord_file {ctxt}'[1,2,3]' > {where}"
+                os.system(w_cmd)
+
+def brik_break(file):
+    from nibabel.brikhead import parse_AFNI_header
+    import os
+    import nibabel as nib
+
+    header = parse_AFNI_header(f'{file}.HEAD')
+
+    tmp = '.nii'
+    os.system(f'3dAFNItoNIFTI {file} -prefix {tmp}')
+    img = nib.load(f'{file.split("+")[0]}.nii')
+
+    names = header['BRICK_LABS'].split('~')
+
+    assert len(names) == img.shape[-1]
+
+    for i, name in enumerate(names):
+        nib.save(img.slicer[:,:,:,:,i],f'{name}.nii.gz')
+
+    os.system(f'rm {file.split("+")[0]}.nii')
+
+def extract_clusters(folder):
+    from nilearn.image import get_data, new_img_like
+    
+    os.chdir(folder)
+    effects = [i.split('_where')[0] for i in os.listdir() if 'where' in i]
+
+    for eff in effects:
+        out_dir = f'{eff}_cluster_masks';mkdir(out_dir)
+
+        cmap = f'{eff}_cluster_map.nii.gz'
+        cluster_data = get_data(cmap)
+        for clust in np.unique(cluster_data):
+            if clust > 0:
+                mask_data = np.zeros(cluster_data.shape)
+                mask_data[np.where(cluster_data == clust)] = 1
+
+                out_mask = new_img_like(nib.load(cmap),mask_data.astype(int),copy_header=True)
+                nib.save(out_mask,f'{out_dir}/cluster_{clust}_mask.nii.gz')
+
+def extract_pe(effects=['Response','Condition','Condition_Response'],):
+    #create output df
+    n_clust = {eff:len([i for i in os.listdir(f'{SCRATCH}/3dLME_results/{eff}_cluster_masks')]) for eff in effects}
+
+    di = {sub:{} for sub in xcl_sub_args}
+    for sub in xcl_sub_args:
+        for run 
+        for eff in effects:
+            di[sub][eff] = {}
+            n_clusts = 
+
+    #use the inputs from the LME data table
+    inputs = pd.read_csv('sm_events/afni_dataTable.txt',sep=' ')
+
+
+
