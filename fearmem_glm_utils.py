@@ -14,28 +14,28 @@ def apply_mask(mask=None,target=None):
 # memory_phases = ['memory_run-01','memory_run-02','memory_run-03']
 # consp = ['CSp','CSm']
 
-# pe_map = {'baseline':{'CSp':{'baseline':1,
-#                           'acquisition':2,
-#                           'extinction':3},
-#                    'CSm':{'baseline':4,
-#                           'acquisition':5,
-#                           'extinction':6}
-#                           },
-#         'acquisition':{'CSp':{'baseline':7,
-#                           'acquisition':8,
-#                           'extinction':9},
-#                    'CSm':{'baseline':10,
-#                           'acquisition':11,
-#                           'extinction':12}
-#                           },
-#         'extinction':{'CSp':{'baseline':13,
-#                           'acquisition':14,
-#                           'extinction':15},
-#                    'CSm':{'baseline':16,
-#                           'acquisition':17,
-#                           'extinction':18}
-#                           }
-#         }
+pe_map = {'baseline':{'CSp':{'baseline':1,
+                          'acquisition':2,
+                          'extinction':3},
+                   'CSm':{'baseline':4,
+                          'acquisition':5,
+                          'extinction':6}
+                          },
+        'acquisition':{'CSp':{'baseline':7,
+                          'acquisition':8,
+                          'extinction':9},
+                   'CSm':{'baseline':10,
+                          'acquisition':11,
+                          'extinction':12}
+                          },
+        'extinction':{'CSp':{'baseline':13,
+                          'acquisition':14,
+                          'extinction':15},
+                   'CSm':{'baseline':16,
+                          'acquisition':17,
+                          'extinction':18}
+                          }
+        }
 # data_table = pd.DataFrame(columns=['Subj','Sess','Encode','Condition','Response','InputFile'])
 def sm_glm_events(sub):
     for sub in xcl_sub_args:
@@ -544,17 +544,41 @@ def extract_clusters(folder):
 
 def extract_pe(effects=['Response','Condition','Condition_Response'],):
     #create output df
-    n_clust = {eff:len([i for i in os.listdir(f'{SCRATCH}/3dLME_results/{eff}_cluster_masks')]) for eff in effects}
 
-    di = {sub:{} for sub in xcl_sub_args}
-    for sub in xcl_sub_args:
-        for run 
-        for eff in effects:
-            di[sub][eff] = {}
-            n_clusts = 
+    phases = ['baseline','acquisition','extinction']
+    runs = [1,2,3]
+    consp = ['CSp','CSm']
+    df = pd.DataFrame({'pe':np.nan},index=pd.MultiIndex.from_product([xcl_sub_args,phases,consp,phases,runs,effects],
+                        names=['subject','encode_phase','condition','source_memory','run','effect'])).astype(object)
+    n_clust = {eff:len([i for i in os.listdir(f'{SCRATCH}3dLME_results/{eff}_cluster_masks') if '.nii.gz' in i]) for eff in effects}
+    clust_masks = {}
+    for eff in effects:
+        clust_masks[eff] = {}
+        for clust in range(1,n_clust[eff]+1):
+            clust_masks[eff][clust] = get_data(f'{SCRATCH}/3dLME_results/{eff}_cluster_masks/cluster_{clust}_mask.nii.gz')
 
     #use the inputs from the LME data table
-    inputs = pd.read_csv('sm_events/afni_dataTable.txt',sep=' ')
+    inputs = pd.read_csv('sm_events/afni_dataTable.txt',sep=' '
+        ).set_index(['Subj','Sess','Encode','Condition','Response'])
 
-
-
+    for sub in xcl_sub_args:
+        print(sub)
+        subj = bids_meta(sub)
+        for encode in phases:
+            print(encode)
+            for con in consp:
+                print(con)
+                for response in phases:
+                    for run in runs:
+                        #check if it needs to be run or if missing
+                        try:
+                            file = inputs.loc[(sub,f'memory_run-0{run}',encode,con,response),'InputFile']
+                            pe_img = get_data(file)
+                            for eff in effects:
+                                cluster_results = np.zeros(n_clust[eff])
+                                for i, clust in enumerate(range(1,n_clust[eff]+1)):
+                                    cluster_results[i] = apply_mask(mask=clust_masks[eff][clust],target=pe_img).mean()
+                                df.loc[(sub,encode,con,response,run,eff),'pe'] = cluster_results.astype(object)
+                        except:
+                            pass
+    df.to_csv('sm_events/extracted_pe.csv')
