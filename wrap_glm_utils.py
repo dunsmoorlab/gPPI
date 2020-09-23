@@ -9,4 +9,4 @@ args = parser.parse_args()
 
 os.system('export OMP_NUM_THREADS=48')
 # afni_fwhmx(args.subj)
-clustsim()
+basic_model_reg_smooth(args.subj)

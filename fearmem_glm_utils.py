@@ -543,7 +543,6 @@ def extract_clusters(folder):
                 nib.save(out_mask,f'{out_dir}/cluster_{clust}_mask.nii.gz')
 
 def extract_pe(effects=['Response','Condition','Condition_Response'],):
-    from nilearn.image import get_data
     #create output df
 
     phases = ['baseline','acquisition','extinction']
@@ -583,3 +582,37 @@ def extract_pe(effects=['Response','Condition','Condition_Response'],):
                         except:
                             pass
     df.to_csv('sm_events/extracted_pe.csv')
+<<<<<<< HEAD
+=======
+
+def basic_model_reg_smooth(sub):
+
+    subj = bids_meta(sub)
+    for run in [1,2,3]:
+        feat_dir = f'{subj.model_dir}/memory_run-0{run}/basic_model.feat'
+        resid = f'{feat_dir}/stats/res4d.nii.gz'
+        resid_std = f'{feat_dir}/reg_standard/stats/res4d.nii.gz'
+        
+        os.chdir(feat_dir)
+        
+        featreg_cmd = f'featregapply {feat_dir}' 
+
+        res_reg_cmd = f'flirt -ref {feat_dir}/reg/standard \
+                          -in {resid} \
+                          -out {resid_std} \
+                          -applyxfm \
+                          -init {feat_dir}/reg/example_func2standard.mat \
+                          -interp trilinear \
+                          -datatype float'
+        
+        est_noise = f'3dFWHMx -mask {std_2009_brain_mask} \
+                              -input {resid_std} \
+                              -acf >> noise_estimates.txt'
+
+        for cmd in [featreg_cmd, res_reg_cmd, est_noise]:
+            os.system(cmd)
+
+for sub in all_sub_args:
+    os.system(f"echo singularity run --cleanenv $SCRATCH/bids-apps/neurosft.simg python $HOME/gPPI/wrap_glm_utils.py -s {sub} >> jobs/basic_model_reg_smooth_job.txt")
+os.system('launch -N 48 -n 48 -J smooth -s jobs/basic_model_reg_smooth.txt -m achennings@utexas.edu -p normal -r 2:00:00 -A LewPea_MRI_Analysis')
+>>>>>>> 535aa4fd2b31df5fe3b67866000cb714664b65d9
