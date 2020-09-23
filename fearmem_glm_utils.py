@@ -543,6 +543,7 @@ def extract_clusters(folder):
                 nib.save(out_mask,f'{out_dir}/cluster_{clust}_mask.nii.gz')
 
 def extract_pe(effects=['Response','Condition','Condition_Response'],):
+    from nilearn.image import get_data
     #create output df
 
     phases = ['baseline','acquisition','extinction']
@@ -582,8 +583,6 @@ def extract_pe(effects=['Response','Condition','Condition_Response'],):
                         except:
                             pass
     df.to_csv('sm_events/extracted_pe.csv')
-<<<<<<< HEAD
-=======
 
 def basic_model_reg_smooth(sub):
 
@@ -612,7 +611,6 @@ def basic_model_reg_smooth(sub):
         for cmd in [featreg_cmd, res_reg_cmd, est_noise]:
             os.system(cmd)
 
-for sub in all_sub_args:
-    os.system(f"echo singularity run --cleanenv $SCRATCH/bids-apps/neurosft.simg python $HOME/gPPI/wrap_glm_utils.py -s {sub} >> jobs/basic_model_reg_smooth_job.txt")
-os.system('launch -N 48 -n 48 -J smooth -s jobs/basic_model_reg_smooth.txt -m achennings@utexas.edu -p normal -r 2:00:00 -A LewPea_MRI_Analysis')
->>>>>>> 535aa4fd2b31df5fe3b67866000cb714664b65d9
+#for sub in all_sub_args:
+#    os.system(f"echo singularity run --cleanenv $SCRATCH/bids-apps/neurosft.simg python $HOME/gPPI/wrap_glm_utils.py -s {sub} >> jobs/basic_model_reg_smooth_job.txt")
+#os.system('launch -N 48 -n 48 -J smooth -s jobs/basic_model_reg_smooth.txt -m achennings@utexas.edu -p normal -r 2:00:00 -A LewPea_MRI_Analysis')
