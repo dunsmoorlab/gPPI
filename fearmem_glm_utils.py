@@ -640,5 +640,6 @@ def basic_model_dataTable():
                         'Condition':con,
                         'InputFile':f'/scratch/05426/ach3377/fc-bids/derivatives/model/{subj.fsub}/{mem_phase}/basic_model.feat/reg_standard/stats/cope{basic_pe_map[encode_phase][con]}.nii.gz'},
                         ignore_index=True)
+    data_table.to_csv('sm_events/memory_dataTable.txt',index=False,sep=' ')
     data_table.to_csv('sm_events/memory_no_foils_dataTable.txt',index=False,sep=' ')
 
