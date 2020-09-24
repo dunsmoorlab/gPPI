@@ -10,4 +10,4 @@
       -gltLabel 5 CSpB__CSpA -gltCode 5 'Encode : 1*baseline -1*acquisition Condition : 1*CSp' \
       -gltLabel 6 CSmE__CSmA -gltCode 6 'Encode : 1*extinction -1*acquisition Condition : 1*CSm' \
       -gltLabel 7 CSmB__CSmA -gltCode 7 'Encode : 1*baseline -1*acquisition Condition : 1*CSm' \
-      -dataTable @memory_no_foils_dataTable.txt
+      -dataTable @sm_events/memory_no_foils_dataTable.txt
