@@ -1,4 +1,4 @@
-3dMVM -prefix /scratch/05426/ach3377/memory_basic_model/group_collapsed_3dMVM -jobs 64 \
+3dMVM -prefix /scratch/05426/ach3377/memory_basic_model/group_collapsed_3dMVM -jobs 48 \
       -wsVars "Encode*Condition" \
       -mask /scratch/05426/standard/thr_1mm_gm.nii.gz \
       -SS_type 2 \
