@@ -36,8 +36,8 @@ pe_map = {'baseline':{'CSp':{'baseline':1,
                           'extinction':18}
                           }
         }
-# data_table = pd.DataFrame(columns=['Subj','Sess','Encode','Condition','Response','InputFile'])
 def sm_glm_events(sub):
+    data_table = pd.DataFrame(columns=['Subj','Sess','Encode','Condition','Response','InputFile'])
     for sub in xcl_sub_args:
         subj = bids_meta(sub)
         events = pd.read_csv(f'sm_events/{subj.fsub}/sm_events.csv').set_index('phase').sort_index()
@@ -548,7 +548,6 @@ def extract_pe(effects=['Response','Condition','Condition_Response'],):
 
     phases = ['baseline','acquisition','extinction']
     runs = [1,2,3]
-    consp = ['CSp','CSm']
     df = pd.DataFrame({'pe':np.nan},index=pd.MultiIndex.from_product([xcl_sub_args,phases,consp,phases,runs,effects],
                         names=['subject','encode_phase','condition','source_memory','run','effect'])).astype(object)
     n_clust = {eff:len([i for i in os.listdir(f'{SCRATCH}3dLME_results/{eff}_cluster_masks') if '.nii.gz' in i]) for eff in effects}
@@ -610,7 +609,36 @@ def basic_model_reg_smooth(sub):
 
         for cmd in [featreg_cmd, res_reg_cmd, est_noise]:
             os.system(cmd)
+    # for sub in all_sub_args:
+    #    os.system(f"echo singularity run --cleanenv $SCRATCH/bids-apps/neurosft.simg python $HOME/gPPI/wrap_glm_utils.py -s {sub} >> jobs/basic_model_reg_smooth_job.txt")
+    # os.system('launch -N 48 -n 48 -J smooth -s jobs/basic_model_reg_smooth_job.txt -m achennings@utexas.edu -p normal -r 2:00:00 -A LewPea_MRI_Analysis')
 
-#for sub in all_sub_args:
-#    os.system(f"echo singularity run --cleanenv $SCRATCH/bids-apps/neurosft.simg python $HOME/gPPI/wrap_glm_utils.py -s {sub} >> jobs/basic_model_reg_smooth_job.txt")
-#os.system('launch -N 48 -n 48 -J smooth -s jobs/basic_model_reg_smooth.txt -m achennings@utexas.edu -p normal -r 2:00:00 -A LewPea_MRI_Analysis')
+
+basic_pe_map = {   'baseline':{'CSp':1,
+                               'CSm':2},
+                'acquisition':{'CSp':4,
+                               'CSm':5},
+                 'extinction':{'CSp':7,
+                               'CSm':8},
+                       'foil':{'CSp':10,
+                               'CSm':11}}
+def basic_model_dataTable():
+    data_table = pd.DataFrame(columns=['Subj','Sess','Group','Encode','Condition','InputFile'])
+    phases = ['baseline','acquisition','extinction','foil']
+    memory_phases = ['memory_run-01','memory_run-02','memory_run-03']
+    
+    for sub in all_sub_args:
+        subj = bids_meta(sub)
+        for encode_phase in phases:
+            for con in consp:
+                for mem_phase in memory_phases:
+                    data_table = data_table.append({
+                        'Subj':sub,
+                        'Sess':mem_phase,
+                        'Group':'healthy' if sub < 100 else 'ptss'
+                        'Encode':encode_phase,
+                        'Condition':con,
+                        'InputFile':f'/scratch/05426/ach3377/fc-bids/derivatives/model/{subj.fsub}/{mem_phase}/basic_model.feat/reg_standard/stats/cope{basic_pe_map[encode_phase][con]}.nii.gz'},
+                        ignore_index=True)
+
+

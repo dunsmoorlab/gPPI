@@ -29,6 +29,7 @@ memcon = ['encoding','retrieval']
 levels = ['item','set']
 mems = ['hit','miss']
 cons = ['CS+','CS-']
+consp = ['CSp','CSm']
 # rois = ['mOFC','dACC','amyg','hpc','ins','hc_head','hc_body','hc_tail','rh_hc_head','rh_hc_body','rh_hc_tail','lh_hc_head','lh_hc_body','lh_hc_tail','amyg_bla','amyg_cem','rh_amyg_bla','rh_amyg_cem','lh_amyg_bla','lh_amyg_cem']
 rois = ['mOFC','dACC','amyg','hpc','ins','lh_amyg','rh_amyg','lh_hpc','rh_hpc','sgACC','rACC','rSMA','rACG','hc_head','hc_body','hc_tail','rh_hc_head','rh_hc_body','rh_hc_tail','lh_hc_head','lh_hc_body','lh_hc_tail','amyg_bla','amyg_cem','rh_amyg_bla','rh_amyg_cem','lh_amyg_bla','lh_amyg_cem']  
 phases = {'baseline':24,'acquisition':24,'early_extinction':8,'extinction':16}
@@ -41,6 +42,7 @@ groups = ['healthy','ptsd']
 gpal = list((wes_palettes['Zissou'][0],wes_palettes['Royal1'][1]))
 cpal = ['darkorange','grey']
 cpoint = sns.color_palette(cpal,n_colors=2,desat=.75)
+spal = list((wes_palettes['Darjeeling1'][-1],wes_palettes['Darjeeling1'][0],wes_palettes['Darjeeling1'][1],))
 
 sns.set_style('ticks', {'axes.spines.right':False, 'axes.spines.top':False})
 # sns.set_style({'axes.facecolor':'.9','figure.facecolor':'.9'})

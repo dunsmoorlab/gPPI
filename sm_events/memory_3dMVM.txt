@@ -1,0 +1,17 @@
+module load cray_mpich Rstats gsl afni
+export OMP_NUM_THREADS=64
+3dMVM -prefix /scratch/05426/ach3377/MEM_3dMVM -jobs 64 \
+      -wsVars "encode*condition"   \
+      -mask /scratch/05426/standard/thr_1mm_gm.nii.gz \
+      -SS_type 2 \
+      -num_glt 12 \
+      -gltLabel 1 CSpB__CSmB -gltCode 1 'encode : 1*baseline condition : 1*CSp -1*CSm' \
+      -gltLabel 2 CSpA__CSmA -gltCode 2 'encode : 1*acquisition condition : 1*CSp -1*CSm' \
+      -gltLabel 3 CSpE__CSmE -gltCode 3 'encode : 1*extinction condition : 1*CSp -1*CSm' \
+      -gltLabel 4 CSpF__CSmF -gltCode 4 'encode : 1*foil condition : 1*CSp -1*CSm' \
+      -gltLabel 5 CSpE__CSpA -gltCode 5 'encode : 1*extinction -1*acquisition condition : 1*CSp' \
+      -gltLabel 6 CSpB__CSpA -gltCode 6 'encode : 1*baseline -1*acquisition condition : 1*CSp' \
+      -num_glf 2 \
+      -glfLabel 1 condition__day1_phases -glfCode 1 'encode : 1*baseline 1*acquisition 1*extinction condition : 1*CSp -1*CSm' \
+      -glfLabel 2 day1_phases -glfCode 2 'encode : 1*baseline -1*acquisition & 1*baseline -1*extinction condition : 1*CSp 1*CSm' \
+      -dataTable @memory_basic_model_dataTable.txt

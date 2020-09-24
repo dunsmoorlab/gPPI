@@ -1,0 +1,13 @@
+3dMVM -prefix /scratch/05426/ach3377/memory_basic_model/group_collapsed_3dMVM -jobs 64 \
+      -wsVars "Encode*Condition" \
+      -mask /scratch/05426/standard/thr_1mm_gm.nii.gz \
+      -SS_type 2 \
+      -num_glt 7 \
+      -gltLabel 1 CSpB__CSmB -gltCode 1 'Encode : 1*baseline Condition : 1*CSp -1*CSm' \
+      -gltLabel 2 CSpA__CSmA -gltCode 2 'Encode : 1*acquisition Condition : 1*CSp -1*CSm' \
+      -gltLabel 3 CSpE__CSmE -gltCode 3 'Encode : 1*extinction Condition : 1*CSp -1*CSm' \
+      -gltLabel 4 CSpE__CSpA -gltCode 4 'Encode : 1*extinction -1*acquisition Condition : 1*CSp' \
+      -gltLabel 5 CSpB__CSpA -gltCode 5 'Encode : 1*baseline -1*acquisition Condition : 1*CSp' \
+      -gltLabel 6 CSmE__CSmA -gltCode 6 'Encode : 1*extinction -1*acquisition Condition : 1*CSm' \
+      -gltLabel 7 CSmB__CSmA -gltCode 7 'Encode : 1*baseline -1*acquisition Condition : 1*CSm' \
+      -dataTable @memory_no_foils_dataTable.txt
