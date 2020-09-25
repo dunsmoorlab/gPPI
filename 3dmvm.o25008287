@@ -294,3 +294,95 @@ lop$nSubj vs Condition:
 
 Reading input files now...
 
+Reading input files: Done!
+
+
+Range of input data: [-12343.318, 8207.895]
+
+If the program hangs here for more than, for example, half an hour,
+kill the process because the model specification or the GLT coding
+is likely inappropriate.
+
+[1] "Great, test run passed at voxel (149, 79, 84)!"
+[1] "Start to compute 193 slices along Z axis. You can monitor the progress"
+[1] "and estimate the total run time as shown below."
+[1] "09/24/20 21:09:47.381"
+Loading required package: snow
+Package snow loaded successfully!
+
+Z slice  1 done:  09/24/20 21:12:33.295 
+Z slice  2 done:  09/24/20 21:12:36.122 
+Z slice  3 done:  09/24/20 21:12:38.658 
+Z slice  4 done:  09/24/20 21:12:41.343 
+Z slice  5 done:  09/24/20 21:12:44.683 
+Z slice  6 done:  09/24/20 21:12:47.285 
+Z slice  7 done:  09/24/20 21:12:49.945 
+Z slice  8 done:  09/24/20 21:12:52.651 
+Z slice  9 done:  09/24/20 21:12:56.519 
+Z slice  10 done:  09/24/20 21:13:00.106 
+Z slice  11 done:  09/24/20 21:13:04.160 
+Z slice  12 done:  09/24/20 21:13:09.610 
+Z slice  13 done:  09/24/20 21:13:21.981 
+Z slice  14 done:  09/24/20 21:13:51.291 
+Z slice  15 done:  09/24/20 21:14:33.868 
+Z slice  16 done:  09/24/20 21:15:49.282 
+Z slice  17 done:  09/24/20 21:17:57.557 
+Z slice  18 done:  09/24/20 21:20:43.820 
+Z slice  19 done:  09/24/20 21:24:05.455 
+Z slice  20 done:  09/24/20 21:27:58.270 
+Z slice  21 done:  09/24/20 21:32:05.287 
+Z slice  22 done:  09/24/20 21:36:26.289 
+Z slice  23 done:  09/24/20 21:41:03.159 
+Z slice  24 done:  09/24/20 21:45:57.126 
+Z slice  25 done:  09/24/20 21:50:59.767 
+Z slice  26 done:  09/24/20 21:56:16.138 
+Z slice  27 done:  09/24/20 22:01:47.956 
+Z slice  28 done:  09/24/20 22:07:38.515 
+Z slice  29 done:  09/24/20 22:13:54.044 
+Z slice  30 done:  09/24/20 22:20:37.325 
+Z slice  31 done:  09/24/20 22:27:49.988 
+Z slice  32 done:  09/24/20 22:35:12.906 
+Z slice  33 done:  09/24/20 22:42:34.976 
+Z slice  34 done:  09/24/20 22:50:23.857 
+Z slice  35 done:  09/24/20 22:58:10.534 
+Z slice  36 done:  09/24/20 23:05:59.546 
+Z slice  37 done:  09/24/20 23:13:38.836 
+Z slice  38 done:  09/24/20 23:21:33.684 
+Z slice  39 done:  09/24/20 23:29:29.278 
+Z slice  40 done:  09/24/20 23:37:44.215 
+Z slice  41 done:  09/24/20 23:46:06.367 
+Z slice  42 done:  09/24/20 23:54:37.170 
+Z slice  43 done:  09/25/20 00:03:31.600 
+Z slice  44 done:  09/25/20 00:13:01.650 
+Z slice  45 done:  09/25/20 00:22:56.829 
+Z slice  46 done:  09/25/20 00:33:00.841 
+Z slice  47 done:  09/25/20 00:43:23.358 
+Z slice  48 done:  09/25/20 00:54:31.169 
+Z slice  49 done:  09/25/20 01:06:42.021 
+Z slice  50 done:  09/25/20 01:21:04.964 
+Z slice  51 done:  09/25/20 01:36:37.413 
+Z slice  52 done:  09/25/20 01:53:19.713 
+Z slice  53 done:  09/25/20 02:11:05.984 
+Z slice  54 done:  09/25/20 02:29:36.082 
+Z slice  55 done:  09/25/20 02:48:41.936 
+Z slice  56 done:  09/25/20 03:08:14.694 
+Z slice  57 done:  09/25/20 03:27:53.310 
+Z slice  58 done:  09/25/20 03:48:00.482 
+Z slice  59 done:  09/25/20 04:08:54.901 
+Z slice  60 done:  09/25/20 04:30:27.687 
+Z slice  61 done:  09/25/20 04:52:30.369 
+Z slice  62 done:  09/25/20 05:14:44.164 
+Z slice  63 done:  09/25/20 05:36:23.472 
+Z slice  64 done:  09/25/20 05:57:51.892 
+Z slice  65 done:  09/25/20 06:19:13.927 
+Z slice  66 done:  09/25/20 06:40:01.500 
+Z slice  67 done:  09/25/20 07:00:38.003 
+Z slice  68 done:  09/25/20 07:20:41.406 
+Z slice  69 done:  09/25/20 07:40:13.468 
+Z slice  70 done:  09/25/20 07:59:38.874 
+Z slice  71 done:  09/25/20 08:19:04.239 
+Z slice  72 done:  09/25/20 08:38:13.593 
+Z slice  73 done:  09/25/20 08:57:11.429 
+Z slice  74 done:  09/25/20 09:15:46.148 
+Z slice  75 done:  09/25/20 09:34:06.155 
+Z slice  76 done:  09/25/20 09:52:01.971 
