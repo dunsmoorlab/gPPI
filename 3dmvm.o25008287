@@ -1,0 +1,296 @@
+ Starting at Thu Sep 24 20:56:18 CDT 2020
+ WORKING DIR: /opt/tacc_mounts/home1/05426/ach3377/gPPI/
+ JOB ID:      25008287
+ JOB NAME:    3dmvm
+ NODES:       nid02005
+ N NODES:     1
+ N TASKS:     1
++ bash -x /home1/05426/ach3377/gPPI/sm_events/group_collapsed_BM_3dMVM.txt
++ LMOD_CMD=/opt/apps/lmod/lmod/libexec/lmod
++ LMOD_DIR=/opt/apps/lmod/lmod/libexec
++ '[' -z more ']'
++ '[' : '!=' : ']'
++ module load cray_mpich Rstats gsl afni
++ '[' -z '' ']'
++ case "$-" in
++ __lmod_sh_dbg=x
++ '[' -n x ']'
++ set +x
+Shell debugging temporarily silenced: export LMOD_SH_DBG_ON=1 for Lmod's output
+
+Lmod is automatically replacing "impi-largemem/18.0.2" with "cray_mpich/7.7.3".
+
+
+Activating Modules:
+  1) Rstats/3.5.1     2) RstatsPackages/3.5.1
+
+Due to MODULEPATH changes, the following have been reloaded:
+  1) python3/3.7.0
+
+Shell debugging restarted
++ unset __lmod_sh_dbg
++ return 0
++ export OMP_NUM_THREADS=64
++ OMP_NUM_THREADS=64
++ export R_LIBS_USER=/home1/05426/ach3377/R_lib
++ R_LIBS_USER=/home1/05426/ach3377/R_lib
++ 3dMVM -prefix /scratch/05426/ach3377/memory_basic_model/group_collapsed_3dMVM -jobs 64 -wsVars 'Encode*Condition' -mask /scratch/05426/ach3377/standard/gm_1mm_thr.nii.gz -SS_type 2 -num_glt 7 -gltLabel 1 CSpB__CSmB -gltCode 1 'Encode : 1*baseline Condition : 1*CSp -1*CSm' -gltLabel 2 CSpA__CSmA -gltCode 2 'Encode : 1*acquisition Condition : 1*CSp -1*CSm' -gltLabel 3 CSpE__CSmE -gltCode 3 'Encode : 1*extinction Condition : 1*CSp -1*CSm' -gltLabel 4 CSpE__CSpA -gltCode 4 'Encode : 1*extinction -1*acquisition Condition : 1*CSp' -gltLabel 5 CSpB__CSpA -gltCode 5 'Encode : 1*baseline -1*acquisition Condition : 1*CSp' -gltLabel 6 CSmE__CSmA -gltCode 6 'Encode : 1*extinction -1*acquisition Condition : 1*CSm' -gltLabel 7 CSmB__CSmA -gltCode 7 'Encode : 1*baseline -1*acquisition Condition : 1*CSm' -dataTable @sm_events/memory_no_foils_dataTable.txt
+Read 5190 items
+Loading required package: lme4
+Loading required package: Matrix
+************
+Welcome to afex. For support visit: http://afex.singmann.science/
+- Functions for ANOVAs: aov_car(), aov_ez(), and aov_4()
+- Methods for calculating p-values with mixed(): 'KR', 'S', 'LRT', and 'PB'
+- 'afex_aov' and 'mixed' objects can be passed to emmeans() for follow-up tests
+- NEWS: library('emmeans') now needs to be called explicitly!
+- Get and set global package options with: afex_options()
+- Set orthogonal sum-to-zero contrasts globally: set_sum_contrasts()
+- For example analyses see: browseVignettes("afex")
+************
+
+Attaching package: ‘afex’
+
+The following object is masked from ‘package:lme4’:
+
+    lmer
+
+Loading required package: car
+Loading required package: carData
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++
+***** Summary information of data structure *****
+48 subjects :  1 10 101 102 103 104 105 106 107 108 109 110 111 112 113 114 115 116 117 118 12 120 121 122 123 124 125 13 14 15 16 17 18 19 2 20 21 23 24 25 26 3 4 5 6 7 8 9 
+864 response values
+3 levels for factor Sess : memory_run-01 memory_run-02 memory_run-03 
+2 levels for factor Group : healthy ptss 
+3 levels for factor Encode : acquisition baseline extinction 
+2 levels for factor Condition : CSm CSp 
+7 post hoc tests
+
+Contingency tables of subject distributions among the categorical variables:
+
+             Condition
+Encode        CSm CSp
+  acquisition 144 144
+  baseline    144 144
+  extinction  144 144
+
+Tabulation of subjects against each of the categorical variables:
+~~~~~~~~~~~~~~
+lop$nSubj vs Sess:
+     
+      memory_run-01 memory_run-02 memory_run-03
+  1               6             6             6
+  10              6             6             6
+  101             6             6             6
+  102             6             6             6
+  103             6             6             6
+  104             6             6             6
+  105             6             6             6
+  106             6             6             6
+  107             6             6             6
+  108             6             6             6
+  109             6             6             6
+  110             6             6             6
+  111             6             6             6
+  112             6             6             6
+  113             6             6             6
+  114             6             6             6
+  115             6             6             6
+  116             6             6             6
+  117             6             6             6
+  118             6             6             6
+  12              6             6             6
+  120             6             6             6
+  121             6             6             6
+  122             6             6             6
+  123             6             6             6
+  124             6             6             6
+  125             6             6             6
+  13              6             6             6
+  14              6             6             6
+  15              6             6             6
+  16              6             6             6
+  17              6             6             6
+  18              6             6             6
+  19              6             6             6
+  2               6             6             6
+  20              6             6             6
+  21              6             6             6
+  23              6             6             6
+  24              6             6             6
+  25              6             6             6
+  26              6             6             6
+  3               6             6             6
+  4               6             6             6
+  5               6             6             6
+  6               6             6             6
+  7               6             6             6
+  8               6             6             6
+  9               6             6             6
+
+~~~~~~~~~~~~~~
+lop$nSubj vs Group:
+     
+      healthy ptss
+  1        18    0
+  10       18    0
+  101       0   18
+  102       0   18
+  103       0   18
+  104       0   18
+  105       0   18
+  106       0   18
+  107       0   18
+  108       0   18
+  109       0   18
+  110       0   18
+  111       0   18
+  112       0   18
+  113       0   18
+  114       0   18
+  115       0   18
+  116       0   18
+  117       0   18
+  118       0   18
+  12       18    0
+  120       0   18
+  121       0   18
+  122       0   18
+  123       0   18
+  124       0   18
+  125       0   18
+  13       18    0
+  14       18    0
+  15       18    0
+  16       18    0
+  17       18    0
+  18       18    0
+  19       18    0
+  2        18    0
+  20       18    0
+  21       18    0
+  23       18    0
+  24       18    0
+  25       18    0
+  26       18    0
+  3        18    0
+  4        18    0
+  5        18    0
+  6        18    0
+  7        18    0
+  8        18    0
+  9        18    0
+
+~~~~~~~~~~~~~~
+lop$nSubj vs Encode:
+     
+      acquisition baseline extinction
+  1             6        6          6
+  10            6        6          6
+  101           6        6          6
+  102           6        6          6
+  103           6        6          6
+  104           6        6          6
+  105           6        6          6
+  106           6        6          6
+  107           6        6          6
+  108           6        6          6
+  109           6        6          6
+  110           6        6          6
+  111           6        6          6
+  112           6        6          6
+  113           6        6          6
+  114           6        6          6
+  115           6        6          6
+  116           6        6          6
+  117           6        6          6
+  118           6        6          6
+  12            6        6          6
+  120           6        6          6
+  121           6        6          6
+  122           6        6          6
+  123           6        6          6
+  124           6        6          6
+  125           6        6          6
+  13            6        6          6
+  14            6        6          6
+  15            6        6          6
+  16            6        6          6
+  17            6        6          6
+  18            6        6          6
+  19            6        6          6
+  2             6        6          6
+  20            6        6          6
+  21            6        6          6
+  23            6        6          6
+  24            6        6          6
+  25            6        6          6
+  26            6        6          6
+  3             6        6          6
+  4             6        6          6
+  5             6        6          6
+  6             6        6          6
+  7             6        6          6
+  8             6        6          6
+  9             6        6          6
+
+~~~~~~~~~~~~~~
+lop$nSubj vs Condition:
+     
+      CSm CSp
+  1     9   9
+  10    9   9
+  101   9   9
+  102   9   9
+  103   9   9
+  104   9   9
+  105   9   9
+  106   9   9
+  107   9   9
+  108   9   9
+  109   9   9
+  110   9   9
+  111   9   9
+  112   9   9
+  113   9   9
+  114   9   9
+  115   9   9
+  116   9   9
+  117   9   9
+  118   9   9
+  12    9   9
+  120   9   9
+  121   9   9
+  122   9   9
+  123   9   9
+  124   9   9
+  125   9   9
+  13    9   9
+  14    9   9
+  15    9   9
+  16    9   9
+  17    9   9
+  18    9   9
+  19    9   9
+  2     9   9
+  20    9   9
+  21    9   9
+  23    9   9
+  24    9   9
+  25    9   9
+  26    9   9
+  3     9   9
+  4     9   9
+  5     9   9
+  6     9   9
+  7     9   9
+  8     9   9
+  9     9   9
+
+***** End of data structure information *****
+++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Reading input files now...
+

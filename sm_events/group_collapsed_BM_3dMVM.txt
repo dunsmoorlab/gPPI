@@ -1,6 +1,9 @@
-3dMVM -prefix /scratch/05426/ach3377/memory_basic_model/group_collapsed_3dMVM -jobs 48 \
+module load cray_mpich Rstats gsl afni
+export OMP_NUM_THREADS=64
+export R_LIBS_USER=~/R_lib
+3dMVM -prefix /scratch/05426/ach3377/memory_basic_model/group_collapsed_3dMVM -jobs 64 \
       -wsVars "Encode*Condition" \
-      -mask /scratch/05426/standard/thr_1mm_gm.nii.gz \
+      -mask /scratch/05426/ach3377/standard/gm_1mm_thr.nii.gz \
       -SS_type 2 \
       -num_glt 7 \
       -gltLabel 1 CSpB__CSmB -gltCode 1 'Encode : 1*baseline Condition : 1*CSp -1*CSm' \

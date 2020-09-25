@@ -1,0 +1,1 @@
+bash -x /home1/05426/ach3377/gPPI/sm_events/group_collapsed_BM_3dMVM.txt
