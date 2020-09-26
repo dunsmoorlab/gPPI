@@ -66,7 +66,8 @@ class roi_rsa():
         #hardcode rois for now
         #if self.fs: self.rois = ['mOFC','dACC','amyg_cem','amyg_bla','hc_head','hc_body','hc_tail'] 
         # if self.fs: self.rois = ['mOFC','dACC','amyg','hpc','ins','hc_head','hc_body','hc_tail','rh_hc_head','rh_hc_body','rh_hc_tail','lh_hc_head','lh_hc_body','lh_hc_tail','amyg_bla','amyg_cem','rh_amyg_bla','rh_amyg_cem','lh_amyg_bla','lh_amyg_cem'] 
-        if self.fs: self.rois = ['mOFC','dACC','amyg','hpc','ins','lh_amyg','rh_amyg','lh_hpc','rh_hpc','sgACC','rACC','rSMA','rACG','hc_head','hc_body','hc_tail','rh_hc_head','rh_hc_body','rh_hc_tail','lh_hc_head','lh_hc_body','lh_hc_tail','amyg_bla','amyg_cem','rh_amyg_bla','rh_amyg_cem','lh_amyg_bla','lh_amyg_cem','A32sg','A32p','A24cd','A24rv','A14m','A11m','A13','A10m','A9m','A8m','A6m']  
+        # if self.fs: self.rois = ['mOFC','dACC','amyg','hpc','ins','lh_amyg','rh_amyg','lh_hpc','rh_hpc','sgACC','rACC','rSMA','rACG','hc_head','hc_body','hc_tail','rh_hc_head','rh_hc_body','rh_hc_tail','lh_hc_head','lh_hc_body','lh_hc_tail','amyg_bla','amyg_cem','rh_amyg_bla','rh_amyg_cem','lh_amyg_bla','lh_amyg_cem','A32sg','A32p','A24cd','A24rv','A14m','A11m','A13','A10m','A9m','A8m','A6m']  
+        if self.fs: self.rois = ['sgACC','rACC','hc_head','hc_body','hc_tail','rh_hc_head','rh_hc_body','rh_hc_tail','lh_hc_head','lh_hc_body','lh_hc_tail','amyg_bla','amyg_cem','rh_amyg_bla','rh_amyg_cem','lh_amyg_bla','lh_amyg_cem','A32sg','A32p','A24cd','A24rv','A14m','A11m','A13','A10m','A9m','A8m','A6m','thalamus_clst','RSP_clst','dACC_clst','lOFC_clst']
             # if hemi:
                 # self.rois = ['rh_hc_head','rh_hc_body','rh_hc_tail','rh_amyg_bla','rh_amyg_cem',
                 #              'lh_hc_head','lh_hc_body','lh_hc_tail','lh_amyg_bla','lh_amyg_cem']
@@ -77,8 +78,8 @@ class roi_rsa():
         
         #data needs to be loaded WITHOUT mask to facilitate more intricate analyses
         self.load_data() 
-        # self.compute_item_rsa()
-        # self.compute_cross_rsa()
+        self.compute_item_rsa()
+        self.compute_cross_rsa()
         self.compute_mem_mats()
 
     def load_data(self):
