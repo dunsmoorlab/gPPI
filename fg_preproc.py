@@ -173,7 +173,8 @@ class fmriprep_preproc():
         #masks = ['sgACC','rSMA','rACG'] 
         # masks = ['rACC']
         #masks = ['A32sg','A32p','A24cd','A24rv','A14m','A11m','A13','A10m','A9m','A8m','A6m',]
-        masks = ['rACC','sgACC']        
+        # masks = ['rACC','sgACC']        
+        masks = ['thalamus_clst','RSP_clst','dACC_clst','lOFC_clst']
 
         for roi in masks:
             in_mask = os.path.join(group_masks,'%s_group_mask.nii.gz'%(roi))
