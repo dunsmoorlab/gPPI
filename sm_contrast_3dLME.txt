@@ -12,5 +12,5 @@ export R_LIBS_USER=~/R_lib
       -gltLabel 3 CSpE_A__CSpE_E -gltCode 3 'Encode : 1*extinction Condition : 1*CSp Response : 1*acquisition -1*extinction' \
       -gltLabel 4 CSpE_E__CSmE_A -gltCode 4 'Encode : 1*extinction Condition : 1*CSp -1*CSm Response : 1*acquisition' \
       -gltLabel 5 CSpA_A__CSmA_A -gltCode 5 'Encode : 1*acquisition Condition : 1*CSp -1*CSm Response : 1*acquisition' \
-      -gltLabel 6 acq_src -gltCode 6 'Encode: 1*baseline 1*acquisition 1*extinction Condition 1*CSp -1*CSm Response 1*acquisition' \
+      -gltLabel 6 acq_src -gltCode 6 'Encode: 1*baseline 1*acquisition 1*extinction Condition : 1*CSp -1*CSm Response : 1*acquisition' \
       -dataTable @sm_events/afni_dataTable.txt
