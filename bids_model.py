@@ -483,7 +483,7 @@ def wrap_lss_jobs():
     #launch -N 3 -n 30 -J sm_lvl3 -s jobs/source_memory_lvl3_job.txt -m achennings@utexas.edu -p normal -r 3:00:00 -A LewPea_MRI_Analysis -d 3051447
     #launch -N 1 -n 64 -p largemem512GB -J 3dlme -s jobs/3dlme_job.txt -m achennings@utexas.edu -r 48:00:00 -A LewPea_MRI_Analysis
     #launch -N 48 -n 48 -J smooth -s jobs/afni_fwhm_job.txt -m achennings@utexas.edu -p normal -r 2:00:00 -A LewPea_MRI_Analysis
-
+    #launch -N 1 -n 64 -p largemem512GB -J 3dmvm -s jobs/3dMVM_job.txt -m achennings@utexas.edu -r 48:00:00 -A LewPea_MRI_Analysis
     # for phase in ['baseline','acquisition','extinction','memory_run-01','memory_run-02','memory_run-03']:
     for phase in ['memory_run-01','memory_run-02','memory_run-03']:
         # for roi in ['rh_hpc']:

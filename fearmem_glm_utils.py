@@ -432,23 +432,23 @@ def afni_fwhmx(sub):
 
 def collect_fwhm():
     _df = {}
-    for sub in xcl_sub_args:
+    for sub in all_sub_args:#xcl_sub_args:
         subj = bids_meta(sub)
         _df[sub] = {}
         for run in [1,2,3]:
-            _df[sub][run] = pd.read_csv(f'{subj.model_dir}/memory_run-0{run}/source_memory.feat/noise_estimates.txt',sep=' '
+            _df[sub][run] = pd.read_csv(f'{subj.model_dir}/memory_run-0{run}/basic_model.feat/noise_estimates.txt',sep=' '
                             ).loc[0].dropna().values
     df = pd.DataFrame.from_dict(_df).unstack().reset_index()
     est = df[0].values.mean(axis=0)
-    est.tofile('sm_events/3dLME_mean_smooth.txt',sep=' ', format='%s')
+    est.tofile('sm_events/basic_model_mean_smooth.txt',sep=' ', format='%s')
 
-def clustsim(file='sm_events/3dLME_mean_smooth.txt'):
+def clustsim(file='sm_events/basic_model_mean_smooth.txt'):
     est = np.loadtxt(file)
     cmd1 = 'export OMP_NUM_THREADS=48'
     cmd2 = f'3dClustSim -OKsmallmask \
                        -mask $SCRATCH/standard/gm_1mm_thr.nii.gz \
                        -acf {est[0]} {est[1]} {est[2]} \
-                       >> sm_events/lme_clustsim_output.txt' 
+                       > sm_events/basic_model_clustsim_output.txt' 
     
     script = 'sm_events/clustsim_script.txt'
     os.system(f'rm {script}')
@@ -472,27 +472,39 @@ def clustsim(file='sm_events/3dLME_mean_smooth.txt'):
                        -r 5:00:00 \
                        -A LewPea_MRI_Analysis')
 
-def lme_clusterize():
-    os.chdir('../../Desktop/3dLME_results')
-    header = parse_AFNI_header('SM_LME+tlrc.head')
+def clusterize(folder,file,thr1,thr2):
+    # os.chdir('../../Desktop/3dLME_results')
+    # header = parse_AFNI_header('SM_LME+tlrc.head')
+    os.chdir(f'../../Desktop/{folder}')
+    header = parse_AFNI_header(f'{file}.HEAD')
+
+
     names = header['BRICK_LABS'].replace(':','_'
-                                ).replace('  F',''
+                                ).replace(' F','_F'
+                                ).replace(' t', '_t'
                                 ).split('~')
-    print(header['BRICK_LABS'])
+
     for i, name in enumerate(names):
         if 'Intercept' in name:
             pass
-        else:
+        elif '_F' in name or '_t' in name:
             cmap = f'{name}_cluster_map.nii.gz';os.system(f'rm {cmap}')
             ctxt = f'{name}_cluster.txt';os.system(f'rm {ctxt}')
             where = f'{name}_where.txt';os.system(f'rm {where}')
 
+            if '_F' in name:
+                side = '1sided RIGHT_TAIL'
+                thr = thr1
+            elif '_t' in name:
+                side = '2sided'
+                thr = thr2
+
             cmd = f"3dClusterize \
-                      -inset SM_LME+tlrc \
+                      -inset {file} \
                       -ithr {i} \
                       -mask ../standard/gm_1mm_thr.nii.gz \
-                      -1sided RIGHT_TAIL p=0.005 \
-                      -clust_nvox 402.8 \
+                      -{side} p=0.005 \
+                      -clust_nvox {thr} \
                       -NN 3 \
                       -pref_map {cmap} \
                       > {ctxt}"
@@ -545,43 +557,37 @@ def extract_clusters(folder):
 def extract_pe(effects=['Response','Condition','Condition_Response'],):
     from nilearn.image import get_data
     #create output df
-
     phases = ['baseline','acquisition','extinction']
     runs = [1,2,3]
-    df = pd.DataFrame({'pe':np.nan},index=pd.MultiIndex.from_product([xcl_sub_args,phases,consp,phases,runs,effects],
-                        names=['subject','encode_phase','condition','source_memory','run','effect'])).astype(object)
-    n_clust = {eff:len([i for i in os.listdir(f'{SCRATCH}3dLME_results/{eff}_cluster_masks') if '.nii.gz' in i]) for eff in effects}
-    clust_masks = {}
-    for eff in effects:
-        clust_masks[eff] = {}
-        for clust in range(1,n_clust[eff]+1):
-            clust_masks[eff][clust] = get_data(f'{SCRATCH}/3dLME_results/{eff}_cluster_masks/cluster_{clust}_mask.nii.gz')
 
-    #use the inputs from the LME data table
-    inputs = pd.read_csv('sm_events/afni_dataTable.txt',sep=' '
-        ).set_index(['Subj','Sess','Encode','Condition','Response'])
+    for eff in ['Condition_Response']:
+        mask_dir = f'{SCRATCH}3dLME_results/{eff}_cluster_masks'
+        clusters = {i.split('_')[1].split('-')[1]:{'num':i.split('_')[1].split('-')[0],'mask':get_data(f'{mask_dir}/{i}')} for i in os.listdir(mask_dir)}
+        
+        df = pd.DataFrame(columns=['pe'],index=pd.MultiIndex.from_product([xcl_sub_args,phases,consp,phases,runs,list(clusters.keys())],
+                            names=['subject','encode_phase','condition','source_memory','run','roi']))
 
-    for sub in xcl_sub_args:
-        print(sub)
-        subj = bids_meta(sub)
-        for encode in phases:
-            print(encode)
-            for con in consp:
-                print(con)
-                for response in phases:
-                    for run in runs:
-                        #check if it needs to be run or if missing
-                        try:
-                            file = inputs.loc[(sub,f'memory_run-0{run}',encode,con,response),'InputFile']
-                            pe_img = get_data(file)
-                            for eff in effects:
-                                cluster_results = np.zeros(n_clust[eff])
-                                for i, clust in enumerate(range(1,n_clust[eff]+1)):
-                                    cluster_results[i] = apply_mask(mask=clust_masks[eff][clust],target=pe_img).mean()
-                                df.loc[(sub,encode,con,response,run,eff),'pe'] = cluster_results.astype(object)
-                        except:
-                            pass
-    df.to_csv('sm_events/extracted_pe.csv')
+        #use the inputs from the LME data table
+        inputs = pd.read_csv('sm_events/afni_dataTable.txt',sep=' '
+            ).set_index(['Subj','Sess','Encode','Condition','Response'])
+
+        for sub in xcl_sub_args:
+            print(sub)
+            subj = bids_meta(sub)
+            for encode in phases:
+                print(encode)
+                for con in consp:
+                    for response in phases:
+                        for run in runs:
+                            #check if it needs to be run or if missing
+                            try:
+                                file = inputs.loc[(sub,f'memory_run-0{run}',encode,con,response),'InputFile']
+                                pe_img = get_data(file)
+                                for roi in clusters:
+                                    df.loc[(sub,encode,con,response,run,roi),'pe'] = apply_mask(mask=clusters[roi]['mask'],target=pe_img).mean()
+                            except:
+                                pass
+        df.to_csv(f'sm_events/{eff}_extracted_pe.csv')
 
 def basic_model_reg_smooth(sub):
 
@@ -641,5 +647,6 @@ def basic_model_dataTable():
                         'InputFile':f'/scratch/05426/ach3377/fc-bids/derivatives/model/{subj.fsub}/{mem_phase}/basic_model.feat/reg_standard/stats/cope{basic_pe_map[encode_phase][con]}.nii.gz'},
                         ignore_index=True)
     data_table.to_csv('sm_events/memory_dataTable.txt',index=False,sep=' ')
+    data_table = data_table[data_table.Encode.isin(phases[:-1])]
     data_table.to_csv('sm_events/memory_no_foils_dataTable.txt',index=False,sep=' ')
 

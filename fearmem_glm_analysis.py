@@ -1,32 +1,27 @@
 from fg_config import *
-effects = ['Condition','Response','Condition_Response'] 
-phases = ['baseline','acquisition','extinction']
-
-df = pd.read_csv('sm_events/extracted_pe.csv'
-    ).dropna(subset=['pe']
-    )
 def convert_to_arr(x):
     for j in ['\n','[',']']:
         x = x.replace(j,'')
     x = [i for i in x.split(' ') if i != '']
     return np.array(x).astype(float)
+effects = ['Condition','Response','Condition_Response'] 
+phases = ['baseline','acquisition','extinction']
 
-df.pe = df.pe.apply(convert_to_arr)
-df = pd.concat((df,df.pe.apply(pd.Series)),axis=1).drop(columns='pe')
+eff = 'Condition_Response'
+
+df = pd.read_csv(f'sm_events/{eff}_extracted_pe.csv')
 df.condition = df.condition.apply(lambda x: 'CS+' if x == 'CSp' else 'CS-')
-df = df.groupby(['effect','subject','encode_phase','condition','source_memory']).mean().drop(columns='run').sort_index()
-df.to_csv('sm_events/cleaned_pe_estimates.csv')
-'''now actually analyze'''
+df = df.groupby(['roi','encode_phase','condition','source_memory','subject']).mean().sort_index()
 
-indf = pd.read_csv('sm_events/cleaned_pe_estimates.csv').set_index(['effect','subject','encode_phase','condition','source_memory'])
+roi = 'cuneus'
 
-eff = 'Response'
-cluster = '0'
+roidf = df.loc[roi].copy()
 
-df = indf.loc[eff,cluster].reset_index().rename(columns={cluster:'pe'})
+
+
 fig, ax = plt.subplots(1,3,figsize=(12,5),sharey=True)
 for i, phase in enumerate(phases):
-    dat = df[df.encode_phase == phase].copy()
+    dat = roidf.loc[phase].copy().reset_index()
     sns.barplot(data=dat,x='condition',y='pe',hue='source_memory',ax=ax[i],
         palette=spal)
     if i != 0:ax[i].set_ylabel('')

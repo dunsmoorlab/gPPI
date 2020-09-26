@@ -1,0 +1,16 @@
+module load cray_mpich Rstats gsl afni
+export OMP_NUM_THREADS=64
+export R_LIBS_USER=~/R_lib
+3dLME -prefix /scratch/05426/ach3377/sm_contrast -jobs 64 \
+      -mask /scratch/05426/standard/thr_1mm_gm.nii.gz \
+      -model  "Encode*Condition*Response" \
+      -ranEff '~1+Sess|Subj' \
+      -SS_type 3 \
+      -num_glt 6 \
+      -gltLabel 1 CSpB_A__CSpB_B -gltCode 1 'Encode : 1*baseline Condition : 1*CSp Response : 1*acquisition -1*baseline' \
+      -gltLabel 2 CSpB_A__CSmB_A -gltCode 2 'Encode : 1*baseline Condition : 1*CSp -1*CSm Response : 1*acquisition' \
+      -gltLabel 3 CSpE_A__CSpE_E -gltCode 3 'Encode : 1*extinction Condition : 1*CSp Response : 1*acquisition -1*extinction' \
+      -gltLabel 4 CSpE_E__CSmE_A -gltCode 4 'Encode : 1*extinction Condition 1*CSp -1*CSm Response : 1*acquisition' \
+      -gltLabel 5 CSpA_A__CSmA_A -gltCode 5 'Encode : 1*acquisition Condition 1*CSp -1*CSm Response : 1*acquisition' \
+      -gltLabel 6 acq_src -gltCode 6 'Encode: 1*baseline 1*acquisition 1*extinction Condition 1*CSp -1*CSm Response 1*acquisition' \
+      -dataTable @sm_events/afni_dataTable.txt
