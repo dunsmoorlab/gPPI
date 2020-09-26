@@ -1,2 +1,2 @@
 export OMP_NUM_THREADS=48
-3dClustSim -OKsmallmask -mask /scratch/05426/ach3377/standard/gm_1mm_thr.nii.gz -acf 0.7326927647058824 2.497165196078432 9.441530294117646
+3dClustSim -OKsmallmask -mask /scratch/05426/ach3377/standard/gm_1mm_thr.nii.gz -acf 0.7357304097222219 2.4760993749999995 9.157601249999999
