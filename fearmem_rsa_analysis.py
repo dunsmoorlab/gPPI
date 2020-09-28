@@ -40,28 +40,28 @@ for roi in rois:
                 sub = subjects[group][s]
                 if sub in xcl_sub_args:
                     subj = bids_meta(sub)
-                    mem_dat = pd.read_csv(f'rsa_results/{subj.fsub}/reordered_mem_labels.csv')
+                    mem_dat = pd.read_csv(f'sm_events/{subj.fsub}/sm_events.csv')
                     acquisition_correct = mem_dat[mem_dat.trial_type == con][mem_dat.encode_phase == 'acquisition'][mem_dat.source_memory == 'acquisition'].index
                     baseline_correct = mem_dat[mem_dat.trial_type == con][mem_dat.encode_phase == 'baseline'][mem_dat.source_memory == 'baseline'].index
                     baseline_acquisition = mem_dat[mem_dat.trial_type == con][mem_dat.encode_phase == 'baseline'][mem_dat.source_memory == 'acquisition'].index
                     
 
-                    b_acq_b_correct = gmats[group][sub][roi][baseline_correct][:,acquisition_correct].mean()
+                    b_correct_b_acq = gmats[group][sub][roi][baseline_correct][:,acquisition_correct].mean()
                     b_acq_acq_correct = gmats[group][sub][roi][baseline_acquisition][:,acquisition_correct].mean()
 
-                    df.loc[('baseline',con,roi,sub),'rsa'] = b_acq_b_correct
+                    df.loc[('baseline',con,roi,sub),'rsa'] = b_correct_b_acq
                     df.loc[('acquisition',con,roi,sub),'rsa'] = b_acq_acq_correct
 
 df = df.reset_index()
 # df['group'] = df.subject.apply(lgroup)
 spal = list((wes_palettes['Darjeeling1'][-1],wes_palettes['Darjeeling1'][0],wes_palettes['Darjeeling1'][1],))
 # sns.swarmplot(data=df[df.roi=='rACC'],x='condition',y='rsa',hue='response_phase',dodge=True,color='black')#,kind='bar',col='group')
-sns.catplot(data=df,x='condition',y='rsa',hue='response_phase',col='roi',kind='bar')
+# sns.catplot(data=df,x='condition',y='rsa',hue='response_phase',col='roi',kind='bar')
                     # square = get_square(gmats[group], roi, sub, s, mem_slices, con, 'baseline')
-for roi in ['rACC','sgACC','hc_tail','hc_body','hc_head','amyg_bla','amyg_cem']:
+for roi in rois:
     print(roi)
-    print(pg.wilcoxon(df.rsa[df.response_phase == 'acquisition'][df.condition == 'CS+'][df.roi==roi],
-                        df.rsa[df.response_phase == 'acquisition'][df.condition == 'CS-'][df.roi==roi]))
+    print(pg.wilcoxon(df.rsa[df.response_phase == 'baseline'][df.condition == 'CS+'][df.roi==roi],
+                        df.rsa[df.response_phase == 'acquisition'][df.condition == 'CS+'][df.roi==roi]))
     print('\n')
 '''(CS+B_A vs. CS+B_B) to CS+A_A vmPFC finding'''
 fig, ax = plt.subplots(figsize=(8,6))
