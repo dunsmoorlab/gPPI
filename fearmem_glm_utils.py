@@ -473,6 +473,7 @@ def clustsim(file='sm_events/basic_model_mean_smooth.txt'):
                        -A LewPea_MRI_Analysis')
 
 def clusterize(folder,file,thr1,thr2):
+    from nibabel.brikhead import parse_AFNI_header
     # os.chdir('../../Desktop/3dLME_results')
     # header = parse_AFNI_header('SM_LME+tlrc.head')
     os.chdir(f'../../Desktop/{folder}')
@@ -480,14 +481,16 @@ def clusterize(folder,file,thr1,thr2):
 
 
     names = header['BRICK_LABS'].replace(':','_'
+                                ).replace('  F','_F'
                                 ).replace(' F','_F'
                                 ).replace(' t', '_t'
+                                ).replace(' Z','_Z'
                                 ).split('~')
 
     for i, name in enumerate(names):
         if 'Intercept' in name:
             pass
-        elif '_F' in name or '_t' in name:
+        elif '_F' in name or '_t' in name or '_Z' in name:
             cmap = f'{name}_cluster_map.nii.gz';os.system(f'rm {cmap}')
             ctxt = f'{name}_cluster.txt';os.system(f'rm {ctxt}')
             where = f'{name}_where.txt';os.system(f'rm {where}')
@@ -495,7 +498,7 @@ def clusterize(folder,file,thr1,thr2):
             if '_F' in name:
                 side = '1sided RIGHT_TAIL'
                 thr = thr1
-            elif '_t' in name:
+            elif '_t' in name or '_Z' in name:
                 side = '2sided'
                 thr = thr2
 

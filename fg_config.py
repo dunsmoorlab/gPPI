@@ -197,6 +197,12 @@ mem_slices = {'CS+':{
 
                      'foil':slice(192,240)}}
 
+def p2z(p,tail):
+    '''returns a z-score corresponding a to the pvalue, given the tail (1 or 2 sided)'''
+    from scipy.stats import norm
+    return norm.ppf(1-p*tail)
+
+
 class bids_meta(object):
 
     def __init__(self, sub):

@@ -27,7 +27,7 @@ gmats = {'healthy':c.mem_mats,
          'ptsd':p.mem_mats}
 
 seeds = ['hc_tail', 'hc_body', 'hc_head', 'amyg_bla', 'amyg_cem']
-rois = ['rACC','sgACC'] + seeds
+rois = ['rACC','sgACC','thalamus_clst','RSP_clst','dACC_clst','lOFC_clst'] + seeds
 # rois = bn_rois
 
 '''BASELINE TO ACQUISITION_CORRECT, SPLIT BY SM_RESPONSE'''
@@ -120,12 +120,12 @@ df = df.reset_index()
 #filter out rois here
 pfc = df[df.roi.isin(rois)]
 pfc.roi = pd.Categorical(pfc.roi,categories=rois)
-sns.catplot(data=pfc[pfc.encode_phase=='baseline'], x='trial_type', y='rsa', 
+sns.catplot(data=pfc[pfc.encode_phase=='extinction'], x='trial_type', y='rsa', 
             hue='source_memory', col='roi', palette=spal, hue_order=['baseline','acquisition','extinction'], kind='bar')
 statdf = pfc.set_index(['roi','encode_phase','trial_type','source_memory','subject']).sort_index()
 for roi in rois:
-    s = pg.wilcoxon(statdf.loc[(roi,'baseline','CS+','acquisition'),'rsa'],
-            statdf.loc[(roi,'baseline','CS-','acquisition'),'rsa'])
+    s = pg.wilcoxon(statdf.loc[(roi,'extinction','CS+','extinction'),'rsa'],
+            statdf.loc[(roi,'extinction','CS+','acquisition'),'rsa'])
     print(roi,'\n',s)
 
 fig, ax = plt.subplots(figsize=(8,6))

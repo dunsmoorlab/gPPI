@@ -7,11 +7,15 @@ def convert_to_arr(x):
 effects = ['Condition','Response','Condition_Response'] 
 phases = ['baseline','acquisition','extinction']
 
-eff = 'Condition_Response'
+eff = 'Response'
 
 df = pd.read_csv(f'sm_events/{eff}_extracted_pe.csv')
 df.condition = df.condition.apply(lambda x: 'CS+' if x == 'CSp' else 'CS-')
 df = df.groupby(['roi','encode_phase','condition','source_memory','subject']).mean().sort_index()
+
+resp_eff = df.groupby(['roi','source_memory','subject']).mean()
+q = sns.catplot(data=resp_eff.reset_index(),x='source_memory',y='pe',col='roi',order=phases,kind='bar',palette=spal)
+
 
 roi = 'cuneus'
 
