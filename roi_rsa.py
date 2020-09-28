@@ -78,8 +78,8 @@ class roi_rsa():
         
         #data needs to be loaded WITHOUT mask to facilitate more intricate analyses
         self.load_data() 
-        self.compute_item_rsa()
-        self.compute_cross_rsa()
+        # self.compute_item_rsa()
+        # self.compute_cross_rsa()
         self.compute_mem_mats()
 
     def load_data(self):
