@@ -55,7 +55,7 @@ rcParams['axes.titlepad'] = 30
 WORK = '/work/05426/ach3377/lonestar/'
 HOME = os.path.expanduser('~')
 SCRATCH = '/scratch/05426/ach3377/'
-gPPI_codebase = HOME + 'gPPI/'
+gPPI_codebase = HOME + '/gPPI/'
 
 def mkdir(path,local=False):
     if not local and not os.path.exists(path):
