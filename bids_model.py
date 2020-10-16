@@ -249,6 +249,8 @@ class gPPI():
             phases = tasks
         elif phases == 'encode_mem':
             phases = ['baseline','acquisition','extinction','memory_run-01','memory_run-02','memory_run-03']
+        elif phases == 'mem':
+            phases = ['memory_run-01','memory_run-02','memory_run-03']
         elif type(phases) is str:
             phases = [phases]
         
@@ -321,10 +323,12 @@ class gPPI():
                 template = os.path.join(gPPI_codebase,'feats','gPPI','day1_encode_gPPI.fsf')
 
             replacements = {'SUBID':self.subj.fsub,
-                        'RUNID':phase,
-                        'ROI':self.mask_name}            
+                            'RUNID':phase,
+                            'ROI':self.mask_name}            
         
             #need to handle the special cases where the TR is longer
+            #the reason we always do this is because in the templates I only put in the wildcard on day 1
+            #i.e. TR_length is not in the day 2 templates, so it doesnt change anything
             if self.subj.num in [105,106]:
                 replacements['TR_length'] = '2.23'
             else:
@@ -455,7 +459,8 @@ def wrap_lss_jobs():
         os.system('launch -N 1 -n 12 -J %s -s jobs/%s_rsa_job.txt -m achennings@utexas.edu -p normal -r 12:00:00')
 
     for job in [1,2,3]:
-        os.system('launch -N 1 -n 24 -J %s -s jobs/memory_run-0%s_rsa_job.txt -m achennings@utexas.edu -p normal -r 2:00:00 -A LewPea_MRI_Analysis'%(job,job))
+        # os.system('launch -N 1 -n 24 -J %s -s jobs/memory_run-0%s_rsa_job.txt -m achennings@utexas.edu -p normal -r 2:00:00 -A LewPea_MRI_Analysis'%(job,job))
+        os.system(f'launch -N 1 -n 24 -J m{job} -s jobs/gPPI/memory-{job}_gPPI_job.txt -m achennings@utexas.edu -p normal -r 10:00:00 -A LewPea_MRI_Analysis')
 
     #submit a bunch of jobs at once
     for job in range(28):
