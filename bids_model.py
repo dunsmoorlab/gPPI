@@ -344,7 +344,7 @@ class gPPI():
                         outfile.write(line)
 
             #also go ahead and make the job script here
-            os.system('echo "feat %s" >> jobs/%s_%s_gPPI_job.txt'%(outfeat,self.mask_name,phase)) 
+            os.system('echo "feat %s" >> jobs/gPPI/%s_%s_gPPI_job.txt'%(outfeat,self.mask_name,phase)) 
         
 
     def _deconvolve(self,dat):
