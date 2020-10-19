@@ -217,9 +217,9 @@ class gPPI():
             self.mask_name = mask[:-5]
         else:
             self.mask_name = mask
-        self.mask = self.load_mask(mask)
-        self.data = self.load_clean_data(phases=phases)
-        self.extract_timecourse()
+        #self.mask = self.load_mask(mask)
+        #self.data = self.load_clean_data(phases=phases)
+        #self.extract_timecourse()
         # self.interact()
         self._autofill_fsf()
 
