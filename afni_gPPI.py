@@ -27,7 +27,7 @@ def reg_smooth_gPPI(sub):
                 os.system(reg_cmd)
         
             #for each seed region in each run we need to get a spatial noise estimate
-            os.chdir(red_std)
+            os.chdir(reg_std)
             est_noise = f'3dFWHMx -mask {std_2009_brain_mask} \
                                   -input {reg_std}/res4d.nii.gz \
                                   -acf >> noise_estimates.txt'
