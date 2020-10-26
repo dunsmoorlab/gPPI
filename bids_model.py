@@ -493,10 +493,10 @@ def wrap_lss_jobs():
     for phase in ['memory_run-01','memory_run-02','memory_run-03']:
         # for roi in ['rh_hpc']:
         # for roi in ['rACC','sgACC','rh_hpc','lh_hpc','lh_amyg','rh_amyg']:
-        # for roi in ['rh_hpc','hc_tail','hc_body','hc_head','amyg_bla','amyg_cem']:
-        for roi in ['rh_hc_tail','lh_hc_tail','rh_hc_body','lh_hc_body','rh_hc_head','lh_hc_head','rh_amyg_bla','lh_amyg_bla','rh_amyg_cem','lh_amyg_cem']:
+        for roi in ['hc_tail','hc_body','hc_head','amyg_bla','amyg_cem']:
+        # for roi in ['rh_hc_tail','lh_hc_tail','rh_hc_body','lh_hc_body','rh_hc_head','lh_hc_head','rh_amyg_bla','lh_amyg_bla','rh_amyg_cem','lh_amyg_cem']:
             # os.system('launch -N 1 -n 24 -J %s_gPPI -s jobs/%s_gPPI_job.txt -m achennings@utexas.edu -p normal -r 2:00:00 -A LewPea_MRI_Analysis'%(phase,phase))
-            os.system('launch -N 1 -n 24 -J %s_%s -s jobs/%s_%s_gPPI_job.txt -m achennings@utexas.edu -p normal -r 01:30:00 -A LewPea_MRI_Analysis'%(phase,roi,roi,phase))
+            os.system(f'launch -N 1 -n 24 -J {roi}_{phase} -s jobs/gPPI/{roi}_{phase}_gPPI_job.txt -m achennings@utexas.edu -p normal -r 01:30:00 -A LewPea_MRI_Analysis')
 
 def clean_bad_lss():
     bad = pd.read_csv('bad_lss.txt',header=None)
