@@ -6,8 +6,8 @@ day2 = {'memory_run-01','memory_run-02','memory_run-03'};
 phases = {'memory_run-01','memory_run-02','memory_run-03'};
 
 %rois = {'sgACC','rACC','lh_hpc','rh_hpc','lh_amyg','rh_amyg'};
-%rois = {'rh_hpc','hc_tail','hc_body','hc_head','amyg_bla','amyg_cem'};
-rois = {'rh_hc_tail','lh_hc_tail','rh_hc_body','lh_hc_body','rh_hc_head','lh_hc_head','rh_amyg_bla','lh_amyg_bla','rh_amyg_cem','lh_amyg_cem'};
+rois = {'hc_tail','hc_body','hc_head','amyg_bla','amyg_cem'};
+%rois = {'rh_hc_tail','lh_hc_tail','rh_hc_body','lh_hc_body','rh_hc_head','lh_hc_head','rh_amyg_bla','lh_amyg_bla','rh_amyg_cem','lh_amyg_cem'};
 
 for subi = 1:length(all_sub_args)
     fsub = sprintf('sub-FC%03d',all_sub_args{subi});
