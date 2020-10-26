@@ -34,7 +34,7 @@ def reg_smooth_gPPI(sub):
 
 
 def run_wrap():
-    for sub in xcl_sub_args:
+    for sub in all_sub_args:
         os.system(f"echo singularity run --cleanenv $SCRATCH/bids-apps/neurosft.simg python $HOME/gPPI/wrap_glm_utils.py -s {sub} >> jobs/reg_smooth_gPPI_job.txt")
     os.system('launch -N 48 -n 48 -J smooth -s jobs/reg_smooth_gPPI_job.txt -m achennings@utexas.edu -p normal -r 10:00:00 -A LewPea_MRI_Analysis')
 
