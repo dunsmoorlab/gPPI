@@ -1,0 +1,21 @@
+module load cray_mpich Rstats gsl afni
+export OMP_NUM_THREADS=64
+3dMVM -prefix /scratch/05426/ach3377/gPPI_MVM/hc_head -jobs 64 \
+      -bsVars "Group" \
+      -wsVars "Encode*Condition"   \
+      -mask /scratch/05426/standard/thr_1mm_gm.nii.gz \
+      -SS_type 2 \
+      -num_glt 12 \
+      -gltLabel 1 H_CSpA__CSmA -gltCode 1 'Group : 1*healthy Encode : 1*acquisition condition : 1*CSp -1*CSm' \
+      -gltLabel 2 H_CSpE__CSmE -gltCode 2 'Group : 1*healthy Encode : 1*extinction condition : 1*CSp -1*CSm' \
+      -gltLabel 3 H_CSpE__CSpA -gltCode 3 'Group : 1*healthy Encode : 1*extinction -1*acquisition condition : 1*CSp' \
+      -gltLabel 4 H_CSmE__CSmA -gltCode 4 'Group : 1*healthy Encode : 1*extinction -1*acquisition condition : 1*CSm' \
+      -gltLabel 5 P_CSpA__CSmA -gltCode 5 'Group : 1*ptss Encode : 1*acquisition condition : 1*CSp -1*CSm' \
+      -gltLabel 6 P_CSpE__CSmE -gltCode 6 'Group : 1*ptss Encode : 1*extinction condition : 1*CSp -1*CSm' \
+      -gltLabel 7 P_CSpE__CSpA -gltCode 7 'Group : 1*ptss Encode : 1*extinction -1*acquisition condition : 1*CSp' \
+      -gltLabel 8 P_CSmE__CSmA -gltCode 8 'Group : 1*ptss Encode : 1*extinction -1*acquisition condition : 1*CSm' \
+      -gltLabel 9 H__P_CSpA__CSmA -gltCode 9 'Group : 1*healthy -1*ptss Encode : 1*acquisition condition : 1*CSp -1*CSm' \
+      -gltLabel 10 H__P_CSpE__CSmE -gltCode 10 'Group : 1*healthy -1*ptss Encode : 1*extinction condition : 1*CSp -1*CSm' \
+      -gltLabel 11 H__P_CSpE__CSpA -gltCode 11 'Group : 1*healthy -1*ptss Encode : 1*extinction -1*acquisition condition : 1*CSp' \
+      -gltLabel 12 H__P_CSmE__CSmA -gltCode 12 'Group : 1*healthy -1*ptss Encode : 1*extinction -1*acquisition condition : 1*CSm' \
+      -dataTable @hc_head_dataTable.txt

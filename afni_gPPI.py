@@ -32,11 +32,6 @@ def reg_smooth_gPPI(sub):
                                   -input {reg_std}/res4d.nii.gz \
                                   -acf >> noise_estimates.txt'
 
-def run_wrap():
-    for sub in all_sub_args:
-        os.system(f"echo singularity run --cleanenv $SCRATCH/bids-apps/neurosft.simg python $HOME/gPPI/wrap_glm_utils.py -s {sub} >> jobs/reg_smooth_gPPI_job.txt")
-    os.system('launch -N 48 -n 48 -J smooth -s jobs/reg_smooth_gPPI_job.txt -m achennings@utexas.edu -p normal -r 10:00:00 -A LewPea_MRI_Analysis')
-
 def gPPI_datatables():
     cope_map = {'acquisition':{'CS+':4,
                               'CS-':5},
@@ -45,7 +40,7 @@ def gPPI_datatables():
                               }
 
     seeds = ['hc_tail','hc_body','hc_head','amyg_bla','amyg_cem']
-    out = './gPPI_datatables'
+    out = './gPPI_MVM'
     for seed in seeds:
         # Subj Sess Encode Condition Response InputFile
         df = pd.DataFrame({'InputFile':'','Group':''},
@@ -64,8 +59,17 @@ def gPPI_datatables():
                 for c, con in enumerate(cons):
                     for sess in [1,2,3]:
                         df.loc[(sub,phase,consp[c],sess),'InputFile'] = f'{subj.model_dir}/memory_run-0{sess}/{seed}/source.feat/reg_std/stats/cope{cope_map[phase][con]}.nii.gz'
-    df = df.reset_index()[['Subj','Group','Encode','Condition','Sess','InputFile']]
+        df = df.reset_index()[['Subj','Group','Encode','Condition','Sess','InputFile']]
 
-    assert df.InputFile.apply(lambda x: os.path.exists(x)).sum() == 576
+        assert df.InputFile.apply(lambda x: os.path.exists(x)).sum() == 576
 
-    df.to_csv(f'{out}/{seed}_dataTable.txt',index=False,sep=' ')
+        df.to_csv(f'{out}/{seed}_dataTable.txt',index=False,sep=' ')
+
+def run_wrap():
+    # for sub in all_sub_args:
+    #     os.system(f"echo singularity run --cleanenv $SCRATCH/bids-apps/neurosft.simg python $HOME/gPPI/wrap_glm_utils.py -s {sub} >> jobs/reg_smooth_gPPI_job.txt")
+    # os.system('launch -N 48 -n 48 -J smooth -s jobs/reg_smooth_gPPI_job.txt -m achennings@utexas.edu -p normal -r 10:00:00 -A LewPea_MRI_Analysis')
+    for seed in ['hc_tail','hc_body','hc_head','amyg_bla','amyg_cem']:
+        os.system(f'echo "bash -x /home1/05426/ach3377/gPPI/gPPI_MVM/{seed}_MVM.txt" >> gPPI_MVM/{seed}_job.txt')
+        os.system(f'launch -N 1 -n 64 -p largemem512GB -J {seed} -s gPPI_MVM/{seed}_job.txt -m achennings@utexas.edu -r 48:00:00 -A LewPea_MRI_Analysis')
+
