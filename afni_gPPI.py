@@ -69,7 +69,7 @@ def run_wrap():
     # for sub in all_sub_args:
     #     os.system(f"echo singularity run --cleanenv $SCRATCH/bids-apps/neurosft.simg python $HOME/gPPI/wrap_glm_utils.py -s {sub} >> jobs/reg_smooth_gPPI_job.txt")
     # os.system('launch -N 48 -n 48 -J smooth -s jobs/reg_smooth_gPPI_job.txt -m achennings@utexas.edu -p normal -r 10:00:00 -A LewPea_MRI_Analysis')
-    for seed in ['hc_tail','hc_body','hc_head','amyg_bla','amyg_cem']:
+    for seed in ['hc_tail','hc_body','hc_head']:#,'amyg_bla','amyg_cem']:
         os.system(f'echo "bash -x /home1/05426/ach3377/gPPI/gPPI_MVM/{seed}_MVM.txt" >> gPPI_MVM/{seed}_job.txt')
         os.system(f'launch -N 1 -n 64 -p largemem512GB -J {seed} -s gPPI_MVM/{seed}_job.txt -m achennings@utexas.edu -r 48:00:00 -A LewPea_MRI_Analysis')
 
