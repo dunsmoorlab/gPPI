@@ -18,4 +18,4 @@ export OMP_NUM_THREADS=64
       -gltLabel 10 H__P_CSpE__CSmE -gltCode 10 'Group : 1*healthy -1*ptss Encode : 1*extinction condition : 1*CSp -1*CSm' \
       -gltLabel 11 H__P_CSpE__CSpA -gltCode 11 'Group : 1*healthy -1*ptss Encode : 1*extinction -1*acquisition condition : 1*CSp' \
       -gltLabel 12 H__P_CSmE__CSmA -gltCode 12 'Group : 1*healthy -1*ptss Encode : 1*extinction -1*acquisition condition : 1*CSm' \
-      -dataTable @amyg_cem_dataTable.txt
+      -dataTable @/home1/05426/ach3377/gPPI/gPPI_MVM/amyg_cem_dataTable.txt
