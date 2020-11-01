@@ -3,7 +3,7 @@ export OMP_NUM_THREADS=64
 3dMVM -prefix /scratch/05426/ach3377/gPPI_MVM/hc_head -jobs 64 \
       -bsVars "Group" \
       -wsVars "Encode*Condition"   \
-      -mask /scratch/05426/standard/thr_1mm_gm.nii.gz \
+      -mask /scratch/05426/ach3377/standard/gm_1mm_thr.nii.gz \
       -SS_type 2 \
       -num_glt 12 \
       -gltLabel 1 H_CSpA__CSmA -gltCode 1 'Group : 1*healthy Encode : 1*acquisition Condition : 1*CSp -1*CSm' \
