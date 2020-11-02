@@ -90,6 +90,7 @@ std_2009_brain = os.path.join(SCRATCH,'standard','MNI152NLin2009cAsym_T1_1mm_bra
 std_2009_brain_mask = os.path.join(SCRATCH,'standard','MNI152NLin2009cAsym_T1_1mm_brain_mask.nii.gz')
 std_2009_brain_3mm = os.path.join(SCRATCH,'standard','MNI152NLin2009cAsym_T1_3mm_brain.nii.gz')
 std_2009_brain_mask_3mm = os.path.join(SCRATCH,'standard','MNI152NLin2009cAsym_T1_3mm_brain_mask.nii.gz')
+gm_3mm_thr = os.path.join(SCRATCH,'standard','gm_3mm_thr.nii.gz')
 
 tasks = {'baseline':{'n_trials':48,'ses':1,'n_tr':259},
          'acquisition':{'n_trials':48,'ses':1,'n_tr':259},

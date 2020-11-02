@@ -21,15 +21,17 @@ masker.fit()
 
 
 def sub_imgs():
-    mats = {}
-    for phase in phases: mats[phase] = np.zeros((len(all_sub_args),69880))
-    for s, sub in enumerate(all_sub_args):
+
+    std = nib.load(std_2009_brain_mask_3mm)
+    for sub in all_sub_args:
         print(sub)
         subj = bids_meta(sub)
-        
+        out = f'{subj.rsa}/ers_sl_imgs'
+        mkdir(out)
+
         with open(os.path.join(subj.rsa,'sl_er.p'),'rb') as file:
             mat = pickle.load(file)
-        mat = new_img_like(std_2009_brain_3mm,mat)
+        mat = new_img_like(std_2009_brain_3mm,mat)#need this for the inverse to work
         mat = masker.transform(mat)
 
         df = pd.read_csv(os.path.join(subj.rsa,'fs_mask_roi_ER.csv'))
@@ -38,9 +40,86 @@ def sub_imgs():
             ).drop(columns=['roi','rsa']
             ).set_index(['encode_phase','trial_type']
             ).sort_index(
-            ).dropna(subset=['response'])
+            ).dropna(subset=['response'])#sets us up to use .loc for stability
 
         for phase in phases:
             for con in conditions:
                 est = mat[df.loc[(phase,con),'trial_num'].values,:].mean(axis=0)
-                
+                est = new_img_like(std,masker.inverse_transform(est).get_fdata(),copy_header=True)#need this for the header
+                nib.save(est,f'{out}/{phase}_{conditions[con]}.nii.gz')
+
+        #lets also do the subtraction i guess
+        for phase in phases:
+            csp = mat[df.loc[(phase,'CS+'),'trial_num'].values,:].mean(axis=0)
+            csm = mat[df.loc[(phase,'CS-'),'trial_num'].values,:].mean(axis=0)
+            est = csp - csm
+            est = new_img_like(std,masker.inverse_transform(est).get_fdata(),copy_header=True)#need this for the header
+            nib.save(est,f'{out}/{phase}_diff.nii.gz')
+
+def one_samp_ttest(subs=None,phase=None,name=''):
+    out_parent = '/scratch/05426/ach3377/searchlight/ers_comps'
+    out_dir = f'/scratch/05426/ach3377/searchlight/ers_comps/{name}_{phase}'
+    mkdir(out_dir)
+    
+    setA = ''
+    for s, sub in enumerate(subs):
+        setA += f'{bids_meta(sub).rsa}/ers_sl_imgs/{phase}_diff.nii.gz '
+    
+    n_cors = 'export OMP_NUM_THREADS=48'
+    cd_cmd = f'cd {out_dir}'
+    clustsim_cmd = f'3dttest++ -setA {setA} \
+                               -Clustsim 48 \
+                               -mask {std_2009_brain_mask_3mm} \
+                               -prefix {name}_{phase}_clst-ttest'
+    
+    script = f'{out_dir}/ttest_script.txt'
+    os.system(f'rm {script}')
+    
+    for cmd in [n_cors, cd_cmd, clustsim_cmd]:
+        os.system(f"echo {cmd} >> {script}")
+    
+    jobfile = f'/home1/05426/ach3377/gPPI/jobs/{name}_sl_ers_job.txt'
+    os.system(f'rm {jobfile}')
+
+    os.system(f'echo singularity run --cleanenv \
+                    /scratch/05426/ach3377/bids-apps/neurosft.simg \
+                    bash -x {script} >> {jobfile}')
+
+    os.system(f'launch -N 1 \
+                       -n 1 \
+                       -J 3dttest++ \
+                       -s {jobfile} \
+                       -m achennings@utexas.edu \
+                       -p normal \
+                       -r 0:20:00 \
+                       -A LewPea_MRI_Analysis')
+one_samp_ttest(subs=sub_args,phase='acquisition',name='healthy')
+one_samp_ttest(subs=sub_args,phase='extinction',name='healthy')
+one_samp_ttest(subs=p_sub_args,phase='acquisition',name='ptsd')
+one_samp_ttest(subs=p_sub_args,phase='extinction',name='ptsd')
+
+
+def ers_cluster(contrast=None,thr=0,nvox=0,mask='../../standard/gm_3mm_thr.nii.gz'):
+        here = os.getcwd()
+        folder = contrast
+        name = contrast.split('/')[-1]
+        os.chdir(folder)
+
+        cmd = f"3dClusterize -inset {name}_clst-ttest+orig \
+                   -ithr 1 \
+                   -idat 0 \
+                   -mask {mask} \
+                   -NN 3 \
+                   -1sided RIGHT_TAIL p={thr} \
+                   -clust_nvox {nvox} \
+                   -pref_map ClusterMap.nii.gz \
+                   -pref_dat ClusterEffEst.nii.gz"
+
+        os.system(cmd)
+        os.chdir(here)
+
+ers_cluster(contrast=f'{HOME}/Desktop/ers_comps/healthy_acquisition',thr=0.01,nvox=212)
+ers_cluster(contrast=f'{HOME}/Desktop/ers_comps/healthy_extinction',thr=0.01,nvox=197)
+ers_cluster(contrast=f'{HOME}/Desktop/ers_comps/ptsd_acquisition',thr=0.01,nvox=245)
+ers_cluster(contrast=f'{HOME}/Desktop/ers_comps/ptsd_extinction',thr=0.01,nvox=240)
+
