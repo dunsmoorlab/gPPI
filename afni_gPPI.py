@@ -1,6 +1,7 @@
 from fg_config import *
+seeds = ['hc_tail','hc_body','hc_head','amyg_bla','amyg_cem']
 
-def reg_smooth_gPPI(sub):
+def reg_copes(sub):
     subj = bids_meta(sub)
 
     reg_me = ['cope1','cope2','cope3','cope4','cope5','cope6','cope7','cope8','cope9','cope10','cope11','cope12','cope13','cope14','res4d']
@@ -9,7 +10,7 @@ def reg_smooth_gPPI(sub):
         _run = f'memory_run-0{run}'
         reg_dir = f'{subj.model_dir}/{_run}/{subj.fsub}_{_run}_gPPI.feat/reg'
 
-        for roi in ['hc_tail','hc_body','hc_head','amyg_bla','amyg_cem']:
+        for roi in seeds:
             stats = f'{subj.model_dir}/{_run}/{roi}/source.feat/stats'
             reg_std = f'{subj.model_dir}/{_run}/{roi}/source.feat/reg_std/stats'
             mkdir(reg_std)
@@ -25,13 +26,19 @@ def reg_smooth_gPPI(sub):
                                   -interp trilinear \
                                   -datatype float'
                 os.system(reg_cmd)
-        
-            #for each seed region in each run we need to get a spatial noise estimate
+
+def smooth_est(sub):
+    subj = bids_meta(sub)
+    #for each seed region in each run we need to get a spatial noise estimate
+    for run in [1,2,3]:
+        for seed in seeds:
+            reg_std = f'{subj.model_dir}/memory_run-0{run}/{seed}/source.feat/reg_std/stats'
             os.chdir(reg_std)
             est_noise = f'3dFWHMx -mask {std_2009_brain_mask} \
                                   -input {reg_std}/res4d.nii.gz \
                                   -acf >> noise_estimates.txt'
-
+#started at 9:43, need 15 repititions per sub
+#
 def gPPI_datatables():
     cope_map = {'acquisition':{'CS+':4,
                               'CS-':5},
@@ -39,7 +46,6 @@ def gPPI_datatables():
                               'CS-':8},
                               }
 
-    seeds = ['hc_tail','hc_body','hc_head','amyg_bla','amyg_cem']
     out = './gPPI_MVM'
     for seed in seeds:
         # Subj Sess Encode Condition Response InputFile
@@ -65,12 +71,29 @@ def gPPI_datatables():
 
         df.to_csv(f'{out}/{seed}_dataTable.txt',index=False,sep=' ')
 
+# def collect_smooth():
+#     dfs = {}
+#     for seed in seeds:
+#         dfs[seed] = {}
+#         for sub in all_sub_args:
+#             subj = bids_meta(sub)
+#             dfs[seed][sub] = {}
+#             for run in [1,2,3]:
+#                 _df[sub][run] = pd.read_csv(f'{subj.model_dir}/memory_run-0{run}/{seed}/source.feat/noise_estimates.txt',sep=' '
+#                                 ).loc[0].dropna().values
+#         df = pd.DataFrame.from_dict(_df).unstack().reset_index()
+#         est = df[0].values.mean(axis=0)
+#         est.tofile('sm_events/basic_model_mean_smooth.txt',sep=' ', format='%s')
+
 def run_wrap():
-    # for sub in all_sub_args:
-    #     os.system(f"echo singularity run --cleanenv $SCRATCH/bids-apps/neurosft.simg python $HOME/gPPI/wrap_glm_utils.py -s {sub} >> jobs/reg_smooth_gPPI_job.txt")
-    # os.system('launch -N 48 -n 48 -J smooth -s jobs/reg_smooth_gPPI_job.txt -m achennings@utexas.edu -p normal -r 10:00:00 -A LewPea_MRI_Analysis')
-    for seed in ['amyg_cem','amyg_bla','hc_head']:
+    #for smooth or reg
+    for sub in all_sub_args:
+        os.system(f"echo singularity run --cleanenv $SCRATCH/bids-apps/neurosft.simg python $HOME/gPPI/wrap_glm_utils.py -s {sub} >> jobs/smooth2_gPPI_job.txt")
+    os.system('launch -N 48 -n 48 -J smooth -s jobs/reg_smooth_gPPI_job.txt -m achennings@utexas.edu -p normal -r 10:00:00 -A LewPea_MRI_Analysis')
+    
+    #for MVM
+    # for seed in ['amyg_cem','amyg_bla','hc_head']:
     # for seed in ['hc_body','hc_tail']:
-        os.system(f'echo "bash -x /home1/05426/ach3377/gPPI/gPPI_MVM/{seed}_MVM.txt" >> gPPI_MVM/{seed}_job.txt')
-        os.system(f'launch -N 1 -n 64 -p largemem512GB -J {seed} -s gPPI_MVM/{seed}_job.txt -m achennings@utexas.edu -r 48:00:00 -A LewPea_MRI_Analysis')
+        # os.system(f'echo "bash -x /home1/05426/ach3377/gPPI/gPPI_MVM/{seed}_MVM.txt" >> gPPI_MVM/{seed}_job.txt')
+        # os.system(f'launch -N 1 -n 64 -p largemem512GB -J {seed} -s gPPI_MVM/{seed}_job.txt -m achennings@utexas.edu -r 48:00:00 -A LewPea_MRI_Analysis')
 
