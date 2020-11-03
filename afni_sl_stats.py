@@ -69,7 +69,7 @@ def one_samp_ttest(subs=None,phase=None,name=''):
     cd_cmd = f'cd {out_dir}'
     clustsim_cmd = f'3dttest++ -setA {setA} \
                                -Clustsim 48 \
-                               -mask {std_2009_brain_mask_3mm} \
+                               -mask {gm_3mm_thr} \
                                -prefix {name}_{phase}_clst-ttest'
     
     script = f'{out_dir}/ttest_script.txt'
@@ -91,7 +91,7 @@ def one_samp_ttest(subs=None,phase=None,name=''):
                        -s {jobfile} \
                        -m achennings@utexas.edu \
                        -p normal \
-                       -r 0:20:00 \
+                       -r 0:05:00 \
                        -A LewPea_MRI_Analysis')
 one_samp_ttest(subs=sub_args,phase='acquisition',name='healthy')
 one_samp_ttest(subs=sub_args,phase='extinction',name='healthy')
@@ -104,7 +104,13 @@ def ers_cluster(contrast=None,thr=0,nvox=0,mask='../../standard/gm_3mm_thr.nii.g
         folder = contrast
         name = contrast.split('/')[-1]
         os.chdir(folder)
+        
+        cmap = f'{name}_ClusterMap.nii.gz';os.system(f'rm {cmap}')
+        ceff = f'{name}_ClusterEffEst.nii.gz';os.system(f'rm {ceff}')
 
+        ctxt = f'{name}_cluster.txt';os.system(f'rm {ctxt}')
+        where = f'{name}_where.txt';os.system(f'rm {where}')
+        
         cmd = f"3dClusterize -inset {name}_clst-ttest+orig \
                    -ithr 1 \
                    -idat 0 \
@@ -112,14 +118,21 @@ def ers_cluster(contrast=None,thr=0,nvox=0,mask='../../standard/gm_3mm_thr.nii.g
                    -NN 3 \
                    -1sided RIGHT_TAIL p={thr} \
                    -clust_nvox {nvox} \
-                   -pref_map ClusterMap.nii.gz \
-                   -pref_dat ClusterEffEst.nii.gz"
+                   -pref_map {cmap} \
+                   -pref_dat {ceff} > {ctxt}"
 
+        
         os.system(cmd)
+        
+        if os.path.exists(f'{name}_ClusterMap.nii.gz'):
+            w_cmd = f"whereami -coord_file {ctxt}'[1,2,3]' > {where}"
+            os.system(w_cmd)
+        
+
         os.chdir(here)
 
-ers_cluster(contrast=f'{HOME}/Desktop/ers_comps/healthy_acquisition',thr=0.01,nvox=212)
-ers_cluster(contrast=f'{HOME}/Desktop/ers_comps/healthy_extinction',thr=0.01,nvox=197)
-ers_cluster(contrast=f'{HOME}/Desktop/ers_comps/ptsd_acquisition',thr=0.01,nvox=245)
-ers_cluster(contrast=f'{HOME}/Desktop/ers_comps/ptsd_extinction',thr=0.01,nvox=240)
+ers_cluster(contrast=f'{HOME}/Desktop/ers_comps/healthy_acquisition',thr=0.01,nvox=20)
+ers_cluster(contrast=f'{HOME}/Desktop/ers_comps/healthy_extinction',thr=0.01,nvox=20)
+ers_cluster(contrast=f'{HOME}/Desktop/ers_comps/ptsd_acquisition',thr=0.01,nvox=20)
+ers_cluster(contrast=f'{HOME}/Desktop/ers_comps/ptsd_extinction',thr=0.01,nvox=21)
 

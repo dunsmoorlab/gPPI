@@ -37,6 +37,7 @@ def smooth_est(sub):
             est_noise = f'3dFWHMx -mask {std_2009_brain_mask} \
                                   -input {reg_std}/res4d.nii.gz \
                                   -acf >> noise_estimates.txt'
+            os.system(est_noise)
 #started at 9:43, need 15 repititions per sub
 #
 def gPPI_datatables():
