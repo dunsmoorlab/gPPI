@@ -161,7 +161,7 @@ def cscomp(group,df,rois,statsdf,n_boot=10000,phases=None):
         Ax.hlines(0,Ax.get_xlim()[0],Ax.get_xlim()[1],color='black',linestyle=':',linewidth=3)
 
 
-        Ax.set_xticklabels(['Baseline','Acquisition','Extinction'],rotation=45,ha='center',fontsize=20)
+        Ax.set_xticklabels(['Pre acq.','Acquisition','Extinction'],rotation=45,ha='center',fontsize=20)
         for labeli, t in enumerate(Ax.xaxis.get_ticklabels()): t.set_color(stable_pal[labeli])
         Ax.set_xlabel('')
 
