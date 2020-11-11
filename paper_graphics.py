@@ -50,24 +50,28 @@ for group in groups:
 diff = mdf.reset_index().set_index(['trial_type','group','roi','encode_phase','subject'])
 diff = (diff.loc['CS+'] - diff.loc['CS-']).reset_index()
 
-diff.roi = diff.roi.apply(pfc_rename)
+diff.roi = diff.roi.apply(pfc_rename).apply(amyg_rename)
 stats = stats.reset_index()
-stats.roi = stats.roi.apply(pfc_rename)
+stats.roi = stats.roi.apply(pfc_rename).apply(amyg_rename)
 stats = stats.set_index(['group','roi','phase'])
-
-
 diff = diff.set_index(['group','roi','encode_phase']).sort_index()
+
 cscomp('healthy',diff,['dACC','vmPFC'],stats,phases=phase3)
 cscomp('ptsd',diff,['dACC','vmPFC'],stats,phases=phase3)
 
+cscomp('healthy',diff,['Amyg. BLA','Amyg. CeM'],stats,phases=phase3)
+cscomp('ptsd',diff,['Amyg. BLA','Amyg. CeM'],stats,phases=phase3)
+
 pg.wilcoxon(diff.loc[('healthy','dACC','extinction'),'rsa'], diff.loc[('healthy','dACC','acquisition'),'rsa'])
 pg.wilcoxon(diff.loc[('healthy','vmPFC','extinction'),'rsa'], diff.loc[('healthy','vmPFC','acquisition'),'rsa'])
+pg.wilcoxon(diff.loc[('healthy','amyg_cem','extinction'),'rsa'], diff.loc[('healthy','amyg_cem','acquisition'),'rsa'])
 
 pg.wilcoxon(diff.loc[('ptsd','dACC','extinction'),'rsa'], diff.loc[('ptsd','dACC','acquisition'),'rsa'])
 pg.wilcoxon(diff.loc[('ptsd','vmPFC','extinction'),'rsa'], diff.loc[('ptsd','vmPFC','acquisition'),'rsa'])
 
 pg.mwu(diff.loc[('healthy','vmPFC','extinction'),'rsa'], diff.loc[('ptsd','vmPFC','extinction'),'rsa'])
 pg.mwu(diff.loc[('healthy','dACC','extinction'),'rsa'], diff.loc[('ptsd','dACC','extinction'),'rsa'])
+
 
 
 
@@ -99,7 +103,8 @@ for group in groups:
         for cope in copes:
             con1, con2 = copes[cope][0], copes[cope][1]
             for target in targets:
-                wres = pg.wilcoxon(df.loc[(con1,group,seed,target),'conn'],df.loc[(con2,group,seed,target),'conn'])
+                # wres = pg.wilcoxon(df.loc[(con1,group,seed,target),'conn'],df.loc[(con2,group,seed,target),'conn'])
+                # wres = pg.wilcoxon(df.loc[(con1,group,seed,target),'conn'],df.loc[(con2,group,seed,target),'conn'])
                 stats.loc[(group,seed,cope,target),['w','p','cles']] = wres[['W-val','p-val','CLES']].values
 
                 #these lines for bilateral rois
@@ -112,19 +117,20 @@ stats.p_mask = stats.p_fdr.apply(lambda x: 0 if x >.05 else 1)
 stats['cles_disp'] = stats.cles * stats.p_mask
 
 
+roi = 'amyg_bla'
 cem = df.reset_index()
-cem = cem[cem.seed == 'amyg_cem']
+cem = cem[cem.seed == roi]
 cem = pd.concat((cem[cem.cope == 'CS+E'], cem[cem.cope == 'CS+A'])).set_index('cope')
 
 cem = (df.loc['CS+E'] - df.loc['CS+A'])
 
-pg.mwu(cem.loc[('ptsd','amyg_cem','rACC'),'conn'], cem.loc[('healthy','amyg_cem','rACC'),'conn'])
-pg.wilcoxon(cem.loc[('ptsd','amyg_cem','rACC'),'conn'], cem.loc[('ptsd','amyg_cem','sgACC'),'conn'])
-pg.wilcoxon(cem.loc[('healthy','amyg_cem','rACC'),'conn'], cem.loc[('healthy','amyg_cem','sgACC'),'conn'])
+pg.mwu(cem.loc[('ptsd',roi,'rACC'),'conn'], cem.loc[('healthy',roi,'rACC'),'conn'])
+pg.wilcoxon(cem.loc[('ptsd',roi,'rACC'),'conn'], cem.loc[('ptsd',roi,'sgACC'),'conn'])
+pg.wilcoxon(cem.loc[('healthy',roi,'rACC'),'conn'], cem.loc[('healthy',roi,'sgACC'),'conn'])
 
 
 cem = cem.reset_index()
-cem = cem[cem.seed == 'amyg_cem']
+cem = cem[cem.seed == roi]
 
 cem.target = cem.target.apply(pfc_rename)
 
@@ -139,7 +145,7 @@ legend_elements = [Patch(facecolor=qpal[0],edgecolor=None,label='dACC'),
 ax.legend(handles=legend_elements,loc='lower center')
 ax.legend_.set_title('gPPI Target')
 ax.set_title('gPPI seed = Amygdala CeM',fontsize=30)
-plt.plt.tight_layout()
+plt.tight_layout()
 # #lets look at this split out
 # df = pd.read_csv('extracted_mem_apriori_gPPI.csv')
 # df['group'] = df.subject.apply(lgroup)
