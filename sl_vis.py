@@ -41,12 +41,7 @@ vis_ers_comp(group='ptsd',phase='extinction',surf='inflated_pre',cmap='Greens')
 vis_ers_comp(group='ptsd',phase='acquisition',surf='inflated_pre',cmap='Purples',split='both')
 
 
-for cmap in [mpl.cm.Purples,mpl.cm.Greens]:
-    fig, ax = plt.subplots(figsize=(6, 1),sharex=False)
-    fig.subplots_adjust(bottom=0.5)
-    norm = mpl.colors.Normalize(vmin=0, vmax=.5)
-    cb1 = mpl.colorbar.ColorbarBase(ax, cmap=cmap,
-                                    norm=norm, orientation='horizontal')
+
     # cb2 = mpl.colorbar.ColorbarBase(ax[1], cmap=mpl.cm.Greens,
     #                                 norm=norm, orientation='horizontal')
     # cb1.set_label('CS+ - CS- reinstatement')
