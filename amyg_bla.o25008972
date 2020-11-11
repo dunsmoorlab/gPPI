@@ -1,0 +1,541 @@
+ Starting at Sun Nov  1 17:50:09 CST 2020
+ WORKING DIR: /opt/tacc_mounts/home1/05426/ach3377/gPPI/
+ JOB ID:      25008972
+ JOB NAME:    amyg_bla
+ NODES:       nid02005
+ N NODES:     1
+ N TASKS:     1
++ bash -x /home1/05426/ach3377/gPPI/gPPI_MVM/amyg_bla_MVM.txt
++ LMOD_CMD=/opt/apps/lmod/lmod/libexec/lmod
++ LMOD_DIR=/opt/apps/lmod/lmod/libexec
++ '[' -z more ']'
++ '[' : '!=' : ']'
++ module load cray_mpich Rstats gsl afni
++ '[' -z '' ']'
++ case "$-" in
++ __lmod_sh_dbg=x
++ '[' -n x ']'
++ set +x
+Shell debugging temporarily silenced: export LMOD_SH_DBG_ON=1 for Lmod's output
+
+Lmod is automatically replacing "impi-largemem/18.0.2" with "cray_mpich/7.7.3".
+
+
+Due to MODULEPATH changes, the following have been reloaded:
+  1) python3/3.7.0
+
+Shell debugging restarted
++ unset __lmod_sh_dbg
++ return 0
++ export OMP_NUM_THREADS=64
++ OMP_NUM_THREADS=64
++ 3dMVM -prefix /scratch/05426/ach3377/gPPI_MVM/amyg_bla -jobs 64 -bsVars Group -wsVars 'Encode*Condition' -mask /scratch/05426/ach3377/standard/gm_1mm_thr.nii.gz -SS_type 2 -num_glt 12 -gltLabel 1 H_CSpA__CSmA -gltCode 1 'Group : 1*healthy Encode : 1*acquisition Condition : 1*CSp -1*CSm' -gltLabel 2 H_CSpE__CSmE -gltCode 2 'Group : 1*healthy Encode : 1*extinction Condition : 1*CSp -1*CSm' -gltLabel 3 H_CSpE__CSpA -gltCode 3 'Group : 1*healthy Encode : 1*extinction -1*acquisition Condition : 1*CSp' -gltLabel 4 H_CSmE__CSmA -gltCode 4 'Group : 1*healthy Encode : 1*extinction -1*acquisition Condition : 1*CSm' -gltLabel 5 P_CSpA__CSmA -gltCode 5 'Group : 1*ptss Encode : 1*acquisition Condition : 1*CSp -1*CSm' -gltLabel 6 P_CSpE__CSmE -gltCode 6 'Group : 1*ptss Encode : 1*extinction Condition : 1*CSp -1*CSm' -gltLabel 7 P_CSpE__CSpA -gltCode 7 'Group : 1*ptss Encode : 1*extinction -1*acquisition Condition : 1*CSp' -gltLabel 8 P_CSmE__CSmA -gltCode 8 'Group : 1*ptss Encode : 1*extinction -1*acquisition Condition : 1*CSm' -gltLabel 9 H__P_CSpA__CSmA -gltCode 9 'Group : 1*healthy -1*ptss Encode : 1*acquisition Condition : 1*CSp -1*CSm' -gltLabel 10 H__P_CSpE__CSmE -gltCode 10 'Group : 1*healthy -1*ptss Encode : 1*extinction Condition : 1*CSp -1*CSm' -gltLabel 11 H__P_CSpE__CSpA -gltCode 11 'Group : 1*healthy -1*ptss Encode : 1*extinction -1*acquisition Condition : 1*CSp' -gltLabel 12 H__P_CSmE__CSmA -gltCode 12 'Group : 1*healthy -1*ptss Encode : 1*extinction -1*acquisition Condition : 1*CSm' -dataTable @/home1/05426/ach3377/gPPI/gPPI_MVM/amyg_bla_dataTable.txt
+Read 3462 items
+Loading required package: lme4
+Loading required package: Matrix
+Registered S3 methods overwritten by 'car':
+  method                          from
+  influence.merMod                lme4
+  cooks.distance.influence.merMod lme4
+  dfbeta.influence.merMod         lme4
+  dfbetas.influence.merMod        lme4
+************
+Welcome to afex. For support visit: http://afex.singmann.science/
+- Functions for ANOVAs: aov_car(), aov_ez(), and aov_4()
+- Methods for calculating p-values with mixed(): 'KR', 'S', 'LRT', and 'PB'
+- 'afex_aov' and 'mixed' objects can be passed to emmeans() for follow-up tests
+- NEWS: library('emmeans') now needs to be called explicitly!
+- Get and set global package options with: afex_options()
+- Set orthogonal sum-to-zero contrasts globally: set_sum_contrasts()
+- For example analyses see: browseVignettes("afex")
+************
+
+Attaching package: ‘afex’
+
+The following object is masked from ‘package:lme4’:
+
+    lmer
+
+Loading required package: car
+Loading required package: carData
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++
+***** Summary information of data structure *****
+48 subjects :  1 10 101 102 103 104 105 106 107 108 109 110 111 112 113 114 115 116 117 118 12 120 121 122 123 124 125 13 14 15 16 17 18 19 2 20 21 23 24 25 26 3 4 5 6 7 8 9 
+576 response values
+2 levels for factor Group : healthy ptss 
+2 levels for factor Encode : acquisition extinction 
+2 levels for factor Condition : CSm CSp 
+3 levels for factor Sess : 1 2 3 
+12 post hoc tests
+
+Contingency tables of subject distributions among the categorical variables:
+
+, , Condition = CSm
+
+         Encode
+Group     acquisition extinction
+  healthy          72         72
+  ptss             72         72
+
+, , Condition = CSp
+
+         Encode
+Group     acquisition extinction
+  healthy          72         72
+  ptss             72         72
+
+
+Tabulation of subjects against each of the categorical variables:
+~~~~~~~~~~~~~~
+lop$nSubj vs Group:
+     
+      healthy ptss
+  1        12    0
+  10       12    0
+  101       0   12
+  102       0   12
+  103       0   12
+  104       0   12
+  105       0   12
+  106       0   12
+  107       0   12
+  108       0   12
+  109       0   12
+  110       0   12
+  111       0   12
+  112       0   12
+  113       0   12
+  114       0   12
+  115       0   12
+  116       0   12
+  117       0   12
+  118       0   12
+  12       12    0
+  120       0   12
+  121       0   12
+  122       0   12
+  123       0   12
+  124       0   12
+  125       0   12
+  13       12    0
+  14       12    0
+  15       12    0
+  16       12    0
+  17       12    0
+  18       12    0
+  19       12    0
+  2        12    0
+  20       12    0
+  21       12    0
+  23       12    0
+  24       12    0
+  25       12    0
+  26       12    0
+  3        12    0
+  4        12    0
+  5        12    0
+  6        12    0
+  7        12    0
+  8        12    0
+  9        12    0
+
+~~~~~~~~~~~~~~
+lop$nSubj vs Encode:
+     
+      acquisition extinction
+  1             6          6
+  10            6          6
+  101           6          6
+  102           6          6
+  103           6          6
+  104           6          6
+  105           6          6
+  106           6          6
+  107           6          6
+  108           6          6
+  109           6          6
+  110           6          6
+  111           6          6
+  112           6          6
+  113           6          6
+  114           6          6
+  115           6          6
+  116           6          6
+  117           6          6
+  118           6          6
+  12            6          6
+  120           6          6
+  121           6          6
+  122           6          6
+  123           6          6
+  124           6          6
+  125           6          6
+  13            6          6
+  14            6          6
+  15            6          6
+  16            6          6
+  17            6          6
+  18            6          6
+  19            6          6
+  2             6          6
+  20            6          6
+  21            6          6
+  23            6          6
+  24            6          6
+  25            6          6
+  26            6          6
+  3             6          6
+  4             6          6
+  5             6          6
+  6             6          6
+  7             6          6
+  8             6          6
+  9             6          6
+
+~~~~~~~~~~~~~~
+lop$nSubj vs Condition:
+     
+      CSm CSp
+  1     6   6
+  10    6   6
+  101   6   6
+  102   6   6
+  103   6   6
+  104   6   6
+  105   6   6
+  106   6   6
+  107   6   6
+  108   6   6
+  109   6   6
+  110   6   6
+  111   6   6
+  112   6   6
+  113   6   6
+  114   6   6
+  115   6   6
+  116   6   6
+  117   6   6
+  118   6   6
+  12    6   6
+  120   6   6
+  121   6   6
+  122   6   6
+  123   6   6
+  124   6   6
+  125   6   6
+  13    6   6
+  14    6   6
+  15    6   6
+  16    6   6
+  17    6   6
+  18    6   6
+  19    6   6
+  2     6   6
+  20    6   6
+  21    6   6
+  23    6   6
+  24    6   6
+  25    6   6
+  26    6   6
+  3     6   6
+  4     6   6
+  5     6   6
+  6     6   6
+  7     6   6
+  8     6   6
+  9     6   6
+
+~~~~~~~~~~~~~~
+lop$nSubj vs Sess:
+     
+      1 2 3
+  1   4 4 4
+  10  4 4 4
+  101 4 4 4
+  102 4 4 4
+  103 4 4 4
+  104 4 4 4
+  105 4 4 4
+  106 4 4 4
+  107 4 4 4
+  108 4 4 4
+  109 4 4 4
+  110 4 4 4
+  111 4 4 4
+  112 4 4 4
+  113 4 4 4
+  114 4 4 4
+  115 4 4 4
+  116 4 4 4
+  117 4 4 4
+  118 4 4 4
+  12  4 4 4
+  120 4 4 4
+  121 4 4 4
+  122 4 4 4
+  123 4 4 4
+  124 4 4 4
+  125 4 4 4
+  13  4 4 4
+  14  4 4 4
+  15  4 4 4
+  16  4 4 4
+  17  4 4 4
+  18  4 4 4
+  19  4 4 4
+  2   4 4 4
+  20  4 4 4
+  21  4 4 4
+  23  4 4 4
+  24  4 4 4
+  25  4 4 4
+  26  4 4 4
+  3   4 4 4
+  4   4 4 4
+  5   4 4 4
+  6   4 4 4
+  7   4 4 4
+  8   4 4 4
+  9   4 4 4
+
+***** End of data structure information *****
+++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Reading input files now...
+
+Reading input files: Done!
+
+
+Range of input data: [-28.321, 32.847]
+
+If the program hangs here for more than, for example, half an hour,
+kill the process because the model specification or the GLT coding
+is likely inappropriate.
+
+[1] "Great, test run passed at voxel (149, 79, 84)!"
+[1] "Start to compute 193 slices along Z axis. You can monitor the progress"
+[1] "and estimate the total run time as shown below."
+[1] "11/01/20 17:58:28.259"
+Loading required package: snow
+Package snow loaded successfully!
+
+Z slice  1 done:  11/01/20 17:59:52.793 
+Z slice  2 done:  11/01/20 17:59:55.259 
+Z slice  3 done:  11/01/20 17:59:57.363 
+Z slice  4 done:  11/01/20 17:59:59.458 
+Z slice  5 done:  11/01/20 18:00:01.971 
+Z slice  6 done:  11/01/20 18:00:03.847 
+Z slice  7 done:  11/01/20 18:00:05.649 
+Z slice  8 done:  11/01/20 18:00:07.668 
+Z slice  9 done:  11/01/20 18:00:09.477 
+Z slice  10 done:  11/01/20 18:00:12.008 
+Z slice  11 done:  11/01/20 18:00:16.288 
+Z slice  12 done:  11/01/20 18:00:23.935 
+Z slice  13 done:  11/01/20 18:00:43.269 
+Z slice  14 done:  11/01/20 18:01:27.151 
+Z slice  15 done:  11/01/20 18:02:36.054 
+Z slice  16 done:  11/01/20 18:04:41.236 
+Z slice  17 done:  11/01/20 18:08:18.772 
+Z slice  18 done:  11/01/20 18:13:08.179 
+Z slice  19 done:  11/01/20 18:18:54.760 
+Z slice  20 done:  11/01/20 18:25:20.688 
+Z slice  21 done:  11/01/20 18:32:11.172 
+Z slice  22 done:  11/01/20 18:39:28.594 
+Z slice  23 done:  11/01/20 18:47:05.717 
+Z slice  24 done:  11/01/20 18:55:04.636 
+Z slice  25 done:  11/01/20 19:03:10.453 
+Z slice  26 done:  11/01/20 19:11:26.298 
+Z slice  27 done:  11/01/20 19:20:13.789 
+Z slice  28 done:  11/01/20 19:29:22.854 
+Z slice  29 done:  11/01/20 19:39:12.744 
+Z slice  30 done:  11/01/20 19:49:50.773 
+Z slice  31 done:  11/01/20 20:01:03.971 
+Z slice  32 done:  11/01/20 20:12:40.976 
+Z slice  33 done:  11/01/20 20:24:30.690 
+Z slice  34 done:  11/01/20 20:36:47.093 
+Z slice  35 done:  11/01/20 20:49:11.578 
+Z slice  36 done:  11/01/20 21:01:30.827 
+Z slice  37 done:  11/01/20 21:13:45.087 
+Z slice  38 done:  11/01/20 21:26:29.866 
+Z slice  39 done:  11/01/20 21:39:29.090 
+Z slice  40 done:  11/01/20 21:52:38.855 
+Z slice  41 done:  11/01/20 22:06:07.135 
+Z slice  42 done:  11/01/20 22:19:59.993 
+Z slice  43 done:  11/01/20 22:34:31.280 
+Z slice  44 done:  11/01/20 22:49:54.097 
+Z slice  45 done:  11/01/20 23:05:51.535 
+Z slice  46 done:  11/01/20 23:22:14.357 
+Z slice  47 done:  11/01/20 23:39:11.205 
+Z slice  48 done:  11/01/20 23:57:19.480 
+Z slice  49 done:  11/02/20 00:16:52.212 
+Z slice  50 done:  11/02/20 00:39:46.095 
+Z slice  51 done:  11/02/20 01:04:54.150 
+Z slice  52 done:  11/02/20 01:31:49.842 
+Z slice  53 done:  11/02/20 02:00:23.979 
+Z slice  54 done:  11/02/20 02:29:57.845 
+Z slice  55 done:  11/02/20 03:00:40.479 
+Z slice  56 done:  11/02/20 03:31:46.503 
+Z slice  57 done:  11/02/20 04:03:30.581 
+Z slice  58 done:  11/02/20 04:36:03.890 
+Z slice  59 done:  11/02/20 05:09:35.178 
+Z slice  60 done:  11/02/20 05:44:24.938 
+Z slice  61 done:  11/02/20 06:20:02.582 
+Z slice  62 done:  11/02/20 06:55:18.630 
+Z slice  63 done:  11/02/20 07:29:54.034 
+Z slice  64 done:  11/02/20 08:04:06.326 
+Z slice  65 done:  11/02/20 08:38:22.583 
+Z slice  66 done:  11/02/20 09:11:54.609 
+Z slice  67 done:  11/02/20 09:44:51.386 
+Z slice  68 done:  11/02/20 10:17:02.424 
+Z slice  69 done:  11/02/20 10:48:41.968 
+Z slice  70 done:  11/02/20 11:20:02.608 
+Z slice  71 done:  11/02/20 11:51:18.222 
+Z slice  72 done:  11/02/20 12:22:29.860 
+Z slice  73 done:  11/02/20 12:53:05.313 
+Z slice  74 done:  11/02/20 13:23:14.354 
+Z slice  75 done:  11/02/20 13:53:01.520 
+Z slice  76 done:  11/02/20 14:22:07.291 
+Z slice  77 done:  11/02/20 14:50:27.380 
+Z slice  78 done:  11/02/20 15:18:37.356 
+Z slice  79 done:  11/02/20 15:46:33.123 
+Z slice  80 done:  11/02/20 16:15:14.972 
+Z slice  81 done:  11/02/20 16:44:49.608 
+Z slice  82 done:  11/02/20 17:15:24.309 
+Z slice  83 done:  11/02/20 17:46:53.102 
+Z slice  84 done:  11/02/20 18:18:31.669 
+Z slice  85 done:  11/02/20 18:49:59.118 
+Z slice  86 done:  11/02/20 19:20:53.595 
+Z slice  87 done:  11/02/20 19:50:55.843 
+Z slice  88 done:  11/02/20 20:20:09.032 
+Z slice  89 done:  11/02/20 20:48:55.374 
+Z slice  90 done:  11/02/20 21:17:03.397 
+Z slice  91 done:  11/02/20 21:45:14.671 
+Z slice  92 done:  11/02/20 22:12:58.450 
+Z slice  93 done:  11/02/20 22:39:59.503 
+Z slice  94 done:  11/02/20 23:06:03.797 
+Z slice  95 done:  11/02/20 23:31:39.640 
+Z slice  96 done:  11/02/20 23:56:57.477 
+Z slice  97 done:  11/03/20 00:22:00.924 
+Z slice  98 done:  11/03/20 00:47:05.761 
+Z slice  99 done:  11/03/20 01:11:47.518 
+Z slice  100 done:  11/03/20 01:36:00.239 
+Z slice  101 done:  11/03/20 01:59:43.096 
+Z slice  102 done:  11/03/20 02:22:50.388 
+Z slice  103 done:  11/03/20 02:45:11.381 
+Z slice  104 done:  11/03/20 03:06:56.424 
+Z slice  105 done:  11/03/20 03:28:50.258 
+Z slice  106 done:  11/03/20 03:50:49.677 
+Z slice  107 done:  11/03/20 04:12:31.345 
+Z slice  108 done:  11/03/20 04:34:36.847 
+Z slice  109 done:  11/03/20 04:55:49.941 
+Z slice  110 done:  11/03/20 05:16:35.553 
+Z slice  111 done:  11/03/20 05:37:28.474 
+Z slice  112 done:  11/03/20 05:58:17.507 
+Z slice  113 done:  11/03/20 06:19:17.233 
+Z slice  114 done:  11/03/20 06:40:27.631 
+Z slice  115 done:  11/03/20 07:01:53.342 
+Z slice  116 done:  11/03/20 07:23:50.007 
+Z slice  117 done:  11/03/20 07:46:23.845 
+Z slice  118 done:  11/03/20 08:09:35.707 
+Z slice  119 done:  11/03/20 08:32:25.038 
+Z slice  120 done:  11/03/20 08:55:04.235 
+Z slice  121 done:  11/03/20 09:17:12.673 
+Z slice  122 done:  11/03/20 09:38:50.008 
+Z slice  123 done:  11/03/20 10:00:22.993 
+Z slice  124 done:  11/03/20 10:21:34.491 
+Z slice  125 done:  11/03/20 10:42:41.165 
+Z slice  126 done:  11/03/20 11:03:44.200 
+Z slice  127 done:  11/03/20 11:24:27.129 
+Z slice  128 done:  11/03/20 11:44:40.286 
+Z slice  129 done:  11/03/20 12:04:42.094 
+Z slice  130 done:  11/03/20 12:23:44.216 
+Z slice  131 done:  11/03/20 12:41:52.470 
+Z slice  132 done:  11/03/20 12:58:49.303 
+Z slice  133 done:  11/03/20 13:15:08.834 
+Z slice  134 done:  11/03/20 13:30:49.716 
+Z slice  135 done:  11/03/20 13:45:43.400 
+Z slice  136 done:  11/03/20 13:59:48.691 
+Z slice  137 done:  11/03/20 14:13:05.973 
+Z slice  138 done:  11/03/20 14:25:58.718 
+Z slice  139 done:  11/03/20 14:38:12.144 
+Z slice  140 done:  11/03/20 14:49:42.866 
+Z slice  141 done:  11/03/20 15:00:41.537 
+Z slice  142 done:  11/03/20 15:11:20.474 
+Z slice  143 done:  11/03/20 15:21:28.310 
+Z slice  144 done:  11/03/20 15:31:09.887 
+Z slice  145 done:  11/03/20 15:40:22.339 
+Z slice  146 done:  11/03/20 15:48:39.098 
+Z slice  147 done:  11/03/20 15:56:37.303 
+Z slice  148 done:  11/03/20 16:03:48.895 
+Z slice  149 done:  11/03/20 16:10:13.144 
+Z slice  150 done:  11/03/20 16:15:59.757 
+Z slice  151 done:  11/03/20 16:21:13.790 
+Z slice  152 done:  11/03/20 16:25:53.968 
+Z slice  153 done:  11/03/20 16:30:15.818 
+Z slice  154 done:  11/03/20 16:33:56.682 
+Z slice  155 done:  11/03/20 16:36:48.096 
+Z slice  156 done:  11/03/20 16:38:27.183 
+Z slice  157 done:  11/03/20 16:39:22.385 
+Z slice  158 done:  11/03/20 16:39:55.179 
+Z slice  159 done:  11/03/20 16:40:19.424 
+Z slice  160 done:  11/03/20 16:40:23.981 
+Z slice  161 done:  11/03/20 16:40:26.731 
+Z slice  162 done:  11/03/20 16:40:29.170 
+Z slice  163 done:  11/03/20 16:40:31.506 
+Z slice  164 done:  11/03/20 16:40:33.974 
+Z slice  165 done:  11/03/20 16:40:36.084 
+Z slice  166 done:  11/03/20 16:40:38.366 
+Z slice  167 done:  11/03/20 16:40:40.554 
+Z slice  168 done:  11/03/20 16:40:42.658 
+Z slice  169 done:  11/03/20 16:40:44.748 
+Z slice  170 done:  11/03/20 16:40:47.034 
+Z slice  171 done:  11/03/20 16:40:48.896 
+Z slice  172 done:  11/03/20 16:40:50.883 
+Z slice  173 done:  11/03/20 16:40:52.949 
+Z slice  174 done:  11/03/20 16:40:54.909 
+Z slice  175 done:  11/03/20 16:40:57.395 
+Z slice  176 done:  11/03/20 16:40:59.374 
+Z slice  177 done:  11/03/20 16:41:01.291 
+Z slice  178 done:  11/03/20 16:41:03.864 
+Z slice  179 done:  11/03/20 16:41:06.240 
+Z slice  180 done:  11/03/20 16:41:08.575 
+Z slice  181 done:  11/03/20 16:41:10.856 
+Z slice  182 done:  11/03/20 16:41:13.130 
+Z slice  183 done:  11/03/20 16:41:15.345 
+Z slice  184 done:  11/03/20 16:41:17.768 
+Z slice  185 done:  11/03/20 16:41:20.761 
+Z slice  186 done:  11/03/20 16:41:24.994 
+Z slice  187 done:  11/03/20 16:41:27.645 
+Z slice  188 done:  11/03/20 16:41:30.646 
+Z slice  189 done:  11/03/20 16:41:32.795 
+Z slice  190 done:  11/03/20 16:41:34.975 
+Z slice  191 done:  11/03/20 16:41:37.166 
+Z slice  192 done:  11/03/20 16:41:39.712 
+Z slice  193 done:  11/03/20 16:41:41.809 
+++ Smallest FDR q [0 (Intercept) F] = 0.000430614
+[7m*+ WARNING:[0m Smallest FDR q [1 Group F] = 0.978053 ==> few true single voxel detections
+[7m*+ WARNING:[0m Smallest FDR q [2 Encode F] = 0.963451 ==> few true single voxel detections
+[7m*+ WARNING:[0m Smallest FDR q [3 Group:Encode F] = 0.966968 ==> few true single voxel detections
+[7m*+ WARNING:[0m Smallest FDR q [4 Condition F] = 0.573774 ==> few true single voxel detections
+[7m*+ WARNING:[0m Smallest FDR q [5 Group:Condition F] = 0.689402 ==> few true single voxel detections
+[7m*+ WARNING:[0m Smallest FDR q [6 Encode:Condition F] = 0.977363 ==> few true single voxel detections
+[7m*+ WARNING:[0m Smallest FDR q [7 Group:Encode:Condition F] = 0.977663 ==> few true single voxel detections
+[7m*+ WARNING:[0m Smallest FDR q [9 H_CSpA__CSmA t] = 0.999786 ==> few true single voxel detections
+[7m*+ WARNING:[0m Smallest FDR q [11 H_CSpE__CSmE t] = 0.99987 ==> few true single voxel detections
+[7m*+ WARNING:[0m Smallest FDR q [13 H_CSpE__CSpA t] = 0.999876 ==> few true single voxel detections
+[7m*+ WARNING:[0m Smallest FDR q [15 H_CSmE__CSmA t] = 0.999884 ==> few true single voxel detections
+[7m*+ WARNING:[0m Smallest FDR q [17 P_CSpA__CSmA t] = 0.371236 ==> few true single voxel detections
+[7m*+ WARNING:[0m Smallest FDR q [19 P_CSpE__CSmE t] = 0.797254 ==> few true single voxel detections
+[7m*+ WARNING:[0m Smallest FDR q [21 P_CSpE__CSpA t] = 0.958682 ==> few true single voxel detections
+[7m*+ WARNING:[0m Smallest FDR q [23 P_CSmE__CSmA t] = 0.961521 ==> few true single voxel detections
+[7m*+ WARNING:[0m Smallest FDR q [25 H__P_CSpA__CSmA t] = 0.999788 ==> few true single voxel detections
+[7m*+ WARNING:[0m Smallest FDR q [27 H__P_CSpE__CSmE t] = 0.813862 ==> few true single voxel detections
+[7m*+ WARNING:[0m Smallest FDR q [29 H__P_CSpE__CSpA t] = 0.999842 ==> few true single voxel detections
+[7m*+ WARNING:[0m Smallest FDR q [31 H__P_CSmE__CSmA t] = 0.999203 ==> few true single voxel detections
+
+Congratulations! You have got an output /scratch/05426/ach3377/gPPI_MVM/amyg_bla+tlrc.
+
+Warning message:
+More than one observation per cell, aggregating the data using mean (i.e, fun_aggregate = mean)! 
+slurmstepd: error: *** JOB 25008972 ON nid02005 CANCELLED AT 2020-11-03T17:50:14 DUE TO TIME LIMIT ***

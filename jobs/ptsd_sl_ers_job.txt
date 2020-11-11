@@ -1,0 +1,1 @@
+singularity run --cleanenv /scratch/05426/ach3377/bids-apps/neurosft.simg bash -x /scratch/05426/ach3377/searchlight/ers_comps/ptsd_extinction/ttest_script.txt

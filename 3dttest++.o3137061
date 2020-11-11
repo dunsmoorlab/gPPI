@@ -1,0 +1,896 @@
+ Starting at Thu Nov  5 18:31:07 CST 2020
+ WORKING DIR: /opt/tacc_mounts/home1/05426/ach3377/gPPI/
+ JOB ID:      3137061
+ JOB NAME:    3dttest++
+ NODES:       nid01173
+ N NODES:     1
+ N TASKS:     1
++ singularity run --cleanenv /scratch/05426/ach3377/bids-apps/neurosft.simg bash -x /scratch/05426/ach3377/gPPI_comps/healthy_CSpE__CSpA/amyg_bla/ttest_script.txt
+Some packages in this Docker container are non-free
+If you are considering commercial use of this container, please consult the relevant license:
+https://fsl.fmrib.ox.ac.uk/fsl/fslwiki/Licence
++ export OMP_NUM_THREADS=48
++ OMP_NUM_THREADS=48
++ cd /scratch/05426/ach3377/gPPI_comps/healthy_CSpE__CSpA/amyg_bla
++ 3dttest++ -setA /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC001/gPPI_results/amyg_bla/extinction_CSp.nii.gz /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC002/gPPI_results/amyg_bla/extinction_CSp.nii.gz /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC003/gPPI_results/amyg_bla/extinction_CSp.nii.gz /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC004/gPPI_results/amyg_bla/extinction_CSp.nii.gz /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC005/gPPI_results/amyg_bla/extinction_CSp.nii.gz /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC006/gPPI_results/amyg_bla/extinction_CSp.nii.gz /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC007/gPPI_results/amyg_bla/extinction_CSp.nii.gz /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC008/gPPI_results/amyg_bla/extinction_CSp.nii.gz /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC009/gPPI_results/amyg_bla/extinction_CSp.nii.gz /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC010/gPPI_results/amyg_bla/extinction_CSp.nii.gz /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC012/gPPI_results/amyg_bla/extinction_CSp.nii.gz /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC013/gPPI_results/amyg_bla/extinction_CSp.nii.gz /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC014/gPPI_results/amyg_bla/extinction_CSp.nii.gz /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC015/gPPI_results/amyg_bla/extinction_CSp.nii.gz /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC016/gPPI_results/amyg_bla/extinction_CSp.nii.gz /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC017/gPPI_results/amyg_bla/extinction_CSp.nii.gz /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC018/gPPI_results/amyg_bla/extinction_CSp.nii.gz /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC019/gPPI_results/amyg_bla/extinction_CSp.nii.gz /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC020/gPPI_results/amyg_bla/extinction_CSp.nii.gz /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC021/gPPI_results/amyg_bla/extinction_CSp.nii.gz /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC023/gPPI_results/amyg_bla/extinction_CSp.nii.gz /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC024/gPPI_results/amyg_bla/extinction_CSp.nii.gz /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC025/gPPI_results/amyg_bla/extinction_CSp.nii.gz /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC026/gPPI_results/amyg_bla/extinction_CSp.nii.gz -setB /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC001/gPPI_results/amyg_bla/acquisition_CSp.nii.gz /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC002/gPPI_results/amyg_bla/acquisition_CSp.nii.gz /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC003/gPPI_results/amyg_bla/acquisition_CSp.nii.gz /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC004/gPPI_results/amyg_bla/acquisition_CSp.nii.gz /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC005/gPPI_results/amyg_bla/acquisition_CSp.nii.gz /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC006/gPPI_results/amyg_bla/acquisition_CSp.nii.gz /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC007/gPPI_results/amyg_bla/acquisition_CSp.nii.gz /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC008/gPPI_results/amyg_bla/acquisition_CSp.nii.gz /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC009/gPPI_results/amyg_bla/acquisition_CSp.nii.gz /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC010/gPPI_results/amyg_bla/acquisition_CSp.nii.gz /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC012/gPPI_results/amyg_bla/acquisition_CSp.nii.gz /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC013/gPPI_results/amyg_bla/acquisition_CSp.nii.gz /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC014/gPPI_results/amyg_bla/acquisition_CSp.nii.gz /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC015/gPPI_results/amyg_bla/acquisition_CSp.nii.gz /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC016/gPPI_results/amyg_bla/acquisition_CSp.nii.gz /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC017/gPPI_results/amyg_bla/acquisition_CSp.nii.gz /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC018/gPPI_results/amyg_bla/acquisition_CSp.nii.gz /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC019/gPPI_results/amyg_bla/acquisition_CSp.nii.gz /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC020/gPPI_results/amyg_bla/acquisition_CSp.nii.gz /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC021/gPPI_results/amyg_bla/acquisition_CSp.nii.gz /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC023/gPPI_results/amyg_bla/acquisition_CSp.nii.gz /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC024/gPPI_results/amyg_bla/acquisition_CSp.nii.gz /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC025/gPPI_results/amyg_bla/acquisition_CSp.nii.gz /scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC026/gPPI_results/amyg_bla/acquisition_CSp.nii.gz -AminusB -paired -Clustsim 48 -mask /scratch/05426/ach3377/standard/gm_1mm_thr.nii.gz -prefix healthy_CSpE__CSpA_clst-ttest
+++ 3dttest++: AFNI version=AFNI_20.2.18 (Sep 17 2020) [64-bit]
+++ Authored by: Zhark++
+++ option -setA :: processing as SHORT form (all values are datasets)
+++ have 24 volumes corresponding to option '-setA'
+++ option -setB :: processing as SHORT form (all values are datasets)
+++ have 24 volumes corresponding to option '-setB'
+++ Number of -Clustsim threads set to 48
+++ 1007894 voxels in -mask dataset
+++ paired test: results will be SetA - SetB
+++ loading -setA datasets
+++ loading -setB datasets
+++ t-testing:0123456789.0123456789.0123456789.0123456789.0123456789.!
+++ ---------- End of analyses -- freeing workspaces ----------
+++ Creating FDR curves in output dataset
+[7m*+ WARNING:[0m Smallest FDR q [1 SetA-SetB_Zscr] = 0.999864 ==> few true single voxel detections
+[7m*+ WARNING:[0m Smallest FDR q [3 SetA_Zscr] = 0.575303 ==> few true single voxel detections
+[7m*+ WARNING:[0m Smallest FDR q [5 SetB_Zscr] = 0.766453 ==> few true single voxel detections
+ + Added 3 FDR curves to dataset
+++ Output dataset ./healthy_CSpE__CSpA_clst-ttest+tlrc.BRIK
+++ Output dataset ./healthy_CSpE__CSpA_clst-ttest.resid.nii
+ + paired test: results are SetA - SetB
+++ ================ Starting -Clustsim calculations ================
+ + === temporary files will have prefix healthy_CSpE__CSpA_clst-ttest ===
+ + === running 48 -randomsign jobs (209 iterations per job) ===
+ + === creating 20,157,880,000 (20 billion) bytes of pseudo-data in .sdat files ===
+ + --- 3dClustSim reads .sdat files to compute cluster-threshold statistics ---
+ + --- there is 67,422,023,680 (67 billion) bytes of memory on your system ---
+++ 3dttest++: AFNI version=AFNI_20.2.18 (Sep 17 2020) [64-bit]
+++ Authored by: Zhark++
+++ 3dttest++: AFNI version=AFNI_20.2.18 (Sep 17 2020) [64-bit]
+++ Authored by: Zhark++
+++ 3dttest++: AFNI version=AFNI_20.2.18 (Sep 17 2020) [64-bit]
+++ Authored by: Zhark++
+++ 3dttest++: AFNI version=AFNI_20.2.18 (Sep 17 2020) [64-bit]
+++ Authored by: Zhark++
+++ 3dttest++: AFNI version=AFNI_20.2.18 (Sep 17 2020) [64-bit]
+++ Authored by: Zhark++
+++ 1007894 voxels in -mask dataset
+++ option -setA :: processing as SHORT form (all values are datasets)
+++ have 24 volumes corresponding to option '-setA'
+++ option -setB :: processing as SHORT form (all values are datasets)
+++ have 24 volumes corresponding to option '-setB'
+++ random seeds are 1391918503 1706077768
+++ 1007894 voxels in -mask dataset
+++ 2-sample test: '-AminusB' option is assumed
+++ paired test: results will be SetA - SetB
+++ 3dttest++: AFNI version=AFNI_20.2.18 (Sep 17 2020) [64-bit]
+++ Authored by: Zhark++
+++ opened file ./healthy_CSpE__CSpA_clst-ttest.0000.sdat for output
+++ option -setA :: processing as SHORT form (all values are datasets)
+++ loading -setA datasets
+++ have 24 volumes corresponding to option '-setA'
+++ option -setB :: processing as SHORT form (all values are datasets)
+++ have 24 volumes corresponding to option '-setB'
+++ random seeds are 1393029654 1707188919
+++ 2-sample test: '-AminusB' option is assumed
+++ paired test: results will be SetA - SetB
+++ opened file ./healthy_CSpE__CSpA_clst-ttest.0001.sdat for output
+++ loading -setA datasets
+++ 3dttest++: AFNI version=AFNI_20.2.18 (Sep 17 2020) [64-bit]
+++ Authored by: Zhark++
+++ 1007894 voxels in -mask dataset
+++ option -setA :: processing as SHORT form (all values are datasets)
+++ have 24 volumes corresponding to option '-setA'
+++ option -setB :: processing as SHORT form (all values are datasets)
+++ have 24 volumes corresponding to option '-setB'
+++ random seeds are 1394140805 1708300070
+++ 2-sample test: '-AminusB' option is assumed
+++ paired test: results will be SetA - SetB
+++ 1007894 voxels in -mask dataset
+++ opened file ./healthy_CSpE__CSpA_clst-ttest.0002.sdat for output
+++ loading -setA datasets
+++ 3dttest++: AFNI version=AFNI_20.2.18 (Sep 17 2020) [64-bit]
+++ Authored by: Zhark++
+++ option -setA :: processing as SHORT form (all values are datasets)
+++ have 24 volumes corresponding to option '-setA'
+++ option -setB :: processing as SHORT form (all values are datasets)
+++ have 24 volumes corresponding to option '-setB'
+++ random seeds are 1395251956 1709411221
+++ 2-sample test: '-AminusB' option is assumed
+++ paired test: results will be SetA - SetB
+++ opened file ./healthy_CSpE__CSpA_clst-ttest.0003.sdat for output
+++ loading -setA datasets
+++ 1007894 voxels in -mask dataset
+++ 3dttest++: AFNI version=AFNI_20.2.18 (Sep 17 2020) [64-bit]
+++ Authored by: Zhark++
+++ option -setA :: processing as SHORT form (all values are datasets)
+++ have 24 volumes corresponding to option '-setA'
+++ option -setB :: processing as SHORT form (all values are datasets)
+++ have 24 volumes corresponding to option '-setB'
+++ random seeds are 1396363107 1710522372
+++ 2-sample test: '-AminusB' option is assumed
+++ paired test: results will be SetA - SetB
+++ opened file ./healthy_CSpE__CSpA_clst-ttest.0004.sdat for output
+++ loading -setA datasets
+++ 3dttest++: AFNI version=AFNI_20.2.18 (Sep 17 2020) [64-bit]
+++ Authored by: Zhark++
+++ 1007894 voxels in -mask dataset
+++ option -setA :: processing as SHORT form (all values are datasets)
+++ have 24 volumes corresponding to option '-setA'
+++ option -setB :: processing as SHORT form (all values are datasets)
+++ have 24 volumes corresponding to option '-setB'
+++ random seeds are 1397474258 1711633523
+++ 2-sample test: '-AminusB' option is assumed
+++ paired test: results will be SetA - SetB
+++ 1007894 voxels in -mask dataset
+++ opened file ./healthy_CSpE__CSpA_clst-ttest.0005.sdat for output
+++ loading -setA datasets
+++ 3dttest++: AFNI version=AFNI_20.2.18 (Sep 17 2020) [64-bit]
+++ Authored by: Zhark++
+++ option -setA :: processing as SHORT form (all values are datasets)
+++ have 24 volumes corresponding to option '-setA'
+++ option -setB :: processing as SHORT form (all values are datasets)
+++ have 24 volumes corresponding to option '-setB'
+++ random seeds are 1398585409 1712744674
+++ 2-sample test: '-AminusB' option is assumed
+++ paired test: results will be SetA - SetB
+++ opened file ./healthy_CSpE__CSpA_clst-ttest.0006.sdat for output
+++ loading -setA datasets
+++ 1007894 voxels in -mask dataset
+++ 3dttest++: AFNI version=AFNI_20.2.18 (Sep 17 2020) [64-bit]
+++ Authored by: Zhark++
+++ option -setA :: processing as SHORT form (all values are datasets)
+++ have 24 volumes corresponding to option '-setA'
+++ option -setB :: processing as SHORT form (all values are datasets)
+++ have 24 volumes corresponding to option '-setB'
+++ random seeds are 1399696560 1713855825
+++ 2-sample test: '-AminusB' option is assumed
+++ paired test: results will be SetA - SetB
+++ opened file ./healthy_CSpE__CSpA_clst-ttest.0007.sdat for output
+++ loading -setA datasets
+++ 3dttest++: AFNI version=AFNI_20.2.18 (Sep 17 2020) [64-bit]
+++ Authored by: Zhark++
+++ 1007894 voxels in -mask dataset
+++ option -setA :: processing as SHORT form (all values are datasets)
+++ have 24 volumes corresponding to option '-setA'
+++ option -setB :: processing as SHORT form (all values are datasets)
+++ have 24 volumes corresponding to option '-setB'
+++ random seeds are 1400807711 1714966976
+++ 2-sample test: '-AminusB' option is assumed
+++ paired test: results will be SetA - SetB
+++ opened file ./healthy_CSpE__CSpA_clst-ttest.0008.sdat for output
+++ loading -setA datasets
+++ 1007894 voxels in -mask dataset
+++ 3dttest++: AFNI version=AFNI_20.2.18 (Sep 17 2020) [64-bit]
+++ Authored by: Zhark++
+++ option -setA :: processing as SHORT form (all values are datasets)
+++ have 24 volumes corresponding to option '-setA'
+++ option -setB :: processing as SHORT form (all values are datasets)
+++ have 24 volumes corresponding to option '-setB'
+++ random seeds are 1401918862 1716078127
+++ 2-sample test: '-AminusB' option is assumed
+++ paired test: results will be SetA - SetB
+++ opened file ./healthy_CSpE__CSpA_clst-ttest.0009.sdat for output
+++ loading -setA datasets
+++ 1007894 voxels in -mask dataset
+++ 3dttest++: AFNI version=AFNI_20.2.18 (Sep 17 2020) [64-bit]
+++ Authored by: Zhark++
+++ option -setA :: processing as SHORT form (all values are datasets)
+++ have 24 volumes corresponding to option '-setA'
+++ option -setB :: processing as SHORT form (all values are datasets)
+++ have 24 volumes corresponding to option '-setB'
+++ random seeds are 1403030013 1717189278
+++ 2-sample test: '-AminusB' option is assumed
+++ paired test: results will be SetA - SetB
+++ opened file ./healthy_CSpE__CSpA_clst-ttest.0010.sdat for output
+++ loading -setA datasets
+++ 1007894 voxels in -mask dataset
+++ 3dttest++: AFNI version=AFNI_20.2.18 (Sep 17 2020) [64-bit]
+++ Authored by: Zhark++
+++ option -setA :: processing as SHORT form (all values are datasets)
+++ have 24 volumes corresponding to option '-setA'
+++ option -setB :: processing as SHORT form (all values are datasets)
+++ have 24 volumes corresponding to option '-setB'
+++ random seeds are 1404141164 1718300429
+++ 2-sample test: '-AminusB' option is assumed
+++ paired test: results will be SetA - SetB
+++ opened file ./healthy_CSpE__CSpA_clst-ttest.0011.sdat for output
+++ loading -setA datasets
+++ 1007894 voxels in -mask dataset
+++ 3dttest++: AFNI version=AFNI_20.2.18 (Sep 17 2020) [64-bit]
+++ Authored by: Zhark++
+++ option -setA :: processing as SHORT form (all values are datasets)
+++ have 24 volumes corresponding to option '-setA'
+++ option -setB :: processing as SHORT form (all values are datasets)
+++ have 24 volumes corresponding to option '-setB'
+++ random seeds are 1405252315 1719411580
+++ 2-sample test: '-AminusB' option is assumed
+++ paired test: results will be SetA - SetB
+++ opened file ./healthy_CSpE__CSpA_clst-ttest.0012.sdat for output
+++ loading -setA datasets
+++ 1007894 voxels in -mask dataset
+++ option -setA :: processing as SHORT form (all values are datasets)
+++ 3dttest++: AFNI version=AFNI_20.2.18 (Sep 17 2020) [64-bit]
+++ Authored by: Zhark++
+++ have 24 volumes corresponding to option '-setA'
+++ option -setB :: processing as SHORT form (all values are datasets)
+++ have 24 volumes corresponding to option '-setB'
+++ random seeds are 1406363466 1720522731
+++ 2-sample test: '-AminusB' option is assumed
+++ paired test: results will be SetA - SetB
+++ 1007894 voxels in -mask dataset
+++ 3dttest++: AFNI version=AFNI_20.2.18 (Sep 17 2020) [64-bit]
+++ Authored by: Zhark++
+++ opened file ./healthy_CSpE__CSpA_clst-ttest.0013.sdat for output
+++ loading -setA datasets
+++ option -setA :: processing as SHORT form (all values are datasets)
+++ have 24 volumes corresponding to option '-setA'
+++ option -setB :: processing as SHORT form (all values are datasets)
+++ have 24 volumes corresponding to option '-setB'
+++ random seeds are 1407474617 1721633882
+++ 2-sample test: '-AminusB' option is assumed
+++ paired test: results will be SetA - SetB
+++ 1007894 voxels in -mask dataset
+++ 3dttest++: AFNI version=AFNI_20.2.18 (Sep 17 2020) [64-bit]
+++ Authored by: Zhark++
+++ opened file ./healthy_CSpE__CSpA_clst-ttest.0014.sdat for output
+++ loading -setA datasets
+++ option -setA :: processing as SHORT form (all values are datasets)
+++ have 24 volumes corresponding to option '-setA'
+++ option -setB :: processing as SHORT form (all values are datasets)
+++ have 24 volumes corresponding to option '-setB'
+++ random seeds are 1408585768 1722745033
+++ 2-sample test: '-AminusB' option is assumed
+++ paired test: results will be SetA - SetB
+++ opened file ./healthy_CSpE__CSpA_clst-ttest.0015.sdat for output
+++ loading -setA datasets
+++ 3dttest++: AFNI version=AFNI_20.2.18 (Sep 17 2020) [64-bit]
+++ Authored by: Zhark++
+++ 1007894 voxels in -mask dataset
+++ option -setA :: processing as SHORT form (all values are datasets)
+++ have 24 volumes corresponding to option '-setA'
+++ option -setB :: processing as SHORT form (all values are datasets)
+++ have 24 volumes corresponding to option '-setB'
+++ random seeds are 1409696919 1723856184
+++ 2-sample test: '-AminusB' option is assumed
+++ paired test: results will be SetA - SetB
+++ 3dttest++: AFNI version=AFNI_20.2.18 (Sep 17 2020) [64-bit]
+++ Authored by: Zhark++
+++ opened file ./healthy_CSpE__CSpA_clst-ttest.0016.sdat for output
+++ loading -setA datasets
+++ 3dttest++: AFNI version=AFNI_20.2.18 (Sep 17 2020) [64-bit]
+++ Authored by: Zhark++
+++ 3dttest++: AFNI version=AFNI_20.2.18 (Sep 17 2020) [64-bit]
+++ Authored by: Zhark++
+++ 1007894 voxels in -mask dataset
+++ 1007894 voxels in -mask dataset
+++ option -setA :: processing as SHORT form (all values are datasets)
+++ option -setA :: processing as SHORT form (all values are datasets)
+++ have 24 volumes corresponding to option '-setA'
+++ have 24 volumes corresponding to option '-setA'
+++ option -setB :: processing as SHORT form (all values are datasets)
+++ option -setB :: processing as SHORT form (all values are datasets)
+++ have 24 volumes corresponding to option '-setB'
+++ random seeds are 1413030372 1727189637
+++ 2-sample test: '-AminusB' option is assumed
+++ paired test: results will be SetA - SetB
+++ 1007894 voxels in -mask dataset
+++ have 24 volumes corresponding to option '-setB'
+++ random seeds are 1410808070 1724967335
+++ 2-sample test: '-AminusB' option is assumed
+++ paired test: results will be SetA - SetB
+++ opened file ./healthy_CSpE__CSpA_clst-ttest.0019.sdat for output
+++ loading -setA datasets
+++ option -setA :: processing as SHORT form (all values are datasets)
+++ opened file ./healthy_CSpE__CSpA_clst-ttest.0017.sdat for output
+++ loading -setA datasets
+++ 3dttest++: AFNI version=AFNI_20.2.18 (Sep 17 2020) [64-bit]
+++ Authored by: Zhark++
+++ have 24 volumes corresponding to option '-setA'
+++ option -setB :: processing as SHORT form (all values are datasets)
+++ have 24 volumes corresponding to option '-setB'
+++ random seeds are 1414141523 1728300788
+++ 2-sample test: '-AminusB' option is assumed
+++ paired test: results will be SetA - SetB
+++ 1007894 voxels in -mask dataset
+++ opened file ./healthy_CSpE__CSpA_clst-ttest.0020.sdat for output
+++ loading -setA datasets
+++ 1007894 voxels in -mask dataset
+++ option -setA :: processing as SHORT form (all values are datasets)
+++ option -setA :: processing as SHORT form (all values are datasets)
+++ 3dttest++: AFNI version=AFNI_20.2.18 (Sep 17 2020) [64-bit]
+++ Authored by: Zhark++
+++ have 24 volumes corresponding to option '-setA'
+++ have 24 volumes corresponding to option '-setA'
+++ option -setB :: processing as SHORT form (all values are datasets)
+++ option -setB :: processing as SHORT form (all values are datasets)
+++ have 24 volumes corresponding to option '-setB'
+++ random seeds are 1415252674 1729411939
+++ 2-sample test: '-AminusB' option is assumed
+++ paired test: results will be SetA - SetB
+++ have 24 volumes corresponding to option '-setB'
+++ random seeds are 1411919221 1726078486
+++ 2-sample test: '-AminusB' option is assumed
+++ paired test: results will be SetA - SetB
+++ opened file ./healthy_CSpE__CSpA_clst-ttest.0021.sdat for output
+++ loading -setA datasets
+++ opened file ./healthy_CSpE__CSpA_clst-ttest.0018.sdat for output
+++ loading -setA datasets
+++ 3dttest++: AFNI version=AFNI_20.2.18 (Sep 17 2020) [64-bit]
+++ Authored by: Zhark++
+++ 1007894 voxels in -mask dataset
+++ 1007894 voxels in -mask dataset
+++ option -setA :: processing as SHORT form (all values are datasets)
+++ option -setA :: processing as SHORT form (all values are datasets)
+++ have 24 volumes corresponding to option '-setA'
+++ have 24 volumes corresponding to option '-setA'
+++ option -setB :: processing as SHORT form (all values are datasets)
+++ option -setB :: processing as SHORT form (all values are datasets)
+++ 3dttest++: AFNI version=AFNI_20.2.18 (Sep 17 2020) [64-bit]
+++ Authored by: Zhark++
+++ have 24 volumes corresponding to option '-setB'
+++ random seeds are 1417474976 1731634241
+++ have 24 volumes corresponding to option '-setB'
+++ 2-sample test: '-AminusB' option is assumed
+++ paired test: results will be SetA - SetB
+++ random seeds are 1416363825 1730523090
+++ 2-sample test: '-AminusB' option is assumed
+++ paired test: results will be SetA - SetB
+++ opened file ./healthy_CSpE__CSpA_clst-ttest.0023.sdat for output
+++ opened file ./healthy_CSpE__CSpA_clst-ttest.0022.sdat for output
+++ loading -setA datasets
+++ loading -setA datasets
+++ 3dttest++: AFNI version=AFNI_20.2.18 (Sep 17 2020) [64-bit]
+++ Authored by: Zhark++
+++ 3dttest++: AFNI version=AFNI_20.2.18 (Sep 17 2020) [64-bit]
+++ Authored by: Zhark++
+++ 3dttest++: AFNI version=AFNI_20.2.18 (Sep 17 2020) [64-bit]
+++ Authored by: Zhark++
+++ 1007894 voxels in -mask dataset
+++ option -setA :: processing as SHORT form (all values are datasets)
+++ 3dttest++: AFNI version=AFNI_20.2.18 (Sep 17 2020) [64-bit]
+++ Authored by: Zhark++
+++ have 24 volumes corresponding to option '-setA'
+++ option -setB :: processing as SHORT form (all values are datasets)
+++ 1007894 voxels in -mask dataset
+++ have 24 volumes corresponding to option '-setB'
+++ random seeds are 1418586127 1732745392
+++ 2-sample test: '-AminusB' option is assumed
+++ paired test: results will be SetA - SetB
+++ opened file ./healthy_CSpE__CSpA_clst-ttest.0024.sdat for output
+++ option -setA :: processing as SHORT form (all values are datasets)
+++ loading -setA datasets
+++ 3dttest++: AFNI version=AFNI_20.2.18 (Sep 17 2020) [64-bit]
+++ Authored by: Zhark++
+++ have 24 volumes corresponding to option '-setA'
+++ 1007894 voxels in -mask dataset
+++ option -setB :: processing as SHORT form (all values are datasets)
+++ option -setA :: processing as SHORT form (all values are datasets)
+++ have 24 volumes corresponding to option '-setB'
+++ random seeds are 1419697278 1733856543
+++ 2-sample test: '-AminusB' option is assumed
+++ paired test: results will be SetA - SetB
+++ have 24 volumes corresponding to option '-setA'
+++ opened file ./healthy_CSpE__CSpA_clst-ttest.0025.sdat for output
+++ loading -setA datasets
+++ 3dttest++: AFNI version=AFNI_20.2.18 (Sep 17 2020) [64-bit]
+++ Authored by: Zhark++
+++ option -setB :: processing as SHORT form (all values are datasets)
+++ have 24 volumes corresponding to option '-setB'
+++ random seeds are 1420808429 1734967694
+++ 1007894 voxels in -mask dataset
+++ 2-sample test: '-AminusB' option is assumed
+++ paired test: results will be SetA - SetB
+++ opened file ./healthy_CSpE__CSpA_clst-ttest.0026.sdat for output
+++ option -setA :: processing as SHORT form (all values are datasets)
+++ loading -setA datasets
+++ 1007894 voxels in -mask dataset
+++ 3dttest++: AFNI version=AFNI_20.2.18 (Sep 17 2020) [64-bit]
+++ Authored by: Zhark++
+++ have 24 volumes corresponding to option '-setA'
+++ option -setA :: processing as SHORT form (all values are datasets)
+++ option -setB :: processing as SHORT form (all values are datasets)
+++ have 24 volumes corresponding to option '-setA'
+++ have 24 volumes corresponding to option '-setB'
+++ option -setB :: processing as SHORT form (all values are datasets)
+++ random seeds are 1421919580 1736078845
+++ 2-sample test: '-AminusB' option is assumed
+++ paired test: results will be SetA - SetB
+++ 1007894 voxels in -mask dataset
+++ opened file ./healthy_CSpE__CSpA_clst-ttest.0027.sdat for output
+++ have 24 volumes corresponding to option '-setB'
+++ loading -setA datasets
+++ 3dttest++: AFNI version=AFNI_20.2.18 (Sep 17 2020) [64-bit]
+++ Authored by: Zhark++
+++ random seeds are 1423030731 1737189996
+++ 2-sample test: '-AminusB' option is assumed
+++ paired test: results will be SetA - SetB
+++ option -setA :: processing as SHORT form (all values are datasets)
+++ opened file ./healthy_CSpE__CSpA_clst-ttest.0028.sdat for output
+++ loading -setA datasets
+++ have 24 volumes corresponding to option '-setA'
+++ option -setB :: processing as SHORT form (all values are datasets)
+++ 3dttest++: AFNI version=AFNI_20.2.18 (Sep 17 2020) [64-bit]
+++ have 24 volumes corresponding to option '-setB'
+++ Authored by: Zhark++
+++ random seeds are 1425253033 1739412298
+++ 2-sample test: '-AminusB' option is assumed
+++ paired test: results will be SetA - SetB
+++ opened file ./healthy_CSpE__CSpA_clst-ttest.0030.sdat for output
+++ loading -setA datasets
+++ 3dttest++: AFNI version=AFNI_20.2.18 (Sep 17 2020) [64-bit]
+++ Authored by: Zhark++
+++ 1007894 voxels in -mask dataset
+++ 1007894 voxels in -mask dataset
+++ option -setA :: processing as SHORT form (all values are datasets)
+++ option -setA :: processing as SHORT form (all values are datasets)
+++ have 24 volumes corresponding to option '-setA'
+++ have 24 volumes corresponding to option '-setA'
+++ option -setB :: processing as SHORT form (all values are datasets)
+++ 3dttest++: AFNI version=AFNI_20.2.18 (Sep 17 2020) [64-bit]
+++ Authored by: Zhark++
+++ option -setB :: processing as SHORT form (all values are datasets)
+++ have 24 volumes corresponding to option '-setB'
+++ random seeds are 1426364184 1740523449
+++ 2-sample test: '-AminusB' option is assumed
+++ paired test: results will be SetA - SetB
+++ have 24 volumes corresponding to option '-setB'
+++ random seeds are 1424141882 1738301147
+++ 2-sample test: '-AminusB' option is assumed
+++ paired test: results will be SetA - SetB
+++ opened file ./healthy_CSpE__CSpA_clst-ttest.0031.sdat for output
+++ loading -setA datasets
+++ 1007894 voxels in -mask dataset
+++ opened file ./healthy_CSpE__CSpA_clst-ttest.0029.sdat for output
+++ loading -setA datasets
+++ 3dttest++: AFNI version=AFNI_20.2.18 (Sep 17 2020) [64-bit]
+++ Authored by: Zhark++
+++ 1007894 voxels in -mask dataset
+++ 1007894 voxels in -mask dataset
+++ option -setA :: processing as SHORT form (all values are datasets)
+++ option -setA :: processing as SHORT form (all values are datasets)
+++ option -setA :: processing as SHORT form (all values are datasets)
+++ have 24 volumes corresponding to option '-setA'
+++ 1007894 voxels in -mask dataset
+++ have 24 volumes corresponding to option '-setA'
+++ 3dttest++: AFNI version=AFNI_20.2.18 (Sep 17 2020) [64-bit]
+++ Authored by: Zhark++
+++ have 24 volumes corresponding to option '-setA'
+++ option -setB :: processing as SHORT form (all values are datasets)
+++ option -setB :: processing as SHORT form (all values are datasets)
+++ option -setB :: processing as SHORT form (all values are datasets)
+++ option -setA :: processing as SHORT form (all values are datasets)
+++ have 24 volumes corresponding to option '-setB'
+++ random seeds are 1427475335 1741634600
+++ 2-sample test: '-AminusB' option is assumed
+++ paired test: results will be SetA - SetB
+++ have 24 volumes corresponding to option '-setB'
+++ have 24 volumes corresponding to option '-setB'
+++ have 24 volumes corresponding to option '-setA'
+++ random seeds are 1429697637 1743856902
+++ random seeds are 1428586486 1742745751
+++ 2-sample test: '-AminusB' option is assumed
+++ paired test: results will be SetA - SetB
+++ 2-sample test: '-AminusB' option is assumed
+++ paired test: results will be SetA - SetB
+++ 1007894 voxels in -mask dataset
+++ option -setB :: processing as SHORT form (all values are datasets)
+++ opened file ./healthy_CSpE__CSpA_clst-ttest.0032.sdat for output
+++ loading -setA datasets
+++ 3dttest++: AFNI version=AFNI_20.2.18 (Sep 17 2020) [64-bit]
+++ Authored by: Zhark++
+++ opened file ./healthy_CSpE__CSpA_clst-ttest.0033.sdat for output
+++ loading -setA datasets
+++ have 24 volumes corresponding to option '-setB'
+++ random seeds are 1430808788 1744968053
+++ opened file ./healthy_CSpE__CSpA_clst-ttest.0034.sdat for output
+++ 2-sample test: '-AminusB' option is assumed
+++ paired test: results will be SetA - SetB
+++ option -setA :: processing as SHORT form (all values are datasets)
+++ loading -setA datasets
+++ opened file ./healthy_CSpE__CSpA_clst-ttest.0035.sdat for output
+++ loading -setA datasets
+++ have 24 volumes corresponding to option '-setA'
+++ 1007894 voxels in -mask dataset
+++ 3dttest++: AFNI version=AFNI_20.2.18 (Sep 17 2020) [64-bit]
+++ Authored by: Zhark++
+++ option -setA :: processing as SHORT form (all values are datasets)
+++ option -setB :: processing as SHORT form (all values are datasets)
+++ have 24 volumes corresponding to option '-setA'
+++ option -setB :: processing as SHORT form (all values are datasets)
+++ have 24 volumes corresponding to option '-setB'
+++ random seeds are 1431919939 1746079204
+++ 2-sample test: '-AminusB' option is assumed
+++ paired test: results will be SetA - SetB
+++ have 24 volumes corresponding to option '-setB'
+++ random seeds are 1433031090 1747190355
+++ 2-sample test: '-AminusB' option is assumed
+++ paired test: results will be SetA - SetB
+++ opened file ./healthy_CSpE__CSpA_clst-ttest.0036.sdat for output
+++ loading -setA datasets
+++ opened file ./healthy_CSpE__CSpA_clst-ttest.0037.sdat for output
+++ loading -setA datasets
+++ 3dttest++: AFNI version=AFNI_20.2.18 (Sep 17 2020) [64-bit]
+++ Authored by: Zhark++
+++ 1007894 voxels in -mask dataset
+++ 3dttest++: AFNI version=AFNI_20.2.18 (Sep 17 2020) [64-bit]
+++ Authored by: Zhark++
+++ option -setA :: processing as SHORT form (all values are datasets)
+++ have 24 volumes corresponding to option '-setA'
+++ 1007894 voxels in -mask dataset
+++ 3dttest++: AFNI version=AFNI_20.2.18 (Sep 17 2020) [64-bit]
+++ Authored by: Zhark++
+++ option -setB :: processing as SHORT form (all values are datasets)
+++ have 24 volumes corresponding to option '-setB'
+++ random seeds are 1434142241 1748301506
+++ option -setA :: processing as SHORT form (all values are datasets)
+++ 2-sample test: '-AminusB' option is assumed
+++ paired test: results will be SetA - SetB
+++ have 24 volumes corresponding to option '-setA'
+++ opened file ./healthy_CSpE__CSpA_clst-ttest.0038.sdat for output
+++ loading -setA datasets
+++ 1007894 voxels in -mask dataset
+++ option -setB :: processing as SHORT form (all values are datasets)
+++ 3dttest++: AFNI version=AFNI_20.2.18 (Sep 17 2020) [64-bit]
+++ Authored by: Zhark++
+++ option -setA :: processing as SHORT form (all values are datasets)
+++ 1007894 voxels in -mask dataset
+++ have 24 volumes corresponding to option '-setB'
+++ have 24 volumes corresponding to option '-setA'
+++ random seeds are 1435253392 1749412657
+++ option -setA :: processing as SHORT form (all values are datasets)
+++ 2-sample test: '-AminusB' option is assumed
+++ paired test: results will be SetA - SetB
+++ 3dttest++: AFNI version=AFNI_20.2.18 (Sep 17 2020) [64-bit]
+++ Authored by: Zhark++
+++ option -setB :: processing as SHORT form (all values are datasets)
+++ have 24 volumes corresponding to option '-setA'
+++ opened file ./healthy_CSpE__CSpA_clst-ttest.0039.sdat for output
+++ 1007894 voxels in -mask dataset
+++ loading -setA datasets
+++ have 24 volumes corresponding to option '-setB'
+++ random seeds are 1437475694 1751634959
+++ option -setB :: processing as SHORT form (all values are datasets)
+++ 2-sample test: '-AminusB' option is assumed
+++ paired test: results will be SetA - SetB
+++ option -setA :: processing as SHORT form (all values are datasets)
+++ have 24 volumes corresponding to option '-setA'
+++ have 24 volumes corresponding to option '-setB'
+++ random seeds are 1436364543 1750523808
+++ 2-sample test: '-AminusB' option is assumed
+++ paired test: results will be SetA - SetB
+++ option -setB :: processing as SHORT form (all values are datasets)
+++ opened file ./healthy_CSpE__CSpA_clst-ttest.0041.sdat for output
+++ loading -setA datasets
+++ opened file ./healthy_CSpE__CSpA_clst-ttest.0040.sdat for output
+++ loading -setA datasets
+++ have 24 volumes corresponding to option '-setB'
+++ random seeds are 1439697996 1753857261
+++ 2-sample test: '-AminusB' option is assumed
+++ paired test: results will be SetA - SetB
+++ opened file ./healthy_CSpE__CSpA_clst-ttest.0043.sdat for output
+++ loading -setA datasets
+++ 1007894 voxels in -mask dataset
+++ option -setA :: processing as SHORT form (all values are datasets)
+++ 1007894 voxels in -mask dataset
+++ have 24 volumes corresponding to option '-setA'
+++ option -setA :: processing as SHORT form (all values are datasets)
+++ have 24 volumes corresponding to option '-setA'
+++ option -setB :: processing as SHORT form (all values are datasets)
+++ option -setB :: processing as SHORT form (all values are datasets)
+++ have 24 volumes corresponding to option '-setB'
+++ have 24 volumes corresponding to option '-setB'
+++ random seeds are 1438586845 1752746110
+++ random seeds are 1440809147 1754968412
+++ 2-sample test: '-AminusB' option is assumed
+++ paired test: results will be SetA - SetB
+++ 2-sample test: '-AminusB' option is assumed
+++ paired test: results will be SetA - SetB
+++ opened file ./healthy_CSpE__CSpA_clst-ttest.0044.sdat for output
+++ loading -setA datasets
+++ opened file ./healthy_CSpE__CSpA_clst-ttest.0042.sdat for output
+++ loading -setA datasets
+++ 1007894 voxels in -mask dataset
+++ option -setA :: processing as SHORT form (all values are datasets)
+++ 1007894 voxels in -mask dataset
+++ have 24 volumes corresponding to option '-setA'
+++ option -setA :: processing as SHORT form (all values are datasets)
+++ option -setB :: processing as SHORT form (all values are datasets)
+++ have 24 volumes corresponding to option '-setA'
+++ have 24 volumes corresponding to option '-setB'
+++ random seeds are 1443031449 1757190714
+++ 2-sample test: '-AminusB' option is assumed
+++ paired test: results will be SetA - SetB
+++ opened file ./healthy_CSpE__CSpA_clst-ttest.0046.sdat for output
+++ loading -setA datasets
+++ option -setB :: processing as SHORT form (all values are datasets)
+++ have 24 volumes corresponding to option '-setB'
+++ random seeds are 1441920298 1756079563
+++ 2-sample test: '-AminusB' option is assumed
+++ paired test: results will be SetA - SetB
+++ opened file ./healthy_CSpE__CSpA_clst-ttest.0045.sdat for output
+++ loading -setA datasets
+++ loading -setB datasets
+++ 1007894 voxels in -mask dataset
+++ loading -setB datasets
+++ option -setA :: processing as SHORT form (all values are datasets)
+++ have 24 volumes corresponding to option '-setA'
+++ option -setB :: processing as SHORT form (all values are datasets)
+++ have 24 volumes corresponding to option '-setB'
+++ random seeds are 1444142600 1758301865
+++ 2-sample test: '-AminusB' option is assumed
+++ paired test: results will be SetA - SetB
+++ opened file ./healthy_CSpE__CSpA_clst-ttest.0047.sdat for output
+++ loading -setA datasets
+++ loading -setB datasets
+++ loading -setB datasets
+++ loading -setB datasets
+++ loading -setB datasets
+++ loading -setB datasets
+++ loading -setB datasets
+++ loading -setB datasets
+++ loading -setB datasets
+++ loading -setB datasets
+++ loading -setB datasets
+++ loading -setB datasets
+++ loading -setB datasets
+++ loading -setB datasets
+++ loading -setB datasets
+++ loading -setB datasets
+++ loading -setB datasets
+++ loading -setB datasets
+++ loading -setB datasets
+++ loading -setB datasets
+++ loading -setB datasets
+++ loading -setB datasets
+++ loading -setB datasets
+++ loading -setB datasets
+++ loading -setB datasets
+++ loading -setB datasets
+++ loading -setB datasets
+++ loading -setB datasets
+++ loading -setB datasets
+++ loading -setB datasets
+++ loading -setB datasets
+++ loading -setB datasets
+++ loading -setB datasets
+++ loading -setB datasets
+++ loading -setB datasets
+++ loading -setB datasets
+++ loading -setB datasets
+++ loading -setB datasets
+++ loading -setB datasets
+++ loading -setB datasets
+++ loading -setB datasets
+++ loading -setB datasets
+++ loading -setB datasets
+++ t-test randomsign:++ loading -setB datasets
+++ loading -setB datasets
+++ t-test randomsign:++ loading -setB datasets
+++ t-test randomsign:++ t-test randomsign:++ loading -setB datasets
+++ t-test randomsign:++ t-test randomsign:++ t-test randomsign:++ t-test randomsign:++ t-test randomsign:++ t-test randomsign:++ t-test randomsign:++ t-test randomsign:++ t-test randomsign:++ t-test randomsign:++ t-test randomsign:++ t-test randomsign:++ t-test randomsign:++ t-test randomsign:++ t-test randomsign:++ t-test randomsign:++ t-test randomsign:++ t-test randomsign:++ t-test randomsign:++ t-test randomsign:++ t-test randomsign:++ t-test randomsign:++ t-test randomsign:++ t-test randomsign:++ t-test randomsign:++ t-test randomsign:++ t-test randomsign:++ t-test randomsign:++ t-test randomsign:++ t-test randomsign:++ t-test randomsign:++ t-test randomsign:++ t-test randomsign:++ t-test randomsign:++ t-test randomsign:++ t-test randomsign:++ t-test randomsign:++ t-test randomsign:++ t-test randomsign:++ t-test randomsign:++ t-test randomsign:++ t-test randomsign:++ t-test randomsign:++ t-test randomsign:0000000000000000000000000000000000000000000000001111111111111111111111111111111111111111111111112222222222222222222222222222222222222222222222223333333333333333333333333333333333333333333333334444444444444444444444444444444444444444444444445555555555555555555555555555555555555555555555556666666666666666666666666666666666666666666666667777777777777777777777777777777777777777777777778888888888888888888888888888888888888888888888889.9.9.9.9.9.9.9.9.9.9.9.9.9.9.9.9.9.9.9.9.9.9.9.9.9.9.9.9.9.9.9.9.9.9.9.9.9.9.9.9.9.9.9.9.9.9.9.0000000000000000000000000000000000000000000000001111111111111111111111111111111111111111111111112222222222222222222222222222222222222222222222223333333333333333333333333333333333333333333333334444444444444444444444444444444444444444444444445555555555555555555555555555555555555555555555556666666666666666666666666666666666666666666666667777777777777777777777777777777777777777777777778888888888888888888888888888888888888888888888889.9.9.9.9.9.9.9.9.9.9.9.9.9.9.9.9.9.9.9.9.9.9.9.9.9.9.9.9.9.9.9.9.9.9.9.9.9.9.9.9.9.9.9.9.9.9.9.0000000000000000000000000000000000000000000000001111111111111111111111111111111111111111111111112222222222222222222222222222222222222222222222223333333333333333333333333333333333333333333333334444444444444444444444444444444444444444444444445555555555555555555555555555555555555555555555556666666666666666666666666666666666666666666666667777777777777777777777777777777777777777777777778888888888888888888888888888888888888888888888889.9.9.9.9.9.9.9.9.9.9.9.9.9.9.9.9.9.9.9.9.9.9.9.9.9.9.9.9.9.9.9.9.9.9.9.9.9.9.9.9.9.9.9.9.9.9.9.0000000000000000000000000000000000000000000000001111111111111111111111111111111111111111111111112222222222222222222222222222222222222222222222223333333333333333333333333333333333333333333333334444444444444444444444444444444444444444444444445555555555555555555555555555555555555555555555556666666666666666666666666666666666666666666666667777777777777777777777777777777777777777777777778888888888888888888888888888888888888888888888889.9.9.9.9.9.9.9.9.9.9.9.9.9.9.9.9.9.9.9.9.9.9.9.9.9.9.9.9.9.9.9.9.9.9.9.9.9.9.9.9.9.9.9.9.9.9.9.0000000000000000000000000000000000000000000000001111111111111111111111111111111111111111111111112222222222222222222222222222222222222222222222223333333333333333333333333333333333333333333333334444444444444444444444444444444444444444444444445555555555555555555555555555555555555555555555556666666666666666666666666666666666666666666666667777777777777777777777777777777777777777777777778888888888888888888888888888888888888888888888889.9.9.9.9.9.9.9.9.9.9.9.9.9.9.9.9.9.9.9.9.9.9.9.9.9.9.9.9.9.9.9.9.9.9.9.9.9.9.9.9.9.9.9.9.9.9.9.000000000000000000000000000000000000000000000000111111111111111111111111111111111111111111111111!
+++ saving main effect t-stat MIN/MAX values in ./healthy_CSpE__CSpA_clst-ttest.0003.minmax.1D
+++ output short-ized file ./healthy_CSpE__CSpA_clst-ttest.0003.sdat
+!
+++ saving main effect t-stat MIN/MAX values in ./healthy_CSpE__CSpA_clst-ttest.0002.minmax.1D
+++ output short-ized file ./healthy_CSpE__CSpA_clst-ttest.0002.sdat
+!
+++ saving main effect t-stat MIN/MAX values in ./healthy_CSpE__CSpA_clst-ttest.0000.minmax.1D
+++ output short-ized file ./healthy_CSpE__CSpA_clst-ttest.0000.sdat
+ + 3dttest++ ===== simulation jobs have finished (715.7 s elapsed)
+ + 3dttest++ ===== starting 3dClustSim A: elapsed = 875.3 s
+!
+++ saving main effect t-stat MIN/MAX values in ./healthy_CSpE__CSpA_clst-ttest.0004.minmax.1D
+!
+++ saving main effect t-stat MIN/MAX values in ./healthy_CSpE__CSpA_clst-ttest.0009.minmax.1D
+!
+++ saving main effect t-stat MIN/MAX values in ./healthy_CSpE__CSpA_clst-ttest.0011.minmax.1D
+++ output short-ized file ./healthy_CSpE__CSpA_clst-ttest.0009.sdat
+!
+++ saving main effect t-stat MIN/MAX values in ./healthy_CSpE__CSpA_clst-ttest.0019.minmax.1D
+++ output short-ized file ./healthy_CSpE__CSpA_clst-ttest.0019.sdat
+!
+++ saving main effect t-stat MIN/MAX values in ./healthy_CSpE__CSpA_clst-ttest.0020.minmax.1D
+!
+++ saving main effect t-stat MIN/MAX values in ./healthy_CSpE__CSpA_clst-ttest.0012.minmax.1D
+++ output short-ized file ./healthy_CSpE__CSpA_clst-ttest.0020.sdat
+++ output short-ized file ./healthy_CSpE__CSpA_clst-ttest.0012.sdat
+!
+++ saving main effect t-stat MIN/MAX values in ./healthy_CSpE__CSpA_clst-ttest.0038.minmax.1D
+!
+++ saving main effect t-stat MIN/MAX values in ./healthy_CSpE__CSpA_clst-ttest.0029.minmax.1D
+++ output short-ized file ./healthy_CSpE__CSpA_clst-ttest.0038.sdat
+++ 3dClustSim: AFNI version=AFNI_20.2.18 (Sep 17 2020) [64-bit]
+++ Authored by: RW Cox and BD Ward
+!
+++ saving main effect t-stat MIN/MAX values in ./healthy_CSpE__CSpA_clst-ttest.0047.minmax.1D
+++ output short-ized file ./healthy_CSpE__CSpA_clst-ttest.0047.sdat
+++ output short-ized file ./healthy_CSpE__CSpA_clst-ttest.0004.sdat
+!
+++ saving main effect t-stat MIN/MAX values in ./healthy_CSpE__CSpA_clst-ttest.0017.minmax.1D
+!
+++ saving main effect t-stat MIN/MAX values in ./healthy_CSpE__CSpA_clst-ttest.0032.minmax.1D
+++ Loading -insdat datasets
+!
+++ saving main effect t-stat MIN/MAX values in ./healthy_CSpE__CSpA_clst-ttest.0021.minmax.1D
+!
+++ saving main effect t-stat MIN/MAX values in ./healthy_CSpE__CSpA_clst-ttest.0016.minmax.1D
+!
+++ saving main effect t-stat MIN/MAX values in ./healthy_CSpE__CSpA_clst-ttest.0024.minmax.1D
+++ output short-ized file ./healthy_CSpE__CSpA_clst-ttest.0029.sdat
+++ output short-ized file ./healthy_CSpE__CSpA_clst-ttest.0021.sdat
+!
+++ saving main effect t-stat MIN/MAX values in ./healthy_CSpE__CSpA_clst-ttest.0010.minmax.1D
+!
+++ saving main effect t-stat MIN/MAX values in ./healthy_CSpE__CSpA_clst-ttest.0001.minmax.1D
+!
+++ saving main effect t-stat MIN/MAX values in ./healthy_CSpE__CSpA_clst-ttest.0040.minmax.1D
+++ output short-ized file ./healthy_CSpE__CSpA_clst-ttest.0001.sdat
+++ output short-ized file ./healthy_CSpE__CSpA_clst-ttest.0016.sdat
+++ output short-ized file ./healthy_CSpE__CSpA_clst-ttest.0011.sdat
+++ output short-ized file ./healthy_CSpE__CSpA_clst-ttest.0040.sdat
+++ output short-ized file ./healthy_CSpE__CSpA_clst-ttest.0017.sdat
+!
+++ saving main effect t-stat MIN/MAX values in ./healthy_CSpE__CSpA_clst-ttest.0007.minmax.1D
+!
+++ saving main effect t-stat MIN/MAX values in ./healthy_CSpE__CSpA_clst-ttest.0033.minmax.1D
+!
+++ saving main effect t-stat MIN/MAX values in ./healthy_CSpE__CSpA_clst-ttest.0022.minmax.1D
+++ output short-ized file ./healthy_CSpE__CSpA_clst-ttest.0033.sdat
+!
+++ saving main effect t-stat MIN/MAX values in ./healthy_CSpE__CSpA_clst-ttest.0018.minmax.1D
+!
+++ saving main effect t-stat MIN/MAX values in ./healthy_CSpE__CSpA_clst-ttest.0005.minmax.1D
+++ output short-ized file ./healthy_CSpE__CSpA_clst-ttest.0018.sdat
+!
+++ saving main effect t-stat MIN/MAX values in ./healthy_CSpE__CSpA_clst-ttest.0044.minmax.1D
+++ output short-ized file ./healthy_CSpE__CSpA_clst-ttest.0005.sdat
+!
+++ saving main effect t-stat MIN/MAX values in ./healthy_CSpE__CSpA_clst-ttest.0031.minmax.1D
+++ output short-ized file ./healthy_CSpE__CSpA_clst-ttest.0007.sdat
+!
+++ saving main effect t-stat MIN/MAX values in ./healthy_CSpE__CSpA_clst-ttest.0026.minmax.1D
+!
+++ saving main effect t-stat MIN/MAX values in ./healthy_CSpE__CSpA_clst-ttest.0008.minmax.1D
+!
+++ saving main effect t-stat MIN/MAX values in ./healthy_CSpE__CSpA_clst-ttest.0037.minmax.1D
+++ output short-ized file ./healthy_CSpE__CSpA_clst-ttest.0008.sdat
+++ output short-ized file ./healthy_CSpE__CSpA_clst-ttest.0032.sdat
+++ output short-ized file ./healthy_CSpE__CSpA_clst-ttest.0022.sdat
+++ output short-ized file ./healthy_CSpE__CSpA_clst-ttest.0031.sdat
+++ -insdat had 9955 volumes = new '-niter' value
+++ Startup clock time = 1.1 s
+!
+++ saving main effect t-stat MIN/MAX values in ./healthy_CSpE__CSpA_clst-ttest.0006.minmax.1D
+++ Using 48 OpenMP threads
+++ output short-ized file ./healthy_CSpE__CSpA_clst-ttest.0044.sdat
+++ output short-ized file ./healthy_CSpE__CSpA_clst-ttest.0037.sdat
+!
+++ saving main effect t-stat MIN/MAX values in ./healthy_CSpE__CSpA_clst-ttest.0014.minmax.1D
+!
+++ saving main effect t-stat MIN/MAX values in ./healthy_CSpE__CSpA_clst-ttest.0027.minmax.1D
+++ output short-ized file ./healthy_CSpE__CSpA_clst-ttest.0027.sdat
+++ output short-ized file ./healthy_CSpE__CSpA_clst-ttest.0006.sdat
+!
+++ saving main effect t-stat MIN/MAX values in ./healthy_CSpE__CSpA_clst-ttest.0045.minmax.1D
+!
+++ saving main effect t-stat MIN/MAX values in ./healthy_CSpE__CSpA_clst-ttest.0043.minmax.1D
+!
+++ saving main effect t-stat MIN/MAX values in ./healthy_CSpE__CSpA_clst-ttest.0039.minmax.1D
+++ output short-ized file ./healthy_CSpE__CSpA_clst-ttest.0024.sdat
+++ output short-ized file ./healthy_CSpE__CSpA_clst-ttest.0026.sdat
+++ output short-ized file ./healthy_CSpE__CSpA_clst-ttest.0039.sdat
+!
+++ saving main effect t-stat MIN/MAX values in ./healthy_CSpE__CSpA_clst-ttest.0015.minmax.1D
+!
+++ saving main effect t-stat MIN/MAX values in ./healthy_CSpE__CSpA_clst-ttest.0023.minmax.1D
+++ output short-ized file ./healthy_CSpE__CSpA_clst-ttest.0043.sdat
+++ output short-ized file ./healthy_CSpE__CSpA_clst-ttest.0045.sdat
+!
+++ saving main effect t-stat MIN/MAX values in ./healthy_CSpE__CSpA_clst-ttest.0035.minmax.1D
+++ output short-ized file ./healthy_CSpE__CSpA_clst-ttest.0035.sdat
+!
+++ saving main effect t-stat MIN/MAX values in ./healthy_CSpE__CSpA_clst-ttest.0013.minmax.1D
+++ output short-ized file ./healthy_CSpE__CSpA_clst-ttest.0013.sdat
+!
+++ saving main effect t-stat MIN/MAX values in ./healthy_CSpE__CSpA_clst-ttest.0030.minmax.1D
+!
+++ saving main effect t-stat MIN/MAX values in ./healthy_CSpE__CSpA_clst-ttest.0025.minmax.1D
+++ output short-ized file ./healthy_CSpE__CSpA_clst-ttest.0023.sdat
+++ output short-ized file ./healthy_CSpE__CSpA_clst-ttest.0025.sdat
+!
+++ saving main effect t-stat MIN/MAX values in ./healthy_CSpE__CSpA_clst-ttest.0028.minmax.1D
+++ output short-ized file ./healthy_CSpE__CSpA_clst-ttest.0028.sdat
+!
+++ saving main effect t-stat MIN/MAX values in ./healthy_CSpE__CSpA_clst-ttest.0046.minmax.1D
+!
+++ saving main effect t-stat MIN/MAX values in ./healthy_CSpE__CSpA_clst-ttest.0042.minmax.1D
+++ output short-ized file ./healthy_CSpE__CSpA_clst-ttest.0046.sdat
+++ output short-ized file ./healthy_CSpE__CSpA_clst-ttest.0010.sdat
+++ output short-ized file ./healthy_CSpE__CSpA_clst-ttest.0030.sdat
+++ output short-ized file ./healthy_CSpE__CSpA_clst-ttest.0042.sdat
+!
+++ saving main effect t-stat MIN/MAX values in ./healthy_CSpE__CSpA_clst-ttest.0041.minmax.1D
+++ output short-ized file ./healthy_CSpE__CSpA_clst-ttest.0041.sdat
+++ output short-ized file ./healthy_CSpE__CSpA_clst-ttest.0015.sdat
+!
+++ saving main effect t-stat MIN/MAX values in ./healthy_CSpE__CSpA_clst-ttest.0034.minmax.1D
+++ output short-ized file ./healthy_CSpE__CSpA_clst-ttest.0014.sdat
+++ output short-ized file ./healthy_CSpE__CSpA_clst-ttest.0034.sdat
+!
+++ saving main effect t-stat MIN/MAX values in ./healthy_CSpE__CSpA_clst-ttest.0036.minmax.1D
+++ output short-ized file ./healthy_CSpE__CSpA_clst-ttest.0036.sdat
+Simulating:0123456789.0123456789.0123456789.0123456789.01!
+++ Clock time now = 2254.1 s
+++ Command fragment to put cluster results into a dataset header;
+ + (also echoed to file healthy_CSpE__CSpA_clst-ttest.CSimA.cmd for your scripting pleasure)
+ + Append the name of the datasets to be patched to this command:
+ 3drefit -atrstring AFNI_CLUSTSIM_NN1_1sided file:healthy_CSpE__CSpA_clst-ttest.CSimA.NN1_1sided.niml -atrstring AFNI_CLUSTSIM_NN2_1sided file:healthy_CSpE__CSpA_clst-ttest.CSimA.NN2_1sided.niml -atrstring AFNI_CLUSTSIM_NN3_1sided file:healthy_CSpE__CSpA_clst-ttest.CSimA.NN3_1sided.niml -atrstring AFNI_CLUSTSIM_NN1_2sided file:healthy_CSpE__CSpA_clst-ttest.CSimA.NN1_2sided.niml -atrstring AFNI_CLUSTSIM_NN2_2sided file:healthy_CSpE__CSpA_clst-ttest.CSimA.NN2_2sided.niml -atrstring AFNI_CLUSTSIM_NN3_2sided file:healthy_CSpE__CSpA_clst-ttest.CSimA.NN3_2sided.niml -atrstring AFNI_CLUSTSIM_NN1_bisided file:healthy_CSpE__CSpA_clst-ttest.CSimA.NN1_bisided.niml -atrstring AFNI_CLUSTSIM_NN2_bisided file:healthy_CSpE__CSpA_clst-ttest.CSimA.NN2_bisided.niml -atrstring AFNI_CLUSTSIM_NN3_bisided file:healthy_CSpE__CSpA_clst-ttest.CSimA.NN3_bisided.niml 
+++ 3drefit: AFNI version=AFNI_20.2.18 (Sep 17 2020) [64-bit]
+++ Authored by: RW Cox
+++ Processing AFNI dataset ./healthy_CSpE__CSpA_clst-ttest+tlrc.HEAD
+ + atrcopy
+++ applying attributes
+++ 3drefit processed 1 datasets
+++ 3dttest++ ----- Cleaning up intermediate files:
+removed 'healthy_CSpE__CSpA_clst-ttest.resid.nii'
+removed './healthy_CSpE__CSpA_clst-ttest.0000.sdat'
+removed './healthy_CSpE__CSpA_clst-ttest.0001.sdat'
+removed './healthy_CSpE__CSpA_clst-ttest.0002.sdat'
+removed './healthy_CSpE__CSpA_clst-ttest.0003.sdat'
+removed './healthy_CSpE__CSpA_clst-ttest.0004.sdat'
+removed './healthy_CSpE__CSpA_clst-ttest.0005.sdat'
+removed './healthy_CSpE__CSpA_clst-ttest.0006.sdat'
+removed './healthy_CSpE__CSpA_clst-ttest.0007.sdat'
+removed './healthy_CSpE__CSpA_clst-ttest.0008.sdat'
+removed './healthy_CSpE__CSpA_clst-ttest.0009.sdat'
+removed './healthy_CSpE__CSpA_clst-ttest.0010.sdat'
+removed './healthy_CSpE__CSpA_clst-ttest.0011.sdat'
+removed './healthy_CSpE__CSpA_clst-ttest.0012.sdat'
+removed './healthy_CSpE__CSpA_clst-ttest.0013.sdat'
+removed './healthy_CSpE__CSpA_clst-ttest.0014.sdat'
+removed './healthy_CSpE__CSpA_clst-ttest.0015.sdat'
+removed './healthy_CSpE__CSpA_clst-ttest.0016.sdat'
+removed './healthy_CSpE__CSpA_clst-ttest.0017.sdat'
+removed './healthy_CSpE__CSpA_clst-ttest.0018.sdat'
+removed './healthy_CSpE__CSpA_clst-ttest.0019.sdat'
+removed './healthy_CSpE__CSpA_clst-ttest.0020.sdat'
+removed './healthy_CSpE__CSpA_clst-ttest.0021.sdat'
+removed './healthy_CSpE__CSpA_clst-ttest.0022.sdat'
+removed './healthy_CSpE__CSpA_clst-ttest.0023.sdat'
+removed './healthy_CSpE__CSpA_clst-ttest.0024.sdat'
+removed './healthy_CSpE__CSpA_clst-ttest.0025.sdat'
+removed './healthy_CSpE__CSpA_clst-ttest.0026.sdat'
+removed './healthy_CSpE__CSpA_clst-ttest.0027.sdat'
+removed './healthy_CSpE__CSpA_clst-ttest.0028.sdat'
+removed './healthy_CSpE__CSpA_clst-ttest.0029.sdat'
+removed './healthy_CSpE__CSpA_clst-ttest.0030.sdat'
+removed './healthy_CSpE__CSpA_clst-ttest.0031.sdat'
+removed './healthy_CSpE__CSpA_clst-ttest.0032.sdat'
+removed './healthy_CSpE__CSpA_clst-ttest.0033.sdat'
+removed './healthy_CSpE__CSpA_clst-ttest.0034.sdat'
+removed './healthy_CSpE__CSpA_clst-ttest.0035.sdat'
+removed './healthy_CSpE__CSpA_clst-ttest.0036.sdat'
+removed './healthy_CSpE__CSpA_clst-ttest.0037.sdat'
+removed './healthy_CSpE__CSpA_clst-ttest.0038.sdat'
+removed './healthy_CSpE__CSpA_clst-ttest.0039.sdat'
+removed './healthy_CSpE__CSpA_clst-ttest.0040.sdat'
+removed './healthy_CSpE__CSpA_clst-ttest.0041.sdat'
+removed './healthy_CSpE__CSpA_clst-ttest.0042.sdat'
+removed './healthy_CSpE__CSpA_clst-ttest.0043.sdat'
+removed './healthy_CSpE__CSpA_clst-ttest.0044.sdat'
+removed './healthy_CSpE__CSpA_clst-ttest.0045.sdat'
+removed './healthy_CSpE__CSpA_clst-ttest.0046.sdat'
+removed './healthy_CSpE__CSpA_clst-ttest.0047.sdat'
+removed 'healthy_CSpE__CSpA_clst-ttest.CSimA.NN1_1sided.niml'
+removed 'healthy_CSpE__CSpA_clst-ttest.CSimA.NN1_2sided.niml'
+removed 'healthy_CSpE__CSpA_clst-ttest.CSimA.NN1_bisided.niml'
+removed 'healthy_CSpE__CSpA_clst-ttest.CSimA.NN2_1sided.niml'
+removed 'healthy_CSpE__CSpA_clst-ttest.CSimA.NN2_2sided.niml'
+removed 'healthy_CSpE__CSpA_clst-ttest.CSimA.NN2_bisided.niml'
+removed 'healthy_CSpE__CSpA_clst-ttest.CSimA.NN3_1sided.niml'
+removed 'healthy_CSpE__CSpA_clst-ttest.CSimA.NN3_2sided.niml'
+removed 'healthy_CSpE__CSpA_clst-ttest.CSimA.NN3_bisided.niml'
+ + 3dttest++ =============== -Clustsim work is finished :) ===============
+++ ----- 3dttest++ says so long, farewell, and happy trails to you :) -----
++ set +x
+ 
+ Job complete at Thu Nov  5 19:24:19 CST 2020
+ 
+Job duration: 00:53:12 (3192 s)
