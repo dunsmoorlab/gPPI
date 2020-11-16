@@ -16,7 +16,7 @@ def reg_copes(sub):
         reg_dir = f'{subj.model_dir}/{_run}/{subj.fsub}_{_run}_gPPI.feat/reg'
 
         # for roi in seeds:
-        for roi in ['hc_head']
+        for roi in ['hc_head']:
             stats = f'{subj.model_dir}/{_run}/{roi}/source.feat/stats'
             reg_std = f'{subj.model_dir}/{_run}/{roi}/source.feat/reg_std/stats'
             mkdir(reg_std)
