@@ -59,7 +59,7 @@ def smooth_est(sub):
             est_noise = f'3dFWHMx -mask {std_2009_brain_mask} \
                                   -input {reg_std}/res4d.nii.gz \
                                   -acf >> noise_estimates.txt'
-            os.wait(est_noise)
+            os.system(est_noise)
             time.sleep(5)
 def gPPI_datatables():
     out = './gPPI_MVM'
@@ -160,8 +160,8 @@ def paired_ttest(subs=None,name='',seed=None):
 def run_wrap():
     #for smooth or reg
     for sub in all_sub_args:
-        os.system(f"echo singularity run --cleanenv $SCRATCH/bids-apps/neurosft.simg python $HOME/gPPI/wrap_glm_utils.py -s {sub} >> jobs/smooth2_gPPI_job.txt")
-    os.system('launch -N 48 -n 48 -J smooth2 -s jobs/smooth2_gPPI_job.txt -m achennings@utexas.edu -p normal -r 10:00:00 -A LewPea_MRI_Analysis')
+        os.system(f"echo singularity run --cleanenv $SCRATCH/bids-apps/neurosft.simg python $HOME/gPPI/wrap_glm_utils.py -s {sub} >> jobs/smooth3_gPPI_job.txt")
+    os.system('launch -N 48 -n 48 -J smooth3 -s jobs/smooth3_gPPI_job.txt -m achennings@utexas.edu -p normal -r 10:00:00 -A LewPea_MRI_Analysis -d 3152834')
 
     #for MVM
     # for seed in ['amyg_cem','amyg_bla','hc_head']:
