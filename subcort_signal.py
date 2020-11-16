@@ -1,6 +1,7 @@
 from fg_config import *
 import nibabel as nib
 from nilearn.image import get_data, concat_imgs
+from roi_rsa import group_roi_rsa
 
 def apply_mask(mask=None,target=None):
 
@@ -11,8 +12,7 @@ def apply_mask(mask=None,target=None):
     return values
 
 runs = [1,2,3]
-# rois = ['hc_tail','hc_body','hc_head','amyg_bla','amyg_cem']
-rois = ['hc_head']
+rois = ['hc_tail','hc_body','hc_head','amyg_bla','amyg_cem']
 phase3 = ['baseline','acquisition','extinction']
 
 def collect_univariate()
@@ -45,9 +45,54 @@ def collect_univariate()
 
 
 '''graphing of the univariate data'''
-df = pd.read_csv('subcortical_betas.csv')
-df['group'] = df.subject.apply(lgroup)
+betas = pd.read_csv('subcortical_betas.csv').set_index(['condition','group','roi','phase','subject']).sort_index()
+betas = betas.loc['CS+'] - betas.loc['CS-']
 
-sns.catplot(data=df,x='roi',y='beta',hue='group',row='phase',col='condition',kind='bar')
+rsa = pd.read_csv('pfc_ers_cleaned.csv').set_index(['condition','group','roi','phase','subject']).sort_index()
+rsa = rsa.loc['CS+'] - rsa.loc['CS-']
 
+for seed in rois:
+    for target in ['vmPFC','dACC']:
+        for phase in phase3:
+            print(seed,target,phase)
+            for group in ['healthy','ptsd']:
+                print(pg.corr(betas.loc[(group,seed,phase),'beta'], rsa.loc[(group,target,phase),'rsa'])[['r','p-val']])
+            print('\n\n')
+    input()
 
+# sns.catplot(data=df,x='roi',y='beta',hue='group',row='phase',col='condition',kind='bar')
+
+'''clean data for export to R'''
+#first just the model of activity
+betas = pd.read_csv('subcortical_betas.csv')
+betas['group'] = betas.subject.apply(lgroup)
+betas = betas.set_index(['condition','group','roi','phase','subject']).sort_index()
+# betas.to_csv('subcortical_betas.csv')
+
+#next ERS 
+c = group_roi_rsa(group='control',ext_split=False,fs=True,hemi=False)
+p = group_roi_rsa(group='ptsd',ext_split=False,fs=True,hemi=False)
+
+cdf = c.df.dropna(subset=['response'])
+pdf = p.df.dropna(subset=['response'])
+cdf = cdf.groupby(['trial_type','encode_phase','roi','subject']).mean()
+pdf = pdf.groupby(['trial_type','encode_phase','roi','subject']).mean()
+rsa = pd.concat((cdf,pdf)).reset_index()
+rsa = rsa[rsa.roi.isin(['sgACC','rACC'])]
+rsa.roi = rsa.roi.apply(pfc_rename)
+rsa['group'] = rsa.subject.apply(lgroup)
+rsa = rsa.rename(columns={'trial_type':'condition','encode_phase':'phase'})
+rsa = rsa.set_index(['condition','group','roi','phase','subject']).sort_index()[['rsa']]
+# rsa.to_csv('pfc_ers_cleaned.csv')
+
+#combine betas and ers
+betas = betas.unstack(level='roi')
+betas.columns = betas.columns.droplevel(0)
+betas = betas.rename_axis(None, axis=1)
+
+rsa = rsa.unstack(level='roi')
+rsa.columns = rsa.columns.droplevel(0)
+rsa = rsa.rename_axis(None, axis=1).rename(columns={'dACC':'dACC_ers','vmPFC':'vmPFC_ers'})
+
+df = pd.concat((rsa,betas),axis=1)
+df.to_csv('ers_subcort_betas_full.csv')

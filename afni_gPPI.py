@@ -15,7 +15,8 @@ def reg_copes(sub):
         _run = f'memory_run-0{run}'
         reg_dir = f'{subj.model_dir}/{_run}/{subj.fsub}_{_run}_gPPI.feat/reg'
 
-        for roi in seeds:
+        # for roi in seeds:
+        for roi in ['hc_head']
             stats = f'{subj.model_dir}/{_run}/{roi}/source.feat/stats'
             reg_std = f'{subj.model_dir}/{_run}/{roi}/source.feat/reg_std/stats'
             mkdir(reg_std)
@@ -46,17 +47,20 @@ def mean_copes(sub):
                 nib.save(cope,f'{seed_dir}/{phase}_{con}.nii.gz')
 
 def smooth_est(sub):
+    import time
+    seeds = ['hc_tail','hc_body','hc_head','amyg_bla','amyg_cem']
     subj = bids_meta(sub)
     #for each seed region in each run we need to get a spatial noise estimate
     for run in [1,2,3]:
         for seed in seeds:
             reg_std = f'{subj.model_dir}/memory_run-0{run}/{seed}/source.feat/reg_std/stats'
             os.chdir(reg_std)
+            time.sleep(1)
             est_noise = f'3dFWHMx -mask {std_2009_brain_mask} \
                                   -input {reg_std}/res4d.nii.gz \
                                   -acf >> noise_estimates.txt'
-            os.system(est_noise)
-
+            os.wait(est_noise)
+            time.sleep(5)
 def gPPI_datatables():
     out = './gPPI_MVM'
     for seed in seeds:
@@ -149,8 +153,8 @@ def paired_ttest(subs=None,name='',seed=None):
         #                    -p normal \
         #                    -r 1:00:00 \
         #                    -A LewPea_MRI_Analysis')
-paired_ttest(subs=sub_args,name='healthy_CSpE__CSpA',seed='hc_head')
-paired_ttest(subs=p_sub_args,name='ptsd_CSpE__CSpA')
+# paired_ttest(subs=sub_args,name='healthy_CSpE__CSpA',seed='hc_head')
+# paired_ttest(subs=p_sub_args,name='ptsd_CSpE__CSpA')
 
 
 def run_wrap():
