@@ -1,0 +1,1 @@
+singularity run --cleanenv /scratch/05426/ach3377/bids-apps/neurosft.simg bash -x /scratch/05426/ach3377/gPPI_MVM/hc_head_clustsim_script.txt

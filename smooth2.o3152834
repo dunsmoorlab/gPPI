@@ -1,0 +1,649 @@
+ Starting at Mon Nov 16 13:40:37 CST 2020
+ WORKING DIR: /opt/tacc_mounts/home1/05426/ach3377/gPPI/
+ JOB ID:      3152834
+ JOB NAME:    smooth2
+ NODES:       nid0[0094,0315,0351,0402,0420,0422,0424,0437,0440,0458,0460,0463,0474,0493,0498,0534,0548-0549,0554,0558,0612,0625,0702-0707,0782,0794-0795,0872-0874,0925-0926,0928-0930,0989-0990,1144-1146,1288-1291]
+ N NODES:     48
+ N TASKS:     48
+Launcher: Setup complete.
+
+------------- SUMMARY ---------------
+   Number of hosts:    48
+   Working directory:  /opt/tacc_mounts/home1/05426/ach3377/gPPI
+   Processes per host: 1
+   Total processes:    48
+   Total jobs:         48
+   Scheduling method:  dynamic
+
+-------------------------------------
+Launcher: Starting parallel tasks...
+using /tmp/launcher.3152834.hostlist.WkhelDZA to get hosts
+starting job on nid00094
+starting job on nid00315
+starting job on nid00351
+starting job on nid00402
+starting job on nid00420
+starting job on nid00422
+starting job on nid00424
+starting job on nid00437
+starting job on nid00440
+starting job on nid00458
+starting job on nid00460
+starting job on nid00463
+starting job on nid00474
+starting job on nid00493
+starting job on nid00498
+starting job on nid00534
+starting job on nid00548
+starting job on nid00549
+starting job on nid00554
+starting job on nid00558
+starting job on nid00612
+starting job on nid00625
+starting job on nid00702
+starting job on nid00703
+starting job on nid00704
+starting job on nid00705
+starting job on nid00706
+starting job on nid00707
+starting job on nid00782
+starting job on nid00794
+starting job on nid00795
+starting job on nid00872
+starting job on nid00873
+starting job on nid00874
+starting job on nid00925
+starting job on nid00926
+starting job on nid00928
+starting job on nid00929
+starting job on nid00930
+starting job on nid00989
+starting job on nid00990
+starting job on nid01144
+starting job on nid01145
+starting job on nid01146
+starting job on nid01288
+starting job on nid01289
+starting job on nid01290
+starting job on nid01291
+Launcher: Task 20 running job 1 on nid00612 (singularity run --cleanenv /scratch/05426/ach3377/bids-apps/neurosft.simg python /home1/05426/ach3377/gPPI/wrap_glm_utils.py -s 1)
+Launcher: Task 45 running job 2 on nid01289 (singularity run --cleanenv /scratch/05426/ach3377/bids-apps/neurosft.simg python /home1/05426/ach3377/gPPI/wrap_glm_utils.py -s 2)
+Launcher: Task 28 running job 3 on nid00782 (singularity run --cleanenv /scratch/05426/ach3377/bids-apps/neurosft.simg python /home1/05426/ach3377/gPPI/wrap_glm_utils.py -s 3)
+Launcher: Task 5 running job 4 on nid00422 (singularity run --cleanenv /scratch/05426/ach3377/bids-apps/neurosft.simg python /home1/05426/ach3377/gPPI/wrap_glm_utils.py -s 4)
+Launcher: Task 6 running job 5 on nid00424 (singularity run --cleanenv /scratch/05426/ach3377/bids-apps/neurosft.simg python /home1/05426/ach3377/gPPI/wrap_glm_utils.py -s 5)
+Launcher: Task 25 running job 6 on nid00705 (singularity run --cleanenv /scratch/05426/ach3377/bids-apps/neurosft.simg python /home1/05426/ach3377/gPPI/wrap_glm_utils.py -s 6)
+Launcher: Task 41 running job 7 on nid01144 (singularity run --cleanenv /scratch/05426/ach3377/bids-apps/neurosft.simg python /home1/05426/ach3377/gPPI/wrap_glm_utils.py -s 7)
+Launcher: Task 19 running job 8 on nid00558 (singularity run --cleanenv /scratch/05426/ach3377/bids-apps/neurosft.simg python /home1/05426/ach3377/gPPI/wrap_glm_utils.py -s 8)
+Launcher: Task 10 running job 9 on nid00460 (singularity run --cleanenv /scratch/05426/ach3377/bids-apps/neurosft.simg python /home1/05426/ach3377/gPPI/wrap_glm_utils.py -s 9)
+Launcher: Task 11 running job 10 on nid00463 (singularity run --cleanenv /scratch/05426/ach3377/bids-apps/neurosft.simg python /home1/05426/ach3377/gPPI/wrap_glm_utils.py -s 10)
+Launcher: Task 3 running job 11 on nid00402 (singularity run --cleanenv /scratch/05426/ach3377/bids-apps/neurosft.simg python /home1/05426/ach3377/gPPI/wrap_glm_utils.py -s 12)
+Launcher: Task 1 running job 12 on nid00315 (singularity run --cleanenv /scratch/05426/ach3377/bids-apps/neurosft.simg python /home1/05426/ach3377/gPPI/wrap_glm_utils.py -s 13)
+Launcher: Task 16 running job 13 on nid00548 (singularity run --cleanenv /scratch/05426/ach3377/bids-apps/neurosft.simg python /home1/05426/ach3377/gPPI/wrap_glm_utils.py -s 14)
+Launcher: Task 39 running job 14 on nid00989 (singularity run --cleanenv /scratch/05426/ach3377/bids-apps/neurosft.simg python /home1/05426/ach3377/gPPI/wrap_glm_utils.py -s 15)
+Launcher: Task 34 running job 15 on nid00925 (singularity run --cleanenv /scratch/05426/ach3377/bids-apps/neurosft.simg python /home1/05426/ach3377/gPPI/wrap_glm_utils.py -s 16)
+Launcher: Task 17 running job 16 on nid00549 (singularity run --cleanenv /scratch/05426/ach3377/bids-apps/neurosft.simg python /home1/05426/ach3377/gPPI/wrap_glm_utils.py -s 17)
+Launcher: Task 21 running job 17 on nid00625 (singularity run --cleanenv /scratch/05426/ach3377/bids-apps/neurosft.simg python /home1/05426/ach3377/gPPI/wrap_glm_utils.py -s 18)
+Launcher: Task 38 running job 18 on nid00930 (singularity run --cleanenv /scratch/05426/ach3377/bids-apps/neurosft.simg python /home1/05426/ach3377/gPPI/wrap_glm_utils.py -s 19)
+Launcher: Task 43 running job 19 on nid01146 (singularity run --cleanenv /scratch/05426/ach3377/bids-apps/neurosft.simg python /home1/05426/ach3377/gPPI/wrap_glm_utils.py -s 20)
+Launcher: Task 8 running job 20 on nid00440 (singularity run --cleanenv /scratch/05426/ach3377/bids-apps/neurosft.simg python /home1/05426/ach3377/gPPI/wrap_glm_utils.py -s 21)
+Launcher: Task 32 running job 21 on nid00873 (singularity run --cleanenv /scratch/05426/ach3377/bids-apps/neurosft.simg python /home1/05426/ach3377/gPPI/wrap_glm_utils.py -s 23)
+Launcher: Task 46 running job 22 on nid01290 (singularity run --cleanenv /scratch/05426/ach3377/bids-apps/neurosft.simg python /home1/05426/ach3377/gPPI/wrap_glm_utils.py -s 24)
+Launcher: Task 15 running job 23 on nid00534 (singularity run --cleanenv /scratch/05426/ach3377/bids-apps/neurosft.simg python /home1/05426/ach3377/gPPI/wrap_glm_utils.py -s 25)
+Launcher: Task 42 running job 24 on nid01145 (singularity run --cleanenv /scratch/05426/ach3377/bids-apps/neurosft.simg python /home1/05426/ach3377/gPPI/wrap_glm_utils.py -s 26)
+Launcher: Task 0 running job 25 on nid00094 (singularity run --cleanenv /scratch/05426/ach3377/bids-apps/neurosft.simg python /home1/05426/ach3377/gPPI/wrap_glm_utils.py -s 101)
+Launcher: Task 7 running job 26 on nid00437 (singularity run --cleanenv /scratch/05426/ach3377/bids-apps/neurosft.simg python /home1/05426/ach3377/gPPI/wrap_glm_utils.py -s 102)
+Launcher: Task 18 running job 27 on nid00554 (singularity run --cleanenv /scratch/05426/ach3377/bids-apps/neurosft.simg python /home1/05426/ach3377/gPPI/wrap_glm_utils.py -s 103)
+Launcher: Task 30 running job 28 on nid00795 (singularity run --cleanenv /scratch/05426/ach3377/bids-apps/neurosft.simg python /home1/05426/ach3377/gPPI/wrap_glm_utils.py -s 104)
+Launcher: Task 29 running job 29 on nid00794 (singularity run --cleanenv /scratch/05426/ach3377/bids-apps/neurosft.simg python /home1/05426/ach3377/gPPI/wrap_glm_utils.py -s 105)
+Launcher: Task 4 running job 30 on nid00420 (singularity run --cleanenv /scratch/05426/ach3377/bids-apps/neurosft.simg python /home1/05426/ach3377/gPPI/wrap_glm_utils.py -s 106)
+Launcher: Task 40 running job 31 on nid00990 (singularity run --cleanenv /scratch/05426/ach3377/bids-apps/neurosft.simg python /home1/05426/ach3377/gPPI/wrap_glm_utils.py -s 107)
+Launcher: Task 23 running job 32 on nid00703 (singularity run --cleanenv /scratch/05426/ach3377/bids-apps/neurosft.simg python /home1/05426/ach3377/gPPI/wrap_glm_utils.py -s 108)
+Launcher: Task 24 running job 33 on nid00704 (singularity run --cleanenv /scratch/05426/ach3377/bids-apps/neurosft.simg python /home1/05426/ach3377/gPPI/wrap_glm_utils.py -s 109)
+Launcher: Task 13 running job 34 on nid00493 (singularity run --cleanenv /scratch/05426/ach3377/bids-apps/neurosft.simg python /home1/05426/ach3377/gPPI/wrap_glm_utils.py -s 110)
+Launcher: Task 14 running job 35 on nid00498 (singularity run --cleanenv /scratch/05426/ach3377/bids-apps/neurosft.simg python /home1/05426/ach3377/gPPI/wrap_glm_utils.py -s 111)
+Launcher: Task 35 running job 36 on nid00926 (singularity run --cleanenv /scratch/05426/ach3377/bids-apps/neurosft.simg python /home1/05426/ach3377/gPPI/wrap_glm_utils.py -s 112)
+Launcher: Task 36 running job 37 on nid00928 (singularity run --cleanenv /scratch/05426/ach3377/bids-apps/neurosft.simg python /home1/05426/ach3377/gPPI/wrap_glm_utils.py -s 113)
+Launcher: Task 26 running job 38 on nid00706 (singularity run --cleanenv /scratch/05426/ach3377/bids-apps/neurosft.simg python /home1/05426/ach3377/gPPI/wrap_glm_utils.py -s 114)
+Launcher: Task 22 running job 39 on nid00702 (singularity run --cleanenv /scratch/05426/ach3377/bids-apps/neurosft.simg python /home1/05426/ach3377/gPPI/wrap_glm_utils.py -s 115)
+Launcher: Task 31 running job 40 on nid00872 (singularity run --cleanenv /scratch/05426/ach3377/bids-apps/neurosft.simg python /home1/05426/ach3377/gPPI/wrap_glm_utils.py -s 116)
+Launcher: Task 44 running job 41 on nid01288 (singularity run --cleanenv /scratch/05426/ach3377/bids-apps/neurosft.simg python /home1/05426/ach3377/gPPI/wrap_glm_utils.py -s 117)
+Launcher: Task 9 running job 42 on nid00458 (singularity run --cleanenv /scratch/05426/ach3377/bids-apps/neurosft.simg python /home1/05426/ach3377/gPPI/wrap_glm_utils.py -s 118)
+Launcher: Task 2 running job 43 on nid00351 (singularity run --cleanenv /scratch/05426/ach3377/bids-apps/neurosft.simg python /home1/05426/ach3377/gPPI/wrap_glm_utils.py -s 120)
+Launcher: Task 47 running job 44 on nid01291 (singularity run --cleanenv /scratch/05426/ach3377/bids-apps/neurosft.simg python /home1/05426/ach3377/gPPI/wrap_glm_utils.py -s 121)
+Launcher: Task 37 running job 45 on nid00929 (singularity run --cleanenv /scratch/05426/ach3377/bids-apps/neurosft.simg python /home1/05426/ach3377/gPPI/wrap_glm_utils.py -s 122)
+Launcher: Task 12 running job 46 on nid00474 (singularity run --cleanenv /scratch/05426/ach3377/bids-apps/neurosft.simg python /home1/05426/ach3377/gPPI/wrap_glm_utils.py -s 123)
+Launcher: Task 27 running job 47 on nid00707 (singularity run --cleanenv /scratch/05426/ach3377/bids-apps/neurosft.simg python /home1/05426/ach3377/gPPI/wrap_glm_utils.py -s 124)
+Launcher: Task 33 running job 48 on nid00874 (singularity run --cleanenv /scratch/05426/ach3377/bids-apps/neurosft.simg python /home1/05426/ach3377/gPPI/wrap_glm_utils.py -s 125)
+Some packages in this Docker container are non-free
+If you are considering commercial use of this container, please consult the relevant license:
+https://fsl.fmrib.ox.ac.uk/fsl/fslwiki/Licence
+Some packages in this Docker container are non-free
+If you are considering commercial use of this container, please consult the relevant license:
+https://fsl.fmrib.ox.ac.uk/fsl/fslwiki/Licence
+Some packages in this Docker container are non-free
+If you are considering commercial use of this container, please consult the relevant license:
+https://fsl.fmrib.ox.ac.uk/fsl/fslwiki/Licence
+Some packages in this Docker container are non-free
+If you are considering commercial use of this container, please consult the relevant license:
+https://fsl.fmrib.ox.ac.uk/fsl/fslwiki/Licence
+Some packages in this Docker container are non-free
+If you are considering commercial use of this container, please consult the relevant license:
+https://fsl.fmrib.ox.ac.uk/fsl/fslwiki/Licence
+Some packages in this Docker container are non-free
+If you are considering commercial use of this container, please consult the relevant license:
+https://fsl.fmrib.ox.ac.uk/fsl/fslwiki/Licence
+Some packages in this Docker container are non-free
+If you are considering commercial use of this container, please consult the relevant license:
+https://fsl.fmrib.ox.ac.uk/fsl/fslwiki/Licence
+Some packages in this Docker container are non-free
+If you are considering commercial use of this container, please consult the relevant license:
+https://fsl.fmrib.ox.ac.uk/fsl/fslwiki/Licence
+Some packages in this Docker container are non-free
+If you are considering commercial use of this container, please consult the relevant license:
+https://fsl.fmrib.ox.ac.uk/fsl/fslwiki/Licence
+Some packages in this Docker container are non-free
+If you are considering commercial use of this container, please consult the relevant license:
+https://fsl.fmrib.ox.ac.uk/fsl/fslwiki/Licence
+Some packages in this Docker container are non-free
+If you are considering commercial use of this container, please consult the relevant license:
+https://fsl.fmrib.ox.ac.uk/fsl/fslwiki/Licence
+Some packages in this Docker container are non-free
+If you are considering commercial use of this container, please consult the relevant license:
+https://fsl.fmrib.ox.ac.uk/fsl/fslwiki/Licence
+Some packages in this Docker container are non-free
+If you are considering commercial use of this container, please consult the relevant license:
+https://fsl.fmrib.ox.ac.uk/fsl/fslwiki/Licence
+Some packages in this Docker container are non-free
+If you are considering commercial use of this container, please consult the relevant license:
+https://fsl.fmrib.ox.ac.uk/fsl/fslwiki/Licence
+Some packages in this Docker container are non-free
+If you are considering commercial use of this container, please consult the relevant license:
+https://fsl.fmrib.ox.ac.uk/fsl/fslwiki/Licence
+Some packages in this Docker container are non-free
+If you are considering commercial use of this container, please consult the relevant license:
+https://fsl.fmrib.ox.ac.uk/fsl/fslwiki/Licence
+Some packages in this Docker container are non-free
+If you are considering commercial use of this container, please consult the relevant license:
+https://fsl.fmrib.ox.ac.uk/fsl/fslwiki/Licence
+Some packages in this Docker container are non-free
+If you are considering commercial use of this container, please consult the relevant license:
+https://fsl.fmrib.ox.ac.uk/fsl/fslwiki/Licence
+Some packages in this Docker container are non-free
+If you are considering commercial use of this container, please consult the relevant license:
+https://fsl.fmrib.ox.ac.uk/fsl/fslwiki/Licence
+Some packages in this Docker container are non-free
+If you are considering commercial use of this container, please consult the relevant license:
+https://fsl.fmrib.ox.ac.uk/fsl/fslwiki/Licence
+Some packages in this Docker container are non-free
+If you are considering commercial use of this container, please consult the relevant license:
+https://fsl.fmrib.ox.ac.uk/fsl/fslwiki/Licence
+Some packages in this Docker container are non-free
+If you are considering commercial use of this container, please consult the relevant license:
+https://fsl.fmrib.ox.ac.uk/fsl/fslwiki/Licence
+Some packages in this Docker container are non-free
+If you are considering commercial use of this container, please consult the relevant license:
+https://fsl.fmrib.ox.ac.uk/fsl/fslwiki/Licence
+Some packages in this Docker container are non-free
+If you are considering commercial use of this container, please consult the relevant license:
+https://fsl.fmrib.ox.ac.uk/fsl/fslwiki/Licence
+Some packages in this Docker container are non-free
+If you are considering commercial use of this container, please consult the relevant license:
+https://fsl.fmrib.ox.ac.uk/fsl/fslwiki/Licence
+Some packages in this Docker container are non-free
+If you are considering commercial use of this container, please consult the relevant license:
+https://fsl.fmrib.ox.ac.uk/fsl/fslwiki/Licence
+Some packages in this Docker container are non-free
+If you are considering commercial use of this container, please consult the relevant license:
+https://fsl.fmrib.ox.ac.uk/fsl/fslwiki/Licence
+Some packages in this Docker container are non-free
+If you are considering commercial use of this container, please consult the relevant license:
+https://fsl.fmrib.ox.ac.uk/fsl/fslwiki/Licence
+Some packages in this Docker container are non-free
+If you are considering commercial use of this container, please consult the relevant license:
+https://fsl.fmrib.ox.ac.uk/fsl/fslwiki/Licence
+Some packages in this Docker container are non-free
+If you are considering commercial use of this container, please consult the relevant license:
+https://fsl.fmrib.ox.ac.uk/fsl/fslwiki/Licence
+Some packages in this Docker container are non-free
+If you are considering commercial use of this container, please consult the relevant license:
+https://fsl.fmrib.ox.ac.uk/fsl/fslwiki/Licence
+Some packages in this Docker container are non-free
+If you are considering commercial use of this container, please consult the relevant license:
+https://fsl.fmrib.ox.ac.uk/fsl/fslwiki/Licence
+Some packages in this Docker container are non-free
+If you are considering commercial use of this container, please consult the relevant license:
+https://fsl.fmrib.ox.ac.uk/fsl/fslwiki/Licence
+Some packages in this Docker container are non-free
+If you are considering commercial use of this container, please consult the relevant license:
+https://fsl.fmrib.ox.ac.uk/fsl/fslwiki/Licence
+Some packages in this Docker container are non-free
+If you are considering commercial use of this container, please consult the relevant license:
+https://fsl.fmrib.ox.ac.uk/fsl/fslwiki/Licence
+Some packages in this Docker container are non-free
+If you are considering commercial use of this container, please consult the relevant license:
+https://fsl.fmrib.ox.ac.uk/fsl/fslwiki/Licence
+Some packages in this Docker container are non-free
+If you are considering commercial use of this container, please consult the relevant license:
+https://fsl.fmrib.ox.ac.uk/fsl/fslwiki/Licence
+Some packages in this Docker container are non-free
+If you are considering commercial use of this container, please consult the relevant license:
+https://fsl.fmrib.ox.ac.uk/fsl/fslwiki/Licence
+Some packages in this Docker container are non-free
+If you are considering commercial use of this container, please consult the relevant license:
+https://fsl.fmrib.ox.ac.uk/fsl/fslwiki/Licence
+Some packages in this Docker container are non-free
+If you are considering commercial use of this container, please consult the relevant license:
+https://fsl.fmrib.ox.ac.uk/fsl/fslwiki/Licence
+Some packages in this Docker container are non-free
+If you are considering commercial use of this container, please consult the relevant license:
+https://fsl.fmrib.ox.ac.uk/fsl/fslwiki/Licence
+Some packages in this Docker container are non-free
+If you are considering commercial use of this container, please consult the relevant license:
+https://fsl.fmrib.ox.ac.uk/fsl/fslwiki/Licence
+Some packages in this Docker container are non-free
+If you are considering commercial use of this container, please consult the relevant license:
+https://fsl.fmrib.ox.ac.uk/fsl/fslwiki/Licence
+Some packages in this Docker container are non-free
+If you are considering commercial use of this container, please consult the relevant license:
+https://fsl.fmrib.ox.ac.uk/fsl/fslwiki/Licence
+Some packages in this Docker container are non-free
+If you are considering commercial use of this container, please consult the relevant license:
+https://fsl.fmrib.ox.ac.uk/fsl/fslwiki/Licence
+Some packages in this Docker container are non-free
+If you are considering commercial use of this container, please consult the relevant license:
+https://fsl.fmrib.ox.ac.uk/fsl/fslwiki/Licence
+Some packages in this Docker container are non-free
+If you are considering commercial use of this container, please consult the relevant license:
+https://fsl.fmrib.ox.ac.uk/fsl/fslwiki/Licence
+Some packages in this Docker container are non-free
+If you are considering commercial use of this container, please consult the relevant license:
+https://fsl.fmrib.ox.ac.uk/fsl/fslwiki/Licence
+Traceback (most recent call last):
+  File "/home1/05426/ach3377/gPPI/wrap_glm_utils.py", line 15, in <module>
+    smooth_est(args.subj)
+  File "/home1/05426/ach3377/gPPI/afni_gPPI.py", line 62, in smooth_est
+    os.wait(est_noise)
+TypeError: wait() takes no arguments (1 given)
+Launcher: Job 39 completed in 6302 seconds.
+Launcher: Task 22 done. Exiting.
+Traceback (most recent call last):
+  File "/home1/05426/ach3377/gPPI/wrap_glm_utils.py", line 15, in <module>
+    smooth_est(args.subj)
+  File "/home1/05426/ach3377/gPPI/afni_gPPI.py", line 62, in smooth_est
+    os.wait(est_noise)
+TypeError: wait() takes no arguments (1 given)
+Launcher: Job 44 completed in 6311 seconds.
+Launcher: Task 47 done. Exiting.
+Traceback (most recent call last):
+  File "/home1/05426/ach3377/gPPI/wrap_glm_utils.py", line 15, in <module>
+    smooth_est(args.subj)
+  File "/home1/05426/ach3377/gPPI/afni_gPPI.py", line 62, in smooth_est
+    os.wait(est_noise)
+TypeError: wait() takes no arguments (1 given)
+Launcher: Job 35 completed in 6318 seconds.
+Launcher: Task 14 done. Exiting.
+Traceback (most recent call last):
+  File "/home1/05426/ach3377/gPPI/wrap_glm_utils.py", line 15, in <module>
+    smooth_est(args.subj)
+  File "/home1/05426/ach3377/gPPI/afni_gPPI.py", line 62, in smooth_est
+    os.wait(est_noise)
+TypeError: wait() takes no arguments (1 given)
+Traceback (most recent call last):
+  File "/home1/05426/ach3377/gPPI/wrap_glm_utils.py", line 15, in <module>
+    smooth_est(args.subj)
+  File "/home1/05426/ach3377/gPPI/afni_gPPI.py", line 62, in smooth_est
+    os.wait(est_noise)
+TypeError: wait() takes no arguments (1 given)
+Launcher: Job 47 completed in 6315 seconds.
+Launcher: Task 27 done. Exiting.
+Launcher: Job 46 completed in 6316 seconds.
+Launcher: Task 12 done. Exiting.
+Traceback (most recent call last):
+  File "/home1/05426/ach3377/gPPI/wrap_glm_utils.py", line 15, in <module>
+    smooth_est(args.subj)
+  File "/home1/05426/ach3377/gPPI/afni_gPPI.py", line 62, in smooth_est
+    os.wait(est_noise)
+TypeError: wait() takes no arguments (1 given)
+Launcher: Job 31 completed in 6328 seconds.
+Launcher: Task 40 done. Exiting.
+Traceback (most recent call last):
+  File "/home1/05426/ach3377/gPPI/wrap_glm_utils.py", line 15, in <module>
+    smooth_est(args.subj)
+  File "/home1/05426/ach3377/gPPI/afni_gPPI.py", line 62, in smooth_est
+    os.wait(est_noise)
+TypeError: wait() takes no arguments (1 given)
+Launcher: Job 18 completed in 6332 seconds.
+Launcher: Task 38 done. Exiting.
+Traceback (most recent call last):
+  File "/home1/05426/ach3377/gPPI/wrap_glm_utils.py", line 15, in <module>
+    smooth_est(args.subj)
+  File "/home1/05426/ach3377/gPPI/afni_gPPI.py", line 62, in smooth_est
+    os.wait(est_noise)
+TypeError: wait() takes no arguments (1 given)
+Launcher: Job 43 completed in 6479 seconds.
+Launcher: Task 2 done. Exiting.
+Traceback (most recent call last):
+  File "/home1/05426/ach3377/gPPI/wrap_glm_utils.py", line 15, in <module>
+    smooth_est(args.subj)
+  File "/home1/05426/ach3377/gPPI/afni_gPPI.py", line 62, in smooth_est
+    os.wait(est_noise)
+TypeError: wait() takes no arguments (1 given)
+Launcher: Job 13 completed in 6594 seconds.
+Launcher: Task 16 done. Exiting.
+Traceback (most recent call last):
+  File "/home1/05426/ach3377/gPPI/wrap_glm_utils.py", line 15, in <module>
+    smooth_est(args.subj)
+  File "/home1/05426/ach3377/gPPI/afni_gPPI.py", line 62, in smooth_est
+    os.wait(est_noise)
+TypeError: wait() takes no arguments (1 given)
+Launcher: Job 45 completed in 6595 seconds.
+Launcher: Task 37 done. Exiting.
+Traceback (most recent call last):
+  File "/home1/05426/ach3377/gPPI/wrap_glm_utils.py", line 15, in <module>
+    smooth_est(args.subj)
+  File "/home1/05426/ach3377/gPPI/afni_gPPI.py", line 62, in smooth_est
+    os.wait(est_noise)
+TypeError: wait() takes no arguments (1 given)
+Traceback (most recent call last):
+  File "/home1/05426/ach3377/gPPI/wrap_glm_utils.py", line 15, in <module>
+    smooth_est(args.subj)
+  File "/home1/05426/ach3377/gPPI/afni_gPPI.py", line 62, in smooth_est
+    os.wait(est_noise)
+TypeError: wait() takes no arguments (1 given)
+Launcher: Job 48 completed in 6612 seconds.
+Launcher: Task 33 done. Exiting.
+Launcher: Job 34 completed in 6622 seconds.
+Launcher: Task 13 done. Exiting.
+Traceback (most recent call last):
+  File "/home1/05426/ach3377/gPPI/wrap_glm_utils.py", line 15, in <module>
+    smooth_est(args.subj)
+  File "/home1/05426/ach3377/gPPI/afni_gPPI.py", line 62, in smooth_est
+    os.wait(est_noise)
+TypeError: wait() takes no arguments (1 given)
+Launcher: Job 33 completed in 6629 seconds.
+Launcher: Task 24 done. Exiting.
+Traceback (most recent call last):
+  File "/home1/05426/ach3377/gPPI/wrap_glm_utils.py", line 15, in <module>
+    smooth_est(args.subj)
+  File "/home1/05426/ach3377/gPPI/afni_gPPI.py", line 62, in smooth_est
+    os.wait(est_noise)
+TypeError: wait() takes no arguments (1 given)
+Launcher: Job 1 completed in 6646 seconds.
+Launcher: Task 20 done. Exiting.
+Traceback (most recent call last):
+  File "/home1/05426/ach3377/gPPI/wrap_glm_utils.py", line 15, in <module>
+    smooth_est(args.subj)
+  File "/home1/05426/ach3377/gPPI/afni_gPPI.py", line 62, in smooth_est
+    os.wait(est_noise)
+TypeError: wait() takes no arguments (1 given)
+Launcher: Job 42 completed in 6631 seconds.
+Launcher: Task 9 done. Exiting.
+Traceback (most recent call last):
+  File "/home1/05426/ach3377/gPPI/wrap_glm_utils.py", line 15, in <module>
+    smooth_est(args.subj)
+  File "/home1/05426/ach3377/gPPI/afni_gPPI.py", line 62, in smooth_est
+    os.wait(est_noise)
+TypeError: wait() takes no arguments (1 given)
+Launcher: Job 15 completed in 6676 seconds.
+Launcher: Task 34 done. Exiting.
+Traceback (most recent call last):
+  File "/home1/05426/ach3377/gPPI/wrap_glm_utils.py", line 15, in <module>
+    smooth_est(args.subj)
+  File "/home1/05426/ach3377/gPPI/afni_gPPI.py", line 62, in smooth_est
+    os.wait(est_noise)
+TypeError: wait() takes no arguments (1 given)
+Launcher: Job 7 completed in 6683 seconds.
+Launcher: Task 41 done. Exiting.
+Traceback (most recent call last):
+  File "/home1/05426/ach3377/gPPI/wrap_glm_utils.py", line 15, in <module>
+    smooth_est(args.subj)
+  File "/home1/05426/ach3377/gPPI/afni_gPPI.py", line 62, in smooth_est
+    os.wait(est_noise)
+TypeError: wait() takes no arguments (1 given)
+Launcher: Job 2 completed in 6691 seconds.
+Launcher: Task 45 done. Exiting.
+Traceback (most recent call last):
+  File "/home1/05426/ach3377/gPPI/wrap_glm_utils.py", line 15, in <module>
+    smooth_est(args.subj)
+  File "/home1/05426/ach3377/gPPI/afni_gPPI.py", line 62, in smooth_est
+    os.wait(est_noise)
+TypeError: wait() takes no arguments (1 given)
+Launcher: Job 26 completed in 6722 seconds.
+Launcher: Task 7 done. Exiting.
+Traceback (most recent call last):
+  File "/home1/05426/ach3377/gPPI/wrap_glm_utils.py", line 15, in <module>
+    smooth_est(args.subj)
+  File "/home1/05426/ach3377/gPPI/afni_gPPI.py", line 62, in smooth_est
+    os.wait(est_noise)
+TypeError: wait() takes no arguments (1 given)
+Launcher: Job 32 completed in 6731 seconds.
+Launcher: Task 23 done. Exiting.
+Traceback (most recent call last):
+  File "/home1/05426/ach3377/gPPI/wrap_glm_utils.py", line 15, in <module>
+    smooth_est(args.subj)
+  File "/home1/05426/ach3377/gPPI/afni_gPPI.py", line 62, in smooth_est
+    os.wait(est_noise)
+TypeError: wait() takes no arguments (1 given)
+Launcher: Job 5 completed in 6752 seconds.
+Launcher: Task 6 done. Exiting.
+Traceback (most recent call last):
+  File "/home1/05426/ach3377/gPPI/wrap_glm_utils.py", line 15, in <module>
+    smooth_est(args.subj)
+  File "/home1/05426/ach3377/gPPI/afni_gPPI.py", line 62, in smooth_est
+    os.wait(est_noise)
+TypeError: wait() takes no arguments (1 given)
+Launcher: Job 36 completed in 6751 seconds.
+Launcher: Task 35 done. Exiting.
+Traceback (most recent call last):
+  File "/home1/05426/ach3377/gPPI/wrap_glm_utils.py", line 15, in <module>
+    smooth_est(args.subj)
+  File "/home1/05426/ach3377/gPPI/afni_gPPI.py", line 62, in smooth_est
+    os.wait(est_noise)
+TypeError: wait() takes no arguments (1 given)
+Launcher: Job 16 completed in 6766 seconds.
+Launcher: Task 17 done. Exiting.
+Traceback (most recent call last):
+  File "/home1/05426/ach3377/gPPI/wrap_glm_utils.py", line 15, in <module>
+    smooth_est(args.subj)
+  File "/home1/05426/ach3377/gPPI/afni_gPPI.py", line 62, in smooth_est
+    os.wait(est_noise)
+TypeError: wait() takes no arguments (1 given)
+Launcher: Job 25 completed in 6772 seconds.
+Launcher: Task 0 done. Exiting.
+Traceback (most recent call last):
+  File "/home1/05426/ach3377/gPPI/wrap_glm_utils.py", line 15, in <module>
+    smooth_est(args.subj)
+  File "/home1/05426/ach3377/gPPI/afni_gPPI.py", line 62, in smooth_est
+    os.wait(est_noise)
+TypeError: wait() takes no arguments (1 given)
+Launcher: Job 21 completed in 6780 seconds.
+Launcher: Task 32 done. Exiting.
+Traceback (most recent call last):
+  File "/home1/05426/ach3377/gPPI/wrap_glm_utils.py", line 15, in <module>
+    smooth_est(args.subj)
+  File "/home1/05426/ach3377/gPPI/afni_gPPI.py", line 62, in smooth_est
+    os.wait(est_noise)
+TypeError: wait() takes no arguments (1 given)
+Launcher: Job 37 completed in 6816 seconds.
+Launcher: Task 36 done. Exiting.
+Traceback (most recent call last):
+  File "/home1/05426/ach3377/gPPI/wrap_glm_utils.py", line 15, in <module>
+    smooth_est(args.subj)
+  File "/home1/05426/ach3377/gPPI/afni_gPPI.py", line 62, in smooth_est
+    os.wait(est_noise)
+TypeError: wait() takes no arguments (1 given)
+Launcher: Job 19 completed in 6824 seconds.
+Launcher: Task 43 done. Exiting.
+Traceback (most recent call last):
+  File "/home1/05426/ach3377/gPPI/wrap_glm_utils.py", line 15, in <module>
+    smooth_est(args.subj)
+  File "/home1/05426/ach3377/gPPI/afni_gPPI.py", line 62, in smooth_est
+    os.wait(est_noise)
+TypeError: wait() takes no arguments (1 given)
+Launcher: Job 17 completed in 6825 seconds.
+Launcher: Task 21 done. Exiting.
+Traceback (most recent call last):
+  File "/home1/05426/ach3377/gPPI/wrap_glm_utils.py", line 15, in <module>
+    smooth_est(args.subj)
+  File "/home1/05426/ach3377/gPPI/afni_gPPI.py", line 62, in smooth_est
+    os.wait(est_noise)
+TypeError: wait() takes no arguments (1 given)
+Launcher: Job 27 completed in 6829 seconds.
+Launcher: Task 18 done. Exiting.
+Traceback (most recent call last):
+  File "/home1/05426/ach3377/gPPI/wrap_glm_utils.py", line 15, in <module>
+    smooth_est(args.subj)
+  File "/home1/05426/ach3377/gPPI/afni_gPPI.py", line 62, in smooth_est
+    os.wait(est_noise)
+TypeError: wait() takes no arguments (1 given)
+Launcher: Job 38 completed in 6828 seconds.
+Launcher: Task 26 done. Exiting.
+Traceback (most recent call last):
+  File "/home1/05426/ach3377/gPPI/wrap_glm_utils.py", line 15, in <module>
+    smooth_est(args.subj)
+  File "/home1/05426/ach3377/gPPI/afni_gPPI.py", line 62, in smooth_est
+    os.wait(est_noise)
+TypeError: wait() takes no arguments (1 given)
+Launcher: Job 3 completed in 6870 seconds.
+Launcher: Task 28 done. Exiting.
+Traceback (most recent call last):
+  File "/home1/05426/ach3377/gPPI/wrap_glm_utils.py", line 15, in <module>
+    smooth_est(args.subj)
+  File "/home1/05426/ach3377/gPPI/afni_gPPI.py", line 62, in smooth_est
+    os.wait(est_noise)
+TypeError: wait() takes no arguments (1 given)
+Launcher: Job 9 completed in 6915 seconds.
+Launcher: Task 10 done. Exiting.
+Traceback (most recent call last):
+  File "/home1/05426/ach3377/gPPI/wrap_glm_utils.py", line 15, in <module>
+    smooth_est(args.subj)
+  File "/home1/05426/ach3377/gPPI/afni_gPPI.py", line 62, in smooth_est
+    os.wait(est_noise)
+TypeError: wait() takes no arguments (1 given)
+Launcher: Job 28 completed in 6929 seconds.
+Launcher: Task 30 done. Exiting.
+Traceback (most recent call last):
+  File "/home1/05426/ach3377/gPPI/wrap_glm_utils.py", line 15, in <module>
+    smooth_est(args.subj)
+  File "/home1/05426/ach3377/gPPI/afni_gPPI.py", line 62, in smooth_est
+    os.wait(est_noise)
+TypeError: wait() takes no arguments (1 given)
+Launcher: Job 11 completed in 6955 seconds.
+Launcher: Task 3 done. Exiting.
+Traceback (most recent call last):
+  File "/home1/05426/ach3377/gPPI/wrap_glm_utils.py", line 15, in <module>
+    smooth_est(args.subj)
+  File "/home1/05426/ach3377/gPPI/afni_gPPI.py", line 62, in smooth_est
+    os.system(est_noise)
+TypeError: wait() takes no arguments (1 given)
+Launcher: Job 8 completed in 8545 seconds.
+Launcher: Task 19 done. Exiting.
+Traceback (most recent call last):
+  File "/home1/05426/ach3377/gPPI/wrap_glm_utils.py", line 15, in <module>
+    smooth_est(args.subj)
+  File "/home1/05426/ach3377/gPPI/afni_gPPI.py", line 62, in smooth_est
+    os.system(est_noise)
+TypeError: wait() takes no arguments (1 given)
+Launcher: Job 40 completed in 8742 seconds.
+Launcher: Task 31 done. Exiting.
+Traceback (most recent call last):
+  File "/home1/05426/ach3377/gPPI/wrap_glm_utils.py", line 15, in <module>
+    smooth_est(args.subj)
+  File "/home1/05426/ach3377/gPPI/afni_gPPI.py", line 62, in smooth_est
+    os.system(est_noise)
+TypeError: wait() takes no arguments (1 given)
+Launcher: Job 20 completed in 8767 seconds.
+Launcher: Task 8 done. Exiting.
+Traceback (most recent call last):
+  File "/home1/05426/ach3377/gPPI/wrap_glm_utils.py", line 15, in <module>
+    smooth_est(args.subj)
+  File "/home1/05426/ach3377/gPPI/afni_gPPI.py", line 62, in smooth_est
+    os.system(est_noise)
+TypeError: wait() takes no arguments (1 given)
+Launcher: Job 4 completed in 8931 seconds.
+Launcher: Task 5 done. Exiting.
+Traceback (most recent call last):
+  File "/home1/05426/ach3377/gPPI/wrap_glm_utils.py", line 15, in <module>
+    smooth_est(args.subj)
+  File "/home1/05426/ach3377/gPPI/afni_gPPI.py", line 62, in smooth_est
+    os.system(est_noise)
+TypeError: wait() takes no arguments (1 given)
+Launcher: Job 23 completed in 9210 seconds.
+Launcher: Task 15 done. Exiting.
+Traceback (most recent call last):
+  File "/home1/05426/ach3377/gPPI/wrap_glm_utils.py", line 15, in <module>
+    smooth_est(args.subj)
+  File "/home1/05426/ach3377/gPPI/afni_gPPI.py", line 62, in smooth_est
+    os.system(est_noise)
+TypeError: wait() takes no arguments (1 given)
+Launcher: Job 24 completed in 9291 seconds.
+Launcher: Task 42 done. Exiting.
+Traceback (most recent call last):
+  File "/home1/05426/ach3377/gPPI/wrap_glm_utils.py", line 15, in <module>
+    smooth_est(args.subj)
+  File "/home1/05426/ach3377/gPPI/afni_gPPI.py", line 62, in smooth_est
+    os.system(est_noise)
+TypeError: wait() takes no arguments (1 given)
+Launcher: Job 41 completed in 9290 seconds.
+Launcher: Task 44 done. Exiting.
+Traceback (most recent call last):
+  File "/home1/05426/ach3377/gPPI/wrap_glm_utils.py", line 15, in <module>
+    smooth_est(args.subj)
+  File "/home1/05426/ach3377/gPPI/afni_gPPI.py", line 62, in smooth_est
+    os.system(est_noise)
+TypeError: wait() takes no arguments (1 given)
+Launcher: Job 12 completed in 9448 seconds.
+Launcher: Task 1 done. Exiting.
+Traceback (most recent call last):
+  File "/home1/05426/ach3377/gPPI/wrap_glm_utils.py", line 15, in <module>
+    smooth_est(args.subj)
+  File "/home1/05426/ach3377/gPPI/afni_gPPI.py", line 62, in smooth_est
+    os.system(est_noise)
+TypeError: wait() takes no arguments (1 given)
+Launcher: Job 6 completed in 9459 seconds.
+Launcher: Task 25 done. Exiting.
+Traceback (most recent call last):
+  File "/home1/05426/ach3377/gPPI/wrap_glm_utils.py", line 15, in <module>
+    smooth_est(args.subj)
+  File "/home1/05426/ach3377/gPPI/afni_gPPI.py", line 62, in smooth_est
+    os.system(est_noise)
+TypeError: wait() takes no arguments (1 given)
+Launcher: Job 30 completed in 9641 seconds.
+Launcher: Task 4 done. Exiting.
+Traceback (most recent call last):
+  File "/home1/05426/ach3377/gPPI/wrap_glm_utils.py", line 15, in <module>
+    smooth_est(args.subj)
+  File "/home1/05426/ach3377/gPPI/afni_gPPI.py", line 62, in smooth_est
+    os.system(est_noise)
+TypeError: wait() takes no arguments (1 given)
+Launcher: Job 10 completed in 9750 seconds.
+Launcher: Task 11 done. Exiting.
+Traceback (most recent call last):
+  File "/home1/05426/ach3377/gPPI/wrap_glm_utils.py", line 15, in <module>
+    smooth_est(args.subj)
+  File "/home1/05426/ach3377/gPPI/afni_gPPI.py", line 62, in smooth_est
+    os.system(est_noise)
+TypeError: wait() takes no arguments (1 given)
+Launcher: Job 29 completed in 9805 seconds.
+Launcher: Task 29 done. Exiting.
+Traceback (most recent call last):
+  File "/home1/05426/ach3377/gPPI/wrap_glm_utils.py", line 15, in <module>
+    smooth_est(args.subj)
+  File "/home1/05426/ach3377/gPPI/afni_gPPI.py", line 62, in smooth_est
+    os.system(est_noise)
+TypeError: wait() takes no arguments (1 given)
+Launcher: Job 22 completed in 9935 seconds.
+Launcher: Task 46 done. Exiting.
+Traceback (most recent call last):
+  File "/home1/05426/ach3377/gPPI/wrap_glm_utils.py", line 15, in <module>
+    smooth_est(args.subj)
+  File "/home1/05426/ach3377/gPPI/afni_gPPI.py", line 62, in smooth_est
+    os.system(est_noise)
+TypeError: wait() takes no arguments (1 given)
+Launcher: Job 14 completed in 11402 seconds.
+Launcher: Task 39 done. Exiting.
+Launcher: Done. Job exited without errors
+ 
+ Job complete at Mon Nov 16 16:50:49 CST 2020
+ 
+Job duration: 03:10:12 (11412 s)

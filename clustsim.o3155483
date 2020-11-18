@@ -1,0 +1,182 @@
+ Starting at Wed Nov 18 10:11:32 CST 2020
+ WORKING DIR: /opt/tacc_mounts/home1/05426/ach3377/gPPI/
+ JOB ID:      3155483
+ JOB NAME:    clustsim
+ NODES:       nid01110
+ N NODES:     1
+ N TASKS:     1
++ singularity run --cleanenv /scratch/05426/ach3377/bids-apps/neurosft.simg bash -x /scratch/05426/ach3377/gPPI_MVM/hc_body_clustsim_script.txt
+Some packages in this Docker container are non-free
+If you are considering commercial use of this container, please consult the relevant license:
+https://fsl.fmrib.ox.ac.uk/fsl/fslwiki/Licence
++ export OMP_NUM_THREADS=48
++ OMP_NUM_THREADS=48
++ 3dClustSim -OKsmallmask -mask /scratch/05426/ach3377/standard/gm_1mm_thr.nii.gz -acf 0.8412746458333329 2.1176105555555544 9.178448194444444
+++ 3dClustSim: AFNI version=AFNI_20.2.18 (Sep 17 2020) [64-bit]
+++ Authored by: RW Cox and BD Ward
+++ 1007894 voxels in mask (11.82% of total)
+++ Kernel function radius = 19.01 mm
+++ ACF(0.84,2.12,9.18) => FWHM=5.33 => 193x229x193 pads to 240x320x240
+ + Kernel image dimensions 82 x 109 x 54
+++ Startup clock time = 1.7 s
+++ Using 48 OpenMP threads
+Simulating:0123456789.0123456789.0123456789.0123456789.01!
+++ Clock time now = 1603.6 s
+# 3dClustSim -OKsmallmask -mask /scratch/05426/ach3377/standard/gm_1mm_thr.nii.gz -acf 0.8412746458333329 2.1176105555555544 9.178448194444444
+# 1-sided thresholding
+# Grid: 193x229x193 1.00x1.00x1.00 mm^3 (1007894 voxels in mask)
+#
+# CLUSTER SIZE THRESHOLD(pthr,alpha) in Voxels
+# -NN 1  | alpha = Prob(Cluster >= given size)
+#  pthr  | .10000 .05000 .02000 .01000
+# ------ | ------ ------ ------ ------
+ 0.050000  1585.0 1838.3 2234.0 2533.0
+ 0.020000   516.7  603.7  717.5  797.0
+ 0.010000   288.1  332.0  394.7  447.0
+ 0.005000   178.5  205.8  242.9  276.0
+ 0.002000   106.4  122.0  144.7  163.5
+ 0.001000    76.1   87.9  103.7  117.3
+ 0.000500    55.9   65.3   77.6   87.5
+ 0.000200    38.2   45.2   55.1   61.9
+ 0.000100    29.0   34.4   42.9   48.3
+# 3dClustSim -OKsmallmask -mask /scratch/05426/ach3377/standard/gm_1mm_thr.nii.gz -acf 0.8412746458333329 2.1176105555555544 9.178448194444444
+# 1-sided thresholding
+# Grid: 193x229x193 1.00x1.00x1.00 mm^3 (1007894 voxels in mask)
+#
+# CLUSTER SIZE THRESHOLD(pthr,alpha) in Voxels
+# -NN 2  | alpha = Prob(Cluster >= given size)
+#  pthr  | .10000 .05000 .02000 .01000
+# ------ | ------ ------ ------ ------
+ 0.050000  1860.7 2188.5 2673.5 3028.0
+ 0.020000   561.8  660.0  779.0  879.0
+ 0.010000   303.6  350.1  417.0  466.0
+ 0.005000   185.7  214.2  250.7  282.5
+ 0.002000   108.1  124.4  148.2  167.7
+ 0.001000    77.2   88.9  105.1  118.7
+ 0.000500    56.4   65.8   78.0   88.5
+ 0.000200    38.5   45.5   55.4   62.1
+ 0.000100    29.2   34.6   43.0   48.8
+# 3dClustSim -OKsmallmask -mask /scratch/05426/ach3377/standard/gm_1mm_thr.nii.gz -acf 0.8412746458333329 2.1176105555555544 9.178448194444444
+# 1-sided thresholding
+# Grid: 193x229x193 1.00x1.00x1.00 mm^3 (1007894 voxels in mask)
+#
+# CLUSTER SIZE THRESHOLD(pthr,alpha) in Voxels
+# -NN 3  | alpha = Prob(Cluster >= given size)
+#  pthr  | .10000 .05000 .02000 .01000
+# ------ | ------ ------ ------ ------
+ 0.050000  1969.5 2319.0 2852.0 3251.0
+ 0.020000   577.7  678.8  803.0  912.5
+ 0.010000   307.5  356.3  420.5  471.5
+ 0.005000   187.3  217.0  254.8  289.2
+ 0.002000   109.0  125.3  148.8  168.5
+ 0.001000    77.4   89.2  105.5  119.0
+ 0.000500    56.5   65.9   78.2   88.7
+ 0.000200    38.6   45.6   55.5   62.3
+ 0.000100    29.2   34.6   43.1   48.8
+# 3dClustSim -OKsmallmask -mask /scratch/05426/ach3377/standard/gm_1mm_thr.nii.gz -acf 0.8412746458333329 2.1176105555555544 9.178448194444444
+# 2-sided thresholding
+# Grid: 193x229x193 1.00x1.00x1.00 mm^3 (1007894 voxels in mask)
+#
+# CLUSTER SIZE THRESHOLD(pthr,alpha) in Voxels
+# -NN 1  | alpha = Prob(Cluster >= given size)
+#  pthr  | .10000 .05000 .02000 .01000
+# ------ | ------ ------ ------ ------
+ 0.050000   758.8  871.2 1021.0 1174.0
+ 0.020000   328.2  378.7  442.5  488.5
+ 0.010000   205.2  234.8  275.2  309.0
+ 0.005000   137.5  156.6  182.5  204.0
+ 0.002000    87.9  100.1  115.9  130.7
+ 0.001000    65.0   74.7   87.1   98.1
+ 0.000500    49.1   56.7   66.6   74.4
+ 0.000200    34.3   40.2   47.9   54.7
+ 0.000100    26.4   30.9   38.3   43.8
+# 3dClustSim -OKsmallmask -mask /scratch/05426/ach3377/standard/gm_1mm_thr.nii.gz -acf 0.8412746458333329 2.1176105555555544 9.178448194444444
+# 2-sided thresholding
+# Grid: 193x229x193 1.00x1.00x1.00 mm^3 (1007894 voxels in mask)
+#
+# CLUSTER SIZE THRESHOLD(pthr,alpha) in Voxels
+# -NN 2  | alpha = Prob(Cluster >= given size)
+#  pthr  | .10000 .05000 .02000 .01000
+# ------ | ------ ------ ------ ------
+ 0.050000   841.7  958.0 1152.0 1282.0
+ 0.020000   346.9  397.7  464.4  515.0
+ 0.010000   212.2  243.2  283.0  321.0
+ 0.005000   140.4  161.4  188.0  211.7
+ 0.002000    89.0  101.2  117.3  132.2
+ 0.001000    65.6   75.2   87.8   99.0
+ 0.000500    49.4   57.2   66.9   74.6
+ 0.000200    34.5   40.5   48.3   54.7
+ 0.000100    26.5   31.0   38.4   43.8
+# 3dClustSim -OKsmallmask -mask /scratch/05426/ach3377/standard/gm_1mm_thr.nii.gz -acf 0.8412746458333329 2.1176105555555544 9.178448194444444
+# 2-sided thresholding
+# Grid: 193x229x193 1.00x1.00x1.00 mm^3 (1007894 voxels in mask)
+#
+# CLUSTER SIZE THRESHOLD(pthr,alpha) in Voxels
+# -NN 3  | alpha = Prob(Cluster >= given size)
+#  pthr  | .10000 .05000 .02000 .01000
+# ------ | ------ ------ ------ ------
+ 0.050000   869.6  998.3 1187.5 1322.0
+ 0.020000   354.1  405.0  473.4  522.5
+ 0.010000   215.0  245.9  289.2  324.0
+ 0.005000   141.5  163.1  189.0  214.0
+ 0.002000    89.4  101.7  117.6  133.0
+ 0.001000    65.7   75.3   88.0   99.3
+ 0.000500    49.5   57.3   67.3   74.6
+ 0.000200    34.6   40.5   48.3   54.7
+ 0.000100    26.5   31.0   38.4   43.9
+# 3dClustSim -OKsmallmask -mask /scratch/05426/ach3377/standard/gm_1mm_thr.nii.gz -acf 0.8412746458333329 2.1176105555555544 9.178448194444444
+# bi-sided thresholding
+# Grid: 193x229x193 1.00x1.00x1.00 mm^3 (1007894 voxels in mask)
+#
+# CLUSTER SIZE THRESHOLD(pthr,alpha) in Voxels
+# -NN 1  | alpha = Prob(Cluster >= given size)
+#  pthr  | .10000 .05000 .02000 .01000
+# ------ | ------ ------ ------ ------
+ 0.050000   758.8  871.2 1021.0 1174.0
+ 0.020000   328.2  378.7  442.5  488.5
+ 0.010000   205.2  234.8  275.2  309.0
+ 0.005000   137.5  156.6  182.5  204.0
+ 0.002000    87.9  100.1  115.9  130.7
+ 0.001000    65.0   74.7   87.1   98.1
+ 0.000500    49.1   56.7   66.6   74.4
+ 0.000200    34.3   40.2   47.9   54.7
+ 0.000100    26.4   30.9   38.3   43.8
+# 3dClustSim -OKsmallmask -mask /scratch/05426/ach3377/standard/gm_1mm_thr.nii.gz -acf 0.8412746458333329 2.1176105555555544 9.178448194444444
+# bi-sided thresholding
+# Grid: 193x229x193 1.00x1.00x1.00 mm^3 (1007894 voxels in mask)
+#
+# CLUSTER SIZE THRESHOLD(pthr,alpha) in Voxels
+# -NN 2  | alpha = Prob(Cluster >= given size)
+#  pthr  | .10000 .05000 .02000 .01000
+# ------ | ------ ------ ------ ------
+ 0.050000   841.7  958.0 1152.0 1282.0
+ 0.020000   346.9  397.7  464.4  515.0
+ 0.010000   212.2  243.2  283.0  321.0
+ 0.005000   140.4  161.4  188.0  211.7
+ 0.002000    89.0  101.2  117.3  132.2
+ 0.001000    65.6   75.2   87.8   99.0
+ 0.000500    49.4   57.2   66.9   74.6
+ 0.000200    34.5   40.5   48.3   54.7
+ 0.000100    26.5   31.0   38.4   43.8
+# 3dClustSim -OKsmallmask -mask /scratch/05426/ach3377/standard/gm_1mm_thr.nii.gz -acf 0.8412746458333329 2.1176105555555544 9.178448194444444
+# bi-sided thresholding
+# Grid: 193x229x193 1.00x1.00x1.00 mm^3 (1007894 voxels in mask)
+#
+# CLUSTER SIZE THRESHOLD(pthr,alpha) in Voxels
+# -NN 3  | alpha = Prob(Cluster >= given size)
+#  pthr  | .10000 .05000 .02000 .01000
+# ------ | ------ ------ ------ ------
+ 0.050000   869.6  998.3 1186.0 1322.0
+ 0.020000   354.1  405.0  473.4  522.5
+ 0.010000   215.0  245.9  289.2  324.0
+ 0.005000   141.5  163.1  189.0  214.0
+ 0.002000    89.4  101.7  117.6  133.0
+ 0.001000    65.7   75.3   88.0   99.3
+ 0.000500    49.5   57.3   67.3   74.6
+ 0.000200    34.6   40.5   48.3   54.7
+ 0.000100    26.5   31.0   38.4   43.9
++ set +x
+ 
+ Job complete at Wed Nov 18 10:38:19 CST 2020
+ 
+Job duration: 00:26:47 (1607 s)
