@@ -15,8 +15,7 @@ def reg_copes(sub):
         _run = f'memory_run-0{run}'
         reg_dir = f'{subj.model_dir}/{_run}/{subj.fsub}_{_run}_gPPI.feat/reg'
 
-        # for roi in seeds:
-        for roi in ['hc_head']:
+        for roi in seeds:
             stats = f'{subj.model_dir}/{_run}/{roi}/source.feat/stats'
             reg_std = f'{subj.model_dir}/{_run}/{roi}/source.feat/reg_std/stats'
             mkdir(reg_std)
@@ -90,8 +89,10 @@ def gPPI_datatables():
 def collect_smooth():
     dfs = {}
     for seed in seeds:
+        print(seed)
         dfs[seed] = {}
         for sub in all_sub_args:
+            print(sub)
             subj = bids_meta(sub)
             dfs[seed][sub] = {}
             for run in [1,2,3]:
@@ -103,6 +104,91 @@ def collect_smooth():
         dfs[seed] = pd.DataFrame.from_dict(dfs[seed]).unstack().reset_index()
         est = dfs[seed][0].values.mean(axis=0)
         est.tofile(f'{SCRATCH}/gPPI_MVM/{seed}_mean_smooth.txt',sep=' ', format='%s')
+
+def clustsim(seed=None):
+    root_dir = '/scratch/05426/ach3377/gPPI_MVM'
+    est = np.loadtxt(f'{root_dir}/{seed}_mean_smooth.txt')
+    cmd1 = 'export OMP_NUM_THREADS=48'
+    cmd2 = f'3dClustSim -OKsmallmask \
+                       -mask $SCRATCH/standard/gm_1mm_thr.nii.gz \
+                       -acf {est[0]} {est[1]} {est[2]} \
+                       > {root_dir}/{seed}_clustsim_output.txt' 
+    
+    script = f'{root_dir}/{seed}_clustsim_script.txt'
+    os.system(f'rm {script}')
+
+    for cmd in [cmd1,cmd2]:
+        os.system(f"echo {cmd} >> {script}")
+
+    jobfile = f'/home1/05426/ach3377/gPPI/jobs/{seed}_clustsim_job.txt'
+    os.system(f'rm {jobfile}')
+
+    os.system(f'echo singularity run --cleanenv \
+                    /scratch/05426/ach3377/bids-apps/neurosft.simg \
+                    bash -x {script} >> {jobfile}')
+    
+    os.system(f'launch -N 1 \
+                       -n 1 \
+                       -J clustsim \
+                       -s {jobfile} \
+                       -m achennings@utexas.edu \
+                       -p normal \
+                       -r 1:00:00 \
+                       -A LewPea_MRI_Analysis')
+
+def clusterize(seed,thr1,thr2):
+    from nibabel.brikhead import parse_AFNI_header
+    here = os.getcwd()
+    root = '/Volumes/DunsmoorRed/gPPI_MVM'
+    os.chdir('/Volumes/DunsmoorRed/gPPI_MVM')
+    header = parse_AFNI_header(f'{seed}+tlrc.HEAD')
+    out_dir = f'{root}/{seed}_clusterize';mkdir(out_dir)
+
+
+    names = header['BRICK_LABS'].replace(':','_'
+                                ).replace('  F','_F'
+                                ).replace(' F','_F'
+                                ).replace(' t', '_t'
+                                ).replace(' Z','_Z'
+                                ).split('~')
+
+    for i, name in enumerate(names):
+        if 'Intercept' in name:
+            pass
+        elif '_F' in name or '_t' in name or '_Z' in name:
+            cmap = f'{out_dir}/{name}_cluster_map.nii.gz';os.system(f'rm {cmap}')
+            ctxt = f'{out_dir}/{name}_cluster.txt';os.system(f'rm {ctxt}')
+            where = f'{out_dir}/{name}_where.txt';os.system(f'rm {where}')
+
+            if '_F' in name:
+                side = '1sided RIGHT_TAIL'
+                thr = thr2
+            elif '_t' in name or '_Z' in name:
+                side = '2sided'
+                thr = thr1
+
+
+            cmd = f"3dClusterize \
+                      -inset {seed}+tlrc \
+                      -ithr {i} \
+                      -mask /Users/ach3377/Desktop/standard/gm_1mm_thr.nii.gz \
+                      -{side} p=0.001 \
+                      -clust_nvox {thr} \
+                      -NN 3 \
+                      -pref_map {cmap} \
+                      > {ctxt}"
+            os.system(cmd)
+            
+
+            if os.path.exists(cmap):
+                w_cmd = f"whereami -coord_file {ctxt}'[1,2,3]' > {where}"
+                os.system(w_cmd)
+    os.chdir(here)
+# clusterize('hc_tail',75.2,90.5)
+# clusterize('hc_body',75.3,89.2)
+clusterize('hc_head',76.2,91.1)
+clusterize('amyg_bla',77.3,91.2)
+clusterize('amyg_cem',75.2,89.8)
 
 def paired_ttest(subs=None,name='',seed=None):
     out_parent = '/scratch/05426/ach3377/gPPI_comps'
