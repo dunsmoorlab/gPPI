@@ -42,3 +42,10 @@ for seed in subcort:
             print(f'difference P = {diff_p}')
             print('\n\n')
     input()
+
+'''first mediation'''
+df = pd.read_csv('all_data.csv').set_index(['group','phase','subject'])
+
+c = df.loc[('healthy','acquisition')].copy()
+pg.mediation_analysis(data=c,x='amyg_bla-ret-diff_uni',m='amyg_cem-ret-diff_uni',y='dACC-diff_ers',n_boot=10000)
+

@@ -158,27 +158,30 @@ plt.tight_layout()
 #     plt.suptitle('amyg_cem')
 
 '''subcortical univariate to crotical ERS'''
-df = pd.read_csv('ers_subcort_betas_diff.csv').set_index(['group','phase'])#,'subject'])
-df = df.reset_index().set_index(['group','phase','subject'])
+df = pd.read_csv('all_data.csv').set_index(['group','phase','subject'])
 legend_elements = [Patch(facecolor=gpal[0],edgecolor=None,label='Healthy'),
                    Patch(facecolor=gpal[1],edgecolor=None,label='PTSD')]
 
-phase = 'extinction'
-for seed in ['amyg_bla','hc_tail']:
+phase = 'acquisition'
+for seed in ['amyg_cem']:
     fig, ax = plt.subplots()
-    skipped_corr(df.loc[('healthy',phase),seed],df.loc[('healthy',phase),'dACC_ers'],vis=True,ax=ax,color=gpal[0])
-    skipped_corr(df.loc[('ptsd',phase),seed],df.loc[('ptsd',phase),'dACC_ers'],vis=True,ax=ax,color=gpal[1])
+    skipped_corr(df.loc[('healthy',phase),f'{seed}-ret-diff_uni'],df.loc[('healthy',phase),'dACC-diff_ers'],vis=True,ax=ax,color=gpal[0])
+    skipped_corr(df.loc[('ptsd',phase),f'{seed}-ret-diff_uni'],df.loc[('ptsd',phase),'dACC-diff_ers'],vis=True,ax=ax,color=gpal[1])
     ax.set_ylabel('dACC Extinction E-R Overlap (CS+ > CS-)')
     ax.set_xlabel(f'{seed} activity (CS+ > CS-)')
-    ax.set_title(f'{seed} activity predicts dACC Extinction E-R overlap in PTSD')
+    ax.set_title(f'{seed} activity predicts dACC {phase} E-R overlap in Healthy')
     ax.legend(handles=legend_elements)
     plt.tight_layout()
 
 fig, ax = plt.subplots()
-skipped_corr(df.loc[('healthy',phase),'hc_head'],df.loc[('healthy',phase),'vmPFC_ers'],vis=True,ax=ax,color=gpal[0])
-skipped_corr(df.loc[('ptsd',phase),'hc_head'],df.loc[('ptsd',phase),'vmPFC_ers'],vis=True,ax=ax,color=gpal[1])
-ax.set_ylabel('vmPFC Extinction E-R Overlap (CS+ > CS-)')
-ax.set_xlabel(f'Anterior HPC activity (CS+ > CS-)')
-ax.set_title(f'Anterior HPC activity predicts vmPFC Extinction E-R overlap in Healthy')
+skipped_corr(df.loc[('healthy',phase),'amyg_bla-ret-diff_uni'],df.loc[('healthy',phase),'amyg_cem-ret-diff_uni'],vis=True,ax=ax,color=gpal[0])
+skipped_corr(df.loc[('ptsd',phase),'amyg_bla-ret-diff_uni'],df.loc[('ptsd',phase),'amyg_cem-ret-diff_uni'],vis=True,ax=ax,color=gpal[1])
+ax.set_title('BLA Acquisition activity predicts CeM activity (CS+ > CS-)')
+ax.set_xlabel(f'BLA activity (CS+ > CS-)')
+ax.set_ylabel(f'CeM activity (CS+ > CS-)')
 ax.legend(handles=legend_elements)
 plt.tight_layout()
+
+
+plot_full_skipped_corr(df.loc[('healthy','acquisition'),'amyg_cem-ret-diff_uni'], df.loc[('healthy','acquisition'),'dACC-diff_ers'],'','','')
+plot_full_skipped_corr(df.loc[('healthy','acquisition'),'amyg_bla-ret-diff_uni'], df.loc[('healthy','acquisition'),'amyg_cem-ret-diff_uni'],'','','')

@@ -30,7 +30,7 @@ set fmri(featwatcher_yn) 0
 set fmri(sscleanup_yn) 0
 
 # Output directory
-set fmri(outputdir) "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC001/feats/localizer_lvl2"
+set fmri(outputdir) "/scratch/05426/ach3377/fc-bids/derivatives/model/SUBID/feats/localizer_lvl2"
 
 # TR(s)
 set fmri(tr) 3
@@ -296,10 +296,10 @@ set fmri(copeinput.8) 1
 set fmri(copeinput.9) 1
 
 # 4D AVW data or FEAT directory (1)
-set feat_files(1) "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC001/localizer_run-01/localizer.feat"
+set feat_files(1) "/scratch/05426/ach3377/fc-bids/derivatives/model/SUBID/localizer_run-01/localizer.feat"
 
 # 4D AVW data or FEAT directory (2)
-set feat_files(2) "/scratch/05426/ach3377/fc-bids/derivatives/model/sub-FC001/localizer_run-02/localizer.feat"
+set feat_files(2) "/scratch/05426/ach3377/fc-bids/derivatives/model/SUBID/localizer_run-02/localizer.feat"
 
 # Add confound EVs text file
 set fmri(confoundevs) 0

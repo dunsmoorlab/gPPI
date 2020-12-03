@@ -16,6 +16,12 @@ runs = [1,2,3]
 rois = ['sgACC','rACC','hc_tail','hc_body','hc_head','amyg_bla','amyg_cem']
 phase3 = ['baseline','acquisition','extinction']
 
+pfc_rois = ['dACC','vmPFC']
+hc_rois = ['hc_head','hc_body','hc_tail']
+amyg_rois = ['amyg_cem','amyg_bla']
+paper_rois = pfc_rois + hc_rois + amyg_rois
+roi_list = [pfc_rois,hc_rois,amyg_rois]
+
 def collect_uni_from_weights():
 
     dfs = {}
@@ -98,37 +104,36 @@ def add_ers_to_full_df()
     df.to_csv('subcort_betas_lmm.csv',index=False)
     for sub in all_sub_args:
         df.loc[sub,('hc_tail','hc_body','hc_head','amyg_bla','amyg_cem','vmPFC_ers','dACC_ers')] = df.loc[sub,('hc_tail','hc_body','hc_head','amyg_bla','amyg_cem','vmPFC_ers','dACC_ers')].apply(zscore)
-'''graphing of cortical univariate data'''
-# df = pd.read_csv('pfc_betas.csv').set_index(['condition','roi','phase','subject'])
-# df = (df.loc['CS+'] - df.loc['CS-']).reset_index()
-# sns.catplot(data=df,x='roi',y='beta',hue='phase',col='group',kind='bar')
 
-rois = ['vmPFC','dACC']
+
+'''graphing of cortical univariate data'''
+df = pd.read_csv('beta_rsa_weights.csv').set_index(['session','condition','roi','phase','group','subject']).sort_index()
+memcon = ['encoding','retrieval']
 
 stats = pd.DataFrame(columns=['w','p','cles','p_fdr'],
-                         index=pd.MultiIndex.from_product([groups,rois,phase3],
-                         names=['group','roi','phase']))
+                         index=pd.MultiIndex.from_product([memcon,groups,rois,phase3],
+                         names=['session','group','roi','phase']))
+for mem in memcon:
+    for group in groups:
+        for phase in phase3:
+            for roi in rois:
+                wres = pg.wilcoxon(df.loc[(mem,'CS+',roi,phase,group),'beta'], df.loc[(mem,'CS-',roi,phase,group),'beta'])#, tail='greater')
+                stats.loc[(mem,group,roi,phase),['w','p','cles']] = wres[['W-val','p-val','CLES']].values
+        for rlist in roi_list:
+            stats.loc[(mem,group,rlist),'p_fdr'] = pg.multicomp(list(stats.loc[(mem,group,rlist),'p'].values),method='fdr_bh')[1]
 
-df = pd.read_csv('pfc_betas.csv').set_index(['group','phase','roi','condition'])
-for group in groups:
-    for phase in phase3:
-        for roi in rois:
-            wres = pg.wilcoxon(df.loc[(group,phase,roi,'CS+'),'beta'], df.loc[(group,phase,roi,'CS-'),'beta'], tail='greater')
-            stats.loc[(group,roi,phase),['w','p','cles']] = wres[['W-val','p-val','CLES']].values
-    # for rlist in roi_list:
-    #     stats.loc[(group,rlist),'p_fdr'] = pg.multicomp(list(stats.loc[(group,rlist),'p'].values),method='fdr_bh')[1]
+diff = df.reset_index().set_index(['condition','session','group','roi','phase','subject']).sort_index()
+diff = diff.loc['CS+'] - diff.loc['CS-']
 
-diff = df.reset_index().set_index(['condition','group','roi','phase','subject'])
-diff = (diff.loc['CS+'] - diff.loc['CS-']).reset_index()
+# diff.roi = diff.roi.apply(pfc_rename).apply(amyg_rename)
+# # stats = stats.reset_index()
+# # stats.roi = stats.roi.apply(pfc_rename).apply(amyg_rename)
+# # stats = stats.set_index(['group','roi','phase'])
+# diff = diff.set_index(['group','roi','phase']).sort_index()
 
-diff.roi = diff.roi.apply(pfc_rename).apply(amyg_rename)
-stats = stats.reset_index()
-stats.roi = stats.roi.apply(pfc_rename).apply(amyg_rename)
-stats = stats.set_index(['group','roi','phase'])
-diff = diff.set_index(['group','roi','phase']).sort_index()
-
-cscomp('healthy',diff,['dACC','vmPFC'],stats,phases=phase3,yval='beta')
-cscomp('ptsd',diff,['dACC','vmPFC'],stats,phases=phase3,yval='beta')
+for rlist in roi_list:
+    cscomp('healthy',diff.loc['retrieval'],rlist,stats.loc['retrieval'],phases=phase3,yval='beta')
+    cscomp('ptsd',diff.loc['retrieval'],rlist,stats.loc['retrieval'],phases=phase3,yval='beta')
 '''graphing of the univariate data'''
 from robust_corr import *
 from scipy.stats import zscore
@@ -139,8 +144,8 @@ for seed in rois:
     for target in ['vmPFC-diff_ers','dACC-diff_ers']:
         for phase in phase3:
             print(seed,target,phase)
-            c = skipped_corr(df.loc[('healthy',phase),f'{seed}-enc-diff_uni'],df.loc[('healthy',phase),target], return_dist = True)
-            p = skipped_corr(df.loc[('ptsd',phase),f'{seed}-enc-diff_uni'],df.loc[('ptsd',phase),target], return_dist = True)
+            c = skipped_corr(df.loc[('healthy',phase),f'{seed}-ret-diff_uni'],df.loc[('healthy',phase),target], return_dist = True)
+            p = skipped_corr(df.loc[('ptsd',phase),f'{seed}-ret-diff_uni'],df.loc[('ptsd',phase),target], return_dist = True)
             diff_p = np.min(((1 - np.mean((c - p) > 0)) * 2,(1 - np.mean((p - c) > 0)) * 2))
             print(f'difference P = {diff_p}')
             print('\n\n')

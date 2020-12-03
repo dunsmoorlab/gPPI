@@ -208,7 +208,7 @@ class group_mem_decode():
 
 '''copy localizer events to tacc again'''
 dest = '/Users/ach3377/Desktop/loc_data';mkdir(dest)
-# source = f'{SCRATCH}/loc_data'
+source = f'{SCRATCH}/loc_data'
 # for sub in all_sub_args:
 for sub in [21,116]:
     subj = bids_meta(sub)
@@ -222,8 +222,8 @@ for sub in [21,116]:
             # os.system(f'cp {dest}/{events} {subj.subj_dir}/ses-2/func/{events}')
 
             bold = f'{subj.fsub}_ses-2_task-localizer_run-0{run}_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz'
-            os.system(f'cp {subj.func}/{bold} {dest}/{bold}')
-            # os.system(f'cp {source}/{bold} {subj.func}/{bold}')
+            # os.system(f'cp {subj.func}/{bold} {dest}/{bold}')
+            os.system(f'cp {source}/{bold} {subj.func}/{bold}')
 
 _in = f'{subj.prep_dir}/ses-2/func/{subj.fsub}_ses-2_task-localizer_run-0{run}_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz'
 _out = f'{subj.func}/{subj.fsub}_ses-2_task-localizer_run-0{run}_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz'

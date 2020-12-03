@@ -63,9 +63,9 @@ def cscomp_simp(group,df,rois,phases=None):
 
         for i, x in enumerate(X): Ax.annotate(pvals.loc[roi,'sig'].values[i], xy=(x-.05,Ax.get_ylim()[1]-.1))
 
-
+    print(yval)
     if len(rois) > 1:
-        ax[0].set_ylabel('∆ fisher z(r)')
+        ax[0].set_ylabel('∆ fisher z(r)') if yval=='rsa' else ax[0].set_ylabel('CS+ > CS- activity')
         ax[1].set_ylabel('')
     else:
         ax.set_ylabel('∆ fisher z(r)')
@@ -178,7 +178,7 @@ def cscomp(group,df,rois,statsdf,n_boot=10000,phases=None,yval='rsa'):
 
 
     if len(rois) > 1:
-        ax[0].set_ylabel('∆ fisher z(r)')
+        ax[0].set_ylabel('∆ fisher z(r)') if yval=='rsa' else ax[0].set_ylabel('CS+ > CS- univariate activity')
         ax[1].set_ylabel('')
         sns.despine(ax=ax[1],left=True)
         # ax[1].set_ylim(ax[0].get_ylim()[0],ax[0].get_ylim()[1])
