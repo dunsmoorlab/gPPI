@@ -36,8 +36,8 @@ for seed in subcort:
     for target in ['vmPFC','dACC']:
         for phase in phase3:
             print(seed,target,phase)
-            c = skipped_corr(conn.loc[('healthy',phase,seed,target),'conn'],df.loc[('healthy',phase),f'{target}-diff_ers'], return_dist = True)
-            p = skipped_corr(conn.loc[('ptsd',phase,seed,target),'conn'],df.loc[('ptsd',phase),f'{target}-diff_ers'], return_dist = True)
+            c = skipped_corr(conn.loc[('healthy',phase,seed,target),'conn'],pfc.loc[('healthy',phase),'rsa'], return_dist = True)
+            p = skipped_corr(conn.loc[('ptsd',phase,seed,target),'conn'],pfc.loc[('ptsd',phase),'rsa'], return_dist = True)
             diff_p = np.min(((1 - np.mean((c - p) > 0)) * 2,(1 - np.mean((p - c) > 0)) * 2))
             print(f'difference P = {diff_p}')
             print('\n\n')
