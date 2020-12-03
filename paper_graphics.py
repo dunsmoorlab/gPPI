@@ -81,7 +81,7 @@ pg.mwu(diff.loc[('healthy','dACC','extinction'),'rsa'], diff.loc[('ptsd','dACC',
 ################################some very quick connectivity stuff
 seeds = ['hc_tail','hc_body','hc_head','amyg_bla','amyg_cem']
 # seeds = ['rh_hc_tail','lh_hc_tail','rh_hc_body','lh_hc_body','rh_hc_head','lh_hc_head','rh_amyg_bla','lh_amyg_bla','rh_amyg_cem','lh_amyg_cem']
-targets = ['rACC','sgACC']
+targets = ['rACC','sgACC','hc_tail','hc_body','hc_head','amyg_bla','amyg_cem']
 copes = {'ext_acq':     ['CS+E','CS+A'],
          'ext_csp_csm': ['CS+E','CS-E'],
          'acq_csp_csm': ['CS+A','CS-A'],
@@ -104,8 +104,7 @@ for group in groups:
         for cope in copes:
             con1, con2 = copes[cope][0], copes[cope][1]
             for target in targets:
-                # wres = pg.wilcoxon(df.loc[(con1,group,seed,target),'conn'],df.loc[(con2,group,seed,target),'conn'])
-                # wres = pg.wilcoxon(df.loc[(con1,group,seed,target),'conn'],df.loc[(con2,group,seed,target),'conn'])
+                wres = pg.wilcoxon(df.loc[(con1,group,seed,target),'conn'],df.loc[(con2,group,seed,target),'conn'])
                 stats.loc[(group,seed,cope,target),['w','p','cles']] = wres[['W-val','p-val','CLES']].values
 
                 #these lines for bilateral rois

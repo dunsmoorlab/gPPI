@@ -68,3 +68,12 @@ ldf <- df[which(df$phase != 'baseline'),]
 mod <- glmer(factor(phasecon) ~ dACC_ers * group + (1|subject),data=df,family="binomial")
 anova(mod)
 summary(mod)
+
+
+
+#quick connectivity stuff
+df <- read.csv('quick-conn.csv')
+df <- df[which(df$group == 'healthy'),]
+mod <- lmer(conn~target*cope + (1|subject),data=df,REML=FALSE)
+anova(mod)
+summary(mod)

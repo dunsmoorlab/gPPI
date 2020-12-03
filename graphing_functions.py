@@ -73,7 +73,7 @@ def cscomp_simp(group,df,rois,phases=None):
     # plt.savefig('./plots/group_comp_%s.eps'%(split),format='eps')
     # plt.close()
 
-def cscomp(group,df,rois,statsdf,n_boot=10000,phases=None):
+def cscomp(group,df,rois,statsdf,n_boot=10000,phases=None,yval='rsa'):
     df = df.loc[group]
     out = {}
     for val in ['ci','dist']: out[val] = {}
@@ -84,7 +84,7 @@ def cscomp(group,df,rois,statsdf,n_boot=10000,phases=None):
             out['ci'][roi][phase] = {}
             out['dist'][roi][phase] = {}
 
-            out['ci'][roi][phase], out['dist'][roi][phase] = pg.compute_bootci(df.loc[(roi,phase),'rsa'].values,
+            out['ci'][roi][phase], out['dist'][roi][phase] = pg.compute_bootci(df.loc[(roi,phase),yval].values,
                                                                 func='mean',n_boot=n_boot,return_dist=True,
                                                                 method='cper',decimals=3,seed=42)
     

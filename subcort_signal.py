@@ -8,45 +8,70 @@ def apply_mask(mask=None,target=None):
     coor = np.where(mask == 1)
     values = target[coor]
     if values.ndim > 1:
-        values = np.transpose(values) #swap axes to get feature X sample
+        values = np.transpose(values) #swap axes to get column vector for 1D data (feature X sample)
     return values
 
 runs = [1,2,3]
-rois = ['hc_tail','hc_body','hc_head','amyg_bla','amyg_cem']
+# rois = ['hc_tail','hc_body','hc_head','amyg_bla','amyg_cem']
+rois = ['sgACC','rACC','hc_tail','hc_body','hc_head','amyg_bla','amyg_cem']
 phase3 = ['baseline','acquisition','extinction']
 
-def collect_univariate()
+def collect_uni_from_weights():
+
     dfs = {}
     df = pd.DataFrame({'beta':0.0},index=pd.MultiIndex.from_product(
-                                [all_sub_args,phase3,cons],
-                                names=['subject','phase','condition'])).sort_index()
-
+                                [all_sub_args,rois,phase3,cons,['encoding','retrieval']],
+                                names=['subject','roi','phase','condition','session'])).sort_index()
     for sub in all_sub_args:
         print(sub)
         subj = bids_meta(sub)
+
+        masks = {roi:get_data(f'{subj.masks}/{roi}.nii.gz') if '_' in roi else get_data(f'{subj.masks}/{roi}_mask.nii.gz') for roi in rois}
+        encode_beta = {phase:{con:get_data(f'{subj.weights}/{phase}_{con}.nii.gz') for con in consp} for phase in phase3}
+        mem_beta = {phase:{con:get_data(f'{subj.weights}/mem_{phase}_{con}.nii.gz') for con in consp} for phase in phase3}
         
-        masks = {roi:get_data(f'{subj.masks}/{roi}.nii.gz') for roi in rois}
-        betas = concat_imgs([nib.load(f'{subj.beta}/memory_run-0{run}_beta.nii.gz') for run in runs]).get_fdata()
-
-        subdf = pd.read_csv(f'{subj.rsa}/fs_mask_roi_ER.csv')
-        subdf = subdf[subdf.roi == 'sgACC'].reset_index(
-            ).rename(columns={'index':'trial_num'}
-            ).set_index(['encode_phase','trial_type']
-            ).sort_index(
-            ).dropna(subset=['response']#sets us up to use .loc for stability
-            ).drop(columns=['roi','rsa','stimulus','memory_condition','low_confidence_accuracy','high_confidence_accuracy','phase','CSp_trial','CSm_trial','response'])
-
         for roi in rois:
-            roi_data = apply_mask(mask=masks[roi],target=betas)
-            subdf[roi] = roi_data[subdf.trial_num].mean(axis=1)
-        dfs[sub] = subdf.reset_index()
-            # for phase in phase3:
-            #     for con in cons:
-            #         idx = subdf.loc[(phase,con),'trial_num'].values
-            #         df.loc[(sub,roi,phase,con),'beta'] = roi_data[idx].mean()
-    # df.to_csv('subcortical_betas.csv')
+            for phase in phase3:
+                for c, con in enumerate(cons):
+                    df.loc[(sub,roi,phase,con,'encoding'),'beta'] = apply_mask(mask=masks[roi], target=encode_beta[phase][consp[c]]).mean()
+                    df.loc[(sub,roi,phase,con,'retrieval'),'beta'] = apply_mask(mask=masks[roi], target=mem_beta[phase][consp[c]]).mean()
+        df = df.reset_index()
+        df['group'] = df.subject.apply(lgroup)
+        df.to_csv('beta_rsa_weights.csv')
+
+# def collect_univariate()
+#     dfs = {}
+#     df = pd.DataFrame({'beta':0.0},index=pd.MultiIndex.from_product(
+#                                 [all_sub_args,rois,phase3,cons],
+#                                 names=['subject','roi','phase','condition'])).sort_index()
+
+#     for sub in all_sub_args:
+#         print(sub)
+#         subj = bids_meta(sub)
         
-    df = pd.concat(dfs.values())
+#         masks = {roi:get_data(f'{subj.masks}/{roi}.nii.gz') if '_' in roi else get_data(f'{subj.masks}/{roi}_mask.nii.gz') for roi in rois}
+#         betas = concat_imgs([nib.load(f'{subj.beta}/memory_run-0{run}_beta.nii.gz') for run in runs]).get_fdata()
+
+#         subdf = pd.read_csv(f'{subj.rsa}/fs_mask_roi_ER.csv')
+#         subdf = subdf[subdf.roi == 'sgACC'].reset_index(
+#             ).rename(columns={'index':'trial_num'}
+#             ).set_index(['encode_phase','trial_type']
+#             ).sort_index(
+#             ).dropna(subset=['response']#sets us up to use .loc for stability
+#             ).drop(columns=['roi','rsa','stimulus','memory_condition','low_confidence_accuracy','high_confidence_accuracy','phase','CSp_trial','CSm_trial','response'])
+
+#         for roi in rois:
+#             roi_data = apply_mask(mask=masks[roi],target=betas)
+#             subdf[roi] = roi_data[subdf.trial_num].mean(axis=1)
+#         # dfs[sub] = subdf.reset_index()#this is for lmm (all data no averaging)
+#             for phase in phase3:
+#                 for con in cons:
+#                     idx = subdf.loc[(phase,con),'trial_num'].values
+#                     df.loc[(sub,roi,phase,con),'beta'] = roi_data[idx].mean()
+#     # df.to_csv('subcortical_betas.csv')
+#     df.to_csv('pfc_betas.csv')
+        
+    # df = pd.concat(dfs.values())#this is for lmm
 def add_ers_to_full_df()
     df = pd.read_csv('subcort_betas_lmm.csv').set_index(['subject','encode_phase','trial_type','trial_num']).sort_index()
     dfs = {}
@@ -73,33 +98,51 @@ def add_ers_to_full_df()
     df.to_csv('subcort_betas_lmm.csv',index=False)
     for sub in all_sub_args:
         df.loc[sub,('hc_tail','hc_body','hc_head','amyg_bla','amyg_cem','vmPFC_ers','dACC_ers')] = df.loc[sub,('hc_tail','hc_body','hc_head','amyg_bla','amyg_cem','vmPFC_ers','dACC_ers')].apply(zscore)
+'''graphing of cortical univariate data'''
+# df = pd.read_csv('pfc_betas.csv').set_index(['condition','roi','phase','subject'])
+# df = (df.loc['CS+'] - df.loc['CS-']).reset_index()
+# sns.catplot(data=df,x='roi',y='beta',hue='phase',col='group',kind='bar')
+
+rois = ['vmPFC','dACC']
+
+stats = pd.DataFrame(columns=['w','p','cles','p_fdr'],
+                         index=pd.MultiIndex.from_product([groups,rois,phase3],
+                         names=['group','roi','phase']))
+
+df = pd.read_csv('pfc_betas.csv').set_index(['group','phase','roi','condition'])
+for group in groups:
+    for phase in phase3:
+        for roi in rois:
+            wres = pg.wilcoxon(df.loc[(group,phase,roi,'CS+'),'beta'], df.loc[(group,phase,roi,'CS-'),'beta'], tail='greater')
+            stats.loc[(group,roi,phase),['w','p','cles']] = wres[['W-val','p-val','CLES']].values
+    # for rlist in roi_list:
+    #     stats.loc[(group,rlist),'p_fdr'] = pg.multicomp(list(stats.loc[(group,rlist),'p'].values),method='fdr_bh')[1]
+
+diff = df.reset_index().set_index(['condition','group','roi','phase','subject'])
+diff = (diff.loc['CS+'] - diff.loc['CS-']).reset_index()
+
+diff.roi = diff.roi.apply(pfc_rename).apply(amyg_rename)
+stats = stats.reset_index()
+stats.roi = stats.roi.apply(pfc_rename).apply(amyg_rename)
+stats = stats.set_index(['group','roi','phase'])
+diff = diff.set_index(['group','roi','phase']).sort_index()
+
+cscomp('healthy',diff,['dACC','vmPFC'],stats,phases=phase3,yval='beta')
+cscomp('ptsd',diff,['dACC','vmPFC'],stats,phases=phase3,yval='beta')
 '''graphing of the univariate data'''
 from robust_corr import *
 from scipy.stats import zscore
-df = pd.read_csv('ers_subcort_betas_diff.csv').set_index(['group','phase'])#,'subject'])
-# for group in groups:
-#     for phase in phase3:
-#         df.loc[(group,phase),('dACC_ers','vmPFC_ers','hc_tail','hc_body','hc_head','amyg_bla','amyg_cem')] = df.loc[(group,phase),('dACC_ers','vmPFC_ers','hc_tail','hc_body','hc_head','amyg_bla','amyg_cem')].apply(zscore)
-df = df.reset_index().set_index(['group','phase','subject'])
-# betas = pd.read_csv('subcortical_betas.csv').set_index(['condition','group','roi','phase','subject']).sort_index()
-# betas = betas.loc['CS+'] - betas.loc['CS-']
-# sns.catplot(data=betas.reset_index(),x='roi',y='beta',hue='group',col='phase',kind='bar',col_order=phase3,order=rois)
 
-# rsa = pd.read_csv('pfc_ers_cleaned.csv').set_index(['condition','group','roi','phase','subject']).sort_index()
-# rsa = rsa.loc['CS+'] - rsa.loc['CS-']
-
+df = pd.read_csv('all_data.csv').set_index(['group','phase','subject'])
 
 for seed in rois:
-    for target in ['vmPFC_ers','dACC_ers']:
+    for target in ['vmPFC-diff_ers','dACC-diff_ers']:
         for phase in phase3:
             print(seed,target,phase)
-            for group in ['healthy','ptsd']:
-                # print(pg.corr(betas.loc[(group,seed,phase),'beta'], rsa.loc[(group,target,phase),'rsa'])[['r','p-val']])
-                # skipped_corr(betas.loc[(group,seed,phase),'beta'], rsa.loc[(group,target,phase),'rsa'])
-                c = skipped_corr(df.loc[('healthy',phase),seed],df.loc[('healthy',phase),target], return_dist = True)
-                p = skipped_corr(df.loc[('ptsd',phase),seed],df.loc[('ptsd',phase),target], return_dist = True)
-                diff_p = np.min(((1 - np.mean((c - p) > 0)) * 2,(1 - np.mean((p - c) > 0)) * 2))
-                print(f'difference P = {diff_p}')
+            c = skipped_corr(df.loc[('healthy',phase),f'{seed}-enc-diff_uni'],df.loc[('healthy',phase),target], return_dist = True)
+            p = skipped_corr(df.loc[('ptsd',phase),f'{seed}-enc-diff_uni'],df.loc[('ptsd',phase),target], return_dist = True)
+            diff_p = np.min(((1 - np.mean((c - p) > 0)) * 2,(1 - np.mean((p - c) > 0)) * 2))
+            print(f'difference P = {diff_p}')
             print('\n\n')
     input()
 
@@ -144,6 +187,30 @@ cdf['group'] = cdf.subject.apply(lgroup)
 sns.catplot(data=cdf,x='feature',y='beta',hue='phasecon',row='group',kind='bar')
 # sns.catplot(data=cdf,x='group',hue='feature',y='beta',kind='bar')
 
+'''Pure amount of hippocampal CS+ reinstatement correlating to PFC'''
+df = pd.read_csv('ERS_final.csv')
+sns.catplot(data=df[df.roi.isin(['vmPFC','dACC'])],
+            hue='phase',x='condition',y='rsa',row='group',
+            hue_order=phase3,kind='bar',col='roi',
+            palette=phase_pal,col_order=['dACC','vmPFC'])
+
+sns.catplot(data=df[df.roi.isin(['hc_head','hc_body','hc_tail'])],
+            hue='phase',x='condition',y='rsa',row='group',
+            hue_order=phase3,kind='bar',col='roi',
+            palette=phase_pal)
+
+sns.catplot(data=df[df.roi.isin(['amyg_bla','amyg_cem'])],
+            hue='phase',x='condition',y='rsa',row='group',
+            hue_order=phase3,kind='bar',col='roi',
+            palette=phase_pal)
+
+pfc = df[df.roi.isin(['vmPFC','dACC'])].set_index(['condition','group','phase','roi','subject'])
+pfc = (pfc.loc['CS+'] - pfc.loc['CS-'])
+
+df = df.set_index(['group','condition','phase','roi','subject'])
+
+plot_full_skipped_corr(df.loc[('healthy','CS+','extinction','hc_head'),'rsa'],pfc.loc[('healthy','extinction','vmPFC'),'rsa'],'asd','asd','asd')
+pg.corr(df.loc[('healthy','CS+','extinction','hc_head'),'rsa'], df.loc[('healthy','CS+','extinction','vmPFC'),'rsa'])
 
 '''clean data for export to R'''
 #first just the model of activity

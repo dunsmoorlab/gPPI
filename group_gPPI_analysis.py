@@ -55,7 +55,7 @@ def mask_and_extract():
     seeds = ['hc_tail','hc_body','hc_head','amyg_bla','amyg_cem']
     # targets = ['rh_hpc','hc_tail','hc_body','hc_head','amyg_bla','amyg_cem','sgACC','rACC','A32sg','A32p','A24cd','A24rv','A14m','A11m','A13','A10m','A9m','A8m','A6m']
     # seeds = ['rh_hc_tail','lh_hc_tail','rh_hc_body','lh_hc_body','rh_hc_head','lh_hc_head','rh_amyg_bla','lh_amyg_bla','rh_amyg_cem','lh_amyg_cem']
-    targets = ['rACC','sgACC']
+    targets = ['rACC','sgACC','hc_tail','hc_body','hc_head','amyg_bla','amyg_cem']
 
     # day2_copes = {'acq_csp_csm':6,
     #               'ext_csp_csm':9,
@@ -393,5 +393,28 @@ def graph_gPPI():
         ax4[i].set_title(group + ' ext vs. acq')
 
 
+'''New November stuff'''
+#anterior hippopcamus 
+df = pd.read_csv('extracted_mem_apriori_gPPI.csv')
+
+df = df.set_index(['target','seed','cope','subject']).sort_index()
+df = (df.loc['hc_head'] - df.loc['rACC'])
+# df = (df.loc['CS+E'] - df.loc['CS+A'])
+df = df.loc[('amyg_bla',['CS+A','CS+E']),].reset_index()
+df['group'] = df.subject.apply(lgroup)
+
+fig, ax = plt.subplots()
+sns.barplot(data=df,x='group',y='conn',hue='cope',palette=['darkmagenta','seagreen'],ax=ax)
+ax.set_ylabel('vmPFC > Amyg. BLA connectivity')
+ax.set_title('gPPI seed = Hc Head (anterior)')
 
 
+pg.wilcoxon(df.conn[df.cope=='CS+E'][df.group=='healthy'],df.conn[df.cope=='CS+A'][df.group=='healthy'])
+
+stats = pd.read_csv('extracted_mem_apriori_gPPI.csv')
+stats['group'] = stats.subject.apply(lgroup)
+stats = stats.set_index(['target','seed','cope','group','subject'])
+pg.wilcoxon(stats.loc[('sgACC','hc_head','CS+E','healthy'),'conn'], stats.loc[('amyg_bla','hc_head','CS+E','healthy'),'conn'])
+
+
+out = stats.loc[(['sgACC','amyg_bla'],'hc_head',['CS+E','CS+A']),'conn']

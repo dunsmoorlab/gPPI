@@ -31,7 +31,7 @@ mems = ['hit','miss']
 cons = ['CS+','CS-']
 consp = ['CSp','CSm']
 # rois = ['mOFC','dACC','amyg','hpc','ins','hc_head','hc_body','hc_tail','rh_hc_head','rh_hc_body','rh_hc_tail','lh_hc_head','lh_hc_body','lh_hc_tail','amyg_bla','amyg_cem','rh_amyg_bla','rh_amyg_cem','lh_amyg_bla','lh_amyg_cem']
-rois = ['mOFC','dACC','amyg','hpc','ins','lh_amyg','rh_amyg','lh_hpc','rh_hpc','sgACC','rACC','rSMA','rACG','hc_head','hc_body','hc_tail','rh_hc_head','rh_hc_body','rh_hc_tail','lh_hc_head','lh_hc_body','lh_hc_tail','amyg_bla','amyg_cem','rh_amyg_bla','rh_amyg_cem','lh_amyg_bla','lh_amyg_cem']  
+# rois = ['mOFC','dACC','amyg','hpc','ins','lh_amyg','rh_amyg','lh_hpc','rh_hpc','sgACC','rACC','rSMA','rACG','hc_head','hc_body','hc_tail','rh_hc_head','rh_hc_body','rh_hc_tail','lh_hc_head','lh_hc_body','lh_hc_tail','amyg_bla','amyg_cem','rh_amyg_bla','rh_amyg_cem','lh_amyg_bla','lh_amyg_cem']  
 phases = {'baseline':24,'acquisition':24,'early_extinction':8,'extinction':16}
 # phases = {'baseline':24,'acquisition':24,'extinction':24}
 subs = range(24)
@@ -43,7 +43,7 @@ gpal = list((wes_palettes['Zissou'][0],wes_palettes['Royal1'][1]))
 cpal = ['darkorange','grey']
 cpoint = sns.color_palette(cpal,n_colors=2,desat=.75)
 spal = list((wes_palettes['Darjeeling1'][-1],wes_palettes['Darjeeling1'][0],wes_palettes['Darjeeling1'][1],))
-
+phase_pal = sns.color_palette(['darkgrey','darkmagenta','seagreen'],desat=1)
 sns.set_style('ticks', {'axes.spines.right':False, 'axes.spines.top':False})
 # sns.set_style({'axes.facecolor':'.9','figure.facecolor':'.9'})
 sns.set_context('notebook',font_scale=1.4)
@@ -78,7 +78,7 @@ def amyg_rename(x):
     else:
         return x
 #these are BIDS-app made
-bids_dir = os.path.join(SCRATCH,'fc-bids')
+bids_dir = os.path.join(SCRATCH,'fc-bids') if 'ach' not in sys.base_exec_prefix else os.path.join('/Volumes','DunsmoorRed','fc-bids')
 deriv    = os.path.join(bids_dir, 'derivatives')
 prep_dir = os.path.join(deriv,'fmriprep')
 fs_dir   = os.path.join(deriv,'freesurfer')
@@ -206,6 +206,14 @@ mem_slices = {'CS+':{
                'extinction':slice(168,192),
 
                      'foil':slice(192,240)}}
+
+def apply_mask(mask=None,target=None):
+
+    coor = np.where(mask == 1)
+    values = target[coor]
+    if values.ndim > 1:
+        values = np.transpose(values) #swap axes to get sample X feature
+    return values
 
 def p2z(p,tail):
     '''returns a z-score corresponding a to the pvalue, given the tail (1 or 2 sided)'''
