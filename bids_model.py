@@ -476,6 +476,7 @@ def wrap_lss_jobs():
 
     for run in [1,2]:
         os.system(f'launch -N 2 -n 24 -J localizer-{run} -s jobs/localizer-{run}_job.txt -m achennings@utexas.edu -p normal -r 1:00:00 -A LewPea_MRI_Analysis')
+        os.system('launch -N 2 -n 24 -J localizer_lvl2 -s jobs/localizer_lvl2_job.txt -m achennings@utexas.edu -p normal -r 1:00:00 -A LewPea_MRI_Analysis')
 
     # for roi in ['rh_hpc','hc_tail','hc_body','hc_head','amyg_bla','amyg_cem']:
     for roi in ['rh_hpc']:

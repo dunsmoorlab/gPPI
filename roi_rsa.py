@@ -24,6 +24,7 @@ class roi_rsa():
     def __init__(self,sub=None,fs=True,hemi=False):
 
         self.subj = bids_meta(sub)
+        if not os.path.exists(self.subj.rsa):mkdir(self.subj.rsa)
         self.verbose=False
         self.fs = fs
         self.hemi = hemi
@@ -67,7 +68,8 @@ class roi_rsa():
         #if self.fs: self.rois = ['mOFC','dACC','amyg_cem','amyg_bla','hc_head','hc_body','hc_tail'] 
         # if self.fs: self.rois = ['mOFC','dACC','amyg','hpc','ins','hc_head','hc_body','hc_tail','rh_hc_head','rh_hc_body','rh_hc_tail','lh_hc_head','lh_hc_body','lh_hc_tail','amyg_bla','amyg_cem','rh_amyg_bla','rh_amyg_cem','lh_amyg_bla','lh_amyg_cem'] 
         # if self.fs: self.rois = ['mOFC','dACC','amyg','hpc','ins','lh_amyg','rh_amyg','lh_hpc','rh_hpc','sgACC','rACC','rSMA','rACG','hc_head','hc_body','hc_tail','rh_hc_head','rh_hc_body','rh_hc_tail','lh_hc_head','lh_hc_body','lh_hc_tail','amyg_bla','amyg_cem','rh_amyg_bla','rh_amyg_cem','lh_amyg_bla','lh_amyg_cem','A32sg','A32p','A24cd','A24rv','A14m','A11m','A13','A10m','A9m','A8m','A6m']  
-        if self.fs: self.rois = ['sgACC','rACC','hc_head','hc_body','hc_tail','rh_hc_head','rh_hc_body','rh_hc_tail','lh_hc_head','lh_hc_body','lh_hc_tail','amyg_bla','amyg_cem','rh_amyg_bla','rh_amyg_cem','lh_amyg_bla','lh_amyg_cem','A32sg','A32p','A24cd','A24rv','A14m','A11m','A13','A10m','A9m','A8m','A6m','thalamus_clst','RSP_clst','dACC_clst','lOFC_clst']
+        # if self.fs: self.rois = ['sgACC','rACC','hc_head','hc_body','hc_tail','rh_hc_head','rh_hc_body','rh_hc_tail','lh_hc_head','lh_hc_body','lh_hc_tail','amyg_bla','amyg_cem','rh_amyg_bla','rh_amyg_cem','lh_amyg_bla','lh_amyg_cem','A32sg','A32p','A24cd','A24rv','A14m','A11m','A13','A10m','A9m','A8m','A6m','thalamus_clst','RSP_clst','dACC_clst','lOFC_clst']
+        if self.fs: self.rois = ['ppa']
             # if hemi:
                 # self.rois = ['rh_hc_head','rh_hc_body','rh_hc_tail','rh_amyg_bla','rh_amyg_cem',
                 #              'lh_hc_head','lh_hc_body','lh_hc_tail','lh_amyg_bla','lh_amyg_cem']
@@ -78,9 +80,9 @@ class roi_rsa():
         
         #data needs to be loaded WITHOUT mask to facilitate more intricate analyses
         self.load_data() 
-        # self.compute_item_rsa()
+        self.compute_item_rsa()
         # self.compute_cross_rsa()
-        self.compute_mem_mats()
+        # self.compute_mem_mats()
 
     def load_data(self):
             
@@ -129,10 +131,10 @@ class roi_rsa():
                 self.mem_data[phase] = beta_img
         
         #load mem weights
-        for phase in self.mem_weight_phases:
-            self.W_mem[phase] = OrderedDict()
-            for con in self.conditions:
-                self.W_mem[phase][con] = get_data(os.path.join(self.subj.weights,f'mem_{phase}_{self.conditions[con]}.nii.gz'))
+        # for phase in self.mem_weight_phases:
+        #     self.W_mem[phase] = OrderedDict()
+        #     for con in self.conditions:
+        #         self.W_mem[phase][con] = get_data(os.path.join(self.subj.weights,f'mem_{phase}_{self.conditions[con]}.nii.gz'))
 
         #get 1 dataframe & image for encoding
         self.encoding_labels = pd.concat(self.encoding_labels.values(),sort=False)
@@ -231,7 +233,8 @@ class roi_rsa():
                 self.rsa.to_csv(os.path.join(self.subj.rsa,'roi_ER_HCA_hemi.csv'),index=False)
         
         elif self.fs:
-            self.rsa.to_csv(os.path.join(self.subj.rsa,'fs_mask_roi_ER.csv'), index=False)
+            # self.rsa.to_csv(os.path.join(self.subj.rsa,'fs_mask_roi_ER.csv'), index=False)
+            self.rsa.to_csv(os.path.join(self.subj.rsa,'ppa_ER.csv'), index=False)
 
     def compute_cross_rsa(self):
         self.cross_mats = {}
@@ -349,7 +352,7 @@ class group_roi_rsa():
                 for i in range(1,13): 
                     self.df.loc[ self.df[ self.df.encode_phase == 'extinction' ][ self.df[con] == i ].index,'encode_phase' ] = 'early_extinction'
         self.df.encode_phase = pd.Categorical(self.df.encode_phase,self.encoding_phases,ordered=True)
-        self.df.roi = pd.Categorical(self.df.roi,self.rois,ordered=True)
+        # self.df.roi = pd.Categorical(self.df.roi,self.rois,ordered=True)
         self.df.high_confidence_accuracy = (self.df.high_confidence_accuracy == 'H').astype(int)
         self.df.low_confidence_accuracy = (self.df.low_confidence_accuracy == 'H').astype(int)
         if self.hemi: self.df['hemi'] = self.df.roi.apply(lambda x: x[0])
@@ -802,7 +805,7 @@ def resp_count():
 def copy_out():
     # from fg_config import *
     import os
-    from glob import glob
+    # from glob import glob
     out = os.path.join(SCRATCH,'rsa_results');mkdir(out)
     for sub in all_sub_args:
         subj = bids_meta(sub)
@@ -811,4 +814,7 @@ def copy_out():
     q = glob('/scratch/05426/ach3377/rsa_results/sub-FC***/sl_er.p')
     for i in q: os.system('rm %s'%(i))
 
+    for sub in all_sub_args:
+        subj = bids_meta(sub)
+        os.system(f'cp {subj.rsa}/ppa_ER.csv /Users/ach3377/Documents/gPPI/rsa_results/{subj.fsub}/ppa_ER.csv')
 #scp -r ach3377@ls5.tacc.utexas.edu:"/scratch/05426/ach3377/rsa_results" "/mnt/c/Users/ACH/Desktop"

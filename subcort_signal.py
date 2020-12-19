@@ -45,40 +45,43 @@ def collect_uni_from_weights():
         df['group'] = df.subject.apply(lgroup)
         df.to_csv('beta_rsa_weights.csv')
 
-# def collect_univariate()
-#     dfs = {}
-#     df = pd.DataFrame({'beta':0.0},index=pd.MultiIndex.from_product(
-#                                 [all_sub_args,rois,phase3,cons],
-#                                 names=['subject','roi','phase','condition'])).sort_index()
+def collect_univariate()
+    dfs = {}
+    # df = pd.DataFrame({'beta':0.0},index=pd.MultiIndex.from_product(
+    #                             [all_sub_args,rois,phase3,cons],
+    #                             names=['subject','roi','phase','condition'])).sort_index()
 
-#     for sub in all_sub_args:
-#         print(sub)
-#         subj = bids_meta(sub)
+    for sub in all_sub_args:
+        print(sub)
+        subj = bids_meta(sub)
         
-#         masks = {roi:get_data(f'{subj.masks}/{roi}.nii.gz') if '_' in roi else get_data(f'{subj.masks}/{roi}_mask.nii.gz') for roi in rois}
-#         betas = concat_imgs([nib.load(f'{subj.beta}/memory_run-0{run}_beta.nii.gz') for run in runs]).get_fdata()
-
-#         subdf = pd.read_csv(f'{subj.rsa}/fs_mask_roi_ER.csv')
-#         subdf = subdf[subdf.roi == 'sgACC'].reset_index(
-#             ).rename(columns={'index':'trial_num'}
-#             ).set_index(['encode_phase','trial_type']
-#             ).sort_index(
-#             ).dropna(subset=['response']#sets us up to use .loc for stability
-#             ).drop(columns=['roi','rsa','stimulus','memory_condition','low_confidence_accuracy','high_confidence_accuracy','phase','CSp_trial','CSm_trial','response'])
-
-#         for roi in rois:
-#             roi_data = apply_mask(mask=masks[roi],target=betas)
-#             subdf[roi] = roi_data[subdf.trial_num].mean(axis=1)
-#         # dfs[sub] = subdf.reset_index()#this is for lmm (all data no averaging)
-#             for phase in phase3:
-#                 for con in cons:
-#                     idx = subdf.loc[(phase,con),'trial_num'].values
-#                     df.loc[(sub,roi,phase,con),'beta'] = roi_data[idx].mean()
-#     # df.to_csv('subcortical_betas.csv')
-#     df.to_csv('pfc_betas.csv')
+        masks = {roi:get_data(f'{subj.masks}/{roi}.nii.gz') if '_' in roi else get_data(f'{subj.masks}/{roi}_mask.nii.gz') for roi in rois}
+        betas = concat_imgs([nib.load(f'{subj.beta}/memory_run-0{run}_beta.nii.gz') for run in runs]).get_fdata()
         
-    # df = pd.concat(dfs.values())#this is for lmm
-def add_ers_to_full_df()
+        subdf = pd.concat([pd.read_csv(f'{subj.subj_dir}/ses-2/func/{subj.fsub}_ses-2_task-memory_run-0{run}_events.tsv',sep='\t') for run in runs]
+                 ).reset_index(drop=True
+                 ).reset_index(
+                 ).rename(columns={'index':'trial_num','encode_phase':'phase','trial_type':'condition'}
+                 ).set_index(['phase','condition']
+                 ).sort_index(
+                 ).dropna(subset=['response']
+                 ).drop(columns=['memory_condition','low_confidence_accuracy','high_confidence_accuracy','response','onset','duration','response_time'])
+        subdf['subject'] = sub
+
+        for roi in rois:
+            roi_data = apply_mask(mask=masks[roi],target=betas)
+            subdf[f'{roi}_ret_uni'] = roi_data[subdf.trial_num].mean(axis=1)
+        dfs[sub] = subdf.reset_index()#this is for lmm (all data no averaging)
+            # for phase in phase3:
+            #     for con in cons:
+            #         idx = subdf.loc[(phase,con),'trial_num'].values
+            #         df.loc[(sub,roi,phase,con),'beta'] = roi_data[idx].mean()
+    # df.to_csv('subcortical_betas.csv')
+    # df.to_csv('pfc_betas.csv')
+        
+    df = pd.concat(dfs.values())#this is for lmm
+
+def add_ers_to_full_df():
     df = pd.read_csv('subcort_betas_lmm.csv').set_index(['subject','encode_phase','trial_type','trial_num']).sort_index()
     dfs = {}
     for sub in all_sub_args:
