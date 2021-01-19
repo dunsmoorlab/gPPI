@@ -1,6 +1,7 @@
 __pycache__/
 example_data/
 rsa_results/
+paper/joey_grants/
 .ipynb_checkpoints/
 *.sublime-workspace
 *.sublime-project
