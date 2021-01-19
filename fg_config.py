@@ -45,7 +45,7 @@ gpal = list((wes_palettes['Zissou'][0],wes_palettes['Royal1'][1]))
 cpal = ['darkorange','grey']
 cpoint = sns.color_palette(cpal,n_colors=2,desat=.75)
 spal = list((wes_palettes['Darjeeling1'][-1],wes_palettes['Darjeeling1'][0],wes_palettes['Darjeeling1'][1],))
-phase_pal = sns.color_palette(['darkgrey','darkmagenta','seagreen'],desat=1)
+phase_pal = sns.color_palette(['dimgrey','darkmagenta','seagreen'],desat=1)
 paired_pal = [phase_pal[1],[i*1.75 for i in phase_pal[1]], phase_pal[2], [i*1.75 for i in phase_pal[2]]]
 sns.set_style('ticks', {'axes.spines.right':False, 'axes.spines.top':False})
 # sns.set_style({'axes.facecolor':'.9','figure.facecolor':'.9'})

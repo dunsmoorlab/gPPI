@@ -120,7 +120,7 @@ df = df.loc[(['healthy','ptsd'],['acquisition','extinction']),].reset_index().dr
 df = df.groupby(['group','phase','condition','subject']).mean().reset_index()
 df['phase_con'] = df.phase + '_' + df.condition
 
-_rois = ['amyg_bla','amyg_cem']
+_rois = ['dACC','vmPFC']
 fig, ax = plt.subplots(1,len(_rois),sharey=True)
 for r, roi in enumerate(_rois):    
     sns.barplot(data=df,x='group',y=f'{roi}_ers',hue='phase_con',palette=paired_pal,ax=ax[r])
