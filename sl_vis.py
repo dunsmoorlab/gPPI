@@ -13,24 +13,24 @@ reg_file = os.path.join(os.environ["FREESURFER_HOME"],
 # brain.scale_data_colormap(0, maxval/2 ,maxval, transparent=True, center=None)
 
 def vis_ers_comp(group=None,phase=None,surf=None,cmap=None,split='split'):
-    mri_file = f'{HOME}/Desktop/ers_comps/{group}_{phase}/{group}_{phase}_ClusterEffEst.nii.gz'
-    surf_data_lh = project_volume_data(mri_file, "lh", reg_file, projarg=[0, 1, .5], smooth_fwhm=1)
-    surf_data_rh = project_volume_data(mri_file, "rh", reg_file, projarg=[0, 1, .5], smooth_fwhm=1)
-    minval = np.min([np.min(surf_data_lh[np.nonzero(surf_data_lh)]),np.min(surf_data_rh[np.nonzero(surf_data_rh)])])
+    mri_file = f'{HOME}/Desktop/ers_comps/{group}_{phase}/{group}_{phase}_ClusterEffEst.nii.gz' #find the file containing stats
+    surf_data_lh = project_volume_data(mri_file, "lh", reg_file, projarg=[0, 1, .5], smooth_fwhm=1) #project to lh
+    surf_data_rh = project_volume_data(mri_file, "rh", reg_file, projarg=[0, 1, .5], smooth_fwhm=1) #project to rh
+    minval = np.min([np.min(surf_data_lh[np.nonzero(surf_data_lh)]),np.min(surf_data_rh[np.nonzero(surf_data_rh)])]) #find the min value present to get the cutoff
     
-    for view in ['med','lat']:
+    for view in ['med','lat']: #lateral and medial views
         brain = Brain('fsaverage', split, surf, cortex='low_contrast',size=(400,400),
-                        views=view, background='white', foreground=None)
+                        views=view, background='white', foreground=None) #initialize the brain object
         
-        brain.add_data(surf_data_lh, 0, .5, center=None, hemi='lh', thresh=minval, colorbar=False, colormap=cmap)
-        brain.add_data(surf_data_rh, 0, .5, center=None, hemi='rh',thresh=minval, colorbar=False, colormap=cmap)
+        brain.add_data(surf_data_lh, 0, .5, center=None, hemi='lh', thresh=minval, colorbar=False, colormap=cmap) #add lh data
+        brain.add_data(surf_data_rh, 0, .5, center=None, hemi='rh',thresh=minval, colorbar=False, colormap=cmap) #add rh data
         
         dACC_coords = (1, 21, 27)
-        brain.add_foci(dACC_coords, map_surface='pial', hemi='rh',color='orange')
+        brain.add_foci(dACC_coords, map_surface='pial', hemi='rh',color='orange') #add dACC coordinates 
         
         vmPFC_coords = (-4,34,-6)
-        brain.add_foci(vmPFC_coords, map_surface='pial', hemi='lh',color='orange')
-        input('press a key dipshit')
+        brain.add_foci(vmPFC_coords, map_surface='pial', hemi='lh',color='orange') #add vmPFC coordinates
+        input('press a key')
 
 vis_ers_comp(group='healthy',phase='acquisition',surf='inflated_pre',cmap='Purples')
 vis_ers_comp(group='healthy',phase='extinction',surf='inflated_pre',cmap='Greens')
