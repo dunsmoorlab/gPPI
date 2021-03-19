@@ -42,7 +42,7 @@ class bids_events():
         for folder in os.walk(self.subj.subj_dir):
             for file in folder[2]:
                 if 'events' in file and '.tsv' in file:
-                    events = pd.read_csv(os.path.join(self.subj.subj_dir,folder[0],file), sep='\t')
+                    events = pd.read_csv(os.path.join(folder[0],file), sep='\t')
                     phase = re.search('task-(.*)_events',file)[1]
                     out = os.path.join(self.subj.model_dir,'%s'%(phase))
                     mkdir(out)
@@ -96,8 +96,8 @@ class bids_events():
         #walk through every folder of fMRIprep output and find all the confound files
         for folder in os.walk(self.subj.prep_dir):
             for file in folder[2]:
-                if 'confounds' in file and '.tsv' in file:
-                    C = pd.read_csv(os.path.join(self.subj.prep_dir,folder[0],file), sep='\t')
+                if 'confounds' in file and '.tsv' in file and file[0] != '.':
+                    C = pd.read_csv(os.path.join(folder[0],file), sep='\t')
                     run_COI = COI.copy()
                     for _c in C.columns:
                         #if 'cosine' in _c or 'motion_outlier' in _c:
@@ -481,7 +481,7 @@ def wrap_lss_jobs():
     # for roi in ['rh_hpc','hc_tail','hc_body','hc_head','amyg_bla','amyg_cem']:
     for roi in ['rh_hpc']:
         # os.system('launch -N 1 -n 24 -J %s_lvl2 -s jobs/%s_mem_encode_lvl2_gPPI_job.txt -m achennings@utexas.edu -p normal -r 00:45:00 -A LewPea_MRI_Analysis'%(roi,roi))        
-        os.system('launch -N 1 -n 14 -J %s_lvl3 -s jobs/%s_group_cope_job.txt -m achennings@utexas.edu -p normal -r 2:00:00 -A LewPea_MRI_Analysis -d 2897228'%(roi,roi))
+        os.system('launch -N 1 -n 14 -J %s_lvl3 -s jobs/%s_rgoup_cope_job.txt -m achennings@utexas.edu -p normal -r 2:00:00 -A LewPea_MRI_Analysis -d 2897228'%(roi,roi))
     os.system('launch -N 1 -n 18 -J day1_lvl3 -s jobs/group_day1_gPPI_job.txt -m achennings@utexas.edu -p normal -r 4:00:00 -A LewPea_MRI_Analysis'%(roi,roi))
 
     for phase in ['baseline','acquisition','extinction']:

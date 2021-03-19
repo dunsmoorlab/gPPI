@@ -13,7 +13,7 @@ function [PPI,design] = fsl_ppi(featdir,voi,ppi_contrast,figs)
 % e.g., [ppimat]=fsl_ppi('./subj1_run1.feat','/somepath/seed_timeseries.txt',[1 0 0 0],0,[0 1 1 1])
 %
 % INPUT:
-%       featdir   = directory with feat output (containing design.fsf)
+%       featdir   = directory with feat output (cosomntaining design.fsf)
 %       voi       = string 'nameOfTextfile.txt' - column vector containing timeseries
 %       ppi_contrast = [0 0 1 -1] - contrast vector to select regressors of interest
 %                                 - #elements = number of regs coded in design.fsf

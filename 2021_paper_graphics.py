@@ -1,14 +1,10 @@
 from fg_config import *
+from paper_graphics_style import *
 import pingouin as pg
 from matplotlib.ticker import MultipleLocator
-sns.set_context('paper')
-rcParams['savefig.dpi'] = 900
-def mm2inch(*tupl):
-    inch = 25.4
-    if isinstance(tupl[0], tuple):
-        return tuple(i/inch for i in tupl[0])
-    else:
-        return tuple(i/inch for i in tupl)
+from matplotlib.lines import Line2D
+
+
 
 
 df = pd.read_csv('all_data_lmm.csv').set_index(['group','phase','condition','subject','stimulus']).sort_index()
@@ -43,40 +39,90 @@ df = df.loc[(['healthy','ptsd'],['acquisition','baseline','extinction']),].reset
 df = df.groupby(['condition','group','phase','subject']).mean()
 diff = df.loc['CS+'] - df.loc['CS-']
 
-Wpal = ['white','white','white']
+Wpal = np.repeat('white',6)
 
-for roi in ['vmPFC','dACC']:
+pfc_rois = {'dACC':{'stars':['','','***','***','','**']},
+           'vmPFC':{'stars':['','*','*','','***','']}}
+
+''' using ROI as columns'''
+fig, ax = plt.subplots(1,2,figsize=mm2inch(200,90),sharey=False)
+for r, roi in enumerate(pfc_rois):
     stats = diff[f'{roi}_ers'].groupby(['group','phase']).apply(pg.compute_bootci,None,'mean',n_boot=10000,decimals=4,seed=42,return_dist=True).reset_index()
     stats.phase = pd.Categorical(stats.phase, categories=phase3, ordered=True)
     stats = stats.set_index(['group','phase']).sort_index()
 
     sig = stats[f'{roi}_ers'].apply(lambda x: 1 if np.sign(x[0][0]) == np.sign(x[0][1]) else 0).reset_index()[f'{roi}_ers'].values
-    sigpal = phase_pal+phase_pal
     # for i, val in enumerate(sig):
     #     if not val: sigpal[i] = (1.0,1.0,1.0)
 
     stats = stats[f'{roi}_ers'].apply(pd.Series).drop(columns=0)
     stats = stats[1].apply(pd.Series).stack().reset_index().drop(columns='level_2').rename(columns={0:'est'})
 
-    fig, ax = plt.subplots(figsize=mm2inch(90,80))
     sns.violinplot(data=stats,x='phase',y='est',hue='group',order=phase3,cut=0,saturation=1,
-                    inner='mean_ci',palette=cpal,ax=ax,scale='count',zorder=1,edgecolor='white')
+                    inner='mean_ci',palette=Wpal,ax=ax[r],scale='count',zorder=1,edgecolor='white')
 
     sns.violinplot(data=stats,x='phase',y='est',hue='group',order=phase3,cut=0,saturation=1,
-                    inner='mean_ci',palette=cpal,ax=ax,scale='count',zorder=10,edgecolor='white')
-    # for v, viol in enumerate(ax.collections[6:]):
-    #     viol.set_edgecolor((phase_pal+phase_pal)[v])
-    #     viol.set_facecolor(sigpal[v])
-    ax.hlines(0,*ax.get_xlim(),linestyle=':',color='black',zorder=0)
-    ax.set_ylim(-.25,.45)
-    ax.yaxis.set_major_locator(MultipleLocator(.2))   
-    ax.legend_.remove()
-    sns.despine(left=True,ax=ax)
-    ax.set_xlabel('')
-    ax.set_xticklabels(['Healthy','PTSS'])
-    ax.set_ylabel('Encoding-retrieval similarity')
-    ax.set_title(roi)
-    plt.tight_layout()
+                    inner='mean_ci',palette=double_pal,ax=ax[r],scale='count',zorder=10,edgecolor='white')
+    for v, viol in enumerate(ax[r].collections[:6]):viol.set_edgecolor(double_pal[v])
+    for v, viol in enumerate(ax[r].collections[6:]):
+        viol.set_edgecolor(double_pal[v])
+        viol.set_facecolor(double_pal[v])
+    for viol in ax[r].collections[7::2]: viol.set_alpha(.2)
+    ax[r].hlines(0,*ax[r].get_xlim(),linestyle=':',color='black',zorder=0)
+    ax[r].set_ylim(-.275,.45)
+    ax[r].yaxis.set_major_locator(MultipleLocator(.2))   
+    ax[r].legend_.remove()
+    sns.despine(left=True,ax=ax[r])
+    ax[r].set_xlabel('')
+    ax[r].set_xticklabels(['Pre-\nconditioning','Conditioning','Extinction'],ha='center')
+    if r == 0:
+        ax[r].set_ylabel('Encoding-retrieval similarity')
+    else:
+        ax[r].set_ylabel('')
+        ax[r].set_yticks([])
+
+    ax[r].set_title(roi)
+
+    top = stats.groupby(['phase','group']).est.apply(np.max).values
+    bottom = stats.groupby(['phase','group']).est.apply(np.min).values
+    if roi == 'vmPFC': top[1] = bottom[1] - .05
+    xwhere = [(i-.2,i+.2) for i in range(3)]
+    xwhere = [i for j in xwhere for i in j]
+    for star, x, y in zip(pfc_rois[roi]['stars'],xwhere,top): ax[r].text(x,y,star,ha='center',va='bottom',fontsize=10)
+
+legend_elements = [Patch(facecolor='black',edgecolor='black',label='Healthy'),
+                   Patch(facecolor='lightgrey',edgecolor='black',label='PTSS')]
+fig.text(.05,.85,'Shown as CS+ - CS-',ha='left',va='bottom',fontsize=8)
+fig.legend(handles=legend_elements,ncol=1,frameon=False,loc='upper right',bbox_to_anchor=(1,.9))
+plt.tight_layout()
+# plt.tight_layout(rect=(0,0,.9,1))
+
+# pfc_groups = {'healthy':{'stars':['','','***','*','','***']},
+#                  'ptsd':{'stars':['','*','***','','**','']}}
+
+# ''' using ROI as columns'''
+# df = pd.read_csv('pfc_ers_cleaned_lmm.csv')
+# df.roi = df.roi.apply(lambda x: x[:-4])
+# df = df.set_index(['group','phase','condition','subject','stimulus','roi']).sort_index()
+# df = df.reset_index().drop(columns='stimulus').groupby(['condition','group','phase','roi','subject']).mean()
+# diff = df.loc['CS+'] - df.loc['CS-']
+
+# fig, ax = plt.subplots(1,2,figsize=mm2inch(200,90),sharey=False)
+# for r, group in enumerate(pfc_groups):
+#     stats = diff.loc[group].reset_index().groupby(['phase','roi'])['ers'].apply(pg.compute_bootci,None,'mean',n_boot=10000,decimals=4,seed=42,return_dist=True).reset_index()
+#     stats.phase = pd.Categorical(stats.phase, categories=phase3, ordered=True)
+#     stats = stats.set_index(['phase','roi']).sort_index()
+
+#     stats = stats['ers'].apply(pd.Series).drop(columns=0)
+#     stats = stats[1].apply(pd.Series).stack().reset_index().drop(columns='level_2').rename(columns={0:'est'})
+
+#     sns.violinplot(data=stats,x='phase',y='est',hue='group',order=phase3,cut=0,saturation=1,
+#                     inner='mean_ci',palette=Wpal,ax=ax[r],scale='count',zorder=1,edgecolor='white')
+
+#     sns.violinplot(data=stats,x='phase',y='est',hue='group',order=phase3,cut=0,saturation=1,
+#                     inner='mean_ci',palette=double_pal,ax=ax[r],scale='count',zorder=10,edgecolor='white')
+  
+
 
 df = pd.read_csv('all_data_lmm.csv').set_index(['group','phase','condition','subject','stimulus']).sort_index()
 df = df.loc[(['healthy','ptsd'],['acquisition','baseline','extinction']),].reset_index().drop(columns='stimulus')
@@ -116,4 +162,22 @@ for r, roi in enumerate(hc_rois):
     ax[r].set_xticklabels(['Healthy','PTSS'])
     ax[r].set_ylabel('Encoding-retrieval similarity') if r == 0 else ax[r].set_ylabel('')
     ax[r].set_title(hc_rois[roi])
-plt.tight_layout()   
+plt.tight_layout()
+
+
+df = pd.read_csv('pfc_ers_cleaned.csv').set_index(['condition','group','phase','roi','subject']).sort_index()
+df = df.loc['CS+'] - df.loc['CS-']
+
+fig, ax = plt.subplots()
+sns.pointplot(data=df.loc['healthy'].reset_index(),x='phase',y='rsa',hue='roi',order=phase3,ax=ax)
+sns.stripplot(data=df.loc['healthy'].reset_index(),x='phase',y='rsa',hue='roi',order=phase3,ax=ax)
+
+fig, ax = plt.subplots()
+sns.violinplot(data=df.loc['healthy'].reset_index(),x='phase',y='rsa',hue='roi',split=True,cut=0,order=phase3,ax=ax)
+
+
+
+
+
+
+

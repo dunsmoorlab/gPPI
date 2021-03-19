@@ -1,16 +1,16 @@
-import nibabel as nib
-import matplotlib.pyplot as plt
-import seaborn as sns
+# import nibabel as nib
+# import matplotlib.pyplot as plt
+# import seaborn as sns
 
-from fg_config import *
+# from fg_config import *
 
-from nilearn.image import concat_imgs, get_data
-from sklearn.feature_selection import SelectKBest, f_classif
-from sklearn.linear_model import LogisticRegression
-from sklearn.pipeline import Pipeline
-from sklearn.model_selection import cross_val_score
-from sklearn.metrics import confusion_matrix, classification_report, precision_recall_fscore_support, roc_auc_score
-from sklearn.preprocessing import label_binarize
+# from nilearn.image import concat_imgs, get_data
+# from sklearn.feature_selection import SelectKBest, f_classif
+# from sklearn.linear_model import LogisticRegression
+# from sklearn.pipeline import Pipeline
+# from sklearn.model_selection import cross_val_score
+# from sklearn.metrics import confusion_matrix, classification_report, precision_recall_fscore_support, roc_auc_score
+# from sklearn.preprocessing import label_binarize
 
 def relative_evidence(x): #takes in the decision function from a classifier and converts to non-multinomial evidence values
     return np.reciprocal(np.exp(np.copy(x)*-1)+1)
@@ -300,11 +300,20 @@ def copy_out():
     _in = f'{subj.prep_dir}/ses-2/func/{subj.fsub}_ses-2_task-localizer_run-0{run}_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz'
     _out = f'{subj.func}/{subj.fsub}_ses-2_task-localizer_run-0{run}_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz'
     os.system(f'fslmaths {_in} -mas {subj.refvol_mask} {_out}')
-def maskthing():
-    for sub in all_sub_args:
+def maskthing(subs):
+    import os
+    for sub in subs:
         print(sub)
-        subj = bids_meta(sub)
-        os.system(f'flirt -in /Users/ach3377/Desktop/ppa_masks/group_ppa_mask.nii.gz -ref {subj.refvol_brain} -applyxfm -init {subj.std2ref} -interp nearestneighbour -out {subj.masks}/ppa.nii.gz')
+        fsub = 'sub-FC{0:0=3d}'.format(sub)
+
+        # os.system(f'flirt -in /Users/ach3377/Desktop/ppa_masks/group_ppa_mask.nii.gz -ref {subj.refvol_brain} -applyxfm -init {subj.std2ref} -interp nearestneighbour -out {subj.masks}/ppa.nii.gz')
+
+        for category in ['animal','tool']:
+            os.system(f'flirt -in /mnt/c/Users/ACH/Desktop/standard/{category}_fg.nii.gz \
+                              -ref /mnt/d/fc-bids/derivatives/preproc/{fsub}/reference/boldref_brain.nii.gz \
+                              -applyxfm \
+                              -init /mnt/d/fc-bids/derivatives/preproc/{fsub}/reference/std2ref.mat -interp nearestneighbour \
+                              -out /mnt/d/fc-bids/derivatives/preproc/{fsub}/masks/{category}_fg_mask.nii.gz')
 
     # for i in ev.index:
     #     g, ph, c, sub, stim, val = ev.loc[i,['group','phase','condition','subject','stimulus','proba']]

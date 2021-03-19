@@ -46,6 +46,7 @@ cpal = ['darkorange','grey']
 cpoint = sns.color_palette(cpal,n_colors=2,desat=.75)
 spal = list((wes_palettes['Darjeeling1'][-1],wes_palettes['Darjeeling1'][0],wes_palettes['Darjeeling1'][1],))
 phase_pal = sns.color_palette(['dimgrey','darkmagenta','seagreen'],desat=1)
+double_pal = sns.color_palette(['dimgrey','dimgrey','darkmagenta','darkmagenta','seagreen','seagreen'],desat=1)
 paired_pal = [phase_pal[1],[i*1.75 for i in phase_pal[1]], phase_pal[2], [i*1.75 for i in phase_pal[2]]]
 sns.set_style('ticks', {'axes.spines.right':False, 'axes.spines.top':False})
 # sns.set_style({'axes.facecolor':'.9','figure.facecolor':'.9'})
@@ -81,7 +82,14 @@ def amyg_rename(x):
     else:
         return x
 #these are BIDS-app made
-bids_dir = os.path.join(SCRATCH,'fc-bids') if 'ach' not in sys.base_exec_prefix else os.path.join('/Volumes','DunsmoorRed','fc-bids')
+# bids_dir = os.path.join(SCRATCH,'fc-bids') if 'ach' not in sys.base_exec_prefix else os.path.join('/Volumes','DunsmoorRed','fc-bids')
+if 'c:' in sys.base_exec_prefix:
+    bids_dir = os.path.join('d:','fc-bids')
+elif '/home/ach' in sys.base_exec_prefix:
+    bids_dir = '/mnt/d/fc-bids'
+else:
+    bids_dir = os.path.join(SCRATCH,'fc-bids')
+
 deriv    = os.path.join(bids_dir, 'derivatives')
 prep_dir = os.path.join(deriv,'fmriprep')
 fs_dir   = os.path.join(deriv,'freesurfer')
@@ -237,7 +245,7 @@ class bids_meta(object):
         else:
             
             local = False
-            if 'ach' in sys.base_exec_prefix:
+            if 'ach' in sys.base_exec_prefix or 'c:' in sys.base_exec_prefix:
                 local = True
             
             self.num = int(sub)
@@ -283,6 +291,22 @@ class bids_meta(object):
             self.weights = os.path.join(self.preproc_dir,'rsa_weights');mkdir(self.weights,local)
 
             self.rsa = os.path.join(self.model_dir,'rsa_results');mkdir(self.rsa,local)
+            self.subj_dir = os.path.join(bids_dir, self.fsub)
+        
+            self.events   = f'./behavior/{self.fsub}/events'
+
+            self.behav = {}
+            for task in tasks: self.behav[task] = self.load(task)
+
+            self.mem_df = pd.concat([self.behav['memory_run-01'],self.behav['memory_run-02'],self.behav['memory_run-03']]).reset_index(drop=True)
+
+    def load(self,task):
+        try:
+            file = pd.read_csv(os.path.join(self.events,self.fsub+'_task-'+task+'_events.tsv'),sep='\t')
+            file['subject'] = self.num
+            return file
+        except FileNotFoundError:
+            pass
     
     def cs_lookup(self):    
         if self.meta['DataFile.Basename'][0][0] == 'A':

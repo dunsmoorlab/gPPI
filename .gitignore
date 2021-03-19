@@ -7,3 +7,10 @@ paper/joey_grants/
 *.sublime-project
 group_gPPI_out/
 backup*
+conn_project01/
+*.tiff
+*.tif
+*.R*
+*.Rdata
+*.ai
+behavior/

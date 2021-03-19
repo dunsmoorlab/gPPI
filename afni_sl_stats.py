@@ -202,7 +202,7 @@ def ers_cluster(contrast=None,thr=0,nvox=0,mask='../../standard/gm_3mm_thr.nii.g
         os.system(cmd)
         
         if os.path.exists(f'{name}_ClusterMap.nii.gz'):
-            w_cmd = f"whereami -coord_file {ctxt}'[1,2,3]' > {where}"
+            w_cmd = f"whereami -coord_file {ctxt}'[13,14,15]' > {where}"
             os.system(w_cmd)
         
 
