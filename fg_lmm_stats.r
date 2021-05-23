@@ -11,6 +11,7 @@ require(reghelper)
 require(RColorBrewer)
 require(dotwhisker)
 require(afex)
+require(ez)
 afex::set_sum_contrasts()
 
 phases <- c('baseline','acquisition','extinction')
@@ -78,6 +79,15 @@ pfc.con.list2 <- list(healthy_acq_dACC - healthy_ext_dACC,
 pfc.cons2 <- contrast(pfc.csmean, method=pfc.con.list2, adjust="None")
 confint(pfc.cons2)
 summary(pfc.cons2)
+
+#just really focused interaction
+hdf <- pfc[which(pfc$group == 'healthy' & pfc$phase %in% c('conditioning','extinction')),]
+hdf.mod <- mixed(ers ~ condition*phase*roi + (1|subject), data=hdf, REML=FALSE, method="LRT")
+anova(hdf.mod)
+
+pdf <- pfc[which(pfc$group == 'ptsd' & pfc$phase %in% c('conditioning','extinction')),]
+pdf.mod <- mixed(ers ~ condition*phase*roi + (1|subject), data=pdf, REML=FALSE, method="LRT")
+anova(pdf.mod)
 
 # pfc US reinforcement ----------------------------------------------------
 acq <- pfc[which(pfc$phase %in% c('conditioning') & pfc$condition == 'CS+'),]
@@ -166,17 +176,21 @@ hpc.cond <- emmeans(hpc.mod, revpairwise ~ condition|phase*roi*group, adjust="No
 summary(hpc.cond)
 p.adjust(summary(hpc.cond$contrasts)$p.value, method="fdr")
 
+#just the interaction I care about for realz
+hdf <- hpc[which(hpc$group == 'healthy' & hpc$phase %in% c('conditioning','extinction') & hpc$roi %in% c('hc_tail','hc_head')),]
+hdf.mod <- mixed(ers ~ condition*phase*roi + (1|subject), data=hdf, REML=FALSE, method="LRT")
+anova(hdf.mod)
+
+pdf <- hpc[which(hpc$group == 'ptsd' & hpc$phase %in% c('conditioning','extinction') & hpc$roi %in% c('hc_tail','hc_head')),]
+pdf.mod <- mixed(ers ~ condition*phase*roi + (1|subject), data=pdf, REML=FALSE, method="LRT")
+anova(pdf.mod)
+
 
 #subcortical univariate predictions------------------------------------------------------------------
 df <- read.csv('all_data_lmm.csv')
 emo <- df[which(df$phase %in% c('acquisition','extinction')),] #emo = emotional contexts
 
 tail.uni.mod <- mixed(pfc_diff_ers ~ hc_tail_ret_uni*condition*phase*group + (1|subject), data=emo, REML=FALSE, method="LRT")
-
-q <- mixed(pfc_diff_ers ~ hc_tail_ret_uni*condition*phase*group + (1|subject), data=emo, REML=FALSE, method="LRT")
-w <- mixed(pfc_diff_ers ~ test*condition*phase*group + (1|subject), data=emo, REML=FALSE, method="LRT")
-e <- effectsize::standardize(q,select="hc_tail_ret_uni",include_response=T)
-
 body.uni.mod <- mixed(pfc_diff_ers ~ hc_body_ret_uni*condition*phase*group + (1|subject), data=emo, REML=FALSE, method="LRT")
 head.uni.mod <- mixed(pfc_diff_ers ~ hc_head_ret_uni*condition*phase*group + (1|subject), data=emo, REML=FALSE, method="LRT")
 bla.uni.mod <- mixed(pfc_diff_ers ~ amyg_bla_ret_uni*condition*phase*group + (1|subject), data=emo, REML=FALSE, method="LRT")
@@ -188,12 +202,17 @@ tail.uni.slope <- emtrends(tail.uni.mod, ~1, var="hc_tail_ret_uni")
 tail.uni.csdif <- emtrends(tail.uni.mod, revpairwise~condition, var="hc_tail_ret_uni")
 summary(tail.uni.csdif$contrasts)$p.value
 confint(tail.uni.csdif)
+tail.uni.out <- emtrends(tail.uni.mod, ~condition|phase, var="hc_tail_ret_uni")
+write.csv(data.frame(tail.uni.out),'hc_tail_slopes_con_phase.csv')
 
 anova(body.uni.mod)[pred.rows,]
 body.uni.slope <- emtrends(body.uni.mod, ~1, var="hc_body_ret_uni")
 body.uni.dif <- emtrends(body.uni.mod, revpairwise ~ condition|phase, var="hc_body_ret_uni")
 p.adjust(summary(body.uni.dif$contrasts)$p.value, method="fdr")
 confint(body.uni.dif$contrasts)
+body.uni.out <- emtrends(body.uni.mod, ~condition|phase, var="hc_body_ret_uni")
+write.csv(data.frame(body.uni.out),'hc_body_slopes_con_phase.csv')
+
 
 anova(head.uni.mod)[pred.rows,]
 head.uni.slope <- emtrends(head.uni.mod, ~1, var="hc_head_ret_uni")
@@ -313,7 +332,12 @@ summary(pfc.mod.int)
 test(pfc.mod.int)$p.value
 anova(pfc.mod)
 
-subcort <- read.csv('subcort_ers_cleaned_lmm.csv')
+
+beh <- pfc %>% mutate(mem_acc = recode(mem_acc, "H" = 1, "M" = 0))
+beh.mod <- mixed(mem_acc ~ condition*phase*group + (1|subject), data = beh, method="LRT", family="binomial")
+anova(beh.mod)
+high <- glmer(mem_acc ~ condition*phase*group + (1|subject), family="binomial", data=beh)
+
 #amygdala memory------------------------------------------------------------------------------------
 amyg <- subcort[which(subcort$roi %in% c('amyg_cem','amyg_bla')),]
 
@@ -339,7 +363,7 @@ hpc.mod <- mixed(ers ~ mem_acc*condition*phase*roi*group + (1|subject), data=hpc
 summary(hpc.mod)
 anova(hpc.mod)
 
-dif <- emmeans(hpc.mod, revpairwise ~ condition|roi*phase*group*mem_acc)
+dif <- emmeans(hpc.mod, revpairwise ~ mem_acc|phase*group*condition)
 summary(dif$contrasts)
 
 # pfc_diff conn --------------------------------------------------------------
@@ -481,3 +505,7 @@ emmeans(v.sub.mod, revpairwise ~ target|phase*group, adjust="None")
 d.sub.mod <- mixed(conn ~ condition*phase*target*group + (1|subject), data=d_to_sub, REML=FALSE, method="LRT")
 anova(d.sub.mod)
 emmeans(d.sub.mod, revpairwise ~ condition|group, adjust="None")
+
+# memory behavioral data --------------------------------------------------
+df <- read.csv('mem_hit_rate_sub_means.csv')
+mem.res <- ezANOVA(df,dv=.(mem_acc),within=.(phase,condition),between=.(group),wid=.(subject),type=3)

@@ -25,9 +25,6 @@ import matplotlib as mpl
 #     sns.despine(ax=ax[r],left=True)
 #     ax[r].yaxis.set_major_locator(MultipleLocator(.05))   
 
-
-from matplotlib
-
 df = pd.read_csv('pfc_csdif_stats.csv')
 df.roi = df.roi.apply(lambda x: x[:-4])
 df = df.set_index(['group','phase','roi']).sort_index()
@@ -206,7 +203,7 @@ ax[0].spines['left'].set_bounds(ax[0].get_ylim()[0],.5)
 
 plt.tight_layout()
 
-'''a violin of all the vmPFC - dACC ERS data'''
+'''a kde of all the vmPFC - dACC ERS data'''
 df = pd.read_csv('all_data_lmm.csv')
 df = df[df.phase.isin(['acquisition','extinction'])]
 # df['dummy'] = ''
@@ -269,6 +266,8 @@ ax1.arrow(0,-.45,0.012,0,head_width=0.15, head_length=0.0045, fc='grey', ec='gre
 ax1.arrow(0,-.45,-0.012,0,head_width=0.15, head_length=0.0045, fc='grey', ec='grey')
 ax1.text(.018,-.45,'predicts more\nvmPFC',ha='left',va='center',fontsize=8)
 ax1.text(-.018,-.45,'predicts more\ndACC',ha='right',va='center',fontsize=8)
+
+ax1.set_ylabel('Subcortical ERS')
 
 legend_elements = [Line2D([0],[0],c=pal[0],linestyle='-',label='Cond.'),
                    Line2D([0],[0],c=pal[2],linestyle='-',label='Ext.'),
@@ -376,6 +375,74 @@ df = pd.read_csv('ev_slopes_pfc_pred.csv')
 fig, ax = plt.subplots(figsize=mm2inch(100,30))
 ax.scatter(df['ev.trend'],[.15,.25],s=8,c='k')
 ax.hlines([.15],df['asymp.LCL'].values[0],df['asymp.UCL'].values[0],color='k',capstyle='round',linestyle='--')
+ax.hlines([.25],df['asymp.LCL'].values[1],df['asymp.UCL'].values[1],color='k',capstyle='round')
+ax.set_xlabel('Predictiveness on\nmPFC difference in ERS')
+ax.set_ylim((0,.35))
+ax.vlines(0,*ax.get_ylim(),linestyle=':',color='black',zorder=0)
+ax.arrow(0,.05,0.012,0,head_width=0.025, head_length=0.0045, fc='grey', ec='grey')
+ax.arrow(0,.05,-0.012,0,head_width=0.025, head_length=0.0045, fc='grey', ec='grey')
+ax.text(.018,.05,'predicts more\nvmPFC',ha='left',va='center',fontsize=8)
+ax.text(-.018,.05,'predicts more\ndACC',ha='right',va='center',fontsize=8)
+ax.set_xlim((-.125,ax.get_xlim()[1]))
+
+legend_elements = [Line2D([0],[0],c='k',linestyle='-',label='CS+'),
+                   Line2D([0],[0],c='k',linestyle='--',label='CS-')]
+ax.legend(handles=legend_elements, ncol=1,frameon=False,loc='upper left',bbox_to_anchor=(0,1),numpoints=2,handletextpad=0.1)
+sns.despine(ax=ax,left=True)
+ax.set_yticks([])
+ax.text(.215,.22,'***',ha='left',va='bottom')
+plt.tight_layout()
+
+'''day 1 behavioral results'''
+df = pd.read_csv('day1_behavior.csv')
+df = df[df.phase.isin(['fear','late_ext'])]
+
+pal = sns.color_palette(['slategrey',wes_palettes['Chevalier'][0]],desat=None)
+
+fig, (ax1, ax2) = plt.subplots(1,2,figsize=mm2inch(120,60))
+sns.barplot(data=df,x='phase',y='scr',hue='group',ax=ax1,palette=pal,saturation=1)
+sns.barplot(data=df,x='phase',y='exp',hue='group',ax=ax2,palette=pal,saturation=1)
+align_yaxis(ax1,0,ax2,0,-1,.6)
+ax1.set_ylabel('Sqrt( SCR )')
+ax2.set_ylabel('Expectancy')
+
+ax1.set_yticks([0,.1,.2,.3])
+ax2.yaxis.set_major_locator(MultipleLocator(.2))   
+
+for ax in [ax1,ax2]:
+    ax.set_xticklabels(['Conditioning','Late\nExtinction'])
+    ax.legend_.remove()
+    ax.set_xlim(-.77,ax.get_xlim()[1])
+    y2, y1 = ax.get_ylim()
+    ax.arrow(-.57,0,0,y1*.03,head_width=.06, head_length=y1*0.02, fc='grey', ec='grey')
+    ax.arrow(-.57,0,0,y1*-.03,head_width=.06, head_length=y1*0.02, fc='grey', ec='grey')
+    ax.text(-.57,y1*.055,'more\nCS+',ha='center',va='bottom',fontsize=8)
+    ax.text(-.57,y1*-.05,'more\nCS-',ha='center',va='top',fontsize=8)
+    ax.set_xlabel('')
+    ax.set_ylim(ax.get_ylim()[0]*1.27,ax.get_ylim()[1])
+
+ax1.set_title('Autonomic arousal',pad=.1)
+ax2.set_title('Shock expectancy',pad=.1)
+
+legend_elements = [Patch(facecolor=pal[0],edgecolor=pal[0],label='Healthy'),
+                   Patch(facecolor=pal[1],edgecolor=pal[1],label='PTSS')]
+fig.legend(handles=legend_elements,ncol=1,frameon=False,loc='upper left',bbox_to_anchor=(0,.975))
+
+ax1.spines['left'].set_bounds(ax1.get_ylim()[0], .32)
+
+plt.tight_layout(pad=.2)
+
+
+'''trying to show the hippocampal univariate stuff'''
+tail = pd.read_csv('hc_tail_slopes_con_phase.csv').rename(columns={'hc_tail_ret_uni.trend':'est'})
+tail['roi'] = 'hc_tail'
+body = pd.read_csv('hc_body_slopes_con_phase.csv').rename(columns={'hc_body_ret_uni.trend':'est'})
+body['roi'] = 'hc_body'
+df = pd.concat((tail,body))
+yvals = [.1,.125,.15,.175,.3,.325,.35,.375]
+fig, ax = plt.subplots(figsize=mm2inch(100,30))
+ax.scatter(df['est'],yvals,s=8,c='k')
+ax.hlines(yvals,df['asymp.LCL'].values,df['asymp.UCL'].values,color='k',capstyle='round')
 ax.hlines([.25],df['asymp.LCL'].values[1],df['asymp.UCL'].values[1],color='k',capstyle='round')
 ax.set_xlabel('Predictiveness on\nmPFC difference in ERS')
 ax.set_ylim((0,.35))
