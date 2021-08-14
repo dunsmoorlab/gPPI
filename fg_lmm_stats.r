@@ -24,10 +24,14 @@ con_pal <- colors()[c(17,92)]
 emm_options(lmer.df="asymptotic")
 
 #setwd('/Users/ach3377/Documents/gPPI')
-#setwd('C:\\Users\\ACH\\Documents\\gPPI')
+setwd('C:\\Users\\ACH\\Documents\\gPPI')
 
 pfc <- read.csv('pfc_ers_cleaned_lmm.csv')
 subcort <- read.csv('subcort_ers_cleaned_lmm.csv')
+cb <- read.csv('cb_response_rsa.csv')
+cb <- cb %>% mutate(phase = recode(phase, "acquisition" = "conditioning"))
+ins <- cb[which(cb$roi == 'ant_ins'),]
+precun <- cb[which(cb$roi == 'precun'),]
 #i do this so the phases are in order alphabetically (baseline, conditioning, extinction)
 pfc <- pfc %>% mutate(phase = recode(phase, "acquisition" = "conditioning"))
 subcort <- subcort %>% mutate(phase = recode(phase, "acquisition" = "conditioning"))
@@ -88,6 +92,24 @@ anova(hdf.mod)
 pdf <- pfc[which(pfc$group == 'ptsd' & pfc$phase %in% c('conditioning','extinction')),]
 pdf.mod <- mixed(ers ~ condition*phase*roi + (1|subject), data=pdf, REML=FALSE, method="LRT")
 anova(pdf.mod)
+
+#######################################################################
+#anterior insula
+ins.mod <- mixed(ers ~ condition*phase*group + (1|subject), data=ins, REML=FALSE, method="LRT")
+anova(ins.mod)
+ins.csdif <- emmeans(ins.mod, revpairwise ~ condition|phase*group, adjust="None")
+summary(ins.csdif)
+p.adjust(summary(ins.csdif$contrasts)$p.value, method="fdr")
+
+
+#precuneus
+precun.mod <- mixed(ers ~ condition*phase*group + (1|subject), data=precun, REML=FALSE, method="LRT")
+anova(precun.mod)
+precun.csdif <- emmeans(precun.mod, revpairwise ~ condition|phase*group, adjust="None")
+summary(precun.csdif)
+p.adjust(summary(precun.csdif$contrasts)$p.value, method="fdr")
+
+
 
 # pfc US reinforcement ----------------------------------------------------
 acq <- pfc[which(pfc$phase %in% c('conditioning') & pfc$condition == 'CS+'),]

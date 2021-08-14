@@ -69,15 +69,16 @@ class roi_rsa():
         # if self.fs: self.rois = ['mOFC','dACC','amyg','hpc','ins','hc_head','hc_body','hc_tail','rh_hc_head','rh_hc_body','rh_hc_tail','lh_hc_head','lh_hc_body','lh_hc_tail','amyg_bla','amyg_cem','rh_amyg_bla','rh_amyg_cem','lh_amyg_bla','lh_amyg_cem'] 
         # if self.fs: self.rois = ['mOFC','dACC','amyg','hpc','ins','lh_amyg','rh_amyg','lh_hpc','rh_hpc','sgACC','rACC','rSMA','rACG','hc_head','hc_body','hc_tail','rh_hc_head','rh_hc_body','rh_hc_tail','lh_hc_head','lh_hc_body','lh_hc_tail','amyg_bla','amyg_cem','rh_amyg_bla','rh_amyg_cem','lh_amyg_bla','lh_amyg_cem','A32sg','A32p','A24cd','A24rv','A14m','A11m','A13','A10m','A9m','A8m','A6m']  
         # if self.fs: self.rois = ['sgACC','rACC','hc_head','hc_body','hc_tail','rh_hc_head','rh_hc_body','rh_hc_tail','lh_hc_head','lh_hc_body','lh_hc_tail','amyg_bla','amyg_cem','rh_amyg_bla','rh_amyg_cem','lh_amyg_bla','lh_amyg_cem','A32sg','A32p','A24cd','A24rv','A14m','A11m','A13','A10m','A9m','A8m','A6m','thalamus_clst','RSP_clst','dACC_clst','lOFC_clst']
-        if self.fs: self.rois = ['ppa']
+        # if self.fs: self.rois = ['ppa']
             # if hemi:
                 # self.rois = ['rh_hc_head','rh_hc_body','rh_hc_tail','rh_amyg_bla','rh_amyg_cem',
                 #              'lh_hc_head','lh_hc_body','lh_hc_tail','lh_amyg_bla','lh_amyg_cem']
             # else:
             #     self.rois = ['amyg_cem','amyg_bla','hc_head','hc_body','hc_tail']
-
         # else: self.rois = ['hippocampus','mOFC','dACC','insula','amygdala']
-        
+        # if self.fs: self.rois = ['sgACC','rACC','hc_head','hc_body','hc_tail','ant_ins','precun']
+        if self.fs: self.rois = ['ant_ins','precun']
+
         #data needs to be loaded WITHOUT mask to facilitate more intricate analyses
         self.load_data() 
         self.compute_item_rsa()
@@ -234,7 +235,8 @@ class roi_rsa():
         
         elif self.fs:
             # self.rsa.to_csv(os.path.join(self.subj.rsa,'fs_mask_roi_ER.csv'), index=False)
-            self.rsa.to_csv(os.path.join(self.subj.rsa,'ppa_ER.csv'), index=False)
+            # self.rsa.to_csv(os.path.join(self.subj.rsa,'ppa_ER.csv'), index=False)
+            self.rsa.to_csv(os.path.join(self.subj.rsa,'cb_response_rsa.csv'), index=False)
 
     def compute_cross_rsa(self):
         self.cross_mats = {}
@@ -323,7 +325,8 @@ class group_roi_rsa():
                 #self.rois = ['mOFC','dACC','amyg','hpc','ins','hc_head','hc_body','hc_tail','rh_hc_head','rh_hc_body','rh_hc_tail','lh_hc_head','lh_hc_body','lh_hc_tail','amyg_bla','amyg_cem','rh_amyg_bla','rh_amyg_cem','lh_amyg_bla','lh_amyg_cem']
                 # self.rois = ['mOFC','dACC','amyg','hpc','ins','lh_amyg','rh_amyg','lh_hpc','rh_hpc','sgACC','rACC','rSMA','rACG','hc_head','hc_body','hc_tail','rh_hc_head','rh_hc_body','rh_hc_tail','lh_hc_head','lh_hc_body','lh_hc_tail','amyg_bla','amyg_cem','rh_amyg_bla','rh_amyg_cem','lh_amyg_bla','lh_amyg_cem','A32sg','A32p','A24cd','A24rv','A14m','A11m','A13','A10m','A9m','A8m','A6m']    
                 # self.rois = ['sgACC','rACC','hc_head','hc_body','hc_tail','rh_hc_head','rh_hc_body','rh_hc_tail','lh_hc_head','lh_hc_body','lh_hc_tail','amyg_bla','amyg_cem','rh_amyg_bla','rh_amyg_cem','lh_amyg_bla','lh_amyg_cem','A32sg','A32p','A24cd','A24rv','A14m','A11m','A13','A10m','A9m','A8m','A6m','thalamus_clst','RSP_clst','dACC_clst','lOFC_clst']
-                self.rois = ['sgACC','rACC','amyg_cem','amyg_bla','hc_head','hc_body','hc_tail']
+                # self.rois = ['sgACC','rACC','amyg_cem','amyg_bla','hc_head','hc_body','hc_tail']
+                self.rois = ['ant_ins','precun']
 
         self.conditions = {'CS+': 'CSp',
                            'CS-': 'CSm'}
@@ -332,8 +335,8 @@ class group_roi_rsa():
         else:              self.encoding_phases = ['baseline','acquisition','extinction']
 
         self.load_rois()
-        self.load_cross_mats()
-        self.load_mem_mats()
+        # self.load_cross_mats()
+        # self.load_mem_mats()
 
     def load_rois(self):
 
@@ -342,7 +345,8 @@ class group_roi_rsa():
         for sub in self.subs:
             subj = bids_meta(sub)
             # self.hemi: df[sub] = pd.read_csv(os.path.join(subj.rsa,'roi_ER_HCA_hemi.csv'))
-            df[sub] = pd.read_csv(os.path.join('rsa_results',subj.fsub,'fs_mask_roi_ER.csv'))
+            # df[sub] = pd.read_csv(os.path.join('rsa_results',subj.fsub,'fs_mask_roi_ER.csv'))
+            df[sub] = pd.read_csv(os.path.join(subj.rsa,'cb_response_rsa.csv'))
 
         self.df = pd.concat(df.values()).reset_index(drop=True)
         #lets label the first 8 trials of extinction as "early_extinction"
