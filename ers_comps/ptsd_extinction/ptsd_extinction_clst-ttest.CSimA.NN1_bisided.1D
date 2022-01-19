@@ -1,0 +1,37 @@
+# 3dClustSim -prefix ptsd_extinction_clst-ttest.CSimA -LOTS -both -nodec -cmd ptsd_extinction_clst-ttest.CSimA.cmd -insdat /scratch/05426/ach3377/standard/gm_3mm_thr.nii.gz ./ptsd_extinction_clst-ttest.0000.sdat ./ptsd_extinction_clst-ttest.0001.sdat ./ptsd_extinction_clst-ttest.0002.sdat ./ptsd_extinction_clst-ttest.0003.sdat ./ptsd_extinction_clst-ttest.0004.sdat ./ptsd_extinction_clst-ttest.0005.sdat ./ptsd_extinction_clst-ttest.0006.sdat ./ptsd_extinction_clst-ttest.0007.sdat ./ptsd_extinction_clst-ttest.0008.sdat ./ptsd_extinction_clst-ttest.0009.sdat ./ptsd_extinction_clst-ttest.0010.sdat ./ptsd_extinction_clst-ttest.0011.sdat ./ptsd_extinction_clst-ttest.0012.sdat ./ptsd_extinction_clst-ttest.0013.sdat ./ptsd_extinction_clst-ttest.0014.sdat ./ptsd_extinction_clst-ttest.0015.sdat ./ptsd_extinction_clst-ttest.0016.sdat ./ptsd_extinction_clst-ttest.0017.sdat ./ptsd_extinction_clst-ttest.0018.sdat ./ptsd_extinction_clst-ttest.0019.sdat ./ptsd_extinction_clst-ttest.0020.sdat ./ptsd_extinction_clst-ttest.0021.sdat ./ptsd_extinction_clst-ttest.0022.sdat ./ptsd_extinction_clst-ttest.0023.sdat ./ptsd_extinction_clst-ttest.0024.sdat ./ptsd_extinction_clst-ttest.0025.sdat ./ptsd_extinction_clst-ttest.0026.sdat ./ptsd_extinction_clst-ttest.0027.sdat ./ptsd_extinction_clst-ttest.0028.sdat ./ptsd_extinction_clst-ttest.0029.sdat ./ptsd_extinction_clst-ttest.0030.sdat ./ptsd_extinction_clst-ttest.0031.sdat ./ptsd_extinction_clst-ttest.0032.sdat ./ptsd_extinction_clst-ttest.0033.sdat ./ptsd_extinction_clst-ttest.0034.sdat ./ptsd_extinction_clst-ttest.0035.sdat ./ptsd_extinction_clst-ttest.0036.sdat ./ptsd_extinction_clst-ttest.0037.sdat ./ptsd_extinction_clst-ttest.0038.sdat ./ptsd_extinction_clst-ttest.0039.sdat ./ptsd_extinction_clst-ttest.0040.sdat ./ptsd_extinction_clst-ttest.0041.sdat ./ptsd_extinction_clst-ttest.0042.sdat ./ptsd_extinction_clst-ttest.0043.sdat ./ptsd_extinction_clst-ttest.0044.sdat ./ptsd_extinction_clst-ttest.0045.sdat ./ptsd_extinction_clst-ttest.0046.sdat ./ptsd_extinction_clst-ttest.0047.sdat
+# bi-sided thresholding
+# Grid: 65x77x65 3.00x3.00x3.00 mm^3 (36148 voxels in mask)
+#
+# CLUSTER SIZE THRESHOLD(pthr,alpha) in Voxels
+# -NN 1  | alpha = Prob(Cluster >= given size)
+#  pthr  | .10000 .09000 .08000 .07000 .06000 .05000 .04000 .03000 .02000 .01000
+# ------ | ------ ------ ------ ------ ------ ------ ------ ------ ------ ------
+ 0.100000     418    439    461    485    512    543    603    661    749    919
+ 0.090000     368    388    410    435    458    488    530    593    674    836
+ 0.080000     324    338    360    378    403    427    465    518    592    706
+ 0.070000     278    293    308    325    349    374    400    444    507    627
+ 0.060000     236    249    262    277    291    316    339    376    430    540
+ 0.050000     196    204    217    230    245    259    279    310    360    451
+ 0.040000     157    164    172    180    192    206    225    247    287    356
+ 0.030000     120    126    132    137    145    155    170    189    216    279
+ 0.020000      85     88     92     98    104    110    120    133    151    189
+ 0.015000      68     71     74     78     83     89     96    105    122    150
+ 0.010000      51     53     55     58     62     66     71     79     88    106
+ 0.007000      40     41     43     45     47     50     54     60     68     82
+ 0.005000      31     33     35     36     38     40     43     48     54     67
+ 0.003000      23     24     25     26     27     29     32     35     38     47
+ 0.002000      18     18     19     20     21     23     24     27     30     36
+ 0.001500      15     15     16     17     18     19     21     23     26     31
+ 0.001000      11     12     13     13     14     15     16     18     20     25
+ 0.000700       9     10     10     11     11     12     13     15     17     20
+ 0.000500       8      8      8      9      9     10     11     12     14     17
+ 0.000300       6      6      6      6      7      7      8      9     10     13
+ 0.000200       4      5      5      5      6      6      7      7      8     10
+ 0.000150       4      4      4      4      5      5      6      6      7      9
+ 0.000100       3      3      3      4      4      4      5      5      6      7
+ 7.000e-5       3      3      3      3      3      3      4      4      5      6
+ 5.000e-5       2      3      3      3      3      3      3      3      4      5
+ 3.000e-5       2      2      2      2      2      3      3      3      3      4
+ 2.000e-5       2      2      2      2      2      2      2      3      3      3
+ 1.500e-5       2      2      2      2      2      2      2      2      3      3
+ 1.000e-5       2      2      2      2      2      2      2      2      2      3

@@ -1,0 +1,127 @@
+++ Input coordinates orientation set by default rules to RAI
++++++++ nearby Atlas structures +++++++
+
+Original input data coordinates in TLRC space
+
+Focus point (LPI)=
+    -38 mm [L],  -28 mm [P],  -26 mm [I] {TLRC}
+    -39 mm [L],  -27 mm [P],  -33 mm [I] {MNI}
+    -39 mm [L],  -31 mm [P],  -28 mm [I] {MNI_ANAT}
+
+Atlas MNI_Glasser_HCP_v1.0: Glasser HCP 2016 surface-based parcellation
+ * Within 1 mm: L_Area_TF
+ * Within 2 mm: L_Perirhinal_Ectorhinal_Cortex
+            -AND-  L_ParaHippocampal_Area_3
+ * Within 7 mm: L_Area_TE2_posterior
+
+Atlas Brainnetome_1.0: Brainnetome MPM
+ * Within 2 mm: A20rv_left
+            -AND-  A37lv_left
+ * Within 4 mm: A20iv_left
+ * Within 6 mm: A35/36c_left
+ * Within 7 mm: A20cv_left
+
+Atlas CA_ML_18_MNI: Macro Labels (N27-MNI)
+ * Within 4 mm: Left Fusiform Gyrus
+            -AND-  Left Inferior Temporal Gyrus
+ * Within 5 mm: Left Cerebellum (VI)
+            -AND-  Left Cerebellum (IV-V)
+
+Atlas CA_MPM_22_MNI: Eickhoff-Zilles MPM atlas
+ * Within 5 mm: Lobule_VI_(Hem)
+            -AND-  Area_FG3
+ * Within 6 mm: Area_FG4
+ * Within 7 mm: Lobule_V_(Hem)
+
+Atlas DD_Desai_MPM: Maximum probability maps of Desai DD and FS maps
+   Focus point:  ctx_lh_G_oc-temp_lat-fusifor
+ * Within 1 mm: Left-Cerebellum-Cortex
+ * Within 2 mm: ctx_lh_G_temporal_inf
+ * Within 5 mm: ctx_lh_S_collat_transv_ant
+ * Within 6 mm: Left-Cerebral-White-Matter
+
+Atlas DKD_Desai_MPM: Maximum probability maps of Desai DKD and FS maps
+   Focus point:  ctx-lh-fusiform
+ * Within 1 mm: Left-Cerebellum-Cortex
+ * Within 2 mm: ctx-lh-inferiortemporal
+
+Atlas CA_GW_18_MNIA: Cytoarch. Prob. Maps for gray/white matter
+   Focus point:  grey   (p = 0.05)
+
+Atlas CA_N27_LR: Left/Right (N27) 1.8
+ * Within 1 mm: Left Brain
+
+Atlas TT_Daemon: Talairach-Tournoux Atlas
+   Focus point:  Left  Fusiform Gyrus
+ * Within 2 mm: Left  Parahippocampal Gyrus
+            -AND-  Left  Brodmann area 20
+ * Within 4 mm: Left  Culmen
+            -AND-  Left  Brodmann area 36
+ * Within 6 mm: Left  Inferior Temporal Gyrus
+
+
+******** Please use results with caution! ********
+******** Brain anatomy is quite variable! ********
+******** The database may contain errors! ********
+
++++++++ nearby Atlas structures +++++++
+
+Original input data coordinates in TLRC space
+
+Focus point (LPI)=
+     14 mm [R],  -63 mm [P],  -11 mm [I] {TLRC}
+     14 mm [R],  -64 mm [P],  -17 mm [I] {MNI}
+     14 mm [R],  -68 mm [P],  -12 mm [I] {MNI_ANAT}
+
+Atlas MNI_Glasser_HCP_v1.0: Glasser HCP 2016 surface-based parcellation
+ * Within 5 mm: R_Third_Visual_Area
+ * Within 7 mm: R_VentroMedial_Visual_Area_1
+
+Atlas Brainnetome_1.0: Brainnetome MPM
+ * Within 5 mm: rLinG_right
+
+Atlas CA_ML_18_MNI: Macro Labels (N27-MNI)
+   Focus point:  Right Cerebellum (VI)
+ * Within 5 mm: Right Cerebellum (IV-V)
+            -AND-  Right Lingual Gyrus
+ * Within 7 mm: Right Fusiform Gyrus
+            -AND-  Cerebellar Vermis (4/5)
+            -AND-  Cerebellar Vermis (6)
+
+Atlas CA_MPM_22_MNI: Eickhoff-Zilles MPM atlas
+   Focus point:  Lobule_VI_(Hem)
+ * Within 4 mm: Area_hOc3v_(V3v)
+ * Within 6 mm: Lobule_V_(Hem)
+ * Within 7 mm: Area_hOc4v_(V4(v))
+
+Atlas DD_Desai_MPM: Maximum probability maps of Desai DD and FS maps
+   Focus point:  ctx_rh_G_oc-temp_med-Lingual
+ * Within 1 mm: Right-Cerebellum-Cortex
+ * Within 4 mm: Right-Cerebral-White-Matter
+
+Atlas DKD_Desai_MPM: Maximum probability maps of Desai DKD and FS maps
+   Focus point:  ctx-rh-lingual
+ * Within 1 mm: Right-Cerebellum-Cortex
+ * Within 6 mm: Right-Cerebral-White-Matter
+
+Atlas CA_GW_18_MNIA: Cytoarch. Prob. Maps for gray/white matter
+   Focus point:  grey   (p = 0.80)
+            -AND-  white   (p = 0.18)
+
+Atlas CA_N27_LR: Left/Right (N27) 1.8
+   Focus point:  Right Brain
+
+Atlas TT_Daemon: Talairach-Tournoux Atlas
+   Focus point:  Right Declive
+ * Within 1 mm: Right Culmen
+ * Within 5 mm: Right Lingual Gyrus
+            -AND-  Right Brodmann area 19
+ * Within 7 mm: Right Fusiform Gyrus
+            -AND-  Right Brodmann area 18
+            -AND-  Right Dentate
+
+
+******** Please use results with caution! ********
+******** Brain anatomy is quite variable! ********
+******** The database may contain errors! ********
+

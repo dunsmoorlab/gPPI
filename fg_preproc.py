@@ -167,7 +167,32 @@ class fmriprep_preproc():
                        '-add', os.path.join(self.subj.masks,'lh_'+roi+'.nii.gz'),
                        '-bin', os.path.join(self.subj.masks,roi+'.nii.gz')]
             Popen(cmd).wait()
+    
+    def vtc_mask(self):
+        
+        t1w2std = os.path.join(self.subj.prep_dir,'anat','%s_from-T1w_to-MNI152NLin2009cAsym_mode-image_xfm.h5'%(self.subj.fsub))
+        aparc = f'{self.subj.prep_dir}/anat/{self.subj.fsub}_desc-aparcaseg_dseg.nii.gz'
+        std = '/mnt/c/Users/ACH/Desktop/standard/MNI152NLin2009cAsym_T1_1mm_brain.nii.gz'
+        labels = f'{self.subj.preproc_dir}/reference/aparc+aseg_std.nii.gz'
 
+        std_convert = f'antsApplyTransforms -i {aparc} \
+                                            -t {t1w2std} \
+                                            -r {std} \
+                                            -o {labels} \
+                                            -n MultiLabel'
+        resamp = f'ResampleImage 3 {labels} {labels} 65x77x65 1'
+        
+        for cmd in [std_convert,resamp]: os.system(cmd)
+
+        lh_fusiform = [os.path.join(self.subj.masks,'lh_fusiform.nii.gz'),1007]
+        rh_fusiform = [os.path.join(self.subj.masks,'rh_fusiform.nii.gz'),2007]
+
+        for roi in [lh_fusiform,rh_fusiform]:
+            os.system(f'fslmaths {labels} -thr {roi[1]} -uthr {roi[1]} -bin {roi[0]}')
+
+        os.system(f'fslmaths {lh_fusiform[0]} -add {rh_fusiform[0]} -bin {self.subj.masks}/fusiform_mask.nii.gz')
+
+        
     def group_mask(self):
         
         #masks = ['sgACC','rSMA','rACG'] 
@@ -175,7 +200,7 @@ class fmriprep_preproc():
         #masks = ['A32sg','A32p','A24cd','A24rv','A14m','A11m','A13','A10m','A9m','A8m','A6m',]
         # masks = ['rACC','sgACC']        
         # masks = ['thalamus_clst','RSP_clst','dACC_clst','lOFC_clst']
-        masks = ['precun','ant_ins']
+        masks = ['precun']#,'ant_ins']
 
         for roi in masks:
             # in_mask = os.path.join(group_masks,'%s_group_mask.nii.gz'%(roi))

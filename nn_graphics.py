@@ -83,6 +83,7 @@ legend_elements = [Patch(facecolor='k',edgecolor='k',label='dACC'),
 
 fig.legend(handles=legend_elements,ncol=1,frameon=False,loc='center left',bbox_to_anchor=(0.025,.5))
 
+#on diag is [**,*,*]
 paired_barplot_annotate_brackets('**', 0, df.loc[('healthy','conditioning'),'asymp.UCL'].values, ax[0].get_ylim(), xtick_spread=.2, dh=.08, barh=.025, fs=10, ax=ax[0])
 paired_barplot_annotate_brackets('*', 1, df.loc[('healthy','extinction'),'asymp.UCL'].values, ax[0].get_ylim(), xtick_spread=.2, dh=.08, barh=.025, fs=10, ax=ax[0])
 paired_barplot_annotate_brackets('*', 0, df.loc[('ptsd','conditioning'),'asymp.UCL'].values, ax[1].get_ylim(), xtick_spread=.2, dh=.08, barh=.025, fs=10, ax=ax[1])

@@ -1,0 +1,37 @@
+# 3dClustSim -prefix healthy_acquisition_clst-ttest.CSimA -LOTS -both -nodec -cmd healthy_acquisition_clst-ttest.CSimA.cmd -insdat /scratch/05426/ach3377/standard/gm_3mm_thr.nii.gz ./healthy_acquisition_clst-ttest.0000.sdat ./healthy_acquisition_clst-ttest.0001.sdat ./healthy_acquisition_clst-ttest.0002.sdat ./healthy_acquisition_clst-ttest.0003.sdat ./healthy_acquisition_clst-ttest.0004.sdat ./healthy_acquisition_clst-ttest.0005.sdat ./healthy_acquisition_clst-ttest.0006.sdat ./healthy_acquisition_clst-ttest.0007.sdat ./healthy_acquisition_clst-ttest.0008.sdat ./healthy_acquisition_clst-ttest.0009.sdat ./healthy_acquisition_clst-ttest.0010.sdat ./healthy_acquisition_clst-ttest.0011.sdat ./healthy_acquisition_clst-ttest.0012.sdat ./healthy_acquisition_clst-ttest.0013.sdat ./healthy_acquisition_clst-ttest.0014.sdat ./healthy_acquisition_clst-ttest.0015.sdat ./healthy_acquisition_clst-ttest.0016.sdat ./healthy_acquisition_clst-ttest.0017.sdat ./healthy_acquisition_clst-ttest.0018.sdat ./healthy_acquisition_clst-ttest.0019.sdat ./healthy_acquisition_clst-ttest.0020.sdat ./healthy_acquisition_clst-ttest.0021.sdat ./healthy_acquisition_clst-ttest.0022.sdat ./healthy_acquisition_clst-ttest.0023.sdat ./healthy_acquisition_clst-ttest.0024.sdat ./healthy_acquisition_clst-ttest.0025.sdat ./healthy_acquisition_clst-ttest.0026.sdat ./healthy_acquisition_clst-ttest.0027.sdat ./healthy_acquisition_clst-ttest.0028.sdat ./healthy_acquisition_clst-ttest.0029.sdat ./healthy_acquisition_clst-ttest.0030.sdat ./healthy_acquisition_clst-ttest.0031.sdat ./healthy_acquisition_clst-ttest.0032.sdat ./healthy_acquisition_clst-ttest.0033.sdat ./healthy_acquisition_clst-ttest.0034.sdat ./healthy_acquisition_clst-ttest.0035.sdat ./healthy_acquisition_clst-ttest.0036.sdat ./healthy_acquisition_clst-ttest.0037.sdat ./healthy_acquisition_clst-ttest.0038.sdat ./healthy_acquisition_clst-ttest.0039.sdat ./healthy_acquisition_clst-ttest.0040.sdat ./healthy_acquisition_clst-ttest.0041.sdat ./healthy_acquisition_clst-ttest.0042.sdat ./healthy_acquisition_clst-ttest.0043.sdat ./healthy_acquisition_clst-ttest.0044.sdat ./healthy_acquisition_clst-ttest.0045.sdat ./healthy_acquisition_clst-ttest.0046.sdat ./healthy_acquisition_clst-ttest.0047.sdat
+# 1-sided thresholding
+# Grid: 65x77x65 3.00x3.00x3.00 mm^3 (36148 voxels in mask)
+#
+# CLUSTER SIZE THRESHOLD(pthr,alpha) in Voxels
+# -NN 1  | alpha = Prob(Cluster >= given size)
+#  pthr  | .10000 .09000 .08000 .07000 .06000 .05000 .04000 .03000 .02000 .01000
+# ------ | ------ ------ ------ ------ ------ ------ ------ ------ ------ ------
+ 0.100000     612    636    666    703    742    791    853    941   1110   1355
+ 0.090000     520    543    568    596    635    673    721    806    935   1157
+ 0.080000     445    465    487    512    541    581    619    674    781    970
+ 0.070000     381    395    412    431    453    489    525    566    631    814
+ 0.060000     317    330    344    361    375    401    427    469    528    678
+ 0.050000     260    269    282    295    310    330    351    380    428    529
+ 0.040000     208    216    224    234    246    260    283    306    335    399
+ 0.030000     157    164    173    180    190    202    215    232    257    312
+ 0.020000     109    113    119    125    131    139    151    165    184    213
+ 0.015000      86     90     93     98    104    111    119    131    146    172
+ 0.010000      62     65     68     72     76     81     86     94    108    128
+ 0.007000      47     50     52     55     58     62     67     73     82    102
+ 0.005000      38     39     42     44     46     50     54     59     65     82
+ 0.003000      26     27     29     30     33     35     38     42     47     58
+ 0.002000      20     21     22     23     25     27     29     33     37     46
+ 0.001500      16     17     18     19     21     22     24     27     31     38
+ 0.001000      13     13     14     15     16     17     19     21     25     30
+ 0.000700      10     11     11     12     13     14     15     17     20     25
+ 0.000500       8      9      9     10     11     11     13     14     16     21
+ 0.000300       6      7      7      7      8      9     10     11     12     15
+ 0.000200       5      5      6      6      6      7      8      9     10     12
+ 0.000150       4      4      5      5      5      6      6      7      9     11
+ 0.000100       3      4      4      4      4      5      5      6      7      9
+ 7.000e-5       3      3      3      3      4      4      4      5      6      7
+ 5.000e-5       3      3      3      3      3      3      4      4      5      6
+ 3.000e-5       2      2      2      2      3      3      3      3      4      5
+ 2.000e-5       2      2      2      2      2      2      2      3      3      4
+ 1.500e-5       2      2      2      2      2      2      2      2      3      3
+ 1.000e-5       2      2      2      2      2      2      2      2      2      3

@@ -28,10 +28,6 @@ setwd('C:\\Users\\ACH\\Documents\\gPPI')
 
 pfc <- read.csv('pfc_ers_cleaned_lmm.csv')
 subcort <- read.csv('subcort_ers_cleaned_lmm.csv')
-cb <- read.csv('cb_response_rsa.csv')
-cb <- cb %>% mutate(phase = recode(phase, "acquisition" = "conditioning"))
-ins <- cb[which(cb$roi == 'ant_ins'),]
-precun <- cb[which(cb$roi == 'precun'),]
 #i do this so the phases are in order alphabetically (baseline, conditioning, extinction)
 pfc <- pfc %>% mutate(phase = recode(phase, "acquisition" = "conditioning"))
 subcort <- subcort %>% mutate(phase = recode(phase, "acquisition" = "conditioning"))
@@ -84,6 +80,22 @@ pfc.cons2 <- contrast(pfc.csmean, method=pfc.con.list2, adjust="None")
 confint(pfc.cons2)
 summary(pfc.cons2)
 
+#cross group comparisons
+pfc.con.list3 <- list(healthy_ext_vmPFC - ptsd_ext_vmPFC,
+                      healthy_ext_dACC - ptsd_ext_dACC,
+                      healthy_acq_vmPFC - ptsd_acq_vmPFC,
+                      healthy_acq_dACC - ptsd_acq_dACC)
+pfc.cons3 <- contrast(pfc.csmean, method=pfc.con.list3, adjust="None")
+summary(pfc.cons3)
+p.adjust(summary(pfc.cons3)$p.value,method='fdr')
+
+pfc.con.list4 <- list((healthy_ext_vmPFC - healthy_ext_dACC) - (ptsd_ext_vmPFC - ptsd_ext_dACC),
+                      (healthy_acq_dACC - healthy_acq_vmPFC) - (ptsd_acq_dACC - ptsd_acq_vmPFC))
+pfc.cons4 <- contrast(pfc.csmean, method=pfc.con.list4, adjust="None")
+summary(pfc.cons4)
+confint(pfc.cons4)
+p.adjust(summary(pfc.cons4)$p.value,method="fdr")
+
 #just really focused interaction
 hdf <- pfc[which(pfc$group == 'healthy' & pfc$phase %in% c('conditioning','extinction')),]
 hdf.mod <- mixed(ers ~ condition*phase*roi + (1|subject), data=hdf, REML=FALSE, method="LRT")
@@ -93,24 +105,9 @@ pdf <- pfc[which(pfc$group == 'ptsd' & pfc$phase %in% c('conditioning','extincti
 pdf.mod <- mixed(ers ~ condition*phase*roi + (1|subject), data=pdf, REML=FALSE, method="LRT")
 anova(pdf.mod)
 
-#######################################################################
-#anterior insula
-ins.mod <- mixed(ers ~ condition*phase*group + (1|subject), data=ins, REML=FALSE, method="LRT")
-anova(ins.mod)
-ins.csdif <- emmeans(ins.mod, revpairwise ~ condition|phase*group, adjust="None")
-summary(ins.csdif)
-p.adjust(summary(ins.csdif$contrasts)$p.value, method="fdr")
-
-
-#precuneus
-precun.mod <- mixed(ers ~ condition*phase*group + (1|subject), data=precun, REML=FALSE, method="LRT")
-anova(precun.mod)
-precun.csdif <- emmeans(precun.mod, revpairwise ~ condition|phase*group, adjust="None")
-summary(precun.csdif)
-p.adjust(summary(precun.csdif$contrasts)$p.value, method="fdr")
-
-
-
+emodf <- pfc[which(pfc$phase %in% c('conditioning','extinction')),]
+emo.mod <- mixed(ers ~ condition*phase*roi*group + (1|subject), data=emodf, REML=FALSE, method="LRT")
+anova(emo.mod)
 # pfc US reinforcement ----------------------------------------------------
 acq <- pfc[which(pfc$phase %in% c('conditioning') & pfc$condition == 'CS+'),]
 
@@ -189,9 +186,13 @@ confint(hpc.cons)
 summary(hpc.cons)
 p.adjust(summary(hpc.cons)$p.value, method="fdr")
 
-#doing all 3 bc maybe it will work
-hpc.roidif <- emmeans(hpc.mod, pairwise ~ roi|phase*group, adjust="None")
-summary(hpc.roidif$contrasts)[p.adjust(summary(hpc.roidif$contrasts)$p.value, method='fdr') < .05,]
+hpc.con.list2 <- list((healthy_acq_tail - healthy_acq_head) - (ptsd_acq_tail- ptsd_acq_head),
+                      (healthy_ext_head - healthy_ext_tail) - (ptsd_ext_head - ptsd_ext_tail))
+hpc.cons2 <- contrast(hpc.phasemean, method=hpc.con.list2, adjust="None")
+confint(hpc.cons2)
+summary(hpc.cons2)
+p.adjust(summary(hpc.cons2)$p.value, method="fdr")
+
 
 #just showing that the condition comp is null in the hippocampus
 hpc.cond <- emmeans(hpc.mod, revpairwise ~ condition|phase*roi*group, adjust="None")
@@ -531,3 +532,12 @@ emmeans(d.sub.mod, revpairwise ~ condition|group, adjust="None")
 # memory behavioral data --------------------------------------------------
 df <- read.csv('mem_hit_rate_sub_means.csv')
 mem.res <- ezANOVA(df,dv=.(mem_acc),within=.(phase,condition),between=.(group),wid=.(subject),type=3)
+mem.res
+
+df <- read.csv('false_alarm_sub_means.csv')
+fa.res <- ezANOVA(df, dv=.(fa), within=.(condition), between=.(group), wid=.(subject), type=3)
+fa.res
+
+df <- read.csv('corrected_recognition_sub_means.csv')
+cr.res <- ezANOVA(df, dv=.(cr), within=.(phase,condition), between=.(group), wid=.(subject), type=3)
+cr.res

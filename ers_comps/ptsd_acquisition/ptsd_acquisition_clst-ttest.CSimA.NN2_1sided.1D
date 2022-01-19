@@ -1,0 +1,37 @@
+# 3dClustSim -prefix ptsd_acquisition_clst-ttest.CSimA -LOTS -both -nodec -cmd ptsd_acquisition_clst-ttest.CSimA.cmd -insdat /scratch/05426/ach3377/standard/gm_3mm_thr.nii.gz ./ptsd_acquisition_clst-ttest.0000.sdat ./ptsd_acquisition_clst-ttest.0001.sdat ./ptsd_acquisition_clst-ttest.0002.sdat ./ptsd_acquisition_clst-ttest.0003.sdat ./ptsd_acquisition_clst-ttest.0004.sdat ./ptsd_acquisition_clst-ttest.0005.sdat ./ptsd_acquisition_clst-ttest.0006.sdat ./ptsd_acquisition_clst-ttest.0007.sdat ./ptsd_acquisition_clst-ttest.0008.sdat ./ptsd_acquisition_clst-ttest.0009.sdat ./ptsd_acquisition_clst-ttest.0010.sdat ./ptsd_acquisition_clst-ttest.0011.sdat ./ptsd_acquisition_clst-ttest.0012.sdat ./ptsd_acquisition_clst-ttest.0013.sdat ./ptsd_acquisition_clst-ttest.0014.sdat ./ptsd_acquisition_clst-ttest.0015.sdat ./ptsd_acquisition_clst-ttest.0016.sdat ./ptsd_acquisition_clst-ttest.0017.sdat ./ptsd_acquisition_clst-ttest.0018.sdat ./ptsd_acquisition_clst-ttest.0019.sdat ./ptsd_acquisition_clst-ttest.0020.sdat ./ptsd_acquisition_clst-ttest.0021.sdat ./ptsd_acquisition_clst-ttest.0022.sdat ./ptsd_acquisition_clst-ttest.0023.sdat ./ptsd_acquisition_clst-ttest.0024.sdat ./ptsd_acquisition_clst-ttest.0025.sdat ./ptsd_acquisition_clst-ttest.0026.sdat ./ptsd_acquisition_clst-ttest.0027.sdat ./ptsd_acquisition_clst-ttest.0028.sdat ./ptsd_acquisition_clst-ttest.0029.sdat ./ptsd_acquisition_clst-ttest.0030.sdat ./ptsd_acquisition_clst-ttest.0031.sdat ./ptsd_acquisition_clst-ttest.0032.sdat ./ptsd_acquisition_clst-ttest.0033.sdat ./ptsd_acquisition_clst-ttest.0034.sdat ./ptsd_acquisition_clst-ttest.0035.sdat ./ptsd_acquisition_clst-ttest.0036.sdat ./ptsd_acquisition_clst-ttest.0037.sdat ./ptsd_acquisition_clst-ttest.0038.sdat ./ptsd_acquisition_clst-ttest.0039.sdat ./ptsd_acquisition_clst-ttest.0040.sdat ./ptsd_acquisition_clst-ttest.0041.sdat ./ptsd_acquisition_clst-ttest.0042.sdat ./ptsd_acquisition_clst-ttest.0043.sdat ./ptsd_acquisition_clst-ttest.0044.sdat ./ptsd_acquisition_clst-ttest.0045.sdat ./ptsd_acquisition_clst-ttest.0046.sdat ./ptsd_acquisition_clst-ttest.0047.sdat
+# 1-sided thresholding
+# Grid: 65x77x65 3.00x3.00x3.00 mm^3 (36148 voxels in mask)
+#
+# CLUSTER SIZE THRESHOLD(pthr,alpha) in Voxels
+# -NN 2  | alpha = Prob(Cluster >= given size)
+#  pthr  | .10000 .09000 .08000 .07000 .06000 .05000 .04000 .03000 .02000 .01000
+# ------ | ------ ------ ------ ------ ------ ------ ------ ------ ------ ------
+ 0.100000    1626   1729   1841   1973   2136   2379   2659   3024   3674   4999
+ 0.090000    1301   1392   1488   1584   1715   1866   2132   2457   2905   3981
+ 0.080000    1023   1097   1176   1261   1370   1507   1708   1980   2289   3019
+ 0.070000     790    834    889    964   1041   1142   1295   1513   1783   2277
+ 0.060000     599    634    679    729    781    856    966   1112   1345   1743
+ 0.050000     446    476    507    546    584    638    703    808    954   1254
+ 0.040000     329    347    369    394    429    465    513    581    695    889
+ 0.030000     234    245    258    278    303    332    365    409    479    616
+ 0.020000     151    158    168    180    193    211    232    261    301    382
+ 0.015000     113    119    127    135    147    160    176    198    223    288
+ 0.010000      77     82     86     92     98    107    119    137    157    190
+ 0.007000      56     59     62     66     72     78     86     97    118    148
+ 0.005000      43     45     48     50     54     59     66     76     92    116
+ 0.003000      29     31     33     34     37     40     45     50     60     78
+ 0.002000      22     23     24     26     28     30     34     39     45     57
+ 0.001500      18     19     20     21     23     25     28     31     36     46
+ 0.001000      14     15     15     16     18     19     21     24     28     35
+ 0.000700      11     12     12     13     14     15     17     19     23     29
+ 0.000500       9      9     10     11     11     12     14     16     18     24
+ 0.000300       7      7      7      8      8      9     10     11     13     18
+ 0.000200       5      5      6      6      7      7      8      9     10     14
+ 0.000150       4      5      5      5      6      6      7      8      9     12
+ 0.000100       4      4      4      4      5      5      5      6      7      9
+ 7.000e-5       3      3      3      4      4      4      4      5      6      8
+ 5.000e-5       3      3      3      3      3      3      4      4      5      6
+ 3.000e-5       2      2      2      2      3      3      3      3      4      5
+ 2.000e-5       2      2      2      2      2      2      2      3      3      4
+ 1.500e-5       2      2      2      2      2      2      2      2      3      4
+ 1.000e-5       2      2      2      2      2      2      2      2      2      3

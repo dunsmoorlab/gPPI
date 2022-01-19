@@ -1,2 +1,0 @@
-.libPaths('~/R_lib')
-

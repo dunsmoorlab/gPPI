@@ -1,0 +1,25 @@
+#
+#  Cluster report 
+#[ Dataset prefix      = healthy_phase_diff_clst-ttest ]
+#[ Threshold vol       = [1] 'SetA-SetB_Zscr' ]
+#[ Supplement dat vol  = [0] 'SetA-SetB_mean' ]
+#[ Option summary      = -2sided,p=0.001,clust_nvox,16,NN3 ]
+#[ Threshold value(s)  = left-tail p=0.001000 -> thr=-3.290527;  right-tail p=0.001000 -> thr=3.290527 ]
+#[ Aux. stat. info.    =  ]
+#[ Nvoxel threshold    = 16;  Volume threshold = 432.000 ]
+#[ Single voxel volume = 27.000 (microliters) ]
+#[ Neighbor type, NN   = 3 ]
+#[ Voxel datum type    = float ]
+#[ Voxel dimensions    = 3.000 mm X 3.000 mm X 3.000 mm ]
+#[ Coordinates Order   = RAI ]
+#[ Mask                = ../../standard/gm_3mm_thr.nii.gz ]
+# Mean and SEM based on absolute value of voxel intensities ]
+#
+#Volume  CM RL  CM AP  CM IS  minRL  maxRL  minAP  maxAP  minIS  maxIS    Mean     SEM    Max Int  MI RL  MI AP  MI IS
+#------  -----  -----  -----  -----  -----  -----  -----  -----  -----  -------  -------  -------  -----  -----  -----
+     32  -40.1  -12.8   28.9  -48.0  -33.0  -21.0   -6.0   24.0   36.0   0.3744   0.0085   -0.497  -33.0   -9.0   27.0 
+     23   -5.4  -28.5   43.3  -12.0   -3.0  -36.0  -21.0   33.0   48.0   0.2836    0.007  -0.3429   -6.0  -30.0   45.0 
+     22    5.3  -33.2   41.5    3.0    9.0  -39.0  -27.0   36.0   48.0   0.2834   0.0082  -0.3585    3.0  -33.0   42.0 
+     21    6.0   -2.9   55.9    3.0   12.0   -6.0    0.0   51.0   63.0   0.2765   0.0086  -0.3537    6.0   -3.0   54.0 
+#------  -----  -----  -----  -----  -----  -----  -----  -----  -----  -------  -------  -------  -----  -----  -----
+#    98  -14.7  -18.4   39.7                                             0.3117    0.006                             

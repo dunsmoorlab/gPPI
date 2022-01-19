@@ -1,0 +1,37 @@
+# 3dClustSim -prefix healthy_phase_diff_clst-ttest.CSimA -LOTS -both -nodec -cmd healthy_phase_diff_clst-ttest.CSimA.cmd -insdat /scratch/05426/ach3377/standard/gm_3mm_thr.nii.gz ./healthy_phase_diff_clst-ttest.0000.sdat ./healthy_phase_diff_clst-ttest.0001.sdat ./healthy_phase_diff_clst-ttest.0002.sdat ./healthy_phase_diff_clst-ttest.0003.sdat ./healthy_phase_diff_clst-ttest.0004.sdat ./healthy_phase_diff_clst-ttest.0005.sdat ./healthy_phase_diff_clst-ttest.0006.sdat ./healthy_phase_diff_clst-ttest.0007.sdat ./healthy_phase_diff_clst-ttest.0008.sdat ./healthy_phase_diff_clst-ttest.0009.sdat ./healthy_phase_diff_clst-ttest.0010.sdat ./healthy_phase_diff_clst-ttest.0011.sdat ./healthy_phase_diff_clst-ttest.0012.sdat ./healthy_phase_diff_clst-ttest.0013.sdat ./healthy_phase_diff_clst-ttest.0014.sdat ./healthy_phase_diff_clst-ttest.0015.sdat ./healthy_phase_diff_clst-ttest.0016.sdat ./healthy_phase_diff_clst-ttest.0017.sdat ./healthy_phase_diff_clst-ttest.0018.sdat ./healthy_phase_diff_clst-ttest.0019.sdat ./healthy_phase_diff_clst-ttest.0020.sdat ./healthy_phase_diff_clst-ttest.0021.sdat ./healthy_phase_diff_clst-ttest.0022.sdat ./healthy_phase_diff_clst-ttest.0023.sdat ./healthy_phase_diff_clst-ttest.0024.sdat ./healthy_phase_diff_clst-ttest.0025.sdat ./healthy_phase_diff_clst-ttest.0026.sdat ./healthy_phase_diff_clst-ttest.0027.sdat ./healthy_phase_diff_clst-ttest.0028.sdat ./healthy_phase_diff_clst-ttest.0029.sdat ./healthy_phase_diff_clst-ttest.0030.sdat ./healthy_phase_diff_clst-ttest.0031.sdat ./healthy_phase_diff_clst-ttest.0032.sdat ./healthy_phase_diff_clst-ttest.0033.sdat ./healthy_phase_diff_clst-ttest.0034.sdat ./healthy_phase_diff_clst-ttest.0035.sdat ./healthy_phase_diff_clst-ttest.0036.sdat ./healthy_phase_diff_clst-ttest.0037.sdat ./healthy_phase_diff_clst-ttest.0038.sdat ./healthy_phase_diff_clst-ttest.0039.sdat ./healthy_phase_diff_clst-ttest.0040.sdat ./healthy_phase_diff_clst-ttest.0041.sdat ./healthy_phase_diff_clst-ttest.0042.sdat ./healthy_phase_diff_clst-ttest.0043.sdat ./healthy_phase_diff_clst-ttest.0044.sdat ./healthy_phase_diff_clst-ttest.0045.sdat ./healthy_phase_diff_clst-ttest.0046.sdat ./healthy_phase_diff_clst-ttest.0047.sdat
+# 1-sided thresholding
+# Grid: 65x77x65 3.00x3.00x3.00 mm^3 (36148 voxels in mask)
+#
+# CLUSTER SIZE THRESHOLD(pthr,alpha) in Voxels
+# -NN 3  | alpha = Prob(Cluster >= given size)
+#  pthr  | .10000 .09000 .08000 .07000 .06000 .05000 .04000 .03000 .02000 .01000
+# ------ | ------ ------ ------ ------ ------ ------ ------ ------ ------ ------
+ 0.100000    1497   1571   1664   1761   1875   2020   2190   2461   2775   3445
+ 0.090000    1182   1244   1305   1387   1488   1594   1750   1966   2244   2686
+ 0.080000     932    986   1045   1100   1171   1248   1362   1504   1744   2125
+ 0.070000     720    756    796    842    906    978   1051   1168   1327   1643
+ 0.060000     556    580    614    650    685    741    814    890   1031   1288
+ 0.050000     426    448    469    488    516    557    602    664    755    957
+ 0.040000     316    328    343    361    383    408    439    482    559    681
+ 0.030000     219    228    239    253    268    288    309    335    378    471
+ 0.020000     144    150    158    165    175    190    205    222    253    299
+ 0.015000     109    114    119    125    134    144    156    175    195    233
+ 0.010000      76     80     84     88     93     99    108    119    139    166
+ 0.007000      58     60     63     66     70     74     81     90    103    124
+ 0.005000      45     46     49     51     54     57     62     69     81     98
+ 0.003000      31     32     34     35     38     40     44     49     55     68
+ 0.002000      23     24     26     27     29     31     34     37     42     52
+ 0.001500      19     20     21     22     24     25     28     30     34     42
+ 0.001000      15     16     16     17     18     20     21     23     27     33
+ 0.000700      12     13     13     14     15     16     17     19     22     28
+ 0.000500      10     10     11     12     12     13     14     15     18     23
+ 0.000300       7      8      8      8      9     10     11     12     14     17
+ 0.000200       6      6      6      7      7      8      8     10     11     13
+ 0.000150       5      5      5      6      6      7      7      8     10     11
+ 0.000100       4      4      4      5      5      5      6      6      8     10
+ 7.000e-5       3      4      4      4      4      4      5      5      6      8
+ 5.000e-5       3      3      3      3      4      4      4      5      5      7
+ 3.000e-5       2      2      3      3      3      3      3      4      4      5
+ 2.000e-5       2      2      2      2      2      3      3      3      4      4
+ 1.500e-5       2      2      2      2      2      2      2      3      3      4
+ 1.000e-5       2      2      2      2      2      2      2      2      3      3

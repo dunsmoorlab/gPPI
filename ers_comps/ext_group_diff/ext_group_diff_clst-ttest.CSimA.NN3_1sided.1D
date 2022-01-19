@@ -1,0 +1,37 @@
+# 3dClustSim -prefix ext_group_diff_clst-ttest.CSimA -LOTS -both -nodec -cmd ext_group_diff_clst-ttest.CSimA.cmd -insdat /scratch/05426/ach3377/standard/gm_3mm_thr.nii.gz ./ext_group_diff_clst-ttest.0000.sdat ./ext_group_diff_clst-ttest.0001.sdat ./ext_group_diff_clst-ttest.0002.sdat ./ext_group_diff_clst-ttest.0003.sdat ./ext_group_diff_clst-ttest.0004.sdat ./ext_group_diff_clst-ttest.0005.sdat ./ext_group_diff_clst-ttest.0006.sdat ./ext_group_diff_clst-ttest.0007.sdat ./ext_group_diff_clst-ttest.0008.sdat ./ext_group_diff_clst-ttest.0009.sdat ./ext_group_diff_clst-ttest.0010.sdat ./ext_group_diff_clst-ttest.0011.sdat ./ext_group_diff_clst-ttest.0012.sdat ./ext_group_diff_clst-ttest.0013.sdat ./ext_group_diff_clst-ttest.0014.sdat ./ext_group_diff_clst-ttest.0015.sdat ./ext_group_diff_clst-ttest.0016.sdat ./ext_group_diff_clst-ttest.0017.sdat ./ext_group_diff_clst-ttest.0018.sdat ./ext_group_diff_clst-ttest.0019.sdat ./ext_group_diff_clst-ttest.0020.sdat ./ext_group_diff_clst-ttest.0021.sdat ./ext_group_diff_clst-ttest.0022.sdat ./ext_group_diff_clst-ttest.0023.sdat ./ext_group_diff_clst-ttest.0024.sdat ./ext_group_diff_clst-ttest.0025.sdat ./ext_group_diff_clst-ttest.0026.sdat ./ext_group_diff_clst-ttest.0027.sdat ./ext_group_diff_clst-ttest.0028.sdat ./ext_group_diff_clst-ttest.0029.sdat ./ext_group_diff_clst-ttest.0030.sdat ./ext_group_diff_clst-ttest.0031.sdat ./ext_group_diff_clst-ttest.0032.sdat ./ext_group_diff_clst-ttest.0033.sdat ./ext_group_diff_clst-ttest.0034.sdat ./ext_group_diff_clst-ttest.0035.sdat ./ext_group_diff_clst-ttest.0036.sdat ./ext_group_diff_clst-ttest.0037.sdat ./ext_group_diff_clst-ttest.0038.sdat ./ext_group_diff_clst-ttest.0039.sdat ./ext_group_diff_clst-ttest.0040.sdat ./ext_group_diff_clst-ttest.0041.sdat ./ext_group_diff_clst-ttest.0042.sdat ./ext_group_diff_clst-ttest.0043.sdat ./ext_group_diff_clst-ttest.0044.sdat ./ext_group_diff_clst-ttest.0045.sdat ./ext_group_diff_clst-ttest.0046.sdat ./ext_group_diff_clst-ttest.0047.sdat
+# 1-sided thresholding
+# Grid: 65x77x65 3.00x3.00x3.00 mm^3 (36148 voxels in mask)
+#
+# CLUSTER SIZE THRESHOLD(pthr,alpha) in Voxels
+# -NN 3  | alpha = Prob(Cluster >= given size)
+#  pthr  | .10000 .09000 .08000 .07000 .06000 .05000 .04000 .03000 .02000 .01000
+# ------ | ------ ------ ------ ------ ------ ------ ------ ------ ------ ------
+ 0.100000    1626   1734   1881   2012   2229   2437   2683   3185   3821   4930
+ 0.090000    1305   1389   1469   1579   1711   1900   2140   2457   2972   3729
+ 0.080000    1022   1083   1164   1250   1357   1487   1691   1951   2279   2855
+ 0.070000     801    841    900    962   1053   1133   1282   1478   1772   2187
+ 0.060000     623    662    695    749    815    899   1000   1123   1330   1710
+ 0.050000     478    503    535    571    612    664    740    853   1013   1314
+ 0.040000     354    373    396    423    454    489    546    610    730    972
+ 0.030000     248    260    275    293    314    341    371    414    491    642
+ 0.020000     162    171    181    192    206    225    245    272    312    413
+ 0.015000     122    129    137    143    154    169    188    205    234    309
+ 0.010000      84     88     93     98    106    115    128    144    168    214
+ 0.007000      63     66     70     74     80     86     95    109    127    159
+ 0.005000      49     51     54     58     62     67     74     83     97    123
+ 0.003000      34     36     38     40     43     47     51     57     67     85
+ 0.002000      26     28     29     31     33     36     39     44     50     65
+ 0.001500      22     23     24     25     27     29     33     36     43     54
+ 0.001000      17     18     19     20     21     23     25     28     33     41
+ 0.000700      14     14     15     16     17     19     21     23     27     35
+ 0.000500      11     11     12     13     14     15     17     19     22     29
+ 0.000300       8      8      9     10     10     11     12     14     16     21
+ 0.000200       6      7      7      8      8      9     10     11     13     16
+ 0.000150       5      6      6      7      7      8      8     10     11     14
+ 0.000100       4      5      5      5      6      6      7      8      9     11
+ 7.000e-5       4      4      4      4      5      5      6      6      7      9
+ 5.000e-5       3      3      3      4      4      4      5      5      6      8
+ 3.000e-5       2      3      3      3      3      3      4      4      5      6
+ 2.000e-5       2      2      2      2      2      3      3      3      4      5
+ 1.500e-5       2      2      2      2      2      2      3      3      3      4
+ 1.000e-5       2      2      2      2      2      2      2      2      3      4

@@ -65,3 +65,32 @@ hca_uni = hca_uni.set_index(['subject','stimulus','group','phase','condition','r
 hca = pd.concat((hca,hca_uni),axis=1)
 hca.to_csv('subcort_ers_cleaned_lmm.csv')
 
+'''collect all rsa'''
+df = {sub:pd.read_csv(f'{bids_meta(sub).rsa}/cb_response_rsa.csv') for sub in all_sub_args}
+df = pd.concat(df.values())
+df['group'] = df.subject.apply(lgroup)
+df.roi = df.roi.apply(pfc_rename)
+df = df.drop(columns=['phase','memory_condition','low_confidence_accuracy','CSp_trial','CSm_trial' ])
+df = df.rename(columns={'encode_phase':'phase','trial_type':'condition','rsa':'ers','off_rsa':'off_ers'})
+df.phase = df.phase.apply(lambda x: 'conditioning' if x == 'acquisition' else x)
+df = df.dropna(subset=['response'])
+df.to_csv('cb_response_rsa.csv',index=False)
+
+'''kinda cleaning up the cross phase rsa'''
+df = df[df.phase.isin(['conditioning','extinction'])]
+c = df.melt(id_vars=['group','subject','condition','stimulus','phase','response','roi','high_confidence_accuracy','ers','off_ers'],
+                value_vars=['acq_rsa','ext_rsa']).rename(columns={'variable':'cross_phase','value':'cross_ers'})
+c.cross_phase = c.cross_phase.apply(lambda x: 'conditioning' if 'acq' in x else 'extinction')
+c = c.drop(np.where(c.phase == c.cross_phase)[0])
+c.to_csv('cb_cross_rsa.csv')
+# subdf = c.groupby(['condition','group','subject','phase','cross_phase','roi']).mean()#.reset_index()
+# subdf = (subdf.loc['CS+'] - subdf.loc['CS-']).reset_index()
+
+
+
+rois = ['vmPFC','dACC']
+sns.catplot(data=subdf[subdf.roi.isin(rois)][subdf.condition=='CS+'],x='phase',y='diff',hue='roi',row='group',kind='bar')
+# sns.catplot(data=subdf[subdf.roi.isin(rois)][subdf.group == 'ptsd'],x='phase',y='rsa',hue='condition',col='roi',row='cross_phase',kind='bar')
+df.to_csv('cb_cross_rsa.csv',index=False)
+
+

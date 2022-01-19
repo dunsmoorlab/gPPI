@@ -1,0 +1,755 @@
+++ Input coordinates orientation set by default rules to RAI
++++++++ nearby Atlas structures +++++++
+
+Original input data coordinates in TLRC space
+
+Focus point (LPI)=
+     33 mm [R],    9 mm [A],   27 mm [S] {TLRC}
+     33 mm [R],    8 mm [A],   30 mm [S] {MNI}
+     33 mm [R],    4 mm [A],   35 mm [S] {MNI_ANAT}
+
+Atlas MNI_Glasser_HCP_v1.0: Glasser HCP 2016 surface-based parcellation
+   Focus point:  R_Area_IFJp
+ * Within 1 mm: R_Area_8C
+ * Within 5 mm: R_Area_IFJa
+
+Atlas Brainnetome_1.0: Brainnetome MPM
+   Focus point:  IFJ_right
+ * Within 4 mm: A44d_right
+ * Within 6 mm: A6cvl_right
+
+Atlas CA_ML_18_MNI: Macro Labels (N27-MNI)
+   Focus point:  Right Inferior Frontal Gyrus (p. Opercularis)
+ * Within 3 mm: Right Precentral Gyrus
+ * Within 6 mm: Right Middle Frontal Gyrus
+            -AND-  Right Inferior Frontal Gyrus (p. Triangularis)
+
+Atlas DD_Desai_MPM: Maximum probability maps of Desai DD and FS maps
+   Focus point:  Right-Cerebral-White-Matter
+ * Within 7 mm: ctx_rh_S_precentral-inf-part
+
+Atlas DKD_Desai_MPM: Maximum probability maps of Desai DKD and FS maps
+   Focus point:  Right-Cerebral-White-Matter
+
+Atlas CA_GW_18_MNIA: Cytoarch. Prob. Maps for gray/white matter
+   Focus point:  grey   (p = 0.47)
+            -AND-  white   (p = 0.53)
+
+Atlas CA_N27_LR: Left/Right (N27) 1.8
+   Focus point:  Right Brain
+
+Atlas TT_Daemon: Talairach-Tournoux Atlas
+   Focus point:  Right Inferior Frontal Gyrus
+ * Within 3 mm: Right Middle Frontal Gyrus
+ * Within 4 mm: Right Precentral Gyrus
+            -AND-  Right Brodmann area 9
+            -AND-  Right Brodmann area 6
+
+
+******** Please use results with caution! ********
+******** Brain anatomy is quite variable! ********
+******** The database may contain errors! ********
+
++++++++ nearby Atlas structures +++++++
+
+Original input data coordinates in TLRC space
+
+Focus point (LPI)=
+     -6 mm [L],   18 mm [A],   51 mm [S] {TLRC}
+     -6 mm [L],   16 mm [A],   56 mm [S] {MNI}
+     -6 mm [L],   12 mm [A],   61 mm [S] {MNI_ANAT}
+
+Atlas MNI_Glasser_HCP_v1.0: Glasser HCP 2016 surface-based parcellation
+   Focus point:  L_Superior_Frontal_Language_Area
+ * Within 1 mm: L_Area_8BM
+            -AND-  L_Supplementary_And_Cingulate_Eye
+ * Within 7 mm: R_Supplementary_And_Cingulate_Eye
+            -AND-  R_Area_8BM
+
+Atlas Brainnetome_1.0: Brainnetome MPM
+   Focus point:  A8m_left
+ * Within 5 mm: A8dl_left
+ * Within 7 mm: A8m_right
+            -AND-  A6dl_left
+
+Atlas CA_ML_18_MNI: Macro Labels (N27-MNI)
+   Focus point:  Left SMA
+ * Within 4 mm: Left Superior Frontal Gyrus
+
+Atlas DD_Desai_MPM: Maximum probability maps of Desai DD and FS maps
+   Focus point:  Left-Cerebral-White-Matter
+ * Within 1 mm: ctx_lh_G_front_sup
+ * Within 7 mm: ctx_rh_G_front_sup
+
+Atlas DKD_Desai_MPM: Maximum probability maps of Desai DKD and FS maps
+   Focus point:  Left-Cerebral-White-Matter
+ * Within 1 mm: ctx-lh-superiorfrontal
+ * Within 7 mm: ctx-rh-superiorfrontal
+
+Atlas CA_GW_18_MNIA: Cytoarch. Prob. Maps for gray/white matter
+   Focus point:  grey   (p = 0.43)
+            -AND-  white   (p = 0.57)
+
+Atlas CA_N27_LR: Left/Right (N27) 1.8
+   Focus point:  Left Brain
+
+Atlas TT_Daemon: Talairach-Tournoux Atlas
+   Focus point:  Left  Superior Frontal Gyrus
+ * Within 1 mm: Left  Brodmann area 8
+ * Within 3 mm: Left  Brodmann area 6
+ * Within 4 mm: Left  Medial Frontal Gyrus
+ * Within 7 mm: Right Superior Frontal Gyrus
+
+
+******** Please use results with caution! ********
+******** Brain anatomy is quite variable! ********
+******** The database may contain errors! ********
+
++++++++ nearby Atlas structures +++++++
+
+Original input data coordinates in TLRC space
+
+Focus point (LPI)=
+    -39 mm [L],   33 mm [A],   15 mm [S] {TLRC}
+    -39 mm [L],   33 mm [A],   18 mm [S] {MNI}
+    -39 mm [L],   29 mm [A],   23 mm [S] {MNI_ANAT}
+
+Atlas MNI_Glasser_HCP_v1.0: Glasser HCP 2016 surface-based parcellation
+   Focus point:  L_Area_posterior_9-46v
+ * Within 2 mm: L_Area__IFSa
+ * Within 4 mm: L_Area_46
+ * Within 6 mm: L_Area_IFSp
+
+Atlas Brainnetome_1.0: Brainnetome MPM
+   Focus point:  A9/46v_left
+ * Within 2 mm: IFS_left
+
+Atlas CA_ML_18_MNI: Macro Labels (N27-MNI)
+   Focus point:  Left Inferior Frontal Gyrus (p. Triangularis)
+ * Within 2 mm: Left Middle Frontal Gyrus
+
+Atlas CA_MPM_22_MNI: Eickhoff-Zilles MPM atlas
+ * Within 6 mm: Area_45
+
+Atlas DD_Desai_MPM: Maximum probability maps of Desai DD and FS maps
+   Focus point:  Left-Cerebral-White-Matter
+ * Within 2 mm: ctx_lh_S_front_inf
+ * Within 4 mm: ctx_lh_G_front_inf-Triangul
+ * Within 5 mm: ctx_lh_G_front_middle
+
+Atlas DKD_Desai_MPM: Maximum probability maps of Desai DKD and FS maps
+   Focus point:  Left-Cerebral-White-Matter
+ * Within 2 mm: ctx-lh-rostralmiddlefrontal
+ * Within 3 mm: ctx-lh-parstriangularis
+
+Atlas CA_GW_18_MNIA: Cytoarch. Prob. Maps for gray/white matter
+   Focus point:  grey   (p = 0.50)
+            -AND-  white   (p = 0.51)
+
+Atlas CA_N27_LR: Left/Right (N27) 1.8
+   Focus point:  Left Brain
+
+Atlas TT_Daemon: Talairach-Tournoux Atlas
+   Focus point:  Left  Middle Frontal Gyrus
+ * Within 1 mm: Left  Brodmann area 46
+ * Within 2 mm: Left  Inferior Frontal Gyrus
+ * Within 5 mm: Left  Brodmann area 10
+
+
+******** Please use results with caution! ********
+******** Brain anatomy is quite variable! ********
+******** The database may contain errors! ********
+
++++++++ nearby Atlas structures +++++++
+
+Original input data coordinates in TLRC space
+
+Focus point (LPI)=
+    -33 mm [L],  -57 mm [P],   36 mm [S] {TLRC}
+    -33 mm [L],  -61 mm [P],   36 mm [S] {MNI}
+    -33 mm [L],  -65 mm [P],   41 mm [S] {MNI_ANAT}
+
+Atlas MNI_Glasser_HCP_v1.0: Glasser HCP 2016 surface-based parcellation
+   Focus point:  L_Area_IntraParietal_1
+ * Within 4 mm: L_Area_IntraParietal_2
+ * Within 5 mm: L_Area_Lateral_IntraParietal_dorsal
+ * Within 7 mm: L_Area_IntraParietal_0
+            -AND-  L_Area_PGi
+            -AND-  L_Medial_IntraParietal_Area
+
+Atlas Brainnetome_1.0: Brainnetome MPM
+ * Within 2 mm: A39rd_left
+ * Within 3 mm: A7ip_left
+ * Within 5 mm: A39c_left
+ * Within 7 mm: A5l_left
+            -AND-  A39rv_left
+            -AND-  lsOccG_left
+
+Atlas CA_ML_18_MNI: Macro Labels (N27-MNI)
+   Focus point:  Left Angular Gyrus
+ * Within 1 mm: Left Inferior Parietal Lobule
+            -AND-  Left Middle Occipital Gyrus
+
+Atlas CA_MPM_22_MNI: Eickhoff-Zilles MPM atlas
+   Focus point:  Area_hIP3_(IPS)
+ * Within 1 mm: Area_hIP1_(IPS)
+
+Atlas DD_Desai_MPM: Maximum probability maps of Desai DD and FS maps
+   Focus point:  Left-Cerebral-White-Matter
+ * Within 1 mm: ctx_lh_S_intrapariet_and_P_trans
+ * Within 7 mm: ctx_lh_G_pariet_inf-Angular
+
+Atlas DKD_Desai_MPM: Maximum probability maps of Desai DKD and FS maps
+   Focus point:  Left-Cerebral-White-Matter
+ * Within 4 mm: ctx-lh-inferiorparietal
+ * Within 5 mm: ctx-lh-superiorparietal
+
+Atlas CA_GW_18_MNIA: Cytoarch. Prob. Maps for gray/white matter
+   Focus point:  grey   (p = 0.35)
+            -AND-  white   (p = 0.66)
+
+Atlas CA_N27_LR: Left/Right (N27) 1.8
+   Focus point:  Left Brain
+
+Atlas TT_Daemon: Talairach-Tournoux Atlas
+   Focus point:  Left  Angular Gyrus
+ * Within 2 mm: Left  Inferior Parietal Lobule
+            -AND-  Left  Brodmann area 39
+ * Within 5 mm: Left  Precuneus
+            -AND-  Left  Supramarginal Gyrus
+ * Within 7 mm: Left  Superior Parietal Lobule
+            -AND-  Left  Superior Temporal Gyrus
+            -AND-  Left  Middle Temporal Gyrus
+
+
+******** Please use results with caution! ********
+******** Brain anatomy is quite variable! ********
+******** The database may contain errors! ********
+
++++++++ nearby Atlas structures +++++++
+
+Original input data coordinates in TLRC space
+
+Focus point (LPI)=
+    -27 mm [L],   24 mm [A],   -6 mm [I] {TLRC}
+    -27 mm [L],   25 mm [A],   -6 mm [I] {MNI}
+    -27 mm [L],   21 mm [A],   -1 mm [I] {MNI_ANAT}
+
+Atlas MNI_Glasser_HCP_v1.0: Glasser HCP 2016 surface-based parcellation
+   Focus point:  L_Anterior_Ventral_Insular_Area
+ * Within 6 mm: L_Area_47s
+ * Within 7 mm: L_Anterior_Agranular_Insula_Complex
+
+Atlas Brainnetome_1.0: Brainnetome MPM
+   Focus point:  A12/47l_left
+ * Within 5 mm: dIa_left
+            -AND-  vIa_left
+ * Within 7 mm: vmPu_left
+            -AND-  A11l_left
+
+Atlas CA_ML_18_MNI: Macro Labels (N27-MNI)
+   Focus point:  Left Insula Lobe
+ * Within 3 mm: Left Inferior Frontal Gyrus (p. Orbitalis)
+ * Within 6 mm: Left Inferior Frontal Gyrus (p. Triangularis)
+
+Atlas CA_MPM_22_MNI: Eickhoff-Zilles MPM atlas
+ * Within 6 mm: Area_Fo3
+
+Atlas DD_Desai_MPM: Maximum probability maps of Desai DD and FS maps
+   Focus point:  Left-Cerebral-White-Matter
+ * Within 3 mm: ctx_lh_S_circular_insula_ant
+ * Within 5 mm: ctx_lh_S_orbital-H_Shaped
+            -AND-  ctx_lh_G_orbital
+
+Atlas DKD_Desai_MPM: Maximum probability maps of Desai DKD and FS maps
+   Focus point:  Left-Cerebral-White-Matter
+ * Within 2 mm: ctx-lh-lateralorbitofrontal
+ * Within 7 mm: ctx-lh-insula
+
+Atlas CA_GW_18_MNIA: Cytoarch. Prob. Maps for gray/white matter
+   Focus point:  grey   (p = 0.56)
+            -AND-  white   (p = 0.45)
+
+Atlas CA_N27_LR: Left/Right (N27) 1.8
+   Focus point:  Left Brain
+
+Atlas TT_Daemon: Talairach-Tournoux Atlas
+   Focus point:  Left  Inferior Frontal Gyrus
+ * Within 3 mm: Left  Brodmann area 47
+ * Within 4 mm: Left  Insula
+ * Within 5 mm: Left  Brodmann area 13
+            -AND-  Left  Brodmann area 11
+ * Within 6 mm: Left  Claustrum
+ * Within 7 mm: Left  Middle Frontal Gyrus
+
+
+******** Please use results with caution! ********
+******** Brain anatomy is quite variable! ********
+******** The database may contain errors! ********
+
++++++++ nearby Atlas structures +++++++
+
+Original input data coordinates in TLRC space
+
+Focus point (LPI)=
+    -45 mm [L],    3 mm [A],   21 mm [S] {TLRC}
+    -45 mm [L],    2 mm [A],   23 mm [S] {MNI}
+    -45 mm [L],   -2 mm [P],   28 mm [S] {MNI_ANAT}
+
+Atlas MNI_Glasser_HCP_v1.0: Glasser HCP 2016 surface-based parcellation
+   Focus point:  L_Area_IFJp
+ * Within 1 mm: L_Rostral_Area_6
+ * Within 5 mm: L_Area_IFJa
+ * Within 7 mm: L_Frontal_Opercular_Area_2
+            -AND-  L_Frontal_Opercular_Area_3
+
+Atlas Brainnetome_1.0: Brainnetome MPM
+   Focus point:  A6cvl_left
+ * Within 4 mm: A44d_left
+ * Within 7 mm: A4tl_left
+            -AND-  A4hf_left
+
+Atlas CA_ML_18_MNI: Macro Labels (N27-MNI)
+   Focus point:  Left Precentral Gyrus
+ * Within 1 mm: Left Inferior Frontal Gyrus (p. Opercularis)
+ * Within 4 mm: Left Rolandic Operculum
+ * Within 7 mm: Left Insula Lobe
+
+Atlas CA_MPM_22_MNI: Eickhoff-Zilles MPM atlas
+   Focus point:  Area_44
+
+Atlas DD_Desai_MPM: Maximum probability maps of Desai DD and FS maps
+   Focus point:  Left-Cerebral-White-Matter
+ * Within 1 mm: ctx_lh_S_precentral-inf-part
+ * Within 6 mm: ctx_lh_G_precentral
+            -AND-  ctx_lh_G_front_inf-Opercular
+
+Atlas DKD_Desai_MPM: Maximum probability maps of Desai DKD and FS maps
+   Focus point:  Left-Cerebral-White-Matter
+ * Within 2 mm: ctx-lh-precentral
+ * Within 4 mm: ctx-lh-parsopercularis
+
+Atlas CA_GW_18_MNIA: Cytoarch. Prob. Maps for gray/white matter
+   Focus point:  grey   (p = 0.58)
+            -AND-  white   (p = 0.42)
+
+Atlas CA_N27_LR: Left/Right (N27) 1.8
+   Focus point:  Left Brain
+
+Atlas TT_Daemon: Talairach-Tournoux Atlas
+   Focus point:  Left  Inferior Frontal Gyrus
+ * Within 3 mm: Left  Brodmann area 9
+ * Within 4 mm: Left  Brodmann area 44
+ * Within 5 mm: Left  Precentral Gyrus
+            -AND-  Left  Insula
+            -AND-  Left  Brodmann area 6
+
+
+******** Please use results with caution! ********
+******** Brain anatomy is quite variable! ********
+******** The database may contain errors! ********
+
++++++++ nearby Atlas structures +++++++
+
+Original input data coordinates in TLRC space
+
+Focus point (LPI)=
+     -9 mm [L],  -66 mm [P],   42 mm [S] {TLRC}
+     -9 mm [L],  -70 mm [P],   42 mm [S] {MNI}
+     -9 mm [L],  -74 mm [P],   47 mm [S] {MNI_ANAT}
+
+Atlas MNI_Glasser_HCP_v1.0: Glasser HCP 2016 surface-based parcellation
+ * Within 1 mm: L_Area_7m
+ * Within 2 mm: L_Parieto-Occipital_Sulcus_Area_2
+ * Within 3 mm: L_Medial_Area_7P
+ * Within 6 mm: L_Dorsal_Transitional_Visual_Area
+ * Within 7 mm: L_Lateral_Area_7P
+
+Atlas Brainnetome_1.0: Brainnetome MPM
+   Focus point:  dmPOS_left
+ * Within 1 mm: A7m_left
+ * Within 3 mm: A7c_left
+ * Within 6 mm: A31_left
+ * Within 7 mm: msOccG_left
+
+Atlas CA_ML_18_MNI: Macro Labels (N27-MNI)
+   Focus point:  Left Precuneus
+ * Within 2 mm: Left Superior Parietal Lobule
+ * Within 4 mm: Left Superior Occipital Gyrus
+ * Within 6 mm: Left Cuneus
+
+Atlas CA_MPM_22_MNI: Eickhoff-Zilles MPM atlas
+ * Within 4 mm: Area_7P_(SPL)
+ * Within 5 mm: Area_7A_(SPL)
+ * Within 6 mm: Area_7M_(SPL)
+
+Atlas DD_Desai_MPM: Maximum probability maps of Desai DD and FS maps
+   Focus point:  Left-Cerebral-White-Matter
+ * Within 3 mm: ctx_lh_G_precuneus
+ * Within 5 mm: ctx_lh_G_parietal_sup
+
+Atlas DKD_Desai_MPM: Maximum probability maps of Desai DKD and FS maps
+   Focus point:  Left-Cerebral-White-Matter
+ * Within 3 mm: ctx-lh-precuneus
+ * Within 5 mm: ctx-lh-superiorparietal
+
+Atlas CA_GW_18_MNIA: Cytoarch. Prob. Maps for gray/white matter
+   Focus point:  grey   (p = 0.47)
+            -AND-  white   (p = 0.51)
+
+Atlas CA_N27_LR: Left/Right (N27) 1.8
+   Focus point:  Left Brain
+
+Atlas TT_Daemon: Talairach-Tournoux Atlas
+   Focus point:  Left  Precuneus
+ * Within 1 mm: Left  Brodmann area 7
+
+
+******** Please use results with caution! ********
+******** Brain anatomy is quite variable! ********
+******** The database may contain errors! ********
+
++++++++ nearby Atlas structures +++++++
+
+Original input data coordinates in TLRC space
+
+Focus point (LPI)=
+     30 mm [R],  -54 mm [P],   42 mm [S] {TLRC}
+     30 mm [R],  -58 mm [P],   43 mm [S] {MNI}
+     30 mm [R],  -62 mm [P],   48 mm [S] {MNI_ANAT}
+
+Atlas MNI_Glasser_HCP_v1.0: Glasser HCP 2016 surface-based parcellation
+ * Within 1 mm: R_Area_Lateral_IntraParietal_dorsal
+ * Within 2 mm: R_Area_IntraParietal_1
+ * Within 3 mm: R_Medial_IntraParietal_Area
+ * Within 4 mm: R_Area_IntraParietal_2
+ * Within 6 mm: R_Area_PFm_Complex
+            -AND-  R_Area_Lateral_IntraParietal_ventral
+            -AND-  R_Anterior_IntraParietal_Area
+
+Atlas Brainnetome_1.0: Brainnetome MPM
+ * Within 1 mm: A7ip_right
+            -AND-  A7c_right
+ * Within 2 mm: A39rd_right
+ * Within 3 mm: lsOccG_right
+
+Atlas CA_ML_18_MNI: Macro Labels (N27-MNI)
+   Focus point:  Right Angular Gyrus
+ * Within 5 mm: Right Inferior Parietal Lobule
+            -AND-  Right Superior Occipital Gyrus
+            -AND-  Right Superior Parietal Lobule
+ * Within 6 mm: Right Middle Occipital Gyrus
+
+Atlas CA_MPM_22_MNI: Eickhoff-Zilles MPM atlas
+ * Within 1 mm: Area_hIP3_(IPS)
+ * Within 7 mm: Area_7A_(SPL)
+            -AND-  Area_hIP1_(IPS)
+
+Atlas DD_Desai_MPM: Maximum probability maps of Desai DD and FS maps
+   Focus point:  ctx_rh_S_intrapariet_and_P_trans
+ * Within 2 mm: Right-Cerebral-White-Matter
+ * Within 7 mm: ctx_rh_G_parietal_sup
+            -AND-  ctx_rh_G_pariet_inf-Angular
+
+Atlas DKD_Desai_MPM: Maximum probability maps of Desai DKD and FS maps
+   Focus point:  ctx-rh-superiorparietal
+ * Within 1 mm: Right-Cerebral-White-Matter
+ * Within 5 mm: ctx-rh-inferiorparietal
+
+Atlas CA_GW_18_MNIA: Cytoarch. Prob. Maps for gray/white matter
+   Focus point:  grey   (p = 0.30)
+            -AND-  white   (p = 0.71)
+
+Atlas CA_N27_LR: Left/Right (N27) 1.8
+   Focus point:  Right Brain
+
+Atlas TT_Daemon: Talairach-Tournoux Atlas
+   Focus point:  Right Inferior Parietal Lobule
+ * Within 1 mm: Right Superior Parietal Lobule
+ * Within 2 mm: Right Brodmann area 7
+ * Within 4 mm: Right Precuneus
+ * Within 6 mm: Right Angular Gyrus
+            -AND-  Right Brodmann area 40
+ * Within 7 mm: Right Supramarginal Gyrus
+
+
+******** Please use results with caution! ********
+******** Brain anatomy is quite variable! ********
+******** The database may contain errors! ********
+
++++++++ nearby Atlas structures +++++++
+
+Original input data coordinates in TLRC space
+
+Focus point (LPI)=
+     36 mm [R],  -63 mm [P],  -45 mm [I] {TLRC}
+     36 mm [R],  -63 mm [P],  -57 mm [I] {MNI}
+     36 mm [R],  -67 mm [P],  -52 mm [I] {MNI_ANAT}
+
+Atlas CA_ML_18_MNI: Macro Labels (N27-MNI)
+   Focus point:  Right Cerebellum (VIII)
+ * Within 5 mm: Right Cerebellum (VII)
+
+Atlas CA_MPM_22_MNI: Eickhoff-Zilles MPM atlas
+   Focus point:  Lobule_VIIb_(Hem)
+ * Within 2 mm: Lobule_VIIIa_(Hem)
+ * Within 4 mm: Lobule_VIIa_crusII_(Hem)
+
+Atlas DD_Desai_MPM: Maximum probability maps of Desai DD and FS maps
+   Focus point:  Right-Cerebellum-Cortex
+
+Atlas DKD_Desai_MPM: Maximum probability maps of Desai DKD and FS maps
+   Focus point:  Right-Cerebellum-Cortex
+
+Atlas CA_GW_18_MNIA: Cytoarch. Prob. Maps for gray/white matter
+   Focus point:  grey   (p = 0.68)
+            -AND-  white   (p = 0.33)
+
+Atlas CA_N27_LR: Left/Right (N27) 1.8
+   Focus point:  Right Brain
+
+Atlas TT_Daemon: Talairach-Tournoux Atlas
+   Focus point:  Right Cerebellar Tonsil
+ * Within 3 mm: Right Inferior Semi-Lunar Lobule
+
+
+******** Please use results with caution! ********
+******** Brain anatomy is quite variable! ********
+******** The database may contain errors! ********
+
++++++++ nearby Atlas structures +++++++
+
+Original input data coordinates in TLRC space
+
+Focus point (LPI)=
+    -33 mm [L],  -60 mm [P],  -33 mm [I] {TLRC}
+    -33 mm [L],  -60 mm [P],  -43 mm [I] {MNI}
+    -33 mm [L],  -64 mm [P],  -38 mm [I] {MNI_ANAT}
+
+Atlas CA_ML_18_MNI: Macro Labels (N27-MNI)
+   Focus point:  Left Cerebellum (VII)
+ * Within 1 mm: Left Cerebellum (Crus 2)
+            -AND-  Left Cerebellum (VIII)
+ * Within 3 mm: Left Cerebellum (Crus 1)
+
+Atlas CA_MPM_22_MNI: Eickhoff-Zilles MPM atlas
+   Focus point:  Lobule_VIIa_crusII_(Hem)
+ * Within 2 mm: Lobule_VIIa_crusI_(Hem)
+ * Within 3 mm: Lobule_VIIb_(Hem)
+ * Within 6 mm: Lobule_VIIIa_(Hem)
+ * Within 7 mm: Lobule_VI_(Hem)
+
+Atlas DD_Desai_MPM: Maximum probability maps of Desai DD and FS maps
+   Focus point:  Left-Cerebellum-Cortex
+ * Within 7 mm: Left-Cerebellum-White-Matter
+
+Atlas DKD_Desai_MPM: Maximum probability maps of Desai DKD and FS maps
+   Focus point:  Left-Cerebellum-Cortex
+ * Within 7 mm: Left-Cerebellum-White-Matter
+
+Atlas CA_GW_18_MNIA: Cytoarch. Prob. Maps for gray/white matter
+   Focus point:  grey   (p = 0.32)
+            -AND-  white   (p = 0.69)
+
+Atlas CA_N27_LR: Left/Right (N27) 1.8
+   Focus point:  Left Brain
+
+Atlas TT_Daemon: Talairach-Tournoux Atlas
+   Focus point:  Left  Cerebellar Tonsil
+ * Within 3 mm: Left  Tuber
+ * Within 4 mm: Left  Inferior Semi-Lunar Lobule
+            -AND-  Left  Pyramis
+ * Within 7 mm: Left  Uvula
+            -AND-  Left  Culmen
+
+
+******** Please use results with caution! ********
+******** Brain anatomy is quite variable! ********
+******** The database may contain errors! ********
+
++++++++ nearby Atlas structures +++++++
+
+Original input data coordinates in TLRC space
+
+Focus point (LPI)=
+    -15 mm [L],   48 mm [A],   -3 mm [I] {TLRC}
+    -15 mm [L],   50 mm [A],   -1 mm [I] {MNI}
+    -15 mm [L],   46 mm [A],    4 mm [S] {MNI_ANAT}
+
+Atlas MNI_Glasser_HCP_v1.0: Glasser HCP 2016 surface-based parcellation
+   Focus point:  L_Area_p32
+ * Within 4 mm: L_Area_a24
+ * Within 5 mm: L_Area_9_Middle
+ * Within 7 mm: L_Area_10r
+
+Atlas Brainnetome_1.0: Brainnetome MPM
+   Focus point:  A14m_left
+ * Within 4 mm: A10m_left
+ * Within 5 mm: A32sg_left
+ * Within 6 mm: A10l_left
+ * Within 7 mm: A46_left
+
+Atlas CA_ML_18_MNI: Macro Labels (N27-MNI)
+   Focus point:  Left Superior Medial Gyrus
+ * Within 1 mm: Left Anterior Cingulate Cortex
+ * Within 2 mm: Left Mid Orbital Gyrus
+ * Within 4 mm: Left Superior Frontal Gyrus
+ * Within 5 mm: Left Superior Orbital Gyrus
+
+Atlas CA_MPM_22_MNI: Eickhoff-Zilles MPM atlas
+ * Within 4 mm: Area_Fp2
+ * Within 6 mm: Area_Fp1
+
+Atlas DD_Desai_MPM: Maximum probability maps of Desai DD and FS maps
+   Focus point:  Left-Cerebral-White-Matter
+ * Within 4 mm: ctx_lh_S_orbital-H_Shaped
+ * Within 5 mm: ctx_lh_G_orbital
+
+Atlas DKD_Desai_MPM: Maximum probability maps of Desai DKD and FS maps
+   Focus point:  Left-Cerebral-White-Matter
+ * Within 4 mm: ctx-lh-lateralorbitofrontal
+ * Within 7 mm: ctx-lh-rostralmiddlefrontal
+
+Atlas CA_GW_18_MNIA: Cytoarch. Prob. Maps for gray/white matter
+   Focus point:  grey   (p = 0.34)
+            -AND-  white   (p = 0.67)
+
+Atlas CA_N27_LR: Left/Right (N27) 1.8
+   Focus point:  Left Brain
+
+Atlas TT_Daemon: Talairach-Tournoux Atlas
+   Focus point:  Left  Medial Frontal Gyrus
+            -AND-  Left  Brodmann area 10
+ * Within 1 mm: Left  Anterior Cingulate
+ * Within 2 mm: Left  Brodmann area 32
+ * Within 3 mm: Left  Superior Frontal Gyrus
+ * Within 7 mm: Left  Middle Frontal Gyrus
+
+
+******** Please use results with caution! ********
+******** Brain anatomy is quite variable! ********
+******** The database may contain errors! ********
+
++++++++ nearby Atlas structures +++++++
+
+Original input data coordinates in TLRC space
+
+Focus point (LPI)=
+     12 mm [R],  -75 mm [P],   42 mm [S] {TLRC}
+     12 mm [R],  -79 mm [P],   42 mm [S] {MNI}
+     12 mm [R],  -83 mm [P],   47 mm [S] {MNI_ANAT}
+
+Atlas MNI_Glasser_HCP_v1.0: Glasser HCP 2016 surface-based parcellation
+   Focus point:  R_Parieto-Occipital_Sulcus_Area_2
+ * Within 1 mm: R_Third_Visual_Area
+ * Within 2 mm: R_Sixth_Visual_Area
+ * Within 4 mm: R_Dorsal_Transitional_Visual_Area
+            -AND-  R_Area_V3A
+ * Within 6 mm: R_Area_V6A
+
+Atlas Brainnetome_1.0: Brainnetome MPM
+   Focus point:  msOccG_right
+ * Within 2 mm: dmPOS_right
+ * Within 3 mm: vmPOS_right
+ * Within 5 mm: A7c_right
+ * Within 6 mm: A7m_right
+ * Within 7 mm: cCunG_right
+
+Atlas CA_ML_18_MNI: Macro Labels (N27-MNI)
+   Focus point:  Right Cuneus
+ * Within 2 mm: Right Precuneus
+ * Within 6 mm: Right Superior Parietal Lobule
+
+Atlas CA_MPM_22_MNI: Eickhoff-Zilles MPM atlas
+ * Within 3 mm: Area_7P_(SPL)
+ * Within 4 mm: Area_7M_(SPL)
+ * Within 5 mm: Area_hOc4d_(V3A)
+ * Within 6 mm: Area_hOc3d_(V3d)
+
+Atlas DD_Desai_MPM: Maximum probability maps of Desai DD and FS maps
+   Focus point:  ctx_rh_G_parietal_sup
+ * Within 1 mm: Right-Cerebral-White-Matter
+ * Within 2 mm: ctx_rh_G_precuneus
+ * Within 3 mm: ctx_rh_G_occipital_sup
+
+Atlas DKD_Desai_MPM: Maximum probability maps of Desai DKD and FS maps
+   Focus point:  ctx-rh-superiorparietal
+ * Within 5 mm: Right-Cerebral-White-Matter
+ * Within 7 mm: ctx-rh-precuneus
+
+Atlas CA_GW_18_MNIA: Cytoarch. Prob. Maps for gray/white matter
+   Focus point:  grey   (p = 0.61)
+            -AND-  white   (p = 0.28)
+
+Atlas CA_N27_LR: Left/Right (N27) 1.8
+   Focus point:  Right Brain
+
+Atlas TT_Daemon: Talairach-Tournoux Atlas
+   Focus point:  Right Precuneus
+            -AND-  Right Brodmann area 7
+ * Within 3 mm: Right Brodmann area 19
+ * Within 5 mm: Right Cuneus
+
+
+******** Please use results with caution! ********
+******** Brain anatomy is quite variable! ********
+******** The database may contain errors! ********
+
++++++++ nearby Atlas structures +++++++
+
+Original input data coordinates in TLRC space
+
+Focus point (LPI)=
+    -57 mm [L],  -51 mm [P],   -6 mm [I] {TLRC}
+    -58 mm [L],  -52 mm [P],  -10 mm [I] {MNI}
+    -58 mm [L],  -56 mm [P],   -5 mm [I] {MNI_ANAT}
+
+Atlas MNI_Glasser_HCP_v1.0: Glasser HCP 2016 surface-based parcellation
+   Focus point:  L_Area_TE1_posterior
+ * Within 6 mm: L_Area_PH
+ * Within 7 mm: L_Area_PHT
+            -AND-  L_Area_TE2_posterior
+
+Atlas Brainnetome_1.0: Brainnetome MPM
+   Focus point:  A37vl_left
+ * Within 1 mm: A20cl_left
+ * Within 3 mm: A37dl_left
+ * Within 4 mm: A37elv_left
+ * Within 5 mm: A21c_left
+
+Atlas CA_ML_18_MNI: Macro Labels (N27-MNI)
+   Focus point:  Left Inferior Temporal Gyrus
+ * Within 1 mm: Left Middle Temporal Gyrus
+
+Atlas CA_MPM_22_MNI: Eickhoff-Zilles MPM atlas
+ * Within 7 mm: Area_FG4
+
+Atlas DD_Desai_MPM: Maximum probability maps of Desai DD and FS maps
+   Focus point:  ctx_lh_G_temporal_middle
+ * Within 2 mm: ctx_lh_G_temporal_inf
+ * Within 3 mm: Left-Cerebral-White-Matter
+
+Atlas DKD_Desai_MPM: Maximum probability maps of Desai DKD and FS maps
+   Focus point:  ctx-lh-middletemporal
+ * Within 2 mm: ctx-lh-inferiortemporal
+ * Within 4 mm: Left-Cerebral-White-Matter
+
+Atlas CA_GW_18_MNIA: Cytoarch. Prob. Maps for gray/white matter
+   Focus point:  grey   (p = 0.60)
+            -AND-  white   (p = 0.40)
+
+Atlas CA_N27_LR: Left/Right (N27) 1.8
+   Focus point:  Left Brain
+
+Atlas TT_Daemon: Talairach-Tournoux Atlas
+   Focus point:  Left  Middle Temporal Gyrus
+            -AND-  Left  Brodmann area 37
+ * Within 2 mm: Left  Inferior Temporal Gyrus
+ * Within 3 mm: Left  Brodmann area 21
+ * Within 4 mm: Left  Brodmann area 20
+
+
+******** Please use results with caution! ********
+******** Brain anatomy is quite variable! ********
+******** The database may contain errors! ********
+

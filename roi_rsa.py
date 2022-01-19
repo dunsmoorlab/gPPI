@@ -76,8 +76,8 @@ class roi_rsa():
             # else:
             #     self.rois = ['amyg_cem','amyg_bla','hc_head','hc_body','hc_tail']
         # else: self.rois = ['hippocampus','mOFC','dACC','insula','amygdala']
-        # if self.fs: self.rois = ['sgACC','rACC','hc_head','hc_body','hc_tail','ant_ins','precun']
-        if self.fs: self.rois = ['ant_ins','precun']
+        if self.fs: self.rois = ['sgACC','rACC','hc_head','hc_body','hc_tail','amyg_bla','amyg_cem','ant_ins','precun','fusiform']
+        # if self.fs: self.rois = ['ant_ins','precun']
 
         #data needs to be loaded WITHOUT mask to facilitate more intricate analyses
         self.load_data() 
@@ -141,7 +141,7 @@ class roi_rsa():
         self.encoding_labels = pd.concat(self.encoding_labels.values(),sort=False)
         self.encoding_labels.reset_index(inplace=True,drop=True) #need this bc phase events are all numbered the same
         self.encoding_data = np.concatenate([self.encoding_data['baseline'],self.encoding_data['acquisition'],self.encoding_data['extinction']],axis=-1)
-        print('ENCODING DATA SHAPE =',self.encoding_data.shape)
+        # print('ENCODING DATA SHAPE =',self.encoding_data.shape)
         #same for retrieval, except we have to remove foils
         self.mem_labels = pd.concat(self.mem_labels.values(),sort=False)
         self.all_mem_labels = self.mem_labels.copy().reset_index(drop=True)
@@ -153,11 +153,11 @@ class roi_rsa():
         self.all_mem_data = np.concatenate([self.mem_data['memory_run-01'],self.mem_data['memory_run-02'],self.mem_data['memory_run-03']],axis=-1)
         self.mem_data = np.concatenate([self.mem_data['memory_run-01'],self.mem_data['memory_run-02'],self.mem_data['memory_run-03']],axis=-1)
 
-        print('MEM_DATA SHAPE =',self.mem_data.shape)
+        # print('MEM_DATA SHAPE =',self.mem_data.shape)
         #self.mem_data = np.array([self.mem_data[:,:,:,i] for i in foil_mask if i is True])
         foil_mask = foil_mask.values.ravel()
         self.mem_data = self.mem_data[:,:,:,foil_mask]
-        print('MEM_DATA SHAPE =',self.mem_data.shape)
+        # print('MEM_DATA SHAPE =',self.mem_data.shape)
 
 
         #we need this for the roi bootstrapping, probably best to do it here and broadcast
@@ -188,11 +188,24 @@ class roi_rsa():
     def compute_item_rsa(self):
     
         self.rsa = self.mem_labels.copy().drop(columns=['onset','duration'])
+        self.off_rsa = self.rsa.copy()
+        self.acq_ret = self.rsa.copy()
+        self.ext_ret = self.rsa.copy()
+        # self.rand_rsa = self.rsa.copy()
+        # self.combo = self.rsa.copy()
+
+        R = np.random.RandomState(self.subj.num)
+
         for cs in self.conditions: self.rsa[self.conditions[cs]+'_'+'trial'] = ''
         for roi in self.rois:
-            print(roi)
+            # print(roi)
             self.rsa[roi] = 0 #going by columns and then melting at the end
-            
+            self.off_rsa[roi] = 0
+            self.acq_ret[roi] = 0
+            self.ext_ret[roi] = 0
+            # self.rand_rsa[roi] = 0
+            # self.combo[roi] = 0
+
             #apply the mask to everything for this roi
             encoding_data = self.apply_mask(roi,self.encoding_data)
             mem_data      = self.apply_mask(roi,self.mem_data)
@@ -223,12 +236,108 @@ class roi_rsa():
                 self.rsa.loc[i,roi] = z
                     #np.corrcoef()
                 
+                '''
+                original script ends here
+                cb response analyses start here
+                O_o
+                '''
+
+                #run off diagonal rsa as well, encoding to all other retrieval trials of same phase/type
+                other_same_trials = self.rsa[self.rsa.trial_type == _trial_type][self.rsa.encode_phase == _phase].copy()
+                other_same_trials = other_same_trials.dropna(subset=['response'])
+                other_same_trials = [u for u in other_same_trials.index if u != mem_loc]
+
+                # other_one_trial = R.choice(other_same_trials,1)[0]
+                # one_off = np.arctanh(pearsonr(encoding_trial, mem_data[other_one_trial]*W[_phase][_trial_type])[0])                
+                # self.rand_rsa.loc[i,_con] = self.encoding_labels.loc[encoding_loc,_con]
+                # self.rand_rsa.loc[i,roi] = one_off
+
+                # bulk off diagonal
+                off_diag = [pearsonr(encoding_trial,mem_data[other_trial]*W[_phase][_trial_type])[0] for other_trial in other_same_trials]
+                off_diag = np.arctanh(off_diag).mean()
+                self.off_rsa.loc[i,_con] = self.encoding_labels.loc[encoding_loc,_con] 
+                self.off_rsa.loc[i,roi] = off_diag
+
+                #whole row (on _and_ off diagonal)
+                # same_trials = self.rsa[self.rsa.trial_type == _trial_type][self.rsa.encode_phase == _phase].copy()
+                # same_trials = same_trials.dropna(subset=['response'])
+                # same_trials = [u for u in same_trials.index]
+                # on_and_off = [pearsonr(encoding_trial,mem_data[other_trial]*W[_phase][_trial_type])[0] for other_trial in same_trials]
+                # on_and_off = np.arctanh(on_and_off).mean()
+                # self.combo.loc[i,_con] = self.encoding_labels.loc[encoding_loc,_con]
+                # self.combo.loc[i,roi] = on_and_off
+
+                #similarity of this trial to all other acquisition trials during retrieval
+                acq_ret_trials = self.rsa[self.rsa.trial_type == _trial_type][self.rsa.encode_phase == 'acquisition'].copy()
+                acq_ret_trials = acq_ret_trials.dropna(subset=['response'])
+                acq_ret_trials = [u for u in acq_ret_trials.index if u != mem_loc]
+
+                acq_rsa = [pearsonr(encoding_trial,mem_data[acq_trial]*W['acquisition'][_trial_type])[0] for acq_trial in acq_ret_trials]
+                acq_rsa = np.arctanh(acq_rsa).mean()
+                self.acq_ret.loc[i,_con] = self.encoding_labels.loc[encoding_loc,_con]
+                self.acq_ret.loc[i,roi] = acq_rsa
+
+                #similarity of this trial to all other extinction trials during retrieval
+                ext_ret_trials = self.rsa[self.rsa.trial_type == _trial_type][self.rsa.encode_phase == 'extinction'].copy()
+                ext_ret_trials = ext_ret_trials.dropna(subset=['response'])
+                ext_ret_trials = [u for u in ext_ret_trials.index if u != mem_loc]
+                
+                ext_rsa = [pearsonr(encoding_trial,mem_data[ext_trial]*W['extinction'][_trial_type])[0] for ext_trial in ext_ret_trials]
+                ext_rsa = np.arctanh(ext_rsa).mean()
+                self.ext_ret.loc[i,_con] = self.encoding_labels.loc[encoding_loc,_con]
+                self.ext_ret.loc[i,roi] = ext_rsa
+
+                
 
         self.rsa['subject'] = self.subj.num
         self.rsa = self.rsa.melt(id_vars=['subject','trial_type','stimulus','memory_condition','encode_phase','response',
                                'low_confidence_accuracy','high_confidence_accuracy','phase','CSp_trial','CSm_trial'],
                       value_vars=self.rois
                   ).rename(columns={'variable':'roi', 'value':'rsa'})
+
+        # self.rand_rsa['subject'] = self.subj.num
+        # self.rand_rsa = self.rand_rsa.melt(id_vars=['subject','trial_type','stimulus','memory_condition','encode_phase','response',
+        #                        'low_confidence_accuracy','high_confidence_accuracy','phase','CSp_trial','CSm_trial'],
+        #               value_vars=self.rois
+        #           ).rename(columns={'variable':'roi', 'value':'rand_rsa'})
+
+        # self.combo['subject'] = self.subj.num
+        # self.combo = self.combo.melt(id_vars=['subject','trial_type','stimulus','memory_condition','encode_phase','response',
+        #                        'low_confidence_accuracy','high_confidence_accuracy','phase','CSp_trial','CSm_trial'],
+        #               value_vars=self.rois
+        #           ).rename(columns={'variable':'roi', 'value':'combo'})
+
+        self.off_rsa['subject'] = self.subj.num
+        self.off_rsa = self.off_rsa.melt(id_vars=['subject','trial_type','stimulus','memory_condition','encode_phase','response',
+                               'low_confidence_accuracy','high_confidence_accuracy','phase','CSp_trial','CSm_trial'],
+                      value_vars=self.rois
+                  ).rename(columns={'variable':'roi', 'value':'off_rsa'})
+
+        self.acq_ret['subject'] = self.subj.num
+        self.acq_ret = self.acq_ret.melt(id_vars=['subject','trial_type','stimulus','memory_condition','encode_phase','response',
+                               'low_confidence_accuracy','high_confidence_accuracy','phase','CSp_trial','CSm_trial'],
+                      value_vars=self.rois
+                  ).rename(columns={'variable':'roi', 'value':'acq_rsa'})
+
+        self.ext_ret['subject'] = self.subj.num
+        self.ext_ret = self.ext_ret.melt(id_vars=['subject','trial_type','stimulus','memory_condition','encode_phase','response',
+                               'low_confidence_accuracy','high_confidence_accuracy','phase','CSp_trial','CSm_trial'],
+                      value_vars=self.rois
+                  ).rename(columns={'variable':'roi', 'value':'ext_rsa'})
+
+        self.rsa = self.rsa.set_index(['stimulus','roi'])
+        self.off_rsa = self.off_rsa.set_index(['stimulus','roi'])
+        self.acq_ret = self.acq_ret.set_index(['stimulus','roi'])
+        self.ext_ret = self.ext_ret.set_index(['stimulus','roi'])
+        # self.rand_rsa = self.rand_rsa.set_index(['stimulus','roi'])
+        # self.combo = self.combo.set_index(['stimulus','roi'])
+
+        self.rsa['off_rsa'] = self.off_rsa.off_rsa
+        self.rsa['acq_rsa'] = self.acq_ret.acq_rsa
+        self.rsa['ext_rsa'] = self.ext_ret.ext_rsa
+        # self.rsa['rand_rsa'] = self.rand_rsa.rand_rsa
+        # self.rsa['combo'] = self.combo.combo
+        self.rsa = self.rsa.reset_index()
 
         if self.hemi:
                 self.rsa.to_csv(os.path.join(self.subj.rsa,'roi_ER_HCA_hemi.csv'),index=False)

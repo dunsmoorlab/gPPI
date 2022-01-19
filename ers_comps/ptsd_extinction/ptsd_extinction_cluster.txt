@@ -1,0 +1,24 @@
+#
+#  Cluster report 
+#[ Dataset prefix      = ptsd_extinction_clst-ttest ]
+#[ Threshold vol       = [1] 'SetA_Zscr' ]
+#[ Supplement dat vol  = [0] 'SetA_mean' ]
+#[ Option summary      = 1sided,RIGHT_TAIL,p=0.001,clust_nvox,21,NN3 ]
+#[ Threshold value(s)  = right-tail p=0.001000 -> thr=3.090232 ]
+#[ Aux. stat. info.    =  ]
+#[ Nvoxel threshold    = 21;  Volume threshold = 567.000 ]
+#[ Single voxel volume = 27.000 (microliters) ]
+#[ Neighbor type, NN   = 3 ]
+#[ Voxel datum type    = float ]
+#[ Voxel dimensions    = 3.000 mm X 3.000 mm X 3.000 mm ]
+#[ Coordinates Order   = RAI ]
+#[ Mask                = ../../standard/gm_3mm_thr.nii.gz ]
+# Mean and SEM based on absolute value of voxel intensities ]
+#
+#Volume  CM RL  CM AP  CM IS  minRL  maxRL  minAP  maxAP  minIS  maxIS    Mean     SEM    Max Int  MI RL  MI AP  MI IS
+#------  -----  -----  -----  -----  -----  -----  -----  -----  -----  -------  -------  -------  -----  -----  -----
+     42    3.4   72.9   31.5   -9.0   15.0   66.0   78.0   24.0   39.0   0.1687   0.0033    0.216    6.0   75.0   30.0 
+     34  -43.2  -19.0   -2.4  -51.0  -36.0  -30.0  -12.0  -12.0    9.0   0.1767   0.0046   0.2306  -36.0  -30.0    3.0 
+     25   38.7  -26.1   -4.7   33.0   45.0  -30.0  -21.0  -12.0    0.0    0.193   0.0062   0.2511   39.0  -27.0    0.0 
+#------  -----  -----  -----  -----  -----  -----  -----  -----  -----  -------  -------  -------  -----  -----  -----
+#   101   -2.7   15.4   10.4                                             0.1774   0.0027                             

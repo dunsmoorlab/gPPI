@@ -1,0 +1,37 @@
+# 3dClustSim -prefix healthy_extinction_clst-ttest.CSimA -LOTS -both -nodec -cmd healthy_extinction_clst-ttest.CSimA.cmd -insdat /scratch/05426/ach3377/standard/gm_3mm_thr.nii.gz ./healthy_extinction_clst-ttest.0000.sdat ./healthy_extinction_clst-ttest.0001.sdat ./healthy_extinction_clst-ttest.0002.sdat ./healthy_extinction_clst-ttest.0003.sdat ./healthy_extinction_clst-ttest.0004.sdat ./healthy_extinction_clst-ttest.0005.sdat ./healthy_extinction_clst-ttest.0006.sdat ./healthy_extinction_clst-ttest.0007.sdat ./healthy_extinction_clst-ttest.0008.sdat ./healthy_extinction_clst-ttest.0009.sdat ./healthy_extinction_clst-ttest.0010.sdat ./healthy_extinction_clst-ttest.0011.sdat ./healthy_extinction_clst-ttest.0012.sdat ./healthy_extinction_clst-ttest.0013.sdat ./healthy_extinction_clst-ttest.0014.sdat ./healthy_extinction_clst-ttest.0015.sdat ./healthy_extinction_clst-ttest.0016.sdat ./healthy_extinction_clst-ttest.0017.sdat ./healthy_extinction_clst-ttest.0018.sdat ./healthy_extinction_clst-ttest.0019.sdat ./healthy_extinction_clst-ttest.0020.sdat ./healthy_extinction_clst-ttest.0021.sdat ./healthy_extinction_clst-ttest.0022.sdat ./healthy_extinction_clst-ttest.0023.sdat ./healthy_extinction_clst-ttest.0024.sdat ./healthy_extinction_clst-ttest.0025.sdat ./healthy_extinction_clst-ttest.0026.sdat ./healthy_extinction_clst-ttest.0027.sdat ./healthy_extinction_clst-ttest.0028.sdat ./healthy_extinction_clst-ttest.0029.sdat ./healthy_extinction_clst-ttest.0030.sdat ./healthy_extinction_clst-ttest.0031.sdat ./healthy_extinction_clst-ttest.0032.sdat ./healthy_extinction_clst-ttest.0033.sdat ./healthy_extinction_clst-ttest.0034.sdat ./healthy_extinction_clst-ttest.0035.sdat ./healthy_extinction_clst-ttest.0036.sdat ./healthy_extinction_clst-ttest.0037.sdat ./healthy_extinction_clst-ttest.0038.sdat ./healthy_extinction_clst-ttest.0039.sdat ./healthy_extinction_clst-ttest.0040.sdat ./healthy_extinction_clst-ttest.0041.sdat ./healthy_extinction_clst-ttest.0042.sdat ./healthy_extinction_clst-ttest.0043.sdat ./healthy_extinction_clst-ttest.0044.sdat ./healthy_extinction_clst-ttest.0045.sdat ./healthy_extinction_clst-ttest.0046.sdat ./healthy_extinction_clst-ttest.0047.sdat
+# 1-sided thresholding
+# Grid: 65x77x65 3.00x3.00x3.00 mm^3 (36148 voxels in mask)
+#
+# CLUSTER SIZE THRESHOLD(pthr,alpha) in Voxels
+# -NN 2  | alpha = Prob(Cluster >= given size)
+#  pthr  | .10000 .09000 .08000 .07000 .06000 .05000 .04000 .03000 .02000 .01000
+# ------ | ------ ------ ------ ------ ------ ------ ------ ------ ------ ------
+ 0.100000    1059   1097   1161   1223   1273   1345   1460   1580   1777   2081
+ 0.090000     872    912    962   1005   1057   1128   1203   1323   1496   1758
+ 0.080000     703    737    776    817    858    920    976   1087   1227   1450
+ 0.070000     572    591    625    661    702    749    798    864    977   1194
+ 0.060000     458    475    496    520    556    590    639    690    779    939
+ 0.050000     359    375    389    405    427    454    489    537    601    708
+ 0.040000     274    285    299    313    328    349    373    410    462    542
+ 0.030000     195    204    213    222    235    251    273    298    334    398
+ 0.020000     131    137    143    149    155    164    177    195    223    269
+ 0.015000     102    105    110    115    122    129    138    152    177    208
+ 0.010000      71     74     78     82     87     93    101    109    126    152
+ 0.007000      54     56     59     62     66     71     76     83     95    115
+ 0.005000      42     44     46     49     51     54     59     66     74     91
+ 0.003000      30     31     32     34     36     39     42     46     52     64
+ 0.002000      23     23     25     26     27     29     32     35     40     50
+ 0.001500      19     20     20     21     23     24     26     29     33     40
+ 0.001000      15     15     16     17     18     19     21     23     26     32
+ 0.000700      12     12     13     14     14     16     17     18     21     26
+ 0.000500      10     10     11     11     12     13     14     15     17     21
+ 0.000300       7      7      8      8      9      9     10     11     13     16
+ 0.000200       6      6      6      7      7      7      8      9     11     13
+ 0.000150       5      5      5      5      6      6      7      8      9     12
+ 0.000100       4      4      4      4      5      5      5      6      7      9
+ 7.000e-5       3      3      4      4      4      4      5      5      6      8
+ 5.000e-5       3      3      3      3      3      4      4      4      5      7
+ 3.000e-5       2      2      2      3      3      3      3      3      4      5
+ 2.000e-5       2      2      2      2      2      2      3      3      3      4
+ 1.500e-5       2      2      2      2      2      2      2      3      3      4
+ 1.000e-5       2      2      2      2      2      2      2      2      2      3
